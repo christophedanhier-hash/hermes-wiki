@@ -1,0 +1,72 @@
+site_name: Wiki LEO — Christophe
+site_description: Documentation complète de l'écosystème Hermes Agent, T600, et outils connectés
+site_author: Christophe (Tofdan) & LEO
+repo_url: https://github.com/christophedanhier-hash/hermes-wiki
+edit_uri: edit/main/docs/
+copyright: "&copy; 2026 Christophe Danhier — Propulsé par Hermes Agent"
+
+theme:
+  name: material
+  language: fr
+  palette:
+    primary: indigo
+    accent: deep purple
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.action.edit
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/christophedanhier-hash
+    - icon: fontawesome/brands/telegram
+      link: https://t.me/tofdan
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - Accueil: index.md
+  - 🛡️ Hermes Agent:
+      - Présentation: hermes/index.md
+      - Installation:
+        - Linux: hermes/installation/linux.md
+        - Windows: hermes/installation/windows.md
+      - Configuration:
+        - Providers LLM: hermes/configuration/providers.md
+        - Profils: hermes/configuration/profiles.md
+      - Utilisation:
+        - Usage quotidien: hermes/utilisation/quotidien.md
+        - Crons & planification: hermes/utilisation/crons.md
+        - Dashboards: hermes/utilisation/dashboards.md
+      - Aller plus loin:
+        - Dépannage: hermes/aller-plus-loin/troubleshooting.md
+        - Références: hermes/aller-plus-loin/references.md
+      - 🏠 Exemple LEO: hermes/leo-architecture.md
+  - 🔭 Projet T600:
+      - Aperçu: t600/index.md
+      - Documentation technique: t600/technique.md
+      - Formation opérateur: t600/formation.md
+      - Sources & ethnographie: t600/sources.md
+  - 🏢 Bureau Gérard:
+      - Présentation: bureau-gerard/index.md
+      - Les 8 agents: bureau-gerard/agents.md
+  - ✈️ Voyages:
+      - Roadbook: voyages/roadbook.md
+      - Budget: voyages/budget.md
+      - Checklists: voyages/checklists.md
