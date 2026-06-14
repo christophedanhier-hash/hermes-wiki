@@ -2,31 +2,19 @@
 
 *Document vivant — suivi hebdomadaire des évolutions.*
 
-## 2026-06-07 au 14/06/2026
+## [12/06/2026 - 18/06/2026]
 
-- **Nouveau cron :**
-  - `docs-update` (08:00 chaque lundi)
+- **Nouvelles fonctionnalités :**
+  - `wiki-sync` a été ajouté pour synchroniser les fichiers sources vers le Wiki MkDocs.
+  - Le Guide Hermes a été mis à jour hebdomadairement avec la version du 14/06/2026.
+  - Un nouveau submodule GUIDE a été ajouté dans le Wiki.
 
-- **Nouvelles skills :**
-  - `dogfood`
-  - `orchestrateur-gerard`
-  - `yuanbao`
-  - `claude-code`
-  - `codex`
-  - `hermes-agent`
-  - `hermes-profiles-gateway`
-  - `hermes-workspace`
-  - `opencode`
+- **Corrections :**
+  - Les commits de `hermes-christophe` ont corrigé et mis à jour plusieurs scripts, notamment pour gérer les conflits et optimiser la synchronisation Drive.
+  - Le Guide Hermes a été actualisé avec des informations sur les crons, les dashboards et le coût associé.
 
-- **Changements dans les commits récents :**
-  - Mises à jour régulières du guide et des dashboards
-  - Ajout de la synchronisation Drive et correction de conflits
-  - Initialisation du guide Hermes Agent
-
-- **Commits récents wiki MkDocs :**
-  - Amélioration de l'interface avec le thème Material — Hermes, T600, Bureau Gérard, Voyages
-
-Aucun changement majeur cette semaine.
+- **Mises à jour des dashboards :**
+  - Les dashboards ont été mis à jour pour inclure les nouvelles fonctionnalités et corrections.
 
 ---
 
