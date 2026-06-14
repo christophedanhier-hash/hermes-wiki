@@ -62,6 +62,13 @@
     <div class="url">hermes-wiki</div>
 </a>
 
+<a href="https://christophedanhier-hash.github.io/hermes-wiki/hermes/etat-des-lieux/" target="_blank" class="portail-card" rel="noreferrer noopener">
+    <div class="icon">📋</div>
+    <div class="title">État des lieux LEO</div>
+    <div class="desc">Config actuelle, providers, outils, crons, règles de routage, bonnes pratiques</div>
+    <div class="url">hermes-wiki/hermes/etat-des-lieux</div>
+</a>
+
 <a href="https://christophedanhier-hash.github.io/wiki-oca/" target="_blank" class="portail-card" rel="noreferrer noopener">
     <div class="icon">🔭</div>
     <div class="title">Wiki OCA — T600</div>
