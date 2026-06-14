@@ -1,50 +1,32 @@
-# 🌐 Wiki LEO
+# 🛡️ Wiki LEO — Christophe
 
-Bienvenue sur le wiki de l'écosystème Hermes Agent, piloté par **LEO**,
-l'assistant personnel de Christophe.
-
----
-
-## 🛡️ [Hermes Agent](hermes/index.md)
-
-Guide complet d'installation et d'utilisation d'Hermes Agent — le framework
-d'IA agentic qui fait tourner LEO.
-
-- 🔧 [Installation Linux](hermes/installation/linux.md)
-- 🪟 [Installation Windows](hermes/installation/windows.md)
-- ⚙️ [Configuration providers](hermes/configuration/providers.md)
-- 🤖 [Exemple LEO](hermes/leo-architecture.md)
+Bienvenue sur le **Wiki LEO**, documentation complète de l'écosystème **Hermes Agent** et de l'infrastructure personnelle de Christophe (Tofdan).
 
 ---
 
-## 🔭 [Projet T600](t600/index.md)
+## 🛡️ Hermes Agent
 
-Télescope de l'Observatoire de la Côte d'Azur (OCA) — documentation
-technique, formation opérateur, et sources ethnographiques.
+Assistant IA autonome : configuration, crons, dashboards, outils, profils, providers LLM, dépannage.
 
----
-
-## 🏢 [Bureau Gérard](bureau-gerard/index.md)
-
-Cabinet virtuel de documentation technique. 8 agents spécialisés
-(ethnographe, astro-optique, hardware, firmware...) qui extraient et
-structurent le savoir du T600.
+- [Présentation](hermes/index.md)
+- [Architecture système](hermes/architecture.md)
+- [Crons & planification](hermes/utilisation/crons.md)
+- [Dashboards](hermes/utilisation/dashboards.md)
+- [Changelog](hermes/changelog.md)
+- [Exemple LEO](hermes/leo-architecture.md)
 
 ---
 
-## ✈️ [Voyages](voyages/roadbook.md)
+## Liens utiles
 
-Roadbooks, budgets et checklists pour les voyages de Christophe.
+| Ressource | URL |
+|-----------|:---:|
+| Wiki OCA — T600 | [lien](https://christophedanhier-hash.github.io/wiki-oca/) |
+| Dashboard crons | [lien](https://christophedanhier-hash.github.io/crons-dashboard/) |
+| Dashboard GitHub | [lien](https://christophedanhier-hash.github.io/github-dashboard/) |
+| Dashboard machines | [lien](https://christophedanhier-hash.github.io/dashboard-leo/) |
+| Guide Hermes | [repo](https://github.com/christophedanhier-hash/hermes-guide) |
 
 ---
 
-### ⚡ Accès rapide
-
-| Ressource | Lien |
-|-----------|------|
-| GitHub Dashboard | [christophedanhier-hash](https://github.com/christophedanhier-hash) |
-| Drive Hermes_Christophe | Google Drive |
-| Dashboard KPI | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
-| Dashboard Machines | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
-| Dashboard Crons | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
-| Dashboard GitHub | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
+*Documentation vivante — mise à jour hebdomadaire.*
