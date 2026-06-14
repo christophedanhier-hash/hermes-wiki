@@ -2,19 +2,13 @@
 
 *Document vivant — suivi hebdomadaire des évolutions.*
 
-## [12/06/2026 - 18/06/2026]
+## 2026-06-14
 
-- **Nouvelles fonctionnalités :**
-  - `wiki-sync` a été ajouté pour synchroniser les fichiers sources vers le Wiki MkDocs.
-  - Le Guide Hermes a été mis à jour hebdomadairement avec la version du 14/06/2026.
-  - Un nouveau submodule GUIDE a été ajouté dans le Wiki.
-
-- **Corrections :**
-  - Les commits de `hermes-christophe` ont corrigé et mis à jour plusieurs scripts, notamment pour gérer les conflits et optimiser la synchronisation Drive.
-  - Le Guide Hermes a été actualisé avec des informations sur les crons, les dashboards et le coût associé.
-
-- **Mises à jour des dashboards :**
-  - Les dashboards ont été mis à jour pour inclure les nouvelles fonctionnalités et corrections.
+- **Nouvelle fonctionnalité** : Ajout du cron `wiki-oca-sync` à l'heure H:35, qui synchronise les fichiers Cowork Drive vers le wiki OCA et les push.
+- **Mises à jour** :
+  - Mise à jour de `update_docs.py` v2 pour un parsing crons plus propre et la génération automatique du wiki et du guide.
+  - Ajout d'un repère LEO/WIKI-OCA.md dans le wiki OCA.
+  - Mises à jour du guide Hermes Agent, notamment l'ajout des crons `wiki-sync` et `github-dashboard`, ainsi que des mises à jour sur les fréquences horaires, les coûts et le planification staggered.
 
 ---
 
