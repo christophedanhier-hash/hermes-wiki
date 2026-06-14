@@ -157,12 +157,6 @@ Tous les crons livrent en **local** (fichiers, pas Telegram).
 - **Tokens consommés :** ~3,9M IN / 1,5M OUT
 - **Sessions :** 41
 
-## 🗺️ Portail des ressources
-
-👉 [Accès direct au portail](../portail/index.md)
-
----
-
 ## 🔀 Règles de routage LLM
 
 Hiérarchie d'arbitrage pour chaque tâche :
