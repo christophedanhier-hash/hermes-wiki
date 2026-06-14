@@ -54,6 +54,8 @@ nav:
         - Usage quotidien: hermes/utilisation/quotidien.md
         - Crons & planification: hermes/utilisation/crons.md
         - Dashboards: hermes/utilisation/dashboards.md
+      - 🏗️ Architecture: hermes/architecture.md
+      - 📋 Changelog: hermes/changelog.md
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
         - Références: hermes/aller-plus-loin/references.md
