@@ -92,12 +92,6 @@ Assistant IA autonome : configuration, crons, dashboards, outils, profils, provi
 
 </div>
 
-### Wikis
-- 🔭 [Wiki OCA — T600](https://christophedanhier-hash.github.io/wiki-oca/)
-- 🧭 [Wiki Voyages](https://christophedanhier-hash.github.io/voyages-wiki/)
-- 📋 [État des lieux LEO](hermes/etat-des-lieux/)
-- 🐙 [Guide Hermes (repo)](https://github.com/christophedanhier-hash/hermes-guide)
-
 ---
 
 *Documentation vivante — mise à jour hebdomadaire.*
