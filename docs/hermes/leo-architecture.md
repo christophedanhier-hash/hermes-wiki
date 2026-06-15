@@ -40,7 +40,6 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 | `daily-backup` | 06:00 | 🔧 Script | **0$** | Backup fichiers critiques vers Google Drive |
 | `drive-sync` | 18:00 | 🔧 Script | **0$** | Sync Drive ↔ GitHub (bidirectionnel complet) |
 | `docs-update` | Lun 08:00 | 🧠 Ollama | **0$** 🏠 | Mise à jour docs techniques du T600 |
-| `wiki-oca-sync` | **H:35** | 🔧 Script | **0$** | Sync Cowork Drive → wiki OCA |
 
 **100% des crons sont en no_agent ou Ollama local** (zéro DeepSeek consommé par les tâches planifiées).
 
@@ -50,7 +49,7 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 |-----------|-------------|-----|------|
 | Hermes KPI (budget DeepSeek) | HTML + Chart.js | H:10 | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
 | 3 Machines (CPU/RAM/disque) | HTML + CSS | H:15 | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
-| Crons LEO (monitoring 11 crons) | HTML + CSS pur | H:20 | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
+| Crons LEO (monitoring 8 crons) | HTML + CSS pur | H:20 | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
 | Suivi Budget APIs Léo | Google Sheets | H:00/H:05 | Drive LEO |
 | Suivi Machines LEO | Google Sheets | H:00 | Drive LEO |
 | Dashboard Guide Hermes | Google Docs | Manuel | Drive LEO → GitHub |
@@ -88,20 +87,6 @@ LEO a vécu la perte d'accès Telegram lors d'un basculement de profil. Leçon a
 - JAMAIS depuis `christophe.danhier@gmail.com`
 - Christophe TOUJOURS en CC
 - Si erreur : STOP net, ne pas réessayer
-
-### 6. Drive = seul point de vérité
-
-```
-Drive (source) ←─── hermes-christophe (GitHub miroir) ───→ Wikis (GH Pages)
-                        ↑
-               generate_voyages_wiki.py
-               (distances, cartes → retour au Drive)
-```
-
-- Toute modification se fait sur le **Drive**
-- `drive-sync` (18h) synchronise **aller-retour** : Drive → GitHub → Drive
-- Les générations locales (distances, cartes) remontent via `Voyages/Distances/distances-voyages.json`
-- Ne JAMAIS modifier directement dans les wikis MkDocs (écrasé à la prochaine sync)
 
 ## Structure des fichiers
 
@@ -144,12 +129,6 @@ Drive (source) ←─── hermes-christophe (GitHub miroir) ───→ Wikis
 **Problème :** Crons qui utilisaient le mauvais Python, scripts introuvables, identité Git manquante, push qui échoue.
 
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
-
-### 15/06/2026 — Drive = source de vérité unique
-
-**Problème :** Sync GitHub → Drive non automatisé. Les données générées localement (distances voyages) ne remontaient jamais vers le Drive.
-
-**Solution :** `drive-sync` en mode bidirectionnel complet. Le script `generate_voyages_wiki.py` écrit maintenant `Voyages/Distances/distances-voyages.json` qui est uploadé vers le Drive automatiquement.
 
 ## Inspirez-vous, ne copiez pas
 
