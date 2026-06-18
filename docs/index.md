@@ -183,21 +183,21 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 </div>
 
-<div class="section-title"><span class="emoji">🤖</span>Bots Telegram</div>
+<div class="section-title"><span class="emoji">🔗</span>Architecture & Communication</div>
 
 <div class="portail-grid">
 
-<a href="./hermes/etat-des-lieux.md" class="portail-card">
-    <div class="icon">🦁</div>
-    <div class="title">LEO — Agent principal</div>
-    <div class="desc">Votre majordome IA : conversation, actions, crons, monitoring, bureaux virtuels</div>
-    <div class="url">@tofdan · DeepSeek v4 Flash</div>
+<a href="./hermes/architecture-communication.md" class="portail-card">
+    <div class="icon">🏗️</div>
+    <div class="title">Agent vs Bots</div>
+    <div class="desc">Comprendre l'architecture : LEO (agent Hermes) ≠ bot Telegram. Gateway, profils, isolation</div>
+    <div class="url">Architecture détaillée</div>
 </a>
 
 <a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/prive/bot-voyages/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🧭</div>
-    <div class="title">BAVI LEO Voyages</div>
-    <div class="desc">Bot voyage autonome — roadbooks, cartes, coûts, export PDF/DOCX</div>
+    <div class="title">BAVI LEO Voyages Bot</div>
+    <div class="desc">Bot autonome — roadbooks camping-car, cartes, coûts, export PDF/DOCX</div>
     <div class="url">@bavi_leo_voyages_bot</div>
 </a>
 

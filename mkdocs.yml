@@ -49,6 +49,7 @@ nav:
   - 🏠 Portail: index.md
   - 🛡️ Hermes Agent:
       - Présentation: hermes/index.md
+      - 🏗️ Architecture & Communication: hermes/architecture-communication.md
       - Configuration:
         - Providers LLM: hermes/configuration/providers.md
         - Profils: hermes/configuration/profiles.md
