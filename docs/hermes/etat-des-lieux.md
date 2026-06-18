@@ -161,13 +161,40 @@ Tous les crons livrent en **local** (fichiers, pas Telegram).
 
 Hiérarchie d'arbitrage pour chaque tâche :
 
-```
-Tâche à exécuter
-  ├─ Est-ce un script pur ? → no_agent (0 token)
-  ├─ A besoin d'un LLM ?
-  │    ├─ Ollama 🏠 suffit ? → Ollama (gratuit)
-  │    ├─ Résultat insuffisant ? → Gemini ⚡ (quasi gratuit)
-  │    └─ Toujours insuffisant / critique ? → DeepSeek 🤖 (payant)
+``` mermaid
+flowchart TD
+    Tache["Tâche à exécuter"]
+    Script["Est-ce un script pur ?"]
+    LLM["A besoin d'un LLM ?"]
+    Ollama["Ollama 🏠 suffit ?"]
+    Gemini["Résultat insuffisant ?"]
+    DeepSeek["Toujours insuffisant / critique ?"]
+    NoAgent["→ no_agent (0 token)"]
+    OllamaOK["→ Ollama (gratuit)"]
+    GeminiOK["→ Gemini ⚡ (quasi gratuit)"]
+    DeepSeekOK["→ DeepSeek 🤖 (payant)"]
+
+    Tache --> Script
+    Tache --> LLM
+    Script --> NoAgent
+    LLM --> Ollama
+    Ollama -- Oui --> OllamaOK
+    Ollama -- Non --> Gemini
+    Gemini -- Oui --> GeminiOK
+    Gemini -- Non --> DeepSeek
+    DeepSeek --> DeepSeekOK
+
+    style Tache fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
+    style Script fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style LLM fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    style Ollama fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style Gemini fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    style DeepSeek fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    style NoAgent fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style OllamaOK fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style GeminiOK fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    style DeepSeekOK fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    linkStyle default stroke-width:2px,fill:none
 ```
 
 | Provider | Utilisation |

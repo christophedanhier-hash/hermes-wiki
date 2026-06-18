@@ -4,12 +4,22 @@ Hermes Agent peut utiliser plusieurs fournisseurs de modèles de langage (LLM). 
 
 ## Principe
 
-```
-Un seul profil = plusieurs providers disponibles
-       │
-       ├── Provider principal → Conversations, tâches complexes
-       ├── Provider local → Tâches simples, gratuit, privé
-       └── Provider fallback → Sécurité si le principal plante
+``` mermaid
+flowchart TD
+    Profil["Un seul profil = plusieurs providers disponibles"]
+    Principal["🤖 Provider principal<br/>Conversations, tâches complexes"]
+    Local["🏠 Provider local<br/>Tâches simples, gratuit, privé"]
+    Fallback["⚡ Provider fallback<br/>Sécurité si le principal plante"]
+
+    Profil --> Principal
+    Profil --> Local
+    Profil --> Fallback
+
+    style Profil fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
+    style Principal fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    style Local fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style Fallback fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    linkStyle default stroke-width:2px,fill:none
 ```
 
 ## DeepSeek (recommandé pour le provider principal)
