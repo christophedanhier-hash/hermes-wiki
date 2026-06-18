@@ -231,19 +231,6 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 </div>
 
 ---
-
-<div class="section-title"><span class="emoji">⚡</span>Accès rapide</div>
-
-| Ressource | Lien |
-|-----------|------|
-| 🛡️ Guide Hermes Agent | [Présentation](hermes/index.md) |
-| 🏗️ Architecture LEO | [État des lieux](hermes/etat-des-lieux.md) |
-| ⏰ Crons & planification | [Tâches automatisées](hermes/utilisation/crons.md) |
-| 💰 Budget DeepSeek | [Suivi des coûts](./hermes/utilisation/dashboards.md) |
-| 🚀 Routage LLM | [DeepSeek → Ollama → Gemini](./hermes/configuration/providers.md) |
-| 🔭 T600 OCA | [Wiki OCA](https://christophedanhier-hash.github.io/wiki-oca/) |
-| 🧭 Voyages Italie | [Roadbook 09/2026](https://christophedanhier-hash.github.io/voyages-wiki/italie/) |
-
----
+|---
 
 **Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com)** · Mis à jour en continu par LEO · 🦁
