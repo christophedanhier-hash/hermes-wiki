@@ -187,7 +187,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
-<a href="./hermes/leo-architecture.md" class="portail-card">
+<a href="./hermes/etat-des-lieux.md" class="portail-card">
     <div class="icon">🦁</div>
     <div class="title">LEO — Agent principal</div>
     <div class="desc">Votre majordome IA : conversation, actions, crons, monitoring, bureaux virtuels</div>
@@ -230,8 +230,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 | Ressource | Lien |
 |-----------|------|
 | 🛡️ Guide Hermes Agent | [Présentation](hermes/index.md) |
-| 🏗️ Architecture LEO | [Architecture](hermes/architecture.md) |
-| 📋 État des lieux | [Configuration actuelle](hermes/etat-des-lieux.md) |
+| 🏗️ Architecture LEO | [État des lieux](hermes/etat-des-lieux.md) — architecture, crons, dashboards |
 | ⏰ Crons & planification | [Tâches automatisées](hermes/utilisation/crons.md) |
 | 💰 Budget DeepSeek | [Suivi des coûts](./hermes/utilisation/dashboards.md) |
 | 🚀 Routage LLM | [DeepSeek → Ollama → Gemini](./hermes/configuration/providers.md) |
