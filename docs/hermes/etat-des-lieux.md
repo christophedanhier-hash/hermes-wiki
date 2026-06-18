@@ -118,21 +118,32 @@ fallback_providers:
 
 ## ⏰ Crons programmés (11)
 
-| Cron | Horaire | Type | Statut |
-|------|---------|------|:------:|
-| **daily-backup** | 06:00 quotidien | 🔧 Script | ✅ |
-| **docs-update** | Lun 08:00 hebdo | 🧠 Ollama | ⚠️ |
-| **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
-| **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
-| **dashboard-deploy** | H:10 chaque heure | 🔧 Script | ✅ |
-| **leo-metrics** | H:15 chaque heure | 🔧 Script | ✅ |
-| **crons-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
-| **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
-| **github-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
-| **wiki-sync** | H:30 chaque heure | 🔧 Script | ✅ |
-| **wiki-oca-sync** | H:35 chaque heure | 🔧 Script | ✅ |
+|| Cron | Horaire | Type | Statut |
+||------|---------|------|:------:|
+|| **daily-backup** | 06:00 quotidien | 🔧 Script | ✅ |
+|| **docs-update** | Lun 08:00 hebdo | 🧠 Ollama | ⚠️ |
+|| **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
+|| **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
+|| **dashboard-deploy** | H:10 chaque heure | 🔧 Script | ✅ |
+|| **leo-metrics** | H:15 chaque heure | 🔧 Script | ✅ |
+|| **crons-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
+|| **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
+|| **github-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
+|| **wiki-sync** | H:30 chaque heure | 🔧 Script | ✅ |
+|| **wiki-oca-sync** | H:35 chaque heure | 🔧 Script | ✅ |
+|| **veille-ia-quotidienne** | 08:00 quotidien | 🤖 Agent | ✅ |
+|| **gmail-classifier** | */15 min | 🔧 Script | ✅ |
 
-Tous les crons livrent en **local** (fichiers, pas Telegram).
+Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
+
+## 📧 Gestion email
+
+| Système | Description |
+|---------|-------------|
+| **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
+| **Gmail Classifier** | Inbox Zero : messages lus archivés + classés par label. Non lus = inbox sans label. */
+| **Labels** | 📁Admin 📁Finances 📁IA&Tech 📁Astro 📁Voyages 📁Famille 📁Achats 📁Maison ⭐VIP |
+| **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
 
 ## 🔌 Plateformes connectées
 
