@@ -27,52 +27,24 @@ LEO a été construit pour être :
 
 ## Structure du guide
 
-``` mermaid
-flowchart LR
-    README["📖 README.md<br/>Introduction et philosophie"]
-
-    subgraph INSTALL["📁 01-installation/"]
-        direction TB
-        Linux["linux.md<br/>Installation sur Debian/Ubuntu"]
-        Windows["windows.md<br/>Installation sur Windows (WSL)"]
-    end
-
-    subgraph CONFIG["📁 02-configuration/"]
-        direction TB
-        Providers["providers.md<br/>Configuration LLM (DeepSeek, Ollama, Gemini)"]
-        Profiles["profiles.md<br/>Profils, gateways, skills"]
-    end
-
-    subgraph UTIL["📁 03-utilisation/"]
-        direction TB
-        Quotidien["quotidien.md<br/>Usage quotidien (comme LEO)"]
-        Crons["crons.md<br/>Tâches planifiées"]
-        Dashboards["dashboards.md<br/>Monitoring et KPIs"]
-    end
-
-    subgraph PLUS["📁 04-aller-plus-loin/"]
-        direction TB
-        Troubleshooting["troubleshooting.md<br/>Problèmes courants et solutions"]
-    end
-
-    subgraph EXEMPLES["📁 exemples/"]
-        direction TB
-        LEO_ARCH["LEO.md<br/>Architecture complète de LEO"]
-    end
-
-    subgraph REFS["📁 references/"]
-        direction TB
-        Commandes["commandes.md<br/>Aide-mémoire des commandes"]
-    end
-
-    style README fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
-    style INSTALL fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
-    style CONFIG fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
-    style UTIL fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
-    style PLUS fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
-    style EXEMPLES fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
-    style REFS fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
-    linkStyle default stroke-width:2px,fill:none
+```
+📖 README.md               → Ce fichier — introduction et philosophie
+📁 01-installation/
+   ├── linux.md            → Installation sur Debian/Ubuntu
+   └── windows.md          → Installation sur Windows (WSL)
+📁 02-configuration/
+   ├── providers.md        → Configuration LLM (DeepSeek, Ollama, Gemini)
+   └── profiles.md         → Profils, gateways, skills
+📁 03-utilisation/
+   ├── quotidien.md        → Usage quotidien (comme LEO)
+   ├── crons.md            → Tâches planifiées
+   └── dashboards.md       → Monitoring et KPIs
+📁 04-aller-plus-loin/
+   └── troubleshooting.md  → Problèmes courants et solutions
+📁 exemples/
+   └── LEO.md              → L'architecture complète de LEO
+📁 references/
+   └── commandes.md        → Aide-mémoire des commandes
 ```
 
 ## Public visé

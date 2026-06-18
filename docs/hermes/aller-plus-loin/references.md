@@ -121,23 +121,15 @@ tail -f ~/.hermes/logs/errors.log
 
 ## Syntaxe cron rapide
 
-``` mermaid
-flowchart LR
-    Minute["*<br/>Minute<br/>(0-59)"]
-    Heure["*<br/>Heure<br/>(0-23)"]
-    JourMois["*<br/>Jour mois<br/>(1-31)"]
-    Mois["*<br/>Mois<br/>(1-12)"]
-    JourSem["*<br/>Jour semaine<br/>(0-7, 0=dim)"]
-
-    Minute --> Heure --> JourMois --> Mois --> JourSem
-
-    style Minute fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
-    style Heure fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    style JourMois fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
-    style Mois fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
-    style JourSem fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:#004d40
-    linkStyle default stroke-width:2px,fill:none
 ```
+* * * * *
+│ │ │ │ │
+│ │ │ │ └── Jour semaine (0-7, 0=dim)
+│ │ │ └──── Mois (1-12)
+│ │ └────── Jour mois (1-31)
+│ └──────── Heure (0-23)
+└────────── Minute (0-59)
+
 Exemples :
 0 6 * * *    → Tous les jours à 06:00
 0 */4 * * *  → Toutes les 4h
