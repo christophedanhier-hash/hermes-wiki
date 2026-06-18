@@ -58,6 +58,9 @@ nav:
   - 🛡️ Hermes Agent:
       - Présentation: hermes/index.md
       - 🏗️ Architecture & Communication: hermes/architecture-communication.md
+      - 💻 Installation:
+        - Linux: hermes/installation/linux.md
+        - Windows: hermes/installation/windows.md
       - Configuration:
         - Providers LLM: hermes/configuration/providers.md
         - Profils: hermes/configuration/profiles.md
