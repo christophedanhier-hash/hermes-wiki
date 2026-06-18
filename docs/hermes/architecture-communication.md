@@ -20,12 +20,13 @@ flowchart TD
     
     Gateway --> Telegram["📱 Telegram<br/>(DM @tofdan)"]
     
-    style SERVEUR fill:#1a1a2e,stroke:#7c4dff,color:#e8e8ff
-    style Hermes fill:#16213e,stroke:#4fc3f7,color:#e8e8ff
-    style Gateway fill:#0f3460,stroke:#7c4dff,color:#e8e8ff
-    style Ollama fill:#1b5e20,stroke:#4caf50,color:#e8e8ff
-    style Gemini fill:#e65100,stroke:#ff9800,color:#e8e8ff
-    style Telegram fill:#004d40,stroke:#26c6da,color:#e8e8ff
+    style SERVEUR fill:#e8f5f9,stroke:#0288d1,stroke-width:3px,color:#01579b
+    style Hermes fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
+    style Gateway fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    style Ollama fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style Gemini fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    style Telegram fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:#004d40
+    linkStyle default stroke-width:2px,fill:none
 ```
 
 ### Comment ça marche
@@ -54,13 +55,13 @@ flowchart LR
         E["📄 Export PDF / DOCX"]
     end
     
-    style BOT fill:#1a1a2e,stroke:#7c4dff,color:#e8e8ff
-    style P fill:#16213e,stroke:#4fc3f7,color:#e8e8ff
-    style B fill:#0f3460,stroke:#7c4dff,color:#e8e8ff
-    style M fill:#1a237e,stroke:#536dfe,color:#e8e8ff
-    style S fill:#004d40,stroke:#26c6da,color:#e8e8ff
-    style A fill:#e65100,stroke:#ff9800,color:#e8e8ff
-    style E fill:#1b5e20,stroke:#4caf50,color:#e8e8ff
+    style BOT fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#bf360c
+    style P fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
+    style B fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:#004d40
+    style M fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    style S fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style A fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    style E fill:#e8eaf6,stroke:#3949ab,stroke-width:2px,color:#1a237e
 ```
 
 **Usage** : Les amis et la famille l'utilisent pour créer des roadbooks camping-car. LEO ne délègue pas au bot — chaque entité travaille indépendamment.
@@ -82,7 +83,7 @@ flowchart TD
     
     Gateway2 --> LEO["🤖 LEO Agent<br/>(Hermes)"]
     Gateway2 --> Ollama2["🏠 Ollama<br/>qwen2.5"]
-    Gateway2 -.-> Gemini2["⚡ Gemini<br/>(fallback)"]
+    Gateway2 -.->|fallback| Gemini2["⚡ Gemini<br/>(API externe)"]
     
     LEO --> Dash["📊 Dashboards<br/>(GitHub Pages)"]
     LEO --> Wiki["📚 Wikis<br/>(MkDocs sur GH)"]
@@ -91,25 +92,26 @@ flowchart TD
     
     subgraph BOT2["🤖 Bot Telegram séparé"]
         direction LR
-        Bot["🧭 @bavi_leo_voyages_bot"] -->|Profil Hermes isolé| Skill["📝 Skill: Sylvie<br/>(Voyages)"]
+        Bot["🧭 @bavi_leo_voyages_bot"] -->|Profil Hermes isolé| Skill3["📝 Skill: Sylvie<br/>(Voyages)"]
     end
     
     Amis["👨‍👩‍👧‍👦 Amis & Famille"] --> Bot
     
-    style Toi fill:#1a1a2e,stroke:#7c4dff,color:#e8e8ff
-    style DM fill:#004d40,stroke:#26c6da,color:#e8e8ff
-    style Gateway2 fill:#0f3460,stroke:#7c4dff,color:#e8e8ff
-    style LEO fill:#16213e,stroke:#4fc3f7,color:#e8e8ff
-    style Ollama2 fill:#1b5e20,stroke:#4caf50,color:#e8e8ff
-    style Gemini2 fill:#e65100,stroke:#ff9800,color:#e8e8ff
-    style Dash fill:#1a237e,stroke:#536dfe,color:#e8e8ff
-    style Wiki fill:#1a237e,stroke:#536dfe,color:#e8e8ff
-    style Crons fill:#1a237e,stroke:#536dfe,color:#e8e8ff
-    style BAVI fill:#1a237e,stroke:#536dfe,color:#e8e8ff
-    style BOT2 fill:#1a1a2e,stroke:#ff7043,color:#e8e8ff
-    style Bot fill:#bf360c,stroke:#ff7043,color:#e8e8ff
-    style Skill fill:#4e342e,stroke:#ffab91,color:#e8e8ff
-    style Amis fill:#1a1a2e,stroke:#7c4dff,color:#e8e8ff
+    style Toi fill:#e8f5f9,stroke:#0288d1,stroke-width:2px,color:#01579b
+    style DM fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:#004d40
+    style Gateway2 fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#4a148c
+    style LEO fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#0d47a1
+    style Ollama2 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style Gemini2 fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
+    style Dash fill:#e8eaf6,stroke:#3949ab,stroke-width:2px,color:#1a237e
+    style Wiki fill:#e8eaf6,stroke:#3949ab,stroke-width:2px,color:#1a237e
+    style Crons fill:#e8eaf6,stroke:#3949ab,stroke-width:2px,color:#1a237e
+    style BAVI fill:#e8eaf6,stroke:#3949ab,stroke-width:2px,color:#1a237e
+    style BOT2 fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#bf360c
+    style Bot fill:#fbe9e7,stroke:#d84315,stroke-width:2px,color:#bf360c
+    style Skill3 fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
+    style Amis fill:#e8f5f9,stroke:#0288d1,stroke-width:2px,color:#01579b
+    linkStyle default stroke-width:2px,fill:none
 ```
 
 ---
