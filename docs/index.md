@@ -187,7 +187,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
-<a href="./hermes/architecture-communication.md" class="portail-card">
+<a href="hermes/architecture-communication.md" class="portail-card">
     <div class="icon">🏗️</div>
     <div class="title">Agent vs Bots</div>
     <div class="desc">Comprendre l'architecture : LEO (agent Hermes) ≠ bot Telegram. Gateway, profils, isolation</div>
