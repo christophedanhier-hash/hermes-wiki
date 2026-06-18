@@ -233,3 +233,24 @@ Tester le résultat avant de livrer :
 - **Corrections → skills** (procédures durables), pas mémoire (faits temporaires)
 - **Utiliser les dates ISO** pour la comparaison, JJ/MM pour l'affichage
 - **Dashboard** : toujours comparer les dates en ISO (`%Y-%m-%d`), afficher en `%d/%m`
+
+---
+## Leçons apprises
+
+### 12/06/2026 — Trop de profils
+
+**Problème :** Création d'un profil `local` pour Ollama. Arrêt du gateway `local` = perte d'accès Telegram.
+
+**Solution :** Unifier dans un seul profil, Ollama par API directe. Fiabilité > flexibilité.
+
+### 13/06/2026 — Précipitation
+
+**Problème :** Actions sans réflexion préalable = régressions (mauvais token, erreur OAuth, envoi multiple d'email).
+
+**Solution :** Règle #1 : réfléchir avant d'agir. Toujours.
+
+### 14/06/2026 — Crons instables
+
+**Problème :** Crons qui utilisaient le mauvais Python, scripts introuvables, identité Git manquante, push qui échoue.
+
+**Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.

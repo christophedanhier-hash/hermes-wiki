@@ -136,7 +136,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 <a href="https://christophedanhier-hash.github.io/voyages-wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🧭</div>
     <div class="title">Wiki Voyages</div>
-    <div class="desc">Roadbooks camping-car — Italie 09/2026, Scandinavie, Canet + voyages réalisés</div>
+    <div class="desc">Roadbooks camping-car — Italie 09/2026, Scandinavie, Canet</div>
     <div class="url">voyages-wiki</div>
 </a>
 
@@ -235,8 +235,8 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 | ⏰ Crons & planification | [Tâches automatisées](hermes/utilisation/crons.md) |
 | 💰 Budget DeepSeek | [Suivi des coûts](./hermes/utilisation/dashboards.md) |
 | 🚀 Routage LLM | [DeepSeek → Ollama → Gemini](./hermes/configuration/providers.md) |
-| 🔭 T600 OCA | [Projet télescope](t600/index.md) |
-| 🧭 Voyages Italie | [Roadbook 09/2026](voyages/roadbook.md) |
+| 🔭 T600 OCA | [Wiki OCA](https://christophedanhier-hash.github.io/wiki-oca/) → documentation T600 |
+| 🧭 Voyages Italie | [Roadbook 09/2026](https://christophedanhier-hash.github.io/voyages-wiki/italie/) |
 
 ---
 
