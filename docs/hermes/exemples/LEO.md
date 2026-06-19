@@ -192,6 +192,8 @@ n8n est le moteur d'automatisation visuelle de LEO. Déployé en Docker `--netwo
 | **Volume** | `n8n_data` |
 | **Accès** | [http://100.92.102.28:5678](http://100.92.102.28:5678) |
 | **Owner** | leodanhier@proton.me |
+| **API Key** | Hermes Agent (workflow:create/read/update/list) |
+| **Credential Ollama** | `Hermes Agent - Ollama LEO` — `http://100.92.102.28:11434` (modèle `qwen2.5:7b`) |
 | **Compteur** | Login via API REST (POST /rest/login) |
 
 ### Workflow principal : LEO Ping
