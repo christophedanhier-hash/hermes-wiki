@@ -155,19 +155,6 @@ Un `Broken pipe` (Errno 32) se produit quand la sortie du processus est trop vol
 - Passez en no_agent (script direct)
 - Si le script produit une sortie utile, écrivez-la dans un fichier plutôt que stdout
 
-### Points d'attention LEO (audit 19/06/2026)
-
-Ces points ont été identifiés lors de l'audit complet de l'environnement LEO :
-
-| # | Alerte | Recommandation |
-|---|--------|----------------|
-| 1 | **GPU inutilisé** — RTX 3050 8GB idle en permanence | Configurer Ollama pour utiliser le GPU : `OLLAMA_GPU_LAYERS=35` dans le conteneur Ollama Docker |
-| 2 | **Swap à 32%** (2,6/8,0 GiB) | Surveiller l'évolution — si >50%, ajouter de la RAM ou limiter les conteneurs |
-| 3 | **Clé SSH obsolète** — `hermes_leo` ne fonctionne plus | Régénérer la clé et la redéployer sur les machines distantes |
-| 4 | **npm vulns** — 5 critiques (whatsapp-bridge), 2 high (web/ui-tui) | `npm audit fix` dans les dossiers concernés |
-| 5 | **Auth providers non configurés** — Codex, Gemini, MiniMax, xAI | Configurer uniquement si besoin spécifique — pas urgent |
-| 6 | **Tailscale DNS** — problème de résolution signalé | Vérifier `/etc/resolv.conf` et la config Tailscale |
-
 ### "Stop" non respecté
 
 Si vous dites "stop" à votre assistant et qu'il continue, rappelez-lui la règle : "stop" est définitif. Si le problème persiste, une nouvelle session (/reset) peut être nécessaire.
