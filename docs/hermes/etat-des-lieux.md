@@ -22,7 +22,7 @@ Page générée le **19/06/2026** — configuration actuelle du serveur **LEO**.
 | **RAM** | 22,9 GiB (22,9 total, ~17 libres) |
 | **GPU** | NVIDIA RTX 3050 8GB (CUDA 13.2, driver 595.71.05) |
 | **Disque** | 457 GB total, 371 GB libre (sda2) |
-| **Docker** | Engine 29.5.3, 2 conteneurs (hermes-agent + ollama) |
+| **Docker** | Engine 29.5.3, 3 conteneurs (hermes-agent + ollama + n8n) |
 
 ## 🤖 Modèle principal
 
@@ -124,7 +124,7 @@ fallback_providers:
 ### Software Development
 - `bureau-gerard` (ancien, doublon BAVI), `hermes-agent-skill-authoring`, `node-inspect-debugger`, `plan`, `python-debugpy`, `requesting-code-review`, `simplify-code`, `spike`, `systematic-debugging`, `test-driven-development`
 
-## ⏰ Crons programmés (17)
+## ⏰ Crons programmés (17 → 18)
 
 | Cron | Horaire | Type | Statut |
 |------|---------|------|:------:|
@@ -145,6 +145,7 @@ fallback_providers:
 | **bavi-leo-dashboard** | Every 60m | 🔧 Script | ✅ |
 | **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
 | **gmail-classifier** | */15 min | 🔧 Script | ✅ |
+| **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
 
@@ -175,6 +176,8 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
 | **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
 | **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
+| **n8n** | [http://100.92.102.28:5678](http://100.92.102.28:5678) (interface Web) |
+| **n8n Ping** | `GET /webhook/ping → {"response":"pong"}` (healthcheck) |
 
 ## 💰 Budget DeepSeek
 

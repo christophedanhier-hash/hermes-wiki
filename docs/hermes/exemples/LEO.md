@@ -168,7 +168,8 @@ Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
 | Type | Nb | Exemples |
 |------|:--:|----------|
 | **Wikis** | 4 | hermes-wiki, BAVI_LEO, wiki-oca, voyages-wiki |
-|| **Dashboards** | 5 (+1) | dashboard-leo, leo-metrics, crons-dashboard, github-dashboard, bavi-leo-dashboard, **n8n (local)** |
+| |**Dashboards** | 6 | dashboard-leo, leo-metrics, crons-dashboard, github-dashboard, bavi-leo-dashboard, **n8n (interface Web)** |
+| |**Automation** | 1 | n8n — workflow LEO Ping (GET /webhook/ping) |
 | **Drive** | 1 | hermes-christophe |
 | **Guides** | 1 | hermes-guide |
 | **Autres publics** | 2 | dashboard-kpi, machine-metrics |
@@ -176,6 +177,60 @@ Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
 
 **GitHub Actions :** 9 workflows, tous ✅ success.
 **Token scopes :** admin:org, repo, workflow, write:packages.
+
+---
+
+## ⚙️ n8n — Automatisation low-code
+
+n8n est le moteur d'automatisation visuelle de LEO. Déployé en Docker `--network host`, accessible uniquement via Tailscale.
+
+| Propriété | Valeur |
+|-----------|--------|
+| **Version** | v2.26.8 |
+| **Conteneur** | `docker.n8n.io/n8nio/n8n:latest` |
+| **Port** | 5678 (host, --network host) |
+| **Volume** | `n8n_data` |
+| **Accès** | [http://100.92.102.28:5678](http://100.92.102.28:5678) |
+| **Owner** | leodanhier@proton.me |
+| **Compteur** | Login via API REST (POST /rest/login) |
+
+### Workflow principal : LEO Ping
+
+```
+GET /webhook/ping → {"response": "pong"}
+```
+
+Workflow minimal de test — utilisé comme healthcheck par le monitoring (cron `n8n-healthcheck`).
+
+### Architecture API
+
+| Méthode | Endpoint | Usage |
+|---------|----------|-------|
+| POST | /rest/login | Authentification → cookie `n8n-auth` |
+| GET | /rest/workflows | Lister les workflows |
+| POST | /rest/workflows | Créer un workflow |
+| POST | /rest/workflows/:id/activate | Activer un workflow |
+| POST | /rest/workflows/:id/deactivate | Désactiver un workflow |
+| GET | /webhook/:path | Déclencher un workflow webhook |
+
+**Règle d'or :** Le nœud Webhook doit être en `typeVersion: 2` avec `responseMode: "lastNode"` pour fonctionner correctement via API. Le mode `responseNode` + `respondToWebhook` ne fonctionne pas bien en API — utiliser un nœud `Set` ou `Code` comme dernier nœud.
+
+### Maintenance
+
+```bash
+# Backup du volume n8n
+docker run --rm -v n8n_data:/data -v /tmp:/backup alpine tar czf /backup/n8n-$(date +%Y%m%d).tar.gz -C /data .
+
+# Restart
+docker restart n8n
+
+# Logs
+docker logs n8n --tail 100
+```
+
+### Coût
+
+n8n est **gratuit** (self-hosted Docker, license Community Edition). Zéro abonnement, zéro coût API. Seulement le stockage du volume Docker (~50 Mo pour les workflows).
 
 ---
 
