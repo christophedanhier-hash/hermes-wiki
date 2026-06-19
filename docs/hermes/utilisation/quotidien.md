@@ -10,7 +10,7 @@ Une fois le gateway Telegram lancé, ouvrez votre bot et commencez à parler :
 
 ```
 👤 "LEO, quel est mon solde DeepSeek ?"
-🤖 "💰 $42.43 (solde au 14/06/2026)"
+🤖 "💰 ~$28 (au 19/06/2026)"
 
 👤 "Fais un backup de ma config"
 🤖 "✅ 4 fichiers backupés sur Google Drive"

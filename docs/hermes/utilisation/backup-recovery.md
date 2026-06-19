@@ -91,7 +91,7 @@ cp -r /opt/data/leo/scripts/ /opt/data/scripts/
 cp -r /opt/data/leo/metrics/ /opt/data/metrics/
 ```
 
-### Étape 5 — Cloner les 10 repos GitHub (10 min)
+### Étape 5 — Cloner les 13 repos GitHub (15 min)
 
 ```bash
 cd /opt/data
@@ -111,11 +111,16 @@ gh repo clone christophedanhier-hash/bavi-leo-dashboard
 
 # Drive mirror
 gh repo clone christophedanhier-hash/hermes-christophe
+
+# Autres
+gh repo clone christophedanhier-hash/hermes-guide
+gh repo clone christophedanhier-hash/dashboard-kpi
+gh repo clone christophedanhier-hash/machine-metrics
 ```
 
 ### Étape 6 — Recréer les crons (5 min)
 
-Liste des 15 crons à restaurer. La config Hermes dans `~/.hermes/` est restaurée à l'étape 2.
+Liste des 17 crons à restaurer. La config Hermes dans `~/.hermes/` est restaurée à l'étape 2.
 
 Vérifier avec : `hermes cron list`
 

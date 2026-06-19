@@ -1,6 +1,6 @@
 # 📋 État des lieux — Installation Hermes de Christophe
 
-Page générée le **14/06/2026** — configuration actuelle du serveur **LEO**.
+Page générée le **19/06/2026** — configuration actuelle du serveur **LEO**.
 
 ---
 
@@ -14,17 +14,25 @@ Page générée le **14/06/2026** — configuration actuelle du serveur **LEO**.
 | **Installation** | `/opt/hermes` |
 | **Config** | `/opt/data/config.yaml` |
 | **Secrets** | `/opt/data/.env` |
-| **Profile actif** | `default` |
+| **Profils actifs** | `default` + `bavi-leo` |
 | **Timezone** | Europe/Brussels |
+| **OS Hôte** | Ubuntu 26.04 LTS (Resolute Raccoon) |
+| **Kernel** | Linux 7.0.0-22-generic |
+| **CPU** | Intel i7-7700K (4C/8T, 4.2 GHz) |
+| **RAM** | 22,9 GiB (22,9 total, ~17 libres) |
+| **GPU** | NVIDIA RTX 3050 8GB (CUDA 13.2, driver 595.71.05) |
+| **Disque** | 457 GB total, 371 GB libre (sda2) |
+| **Docker** | Engine 29.5.3, 2 conteneurs (hermes-agent + ollama) |
 
 ## 🤖 Modèle principal
 
 | Champ | Valeur |
 |-------|--------|
-| **Modèle** | `deepseek-v4-flash` |
+| **Modèle (default)** | `deepseek-chat` (DeepSeek Pro) |
+| **Modèle (bavi-leo)** | `deepseek-v4-flash` |
 | **Provider** | DeepSeek (`api.deepseek.com`) |
 | **Turns max** | 60 |
-| **Gateway** | 🟢 Actif (PID 26649) |
+| **Gateways** | 🟢 2 actifs (un par profil) |
 
 ## ⚡ Fallback
 
@@ -41,6 +49,7 @@ fallback_providers:
 | **URL** | `http://100.92.102.28:11434/v1` |
 | **Modèle** | `qwen2.5:7b` (4.7 GB) |
 | **Usage** | Tâches gratuites, docs-update |
+| **Conteneur** | Docker, up depuis 6 jours |
 
 ## 🛠️ Toolsets activés (16 / 22)
 
@@ -51,8 +60,8 @@ fallback_providers:
 | 💻 Terminal & Processes | ✅ |
 | 📁 File Operations | ✅ |
 | ⚡ Code Execution | ✅ |
-| 👁️ Vision / Image Analysis | ✅ |
-| 🎨 Image Generation | ✅ |
+| 👁️ Vision / Image Analysis | ⚠️ Non configuré |
+| 🎨 Image Generation | ⚠️ Non configuré |
 | 🔊 Text-to-Speech | ✅ |
 | 📚 Skills | ✅ |
 | 📋 Task Planning | ✅ |
@@ -62,14 +71,16 @@ fallback_providers:
 | 👥 Task Delegation | ✅ |
 | ⏰ Cron Jobs | ✅ |
 | 📨 Cross-Platform Messaging | ✅ |
-| 🖱️ Computer Use (macOS) | ✅ |
 
-**Désactivés :** 🎬 Video Analysis, 🎬 Video Generation, 🐦 X (Twitter), 🧠 MoA, 🧩 Context Engine, 🏠 Home Assistant, 🎵 Spotify, 🤖 Yuanbao
+**Désactivés :** 🖱️ Computer Use (macOS — inapplicable sur Linux), 🎬 Video Analysis, 🎬 Video Generation, 🐦 X (Twitter), 🧠 MoA, 🧩 Context Engine, 🏠 Home Assistant, 🎵 Spotify, 🤖 Yuanbao
 
-## 📚 Skills installées (93)
+## 📚 Skills installées (103)
 
 ### Autonomous AI Agents
-- `claude-code`, `codex`, `hermes-agent`, `hermes-profiles-gateways`, `hermes-workspace`, `opencode`
+- `claude-code`, `codex`, `hermes-agent`, `hermes-gateway`, `hermes-profiles-gateways`, `hermes-workspace`, `opencode`
+
+### BAVI LEO
+- `assurance-obligatoire`, `bavi-leo-governance`, `bureau-gerard`, `bureau-robert`, `bureau-sophie`, `bureau-sylvie`
 
 ### Creative
 - `architecture-diagram`, `ascii-art`, `ascii-video`, `baoyu-infographic`, `claude-design`, `comfyui`, `design-md`, `excalidraw`, `humanizer`, `manim-video`, `p5js`, `popular-web-designs`, `pretext`, `sketch`, `songwriting-and-ai-music`, `touchdesigner-mcp`
@@ -81,28 +92,28 @@ fallback_providers:
 - `dogfood`
 
 ### Email
-- `himalaya`
+- `gmail-inbox-zero`, `himalaya`, `leo-email-assistant`
 
 ### GitHub
 - `codebase-inspection`, `github-auth`, `github-code-review`, `github-issues`, `github-pr-workflow`, `github-repo-management`
 
 ### Infrastructure
-- `dashboard-deployment`, `dashboard-kpi`, `leo-architecture`, `machine-metrics`, `remote-server-ssh`, `routage-llm`, `system-management`
+- `bavi-leo-bot-deployment`, `dashboard-deployment`, `dashboard-kpi`, `deepseek-pro`, `drive-github-mirror`, `gdrive-source-of-truth`, `leo-architecture`, `leo-backup-dr`, `machine-metrics`, `remote-server-ssh`, `routage-llm`, `self-hosted-services`, `shared-bot-deployment`, `system-management`
 
 ### Media
 - `gif-search`, `heartmula`, `songsee`, `youtube-content`
 
 ### MLOps
-- `huggingface-hub`, `evaluating-llms-harness`, `weights-and-biases`, `llama-cpp`, `serving-llms-vllm`, `audiocraft-audio-generation`, `segment-anything-model`
+- `audiocraft-audio-generation`, `evaluating-llms-harness`, `huggingface-hub`, `llama-cpp`, `ollama`, `segment-anything-model`, `serving-llms-vllm`, `weights-and-biases`
 
 ### Note-taking
 - `obsidian`
 
 ### Productivity
-- `airtable`, `budget-tracking`, `google-workspace`, `hermes-dashboard`, `living-documentation`, `maps`, `nano-pdf`, `notion`, `ocr-and-documents`, `powerpoint`, `sequential-execution`, `teams-meeting-pipeline`
+- `agent-pro`, `airtable`, `budget-tracking`, `google-workspace`, `hermes-dashboard`, `living-documentation`, `maps`, `mkdocs-wiki`, `nano-pdf`, `notion`, `ocr-and-documents`, `powerpoint`, `roadbook-template`, `sequential-execution`, `teams-meeting-pipeline`, `voyages-wiki`
 
 ### Research
-- `arxiv`, `blogwatcher`, `llm-wiki`, `polymarket`
+- `ai-tech-watch`, `arxiv`, `blogwatcher`, `llm-wiki`, `polymarket`, `research-paper-writing`
 
 ### Smart Home
 - `openhue`
@@ -111,28 +122,29 @@ fallback_providers:
 - `xurl`
 
 ### Software Development
-- `bureau-gerard`, `hermes-agent-skill-authoring`, `node-inspect-debugger`, `plan`, `python-debugpy`, `requesting-code-review`, `simplify-code`, `spike`, `systematic-debugging`, `test-driven-development`
+- `bureau-gerard` (ancien, doublon BAVI), `hermes-agent-skill-authoring`, `node-inspect-debugger`, `plan`, `python-debugpy`, `requesting-code-review`, `simplify-code`, `spike`, `systematic-debugging`, `test-driven-development`
 
-### Autres
-- `orchestrateur-gerard`, `yuanbao`
+## ⏰ Crons programmés (17)
 
-## ⏰ Crons programmés (11)
-
-|| Cron | Horaire | Type | Statut |
-||------|---------|------|:------:|
-|| **daily-backup** | 06:00 quotidien | 🔧 Script | ✅ |
-|| **docs-update** | Lun 08:00 hebdo | 🧠 Ollama | ⚠️ |
-|| **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
-|| **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
-|| **dashboard-deploy** | H:10 chaque heure | 🔧 Script | ✅ |
-|| **leo-metrics** | H:15 chaque heure | 🔧 Script | ✅ |
-|| **crons-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
-|| **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
-|| **github-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
-|| **wiki-sync** | H:30 chaque heure | 🔧 Script | ✅ |
-|| **wiki-oca-sync** | H:35 chaque heure | 🔧 Script | ✅ |
-|| **veille-ia-quotidienne** | 08:00 quotidien | 🤖 Agent | ✅ |
-|| **gmail-classifier** | */15 min | 🔧 Script | ✅ |
+| Cron | Horaire | Type | Statut |
+|------|---------|------|:------:|
+| **daily-backup** | 06:00 quotidien | 🔧 Script | ✅ |
+| **docs-update** | 08:00 quotidien | 🧠 Ollama | ✅ |
+| **veille-ia-quotidienne** | 08:00 quotidien | 🤖 Agent | ✅ |
+| **check-hermes-update** | 09:00 quotidien | 🔧 Script | ✅ |
+| **credentials-check** | Lun 09:00 hebdo | 🔧 Script | ✅ (1er run jamais fait) |
+| **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
+| **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
+| **dashboard-leo** | H:10 chaque heure | 🔧 Script | ✅ |
+| **leo-metrics** | H:15 chaque heure | 🔧 Script | ✅ |
+| **crons-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
+| **github-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
+| **wiki-sync** | H:30 chaque heure | 🔧 Script | ✅ |
+| **wiki-oca-sync** | H:35 chaque heure | 🔧 Script | ✅ |
+| **t600-drive-sync** | H:36 chaque heure | 🔧 Script | ✅ |
+| **bavi-leo-dashboard** | Every 60m | 🔧 Script | ✅ |
+| **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
+| **gmail-classifier** | */15 min | 🔧 Script | ✅ |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
 
@@ -141,7 +153,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | Système | Description |
 |---------|-------------|
 | **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
-| **Gmail Classifier** | Inbox Zero : messages lus archivés + classés par label. Non lus = inbox sans label. */
+| **Gmail Classifier** | Inbox Zero : messages lus archivés + classés par label. Non lus = inbox sans label. |
 | **Labels** | 📁Admin 📁Finances 📁IA&Tech 📁Astro 📁Voyages 📁Famille 📁Achats 📁Maison ⭐VIP |
 | **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
 
@@ -149,7 +161,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 
 | Plateforme | Statut |
 |-----------|:------:|
-| **Telegram** | ✅ Configuré |
+| **Telegram** | ✅ Configuré (gateway LEO + bot voyages) |
 | **Discord** | ❌ Non configuré |
 | **Slack** | ❌ Non configuré |
 
@@ -157,16 +169,20 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 
 | Dashboard | URL |
 |-----------|-----|
+| **Hub Monitoring** | [localhost:8080](http://localhost:8080) |
 | **LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
 | **Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
 | **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
 | **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
+| **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
 
 ## 💰 Budget DeepSeek
 
-- **Balance actuelle :** ~$40.39
-- **Tokens consommés :** ~3,9M IN / 1,5M OUT
-- **Sessions :** 41
+- **Solde restant estimé :** ~$28
+- **Tokens consommés (14j) :** ~4,7M+ IN / ~1,8M+ OUT
+- **Sessions :** 90 (62 Telegram, 3 CLI)
+- **Messages :** 4 651
+- **État DB :** 79,1 Mo
 
 ## 🔀 Règles de routage LLM
 
@@ -217,9 +233,9 @@ flowchart TD
 ## 🔴 Règles de vie critiques
 
 ### Infra
-- **NE JAMAIS** créer un second profil — tout dans `default`
+- **1 profil principal** (`default`), **1 profil auxiliaire** (`bavi-leo` pour le bot voyages uniquement — profil isolé avec son propre gateway et modèle deepseek-v4-flash)
+- **NE PAS créer d'autres profils** — le cas bot voyages est une exception documentée
 - **NE JAMAIS** arrêter/redémarrer le gateway sans accord explicite
-- **1 seul gateway**, 1 seul profil, 3 providers disponibles
 
 ### Email
 - **TOUJOURS** envoyer depuis `leodanhieria@gmail.com` (compte LEO)
