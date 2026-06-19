@@ -7,6 +7,7 @@
 | Méthode | URL | Accès |
 |:--------|:----|:------|
 | 🌐 **Tailnet** | `https://tofdan-system-product-name.tailbf5837.ts.net/` | Chromebook + app Tailscale |
+| 🤖 **Dashboard Hermes** | `https://tofdan-system-product-name.tailbf5837.ts.net/chat` | Interface web Hermes |
 | 🔒 **Local LEO** | `http://localhost:5678/` | Depuis LEO uniquement |
 | 🐧 **Penguin** | `http://100.92.102.28:5678/` | Depuis Crostini |
 
@@ -38,10 +39,14 @@ sudo docker run -d \
 ### Exposition via Tailscale Serve
 
 ```bash
-sudo tailscale serve --bg --yes 5678
+# Configurer les deux services
+sudo tailscale serve --bg --set-path=/ n8n 5678
+sudo tailscale serve --bg --set-path=/chat 9119
 ```
 
-L'URL tailnet : `https://tofdan-system-product-name.tailbf5837.ts.net/`
+**Résultat :**
+- `https://tofdan-system-product-name.tailbf5837.ts.net/` → n8n
+- `https://tofdan-system-product-name.tailbf5837.ts.net/chat` → Dashboard Hermes
 
 ### Variables d'environnement
 
