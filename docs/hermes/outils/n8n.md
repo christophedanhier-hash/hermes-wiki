@@ -119,7 +119,7 @@ services:
 
 ## 🔧 Exemple : LEO (serveur de production)
 
-Sur LEO, n8n tourne en conteneur Docker aux côtés d'Hermes, exposé via Tailscale.
+Sur LEO, n8n tourne **directement via npm** (pas de Docker — le conteneur Hermes n'a pas accès au socket Docker). Exposé via Tailscale si le port est mappé sur l'hôte. Voir [Exemple LEO](#exemple-concret--sous-leo-🦁) ci-dessous.
 
 ### Architecture
 
@@ -190,10 +190,93 @@ docker rm -f n8n
 | 🔄 Sync feuille de calcul | Modification sheet | Sauvegarde automatique |
 | 🤖 Agent déclenché | Webhook entrant | Lancer Hermes sur une tâche |
 
+## Exemple concret — sous LEO 🦁
+
+### Architecture LEO
+
+Sur LEO, n8n ne tourne pas en Docker mais **directement via npm** (install locale). Pourquoi ?
+
+| Composant | Approche LEO | Raison |
+|:-----------|:-------------|:-------|
+| Environnement | Conteneur Hermes | Hermes Agent tourne dans son propre conteneur Docker |
+| Démon Docker | ❌ Non disponible | Le conteneur Hermes n'a pas accès au socket Docker |
+| Méthode | ✅ `npm install` local | n8n est une app Node.js, elle tourne nativement |
+| Port | `5678` | Écoute sur le réseau interne Docker (172.17.0.2) |
+| Persistance | Script watchdog + cron Hermes | Redémarre auto si le conteneur est recréé |
+
+### Installation LEO (dans le conteneur Hermes)
+
+```bash
+# 1. Installer dans un répertoire dédié
+mkdir -p /opt/data/n8n
+cd /opt/data/n8n
+echo '{"name":"n8n-local","private":true}' > package.json
+npm install n8n
+
+# 2. Configurer l'environnement
+mkdir -p /opt/data/n8n-data
+cat > n8n.env << 'EOF'
+N8N_PORT=5678
+N8N_USER_FOLDER=/opt/data/n8n-data
+N8N_SECURE_COOKIE=false
+WEBHOOK_URL=https://tofdan-system-product-name.tailbf5837.ts.net:5678/
+N8N_METRICS=false
+N8N_DIAGNOSTICS_ENABLED=false
+EOF
+
+# 3. Démarrer
+cd /opt/data/n8n
+export N8N_USER_FOLDER=/opt/data/n8n-data
+export WEBHOOK_URL=https://tofdan-system-product-name.tailbf5837.ts.net:5678/
+node node_modules/n8n/bin/n8n start --tunnel=false
+```
+
+### Paramètres LEO (env)
+
+| Variable | Valeur | Rôle |
+|:----------|:-------|:-----|
+| `N8N_PORT` | `5678` | Port HTTP |
+| `N8N_USER_FOLDER` | `/opt/data/n8n-data` | Données persistantes |
+| `N8N_SECURE_COOKIE` | `false` | Pas de HTTPS direct (Tailscale gère le TLS) |
+| `WEBHOOK_URL` | `https://tofdan-system-product-name.tailbf5837.ts.net:5678/` | URL publique via Tailscale |
+| `N8N_METRICS` | `false` | Métriques désactivées (conteneur Hermes) |
+
+### Données persistantes
+
+```
+/opt/data/n8n-data/
+├── .n8n/
+│   ├── config              ← Clé de chiffrement (générée auto)
+│   ├── database.sqlite     ← Base de données des workflows
+│   ├── nodes/              ← Nœuds installés
+│   └── storage/            ← Stockage des clés
+├── n8n.log                 ← Logs d'exécution
+└── watchdog.log            ← Logs de redémarrage
+```
+
+### Watchdog automatique
+
+Un cron Hermes vérifie toutes les **5 minutes** que n8n répond. Si le conteneur est recréé :
+
+```bash
+/opt/data/scripts/check-n8n.sh    # Manuel
+```
+→ Cron : `check-n8n` (toutes les 5 min, livraison locale, silencieux)
+
+### Accès réseau
+
+⚠️ **Important :** Dans cette configuration, n8n tourne dans le conteneur Hermes sur l'IP Docker interne `172.17.0.2:5678`. Pour y accéder depuis le tailnet :
+
+1. **Solution recommandée :** Configurer un **reverse proxy** ou Tailscale Serve sur l'hôte (port 5678 sur 100.92.102.28)
+2. **Alternative rapide :** Redémarrer le conteneur Hermes avec `-p 5678:5678` si vous gérez le déploiement
+3. **Usage local :** Depuis le conteneur Hermes, `curl http://localhost:5678/` fonctionne
+
 ## Ressources
 
-- **Version installée :** 2.26.7
+- **Version installée :** 2.26.7 (npm local)
+- **Méthode :** `npm install` local (pas Docker — conteneur Hermes limité)
+- **Watchdog :** cron `check-n8n` toutes les 5 min
+- **Script de démarrage :** `/opt/data/n8n/start-n8n.sh`
 - **Site officiel :** [n8n.io](https://n8n.io/)
 - **Documentation :** [docs.n8n.io](https://docs.n8n.io/)
-- **Docker Hub :** [n8nio/n8n](https://hub.docker.com/r/n8nio/n8n)
 - **Communauté :** [community.n8n.io](https://community.n8n.io/)
