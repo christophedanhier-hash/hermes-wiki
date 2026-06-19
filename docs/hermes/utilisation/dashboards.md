@@ -16,16 +16,17 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-LEO a **6 dashboards** en production, tous générés par scripts `no_agent` — **0$ de coût LLM** par mise à jour :
+LEO a **5 dashboards** en production, tous rafraîchis toutes les heures :
 
 | Dashboard | Contenu | URL | Cron |
 |-----------|---------|-----|------|
-| **Hub Monitoring** | Portail d'accueil des 5 dashboards | [localhost:8080](http://localhost:8080) | Statique |
-| **Hermes KPI** | Sessions, tokens, coûts DeepSeek | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) | H:10 |
+| **Hermes KPI** | Budget DeepSeek, sessions, coûts | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) | H:10 |
 | **3 Machines** | CPU, RAM, disque LEO/Yoga/Penguin | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) | H:15 |
 | **Crons LEO** | État de tous les crons, historique 7j | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | H:20 |
-| **GitHub** | Activité des 20 repos, derniers commits | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) | H:25 |
-| **BAVI LEO** | Sessions, coûts, tokens des bureaux | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) | Toutes les 60min |
+| **Backup** | Dernier backup, fichiers préservés | Google Drive | 06:00 |
+| **Drive Sync** | Dernière sync Drive ↔ GitHub bidirectionnelle | GitHub | 18:00 |
+
+Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
 
 ## Architecture technique
 
@@ -35,7 +36,7 @@ Chaque dashboard suit le même pattern :
    - Récupère les données (API, fichiers, logs)
    - Génère un `index.html` avec Chart.js ou CSS pur
 
-2. **Un cron no_agent** qui exécute le script toutes les heures (ou selon le schedule configuré)
+2. **Un cron no_agent** qui exécute le script toutes les 4h
 
 3. **Un dépôt GitHub Pages** qui sert le HTML
 
