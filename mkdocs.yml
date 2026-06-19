@@ -49,12 +49,7 @@ extra_javascript:
   - assets/mermaid-init.js
 
 nav:
-  - 🌐 Écosystème:
-    - 🛡️ Portail LEO: https://christophedanhier-hash.github.io/hermes-wiki/
-    - 🏛️ BAVI LEO: https://christophedanhier-hash.github.io/BAVI_LEO/
-    - 🔭 Wiki OCA: https://christophedanhier-hash.github.io/wiki-oca/
-    - 🧭 Voyages: https://christophedanhier-hash.github.io/voyages-wiki/
-  - 🏠 Portail: index.md
+  - 🏠 Accueil: index.md
   - 🛡️ Hermes Agent:
       - Présentation: hermes/index.md
       - 🏗️ Architecture & Communication: hermes/architecture-communication.md
