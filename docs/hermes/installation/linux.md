@@ -120,13 +120,13 @@ docker exec -it hermes hermes setup
 
 ## 🔧 Exemple : LEO (serveur de production)
 
-LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Ubuntu 24.04** en conteneur Docker, accessible 24/7.
+LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Ubuntu 26.04 LTS** (Resolute Raccoon) en conteneur Docker, accessible 24/7. Le serveur est équipé d'un **Intel i7-7700K** (4 cœurs / 8 threads), **22,9 GiB RAM** et une **NVIDIA RTX 3050 8GB** (CUDA 13.2) utilisée pour l'inférence locale via Ollama.
 
 ### Architecture
 
 ```
 ┌──────────────────────────────────────────┐
-│          HOST (Ubuntu 24.04)            │
+│          HOST (Ubuntu 26.04)            │
 │                                          │
 │  ┌─────────┐  ┌──────────┐  ┌────────┐ │
 │  │ Hermes  │  │ Dashboard│ │

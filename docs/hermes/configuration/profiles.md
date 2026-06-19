@@ -13,15 +13,34 @@ profiles:
     gateway: telegram
 ```
 
-### Règle LEO : un seul profil
+### Règle LEO : un ou deux profils maximum
 
-> *"Un seul profil, un seul gateway, tout dedans."*
+> *"Un profil principal, un profil auxiliaire si nécessaire, tout le reste dedans."*
 
-La tentation est grande de créer un profil par usage (un pour les conversations, un pour le batch, un de secours). **Ne faites pas ça.** Chaque profil supplémentaire ajoute de la complexité et des points de défaillance.
+La règle générale est **un seul profil** (`default`) — tout votre assistant vit dedans, avec plusieurs providers (DeepSeek + Ollama + Gemini).
 
-- **Un seul profil** (`default`) — tout votre assistant vit dedans
-- **plusieurs providers** au sein du même profil (DeepSeek + Ollama + Gemini)
-- **Zéro bascule de profil** — la fiabilité avant tout
+**Exception documentée :** un **second profil isolé** peut être créé pour un bot Telegram partagé (ex: bot voyages pour les amis) avec :
+- Son propre modèle (ex: deepseek-v4-flash, moins cher)
+- Son propre gateway Telegram (bot dédié)
+- Ses propres skills limités
+- Aucun accès aux emails, Drive ou T600
+
+```yaml
+# Exemple : profil auxiliaire bavi-leo (bot voyages)
+profiles:
+  bavi-leo:
+    model: deepseek-v4-flash
+    provider: deepseek
+    gateway: telegram
+    skills:
+      - bureau-sylvie
+```
+
+**Règle :** ne JAMAIS créer plus de 2 profils. Chaque profil supplémentaire ajoute complexité et points de défaillance.
+
+- **1 profil principal** = conversations, analyses, maintenance
+- **1 profil auxiliaire max** = bot isolé (voyages, projet spécifique)
+- **Zéro bascule de profil** pour l'usage quotidien
 
 ### Commandes profils
 
