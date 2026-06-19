@@ -1,108 +1,206 @@
 # Installation sur Linux (Debian/Ubuntu)
 
-## 1. Prérequis
+## 🎯 Objectif
 
-- Un serveur ou PC sous **Debian 12+** ou **Ubuntu 22.04+**
+Ce guide vous permet d'installer Hermes Agent sur Linux. Deux approches :
+
+| Méthode | Difficulté | Usage | Idéal pour |
+|:--------|:-----------|:------|:-----------|
+| **Directe** (officielle) | ⭐ Facile | Poste personnel, test | Débutants, usage individuel |
+| **Docker** (conteneur) | ⭐⭐ Intermédiaire | Serveur 24/7, gateway | Usage serveur, production |
+
+---
+
+## 📦 Méthode 1 : Installation directe (officielle)
+
+### 1. Prérequis
+
 - **Python 3.11+**
 - **Git**
 - **Curl**
-- Un compte GitHub
-- (Optionnel) Un GPU NVIDIA pour exécuter des LLM locaux
-
-## 2. Installer les dépendances
+- Un compte chez un fournisseur LLM (DeepSeek, OpenAI, Anthropic…)
 
 ```bash
-# Mise à jour des paquets
-sudo apt update && sudo apt upgrade -y
-
-# Dépendances Python
-sudo apt install -y python3 python3-venv python3-pip git curl
-
-# (Optionnel) Pour Ollama local
-curl -fsSL https://ollama.com/install.sh | sh
+# Installer les dépendances système
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip git curl
 ```
 
-## 3. Installer Hermes Agent
+### 2. Installer Hermes
 
 ```bash
-# Cloner le dépôt
+# Méthode recommandée — script officiel
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
+
+# Alternative : depuis les sources
 git clone https://github.com/NousResearch/hermes-agent.git
 cd hermes-agent
-
-# Créer l'environnement virtuel
 python3 -m venv .venv
 source .venv/bin/activate
-
-# Installer Hermes
 pip install -e .
 ```
 
-## 4. Configurer Hermes
+### 3. Configuration
 
 ```bash
-# Initialiser la configuration
+# Assistant de configuration
 hermes setup
 
 # Vérifier que tout est OK
 hermes doctor
 ```
 
-Le wizard de configuration vous guidera pour :
-- Choisir votre fournisseur LLM principal
-- Configurer votre profil Telegram (optionnel)
-- Créer votre profil par défaut
+Le wizard vous guide pour :
+- Choisir votre fournisseur LLM (DeepSeek, Ollama, OpenAI…)
+- Configurer Telegram (optionnel)
+- Créer votre profil
 
-## 5. Connecter un LLM
+### 4. Connecter un LLM
 
-### Avec DeepSeek (recommandé pour débuter)
-
+**DeepSeek** (recommandé pour débuter) :
 ```bash
-# Ajouter votre clé DeepSeek
-hermes config set DEEPSEEK_API_KEY "***"
-
-# Configurer le provider DeepSeek
-hermes config set model.default deepseek-chat
-hermes config set model.provider deepseek
+hermes config set DEEPSEEK_API_KEY "votre_clé"
+hermes model
+# → Choisir deepseek dans la liste
 ```
 
-### Avec Ollama (local, gratuit)
-
+**Ollama** (local, gratuit) :
 ```bash
-# Installer un modèle
+curl -fsSL https://ollama.com/install.sh | sh
 ollama pull qwen2.5:7b
-
-# Configurer Hermes pour utiliser Ollama
 hermes config set providers.custom.ollama.base_url "http://localhost:11434/v1"
-hermes config set providers.custom.ollama.api_key "ollama"
 ```
 
-## 6. Lancer Hermes
+### 5. Lancer
 
 ```bash
-# En mode interactif (terminal)
-hermes run
+# Mode interactif
+hermes
 
-# Avec Telegram (après configuration du bot)
+# Avec Telegram
 hermes gateway start
 ```
 
-## 7. Vérifier l'installation
+---
+
+## 🐳 Méthode 2 : Installation via Docker
+
+### 1. Installer Docker
 
 ```bash
-# Test simple
-hermes run -m "Dis bonjour, je suis ton nouvel assistant"
+# Docker Engine
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+# Déconnectez-vous / reconnectez-vous
 ```
 
-## Problèmes courants
+### 2. Lancer Hermes
+
+```bash
+# Méthode simple — tout-en-un
+docker run -d \
+  --name hermes \
+  --restart unless-stopped \
+  -v ~/.hermes:/opt/data \
+  -e HERMES_UID=$(id -u) \
+  -e HERMES_GID=$(id -g) \
+  nousresearch/hermes-agent:latest
+```
+
+> ⚠️ **Important** : le conteneur utilise `network_mode: host` pour le gateway Telegram.
+> Sur macOS/Windows, des adaptations de ports sont nécessaires.
+
+### 3. Configuration initiale
+
+```bash
+# Entrer dans le conteneur pour configurer
+docker exec -it hermes hermes setup
+```
+
+---
+
+## 🔧 Exemple : LEO (serveur de production)
+
+LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Ubuntu 24.04** en conteneur Docker, accessible 24/7.
+
+### Architecture
+
+```
+┌──────────────────────────────────────────┐
+│          HOST (Ubuntu 24.04)            │
+│                                          │
+│  ┌─────────┐  ┌──────────┐  ┌────────┐ │
+│  │ Hermes  │  │ Dashboard│  │  n8n   │ │
+│  │ Gateway │  │ (port    │  │ (port  │ │
+│  │ (bot)   │  │  18792)  │  │  5678) │ │
+│  └─────────┘  └──────────┘  └────────┘ │
+│                                          │
+│  ┌──────────────────────────────────┐    │
+│  │       tailscale serve            │    │
+│  │  /chat → Hermes (9119)           │    │
+│  │  /     → n8n    (5678)           │    │
+│  └──────────────────────────────────┘    │
+└──────────────────────────────────────────┘
+```
+
+### docker-compose.yml
+
+```yaml
+services:
+  gateway:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - ~/.hermes:/opt/data
+    environment:
+      - HERMES_UID=${HERMES_UID:-1000}
+      - HERMES_GID=${HERMES_GID:-1000}
+    command: ["gateway", "run"]
+
+  dashboard:
+    image: nousresearch/hermes-agent:latest
+    container_name: hermes-dashboard
+    restart: unless-stopped
+    network_mode: host
+    depends_on:
+      - gateway
+    volumes:
+      - ~/.hermes:/opt/data
+    environment:
+      - HERMES_UID=${HERMES_UID:-1000}
+      - HERMES_GID=${HERMES_GID:-1000}
+    command: ["dashboard", "--host", "127.0.0.1", "--no-open"]
+```
+
+> **Pourquoi conteneurisé ?**  
+> - Service 24/7 : redémarrage automatique en cas de panne  
+> - Isolation : Hermes et ses dépendances ne polluent pas le système hôte  
+> - Mise à jour simple : `docker pull nousresearch/hermes-agent:latest && docker restart hermes`  
+> - Portabilité : même config sur n'importe quel serveur Linux
+
+### Services connectés
+
+| Service | Rôle | Connexion |
+|:--------|:-----|:----------|
+| **Ollama** | LLM local (qwen2.5:7b) | API `http://host:11434/v1` |
+| **DeepSeek** | LLM principal (via Telegram) | Clé API |
+| **n8n** | Automatisation visuelle | Webhooks |
+| **Tailscale** | Réseau privé + serve | `tailscale serve` |
+
+---
+
+## Dépannage
 
 | Problème | Solution |
 |----------|----------|
-| `ModuleNotFoundError: No module named '...'` | Vérifier que le venv est activé |
-| `pip` introuvable | `sudo apt install python3-pip` |
-| Erreur de permission | Utiliser un utilisateur normal (pas root) |
-| Port déjà utilisé | Modifier le port dans `config.yaml` |
+| `ModuleNotFoundError` | Vérifier que le venv est activé (`source .venv/bin/activate`) |
+| Permission docker | `sudo usermod -aG docker $USER` puis déconnexion/reconnexion |
+| Port déjà utilisé | `docker stop hermes && docker rm hermes` puis relancer |
+| Gateway ne démarre pas | Vérifier `~/.hermes/logs/gateway.log` |
 
 ## Ressources
 
-- [Documentation officielle Hermes](https://hermes-agent.nousresearch.com/docs)
-- [GitHub Hermes Agent](https://github.com/NousResearch/hermes-agent)
+- [Documentation officielle](https://hermes-agent.nousresearch.com/docs)
+- [GitHub](https://github.com/NousResearch/hermes-agent)
+- [Docker Hub](https://hub.docker.com/r/nousresearch/hermes-agent)
