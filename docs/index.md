@@ -128,23 +128,9 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <a href="https://christophedanhier-hash.github.io/BAVI_LEO/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🏛️</div>
-    <div class="title">BAVI LEO</div>
-    <div class="desc">Bureaux Agentiques Virtuels — PRO (Solidaris) & PRIVÉ (T600, Voyages, Admin)</div>
+    <div class="title">Wiki BAVI</div>
+    <div class="desc">Bureaux Agentiques Virtuels — PRO (Solidaris), OCA (T600), Voyages, Général</div>
     <div class="url">BAVI_LEO</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/wiki-oca/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🔭</div>
-    <div class="title">Wiki OCA — T600</div>
-    <div class="desc">Projet T600, Bureau Gérard — documentation technique du télescope OCA</div>
-    <div class="url">wiki-oca</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/voyages-wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🧭</div>
-    <div class="title">Wiki Voyages</div>
-    <div class="desc">Roadbooks camping-car — Italie 09/2026, Scandinavie, Canet</div>
-    <div class="url">voyages-wiki</div>
 </a>
 
 </div>
@@ -203,41 +189,6 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 </div>
 
-<div class="section-title"><span class="emoji">🏢</span>Bureaux Virtuels (BAVI LEO)</div>
-
-<div class="portail-grid">
-
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/pro/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🏢</div>
-    <div class="title">PRO — Solidaris</div>
-    <div class="desc">Robert (Conseil IT), Sophie (Finance IT), Assurance Obligatoire</div>
-    <div class="url">BAVI_LEO/PRO</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/prive/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🏠</div>
-    <div class="title">PRIVÉ — Personnel</div>
-    <div class="desc">Gérard (T600), Sylvie (Voyages), LEO Admin (Infrastructure)</div>
-    <div class="url">BAVI_LEO/PRIVÉ</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/prive/bot-voyages/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🧭</div>
-    <div class="title">BAVI LEO Voyages Bot</div>
-    <div class="desc">Bot autonome — roadbooks camping-car, cartes, coûts, export PDF/DOCX</div>
-    <div class="url">@bavi_leo_voyages_bot</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🧠</div>
-    <div class="title">Agent Pro</div>
-    <div class="desc">Analyses DeepSeek Pro — installations, décisions techniques, recommandations</div>
-    <div class="url">BAVI/AGENT-PRO</div>
-</a>
-
-</div>
-
 ---
-|---
 
 **Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com)** · Mis à jour en continu par LEO · 🦁
