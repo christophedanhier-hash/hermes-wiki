@@ -201,16 +201,23 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">Architecture détaillée</div>
 </a>
 
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/prive/bot-voyages/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🧭</div>
-    <div class="title">BAVI LEO Voyages Bot</div>
-    <div class="desc">Bot autonome — roadbooks camping-car, cartes, coûts, export PDF/DOCX</div>
-    <div class="url">@bavi_leo_voyages_bot</div>
-</a>
-
-</div>
-
-<div class="section-title"><span class="emoji">🏢</span>Bureaux Virtuels (BAVI LEO)</div>
+|<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/prive/bot-voyages/" class="portail-card" target="_blank" rel="noreferrer noopener">
+|    <div class="icon">🧭</div>
+|    <div class="title">BAVI LEO Voyages Bot</div>
+|    <div class="desc">Bot autonome — roadbooks camping-car, cartes, coûts, export PDF/DOCX</div>
+|    <div class="url">@bavi_leo_voyages_bot</div>
+|</a>
+|
+|<a href="https://tofdan-system-product-name.tailbf5837.ts.net/" class="portail-card" target="_blank" rel="noreferrer noopener">
+|    <div class="icon">⚡</div>
+|    <div class="title">n8n — Automatisation</div>
+|    <div class="desc">Workflows visuels low-code — connecte tes services (email, sheets, webhooks, API)</div>
+|    <div class="url">n8n (tailnet only)</div>
+|</a>
+|
+|</div>
+|
+|<div class="section-title"><span class="emoji">🏢</span>Bureaux Virtuels (BAVI LEO)</div>
 
 <div class="portail-grid">
 
