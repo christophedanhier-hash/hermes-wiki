@@ -119,11 +119,11 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
-<a href="https://christophedanhier-hash.github.io/hermes-wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
+<a href="https://hermes-agent.nousresearch.com" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🛡️</div>
     <div class="title">Wiki LEO</div>
     <div class="desc">Documentation Hermes Agent — config, crons, dashboards, architecture, guide complet</div>
-    <div class="url">hermes-wiki</div>
+    <div class="url">hermes-agent.nousresearch.com</div>
 </a>
 
 <a href="https://christophedanhier-hash.github.io/BAVI_LEO/" class="portail-card" target="_blank" rel="noreferrer noopener">
