@@ -228,6 +228,13 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">@bavi_leo_voyages_bot</div>
 </a>
 
+<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🧠</div>
+    <div class="title">Agent Pro</div>
+    <div class="desc">Analyses DeepSeek Pro — installations, décisions techniques, recommandations</div>
+    <div class="url">BAVI/AGENT-PRO</div>
+</a>
+
 </div>
 
 ---
