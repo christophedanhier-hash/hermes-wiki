@@ -126,6 +126,20 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">hermes-wiki/hermes</div>
 </a>
 
+<a href="https://christophedanhier-hash.github.io/voyages-wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🧭</div>
+    <div class="title">Voyages</div>
+    <div class="desc">Roadbooks camping-car — Sylvie, itinéraires, cartes Folium, budget</div>
+    <div class="url">voyages-wiki</div>
+</a>
+
+<a href="https://christophedanhier-hash.github.io/wiki-oca/t600/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🔭</div>
+    <div class="title">Wiki OCA — T600</div>
+    <div class="desc">Documentation télescope T600 — technique, formation, sources, Bureau Gérard</div>
+    <div class="url">wiki-oca/t600</div>
+</a>
+
 <a href="https://christophedanhier-hash.github.io/BAVI_LEO/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🏛️</div>
     <div class="title">Wiki BAVI</div>
