@@ -188,13 +188,6 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">bavi-leo-dashboard</div>
 </a>
 
-<a href="https://tofdan-system-product-name.tailbf5837.ts.net/chat" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🤖</div>
-    <div class="title">Dashboard Hermes</div>
-    <div class="desc">Interface web Hermes — chat, monitoring, administration</div>
-    <div class="url">Dashboard Hermes</div>
-</a>
-
 </div>
 
 <div class="section-title"><span class="emoji">🏗️</span>Architecture & Communication</div>
