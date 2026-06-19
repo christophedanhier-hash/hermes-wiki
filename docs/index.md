@@ -126,7 +126,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">hermes-wiki/hermes</div>
 </a>
 
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
+<a href="https://christophedanhier-hash.github.io/BAVI_LEO/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🏛️</div>
     <div class="title">Wiki BAVI</div>
     <div class="desc">Bureaux Agentiques Virtuels — PRO (Solidaris), OCA (T600), Voyages, Général</div>
