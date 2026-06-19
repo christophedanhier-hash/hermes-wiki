@@ -18,6 +18,9 @@ Un backup automatisé de LEO est effectué **tous les jours à 06:00** vers **Go
 | 📚 Skills | ~150 skills Hermes (~8 MB) |
 | 👤 Profile Bot | bavi-leo (profil voyages, ~56 MB) |
 | 📜 Scripts personnalisés | Tous les scripts dans scripts/ |
+| ⚙️ n8n (scripts) | Scripts de déploiement n8n dans n8n/ |
+| 🔐 n8n (secrets) | Identifiants, API keys dans BAVI/AGENT-PRO/bureau-michel/n8n/ |
+| 📦 n8n (volume Docker) | Workflows, data du volume `n8n_data` (dumpé via Docker) |
 | 📊 Métriques Dashboards | Bases de données metrics/ |
 
 ## Cron associé
@@ -91,7 +94,7 @@ cp -r /opt/data/leo/scripts/ /opt/data/scripts/
 cp -r /opt/data/leo/metrics/ /opt/data/metrics/
 ```
 
-### Étape 5 — Cloner les 13 repos GitHub (15 min)
+### Étape 5 — Cloner les repos GitHub et restaurer n8n (15 min)
 
 ```bash
 cd /opt/data
@@ -116,6 +119,16 @@ gh repo clone christophedanhier-hash/hermes-christophe
 gh repo clone christophedanhier-hash/hermes-guide
 gh repo clone christophedanhier-hash/dashboard-kpi
 gh repo clone christophedanhier-hash/machine-metrics
+
+# Restaurer n8n (Docker volume)
+docker volume create n8n_data
+docker run --rm \
+  -v /opt/data/leo/n8n_data:/backup:ro \
+  -v n8n_data:/dest \
+  alpine sh -c "cp -r /backup/. /dest/"
+
+# Redéployer le conteneur n8n
+/opt/data/n8n/run-n8n.sh
 ```
 
 ### Étape 6 — Recréer les crons (5 min)
