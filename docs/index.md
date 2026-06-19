@@ -1,4 +1,4 @@
-# 🛡️ Portail LEO — Écosystème Hermès
+# 🛡️ Portail LEO
 
 Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé par **LEO** — votre assistant IA personnel.
 
