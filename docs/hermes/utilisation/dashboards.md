@@ -16,7 +16,7 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-LEO a **5 dashboards** en production, tous rafraîchis toutes les heures :
+LEO a **6 dashboards** en production, tous rafraîchis toutes les heures :
 
 | Dashboard | Contenu | URL | Cron |
 |-----------|---------|-----|------|
@@ -25,6 +25,7 @@ LEO a **5 dashboards** en production, tous rafraîchis toutes les heures :
 | **Crons LEO** | État de tous les crons, historique 7j | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | H:20 |
 | **Backup** | Dernier backup, fichiers préservés | Google Drive | 06:00 |
 | **Drive Sync** | Dernière sync Drive ↔ GitHub bidirectionnelle | GitHub | 18:00 |
+| **n8n** | Healthcheck n8n (no_agent) | [http://100.92.102.28:5678](http://100.92.102.28:5678) | */15 |
 
 Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
 
