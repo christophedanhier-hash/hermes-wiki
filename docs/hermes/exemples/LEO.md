@@ -39,6 +39,7 @@
 |-----------|-------|--------|--------|-------|
 | **hermes-agent** | hermes-agent | 🟢 Running | 7 jours | 8080, 9119 |
 | **ollama** | ollama/ollama | 🟢 Running | 6 jours | 11434 → host |
+| **n8n** | n8nio/n8n | 🟢 Running | — | 5678 → host (network=host) |
 
 - **Modèle Ollama installé :** `qwen2.5:7b` (4.7 GB)
 - **GPU support :** ✅ Oui (nvidia.com/gpu=0, CDI configuré)
@@ -106,6 +107,7 @@ Tous les crons tournent en `no_agent` (0 token LLM) sauf `veille-ia-quotidienne`
 | **Every 60m** | bavi-leo-dashboard | Dashboard BAVI LEO |
 | **18:00** | drive-sync | Sync bidirectionnelle Drive ↔ GitHub |
 | ***/15** | gmail-classifier | Classification emails Gmail |
+| ***/15** | n8n-healthcheck | Vérification santé n8n (no_agent) |
 
 ---
 
@@ -119,6 +121,7 @@ Tous les crons tournent en `no_agent` (0 token LLM) sauf `veille-ia-quotidienne`
 | **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | H:20 | HTML + CSS pur |
 | **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) | H:25 | HTML + CSS pur |
 | **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) | Every 60m | HTML + Chart.js |
+| **n8n** | [http://100.92.102.28:5678](http://100.92.102.28:5678) | */15 | Healthcheck (cron) |
 
 Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
 
@@ -155,6 +158,7 @@ Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
 | 8080 | HTTP server (dashboards) | localhost |
 | 9119 | s6 dashboard | localhost |
 | 18791-18792 | Services Hermes | Tailscale |
+| **5678** | **n8n** | **Tailscale** |
 | 49417 | Tailscale IPv6 | tailscale0 |
 
 ---
@@ -164,7 +168,7 @@ Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
 | Type | Nb | Exemples |
 |------|:--:|----------|
 | **Wikis** | 4 | hermes-wiki, BAVI_LEO, wiki-oca, voyages-wiki |
-| **Dashboards** | 5 | dashboard-leo, leo-metrics, crons-dashboard, github-dashboard, bavi-leo-dashboard |
+|| **Dashboards** | 5 (+1) | dashboard-leo, leo-metrics, crons-dashboard, github-dashboard, bavi-leo-dashboard, **n8n (local)** |
 | **Drive** | 1 | hermes-christophe |
 | **Guides** | 1 | hermes-guide |
 | **Autres publics** | 2 | dashboard-kpi, machine-metrics |
