@@ -70,6 +70,7 @@ nav:
         - Dashboards: hermes/utilisation/dashboards.md
         - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
       - 📋 Changelog: hermes/changelog.md
+      - ⚡ n8n — Automatisation: hermes/outils/n8n.md
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
         - Références: hermes/aller-plus-loin/references.md
