@@ -126,11 +126,11 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">hermes-wiki/hermes</div>
 </a>
 
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/" class="portail-card" target="_blank" rel="noreferrer noopener">
+<a href="https://christophedanhier-hash.github.io/BAVI_LEO/wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🏛️</div>
     <div class="title">Wiki BAVI</div>
     <div class="desc">Bureaux Agentiques Virtuels — PRO (Solidaris), OCA (T600), Voyages, Général</div>
-    <div class="url">BAVI_LEO</div>
+    <div class="url">BAVI_LEO/wiki</div>
 </a>
 
 </div>
@@ -172,19 +172,6 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="title">BAVI LEO</div>
     <div class="desc">KPIs Bureaux Virtuels — usage PRO/PRIVÉ, coûts, performances</div>
     <div class="url">bavi-leo-dashboard</div>
-</a>
-
-</div>
-
-<div class="section-title"><span class="emoji">🏗️</span>Architecture & Communication</div>
-
-<div class="portail-grid">
-
-<a href="hermes/architecture-communication/" class="portail-card">
-    <div class="icon">🏗️</div>
-    <div class="title">Agent vs Bots</div>
-    <div class="desc">Comprendre l'architecture : LEO (agent Hermes) ≠ bot Telegram. Gateway, profils, isolation</div>
-    <div class="url">Architecture détaillée</div>
 </a>
 
 </div>
