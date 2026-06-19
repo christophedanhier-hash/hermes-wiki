@@ -1,57 +1,45 @@
 # Installation sur Windows
 
-Hermes Agent fonctionne nativement sous Linux. Sur Windows, la méthode recommandée est **WSL 2** (Windows Subsystem for Linux).
+## 🎯 Objectif
 
-## 1. Installer WSL 2
+Hermes Agent est conçu pour Linux. Sur Windows, la méthode recommandée est **WSL 2** (sous-système Linux), qui offre ~95% des performances natives.
 
-### 1.1 Activer WSL
+| Méthode | Difficulté | Usage |
+|:--------|:-----------|:------|
+| **WSL 2** (recommandé) | ⭐ Facile | Usage individuel, développement |
+| **Docker Desktop** | ⭐⭐ Intermédiaire | Test, environnements isolés |
 
-Ouvrez **PowerShell en mode Administrateur** et exécutez :
+---
+
+## 📦 Méthode 1 : WSL 2 (recommandée)
+
+### 1. Installer WSL 2
+
+Ouvrez **PowerShell en mode Administrateur** :
 
 ```powershell
-# Activer WSL
+# Installation complète
 wsl --install
 
-# Redémarrer l'ordinateur quand demandé
-```
-
-Cette commande installe :
-- WSL 2
-- Une distribution Ubuntu par défaut
-- Le noyau Linux
-
-### 1.2 Vérifier l'installation
-
-```powershell
+# Vérifier
 wsl --status
 wsl --list --verbose
 ```
 
-Vous devriez voir une distribution Ubuntu en cours d'exécution avec WSL version 2.
+> Cette commande installe WSL 2 + Ubuntu. Redémarrez si demandé.
 
-## 2. Installer Python et Git dans WSL
+### 2. Installer Hermes dans WSL
 
-Ouvrez Ubuntu depuis le menu Démarrer ou avec :
-
-```powershell
-wsl
-```
-
-Dans le terminal Ubuntu :
+Ouvrez Ubuntu (menu Démarrer ou `wsl` dans PowerShell) :
 
 ```bash
-# Mise à jour
-sudo apt update && sudo apt upgrade -y
+# Dépendances système
+sudo apt update && sudo apt install -y python3 python3-venv python3-pip git curl
 
-# Installer les dépendances
-sudo apt install -y python3 python3-venv python3-pip git curl
-```
+# Installation officielle
+curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 
-## 3. Installer Hermes Agent
-
-Suivez maintenant les mêmes étapes que pour Linux.
-
-```bash
+# Alternative : depuis les sources
 git clone https://github.com/NousResearch/hermes-agent.git
 cd hermes-agent
 python3 -m venv .venv
@@ -59,70 +47,83 @@ source .venv/bin/activate
 pip install -e .
 ```
 
-## 4. Accéder à Hermes depuis Windows
-
-### Via le terminal WSL
-
-Depuis PowerShell ou CMD :
-
-```powershell
-wsl
-# Vous êtes maintenant dans Ubuntu
-# Activez votre environnement
-cd ~/hermes-agent
-source .venv/bin/activate
-hermes run
-```
-
-### Recommandation : utilisez Windows Terminal
-
-[**Windows Terminal**](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701) est l'application recommandée pour utiliser Hermes sous Windows :
-
-- Onglets multiples (PowerShell + WSL côte à côte)
-- Prise en charge complète des couleurs et emojis
-- Raccourcis clavier personnalisables
-
-## 5. (Optionnel) Accès aux fichiers Windows depuis WSL
-
-Vos fichiers Windows sont accessibles depuis WSL via :
+### 3. Configuration
 
 ```bash
-# Disque C: monté automatiquement
-ls /mnt/c/Users/VotreNom/
-
-# Créer un alias pratique
-echo 'alias winhome="cd /mnt/c/Users/VotreNom/"' >> ~/.bashrc
-source ~/.bashrc
+hermes setup
+hermes doctor
 ```
 
-## 6. (Optionnel) Installer Ollama sur Windows
+### 4. Lancer Hermes
+
+```powershell
+# Depuis PowerShell/CMD
+wsl
+cd ~/hermes-agent
+source .venv/bin/activate
+hermes
+```
+
+💡 **Recommandation :** utilisez [**Windows Terminal**](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701) pour une meilleure expérience (onglets, couleurs, emojis).
+
+### 5. (Optionnel) Ollama sur Windows
 
 Ollama a une version Windows native :
 
 1. Téléchargez depuis [ollama.com/download](https://ollama.com/download)
-2. Installez et lancez Ollama
-3. Depuis WSL, Hermes peut accéder à Ollama via l'API :
+2. Installez et lancez
+3. Dans WSL, configurez Hermes :
 
 ```bash
-# Configurer Hermes pour utiliser Ollama sur Windows
 hermes config set providers.custom.ollama.base_url "http://host.docker.internal:11434/v1"
-hermes config set providers.custom.ollama.api_key "ollama"
 ```
 
-L'adresse `host.docker.internal` permet à WSL de communiquer avec les services Windows.
+---
 
-## Différences clés avec Linux
+## 🐳 Méthode 2 : Docker Desktop
 
-| Aspect | Linux natif | WSL Windows |
-|--------|-------------|-------------|
-| Performances | Optimal, bare-metal | ~95% (excellentes) |
-| GPU pour Ollama | Direct (CUDA/NVIDIA) | Nécessite CUDA dans WSL |
-| Démarrage auto | Systemd | Lancement manuel ou tâche planifiée |
-| Accès réseau | Direct | Configuration supplémentaire |
-| Mise à jour | `apt update` | Pareil (dans WSL) |
+### 1. Installer Docker Desktop
+
+Téléchargez depuis [docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop/)
+
+### 2. Lancer Hermes
+
+```powershell
+docker run -d ^
+  --name hermes ^
+  --restart unless-stopped ^
+  -v %USERPROFILE%\.hermes:/opt/data ^
+  nousresearch/hermes-agent:latest
+```
+
+> **Limitations** : pas de `network_mode: host` sur Windows → le gateway Telegram devra être configuré avec un port mapping explicite.
+
+---
+
+## 🔧 Exemple : LEO (serveur de production)
+
+LEO tourne sur un serveur Ubuntu 24.04 conteneurisé via Docker Compose.  
+→ Voir [l'exemple LEO sur Linux](./linux.md#-exemple-leo-serveur-de-production)
+
+Les principes sont identiques, seuls changent :
+- Le gestionnaire de paquets : `apt` → `choco` / `winget` sur Windows
+- Le réseau : `network_mode: host` → port mapping (`-p 9119:9119`)
+- Les chemins : `~/.hermes` → `C:\Users\...\.hermes`
+
+---
+
+## Différences clés
+
+| Aspect | Linux natif | WSL Windows | Docker Windows |
+|--------|-------------|-------------|----------------|
+| Performances | ✅ Optimal | ✅ ~95% | ⚠️ Léger overhead |
+| GPU (Ollama) | ✅ Direct CUDA | ⚠️ CUDA dans WSL | ❌ Complexe |
+| Démarrage | ✅ Systemd | 🔄 Manuel ou planifié | ✅ Auto |
+| Réseau | ✅ Direct | ⚠️ `host.docker.internal` | ❌ Pas de host mode |
 
 ## Ressources
 
 - [Installer WSL](https://learn.microsoft.com/fr-fr/windows/wsl/install)
 - [Windows Terminal](https://github.com/microsoft/terminal)
 - [Ollama pour Windows](https://ollama.com/download)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
