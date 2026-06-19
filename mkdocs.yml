@@ -64,6 +64,7 @@ nav:
         - Crons & planification: hermes/utilisation/crons.md
         - Dashboards: hermes/utilisation/dashboards.md
         - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
+      - 📚 Catalogue des Skills: hermes/utilisation/skills-catalogue.md
       - 📋 Changelog: hermes/changelog.md
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
