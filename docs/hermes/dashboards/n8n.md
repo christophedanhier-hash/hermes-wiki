@@ -1,48 +1,19 @@
 # 📊 Dashboard n8n
 
-*Dernière mise à jour : **12:00** le **20/06/2026***
-
+> *Le dashboard complet avec graphiques est disponible ici :*
+> **[🔧 Dashboard n8n — HTML Charts](https://christophedanhier-hash.github.io/dashboard-n8n/)**
 
 ---
-## 🟡 Santé générale
+
+*Dernière mise à jour : **12:00** le **20/06/2026***
 
 | Métrique | Valeur |
 |----------|-------:|
-| **Version n8n** | 2.26.8 |
-| **Workflows** | 1/2 actifs |
-| **Exécutions totales** | 0 |
-| **Token Gmail** | ⚠️ Non configuré |
-
----
-## ⚙️ Workflows
-
-### 🟢 LEO Ping
-
-| Propriété | Valeur |
-|-----------|--------|
-| **Statut** | ✅ Actif |
-| **Exécutions** | 0 |
-| **Dernier run** | ⏳ jamais |
-
-### 🔴 GMAIL TEST
-
-| Propriété | Valeur |
-|-----------|--------|
-| **Statut** | ⏸️ Inactif |
-| **Exécutions** | 0 |
-| **Dernier run** | ⏳ jamais |
+| Version n8n | 2.26.8 |
+| Workflows actifs | 1/2 |
+| Exécutions totales | 0 |
+| Credential Gmail | ✅ |
 
 ---
 
-## 🔐 Credentials
-
-| Credential | Type | Statut |
-|-----------|------|:------:|
-| Ollama LEO | `ollamaApi` | ✅ |
-| Hermes Agent - Ollama LEO | `ollamaApi` | ✅ |
-| Gmail LEO Bearer Token | `httpBearerAuth` | ❌ |
-| Gmail LEO (OAuth2 legacy) | `googleOAuth2Api` | ⚠️ Obsolète (remplacé par Bearer) |
-
----
-
-*[Voir l'interface n8n](http://100.92.102.28:5678) · Page générée par LEO 🦁*
+*[Voir le dashboard complet](https://christophedanhier-hash.github.io/dashboard-n8n/) · Page générée par LEO 🦁*
