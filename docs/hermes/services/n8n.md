@@ -108,10 +108,10 @@ volumes:
 **Réponse :** `{"response":"pong"}`  
 **Utilité :** Healthcheck — monitoring uptime n8n
 
-### 2. Gmail Classifier v2 — `KkVjbW7HwQbUWidi`
+### 2. Gmail Classifier v3 — `FbrNhCwLzBDGNf6u`
 **Statut :** ✅ Actif  
 **Déclencheur :** Toutes les 30 minutes  
-**Workflow :** 6 nœuds
+**Workflow :** 9 nœuds — classification sémantique via Ollama + labelling Gmail
 
 | # | Nœud | Type | Description |
 |:-:|:-----|:-----|:-----------|
@@ -119,8 +119,24 @@ volumes:
 | 2 | Gmail - Lister INBOX | `httpRequest` | `GET /gmail/v1/users/me/messages?maxResults=5&labelIds=INBOX` |
 | 3 | Extraire IDs | `code` | Parse la réponse → 1 item par email |
 | 4 | Gmail - Détail email | `httpRequest` | `GET /gmail/v1/users/me/messages/{id}?format=metadata` |
-| 5 | Transformer résultats | `code` | Extrait sujet, from, date, snippet |
-| 6 | Résumé | `code` | Compte et résume les emails classés |
+| 5 | Extraire + Filtrer + Prompt | `code` | Vérifie si déjà classifié (Label_1-8), prépare prompt Ollama |
+| 6 | Ollama Analyse | `httpRequest` | POST qwen2.5:7b → catégorise en ADMIN/FINANCES/IA/VOYAGES/FAMILLE/ACHATS/MAISON/VIP |
+| 7 | Parser + Mapper labels | `code` | Parse réponse Ollama → associe chaque email à son label Gmail |
+| 8 | Gmail Appliquer Label | `httpRequest` | POST `modify` → ajoute label + retire INBOX |
+| 9 | Rapport final | `code` | Résumé des classements effectués |
+
+**Labels Gmail utilisés :**
+
+| Label | ID | Catégorie |
+|:------|:--:|:----------|
+| CATEGORY_ADMIN | `Label_1` | Administration Solidaris |
+| CATEGORY_FINANCES | `Label_2` | Factures, banque, paie |
+| CATEGORY_IA | `Label_3` | IA, ML, Hermes Agent |
+| CATEGORY_VOYAGES | `Label_4` | Road trips, vacances |
+| CATEGORY_FAMILLE | `Label_5` | Vie privée, enfants |
+| CATEGORY_ACHATS | `Label_6` | Commandes, livraisons |
+| CATEGORY_MAISON | `Label_7` | Travaux, bricolage |
+| CATEGORY_VIP | `Label_8` | Urgent, action immédiate |
 
 ### 3. Veille IA - n8n — `Qvm3agl0odLJnLm3`
 **Statut :** ✅ Actif  
