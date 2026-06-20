@@ -71,4 +71,5 @@ nav:
         - Références: hermes/aller-plus-loin/references.md
       - 🔧 Services LEO:
         - n8n — Automatisation: hermes/services/n8n.md
+        - 📊 Dashboard n8n: hermes/dashboards/n8n.md
       - 📋 État des lieux: hermes/etat-des-lieux.md
