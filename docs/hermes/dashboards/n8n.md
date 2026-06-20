@@ -1,6 +1,6 @@
 # 📊 Dashboard n8n
 
-*Dernière mise à jour : **11:45** le **20/06/2026***
+*Dernière mise à jour : **12:00** le **20/06/2026***
 
 
 ---
@@ -11,7 +11,7 @@
 | **Version n8n** | 2.26.8 |
 | **Workflows** | 1/2 actifs |
 | **Exécutions totales** | 0 |
-| **Token Gmail** | ✅ Actif - refresh dans 3599 |
+| **Token Gmail** | ⚠️ Non configuré |
 
 ---
 ## ⚙️ Workflows
@@ -40,7 +40,7 @@
 |-----------|------|:------:|
 | Ollama LEO | `ollamaApi` | ✅ |
 | Hermes Agent - Ollama LEO | `ollamaApi` | ✅ |
-| Gmail LEO Bearer Token | `httpBearerAuth` | ✅ |
+| Gmail LEO Bearer Token | `httpBearerAuth` | ❌ |
 | Gmail LEO (OAuth2 legacy) | `googleOAuth2Api` | ⚠️ Obsolète (remplacé par Bearer) |
 
 ---
