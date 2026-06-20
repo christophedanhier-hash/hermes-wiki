@@ -215,6 +215,21 @@ Workflow minimal de test — utilisé comme healthcheck par le monitoring (cron 
 | POST | /rest/workflows/:id/deactivate | Désactiver un workflow |
 | GET | /webhook/:path | Déclencher un workflow webhook |
 
+### Workflow Gmail Classifier v2 — LLM
+
+Classifieur intelligent des emails Gmail via Ollama (qwen2.5:7b). Remplace l'ancien cron `gmail-classifier` (règles regex, mis en pause).
+
+| Propriété | Valeur |
+|-----------|--------|
+| **ID** | `SICASCw3sLMmLYeQ` |
+| **Fréquence** | Toutes les 15 min |
+| **Modèle** | qwen2.5:7b via Ollama (RTX 3050, gratuit) |
+| **Filtre** | `in:all` (première passe), puis `newer_than:7d` |
+| **Labels** | 9 labels Gmail (VIP, Admin, Finances, IA-Tech, Voyages, Achats, Astro, Maison, Famille) |
+| **Credential Gmail** | `Gmail LEO` (OAuth2, googleOAuth2Api) |
+
+Architecture : Schedule → Gmail API (500 messages) → Split batches (10) → Get details → Extract headers → Ollama classify → Parse → Apply label.
+
 **Règle d'or :** Le nœud Webhook doit être en `typeVersion: 2` avec `responseMode: "lastNode"` pour fonctionner correctement via API. Le mode `responseNode` + `respondToWebhook` ne fonctionne pas bien en API — utiliser un nœud `Set` ou `Code` comme dernier nœud.
 
 ### Maintenance

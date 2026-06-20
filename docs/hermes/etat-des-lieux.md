@@ -144,7 +144,7 @@ fallback_providers:
 | **t600-drive-sync** | H:36 chaque heure | 🔧 Script | ✅ |
 | **bavi-leo-dashboard** | Every 60m | 🔧 Script | ✅ |
 | **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
-| **gmail-classifier** | */15 min | 🔧 Script | ✅ |
+| **gmail-classifier** | */15 min | 🔧 Script | ⏸️ Remplacé par n8n |
 | **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
@@ -154,7 +154,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | Système | Description |
 |---------|-------------|
 | **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
-| **Gmail Classifier** | Inbox Zero : messages lus archivés + classés par label. Non lus = inbox sans label. |
+| **Gmail Classifier v2** | Workflow n8n avec Ollama (qwen2.5:7b) — classification sémantique de tous les emails |
 | **Labels** | 📁Admin 📁Finances 📁IA&Tech 📁Astro 📁Voyages 📁Famille 📁Achats 📁Maison ⭐VIP |
 | **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
 
