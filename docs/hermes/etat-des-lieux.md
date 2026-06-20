@@ -133,7 +133,7 @@ fallback_providers:
 | **docs-update** | 08:00 quotidien | 🧠 Ollama | ✅ |
 | **veille-ia-quotidienne** | 08:00 quotidien | 🤖 Agent | ✅ |
 | **check-hermes-update** | 09:00 quotidien | 🔧 Script | ✅ |
-| **credentials-check** | Lun 09:00 hebdo | 🔧 Script | ✅ (1er run jamais fait) |
+| **credentials-check** | Lun 09:00 hebdo | 🔧 Script | ✅ |
 | **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
 | **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
 | **dashboard-leo** | H:10 chaque heure | 🔧 Script | ✅ |
@@ -145,10 +145,10 @@ fallback_providers:
 | **t600-drive-sync** | H:36 chaque heure | 🔧 Script | ✅ |
 | **bavi-leo-dashboard** | Every 60m | 🔧 Script | ✅ |
 | **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
-| **dashboard-n8n** | */15 min | 🔧 Script no_agent | ✅ Nouveau |
-| **gmail-classifier** | */15 min | 🔧 Script | ⏸️ Remplacé par n8n |
+| **dashboard-n8n** | */15 min | 🔧 Script no_agent | ✅ |
 | **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
-| **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ Nouveau |
+| **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ |
+| **doc-watch** | 0 */6 * * * | 🤖 Agent | ✅ **Nouveau** |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
 <!-- AUTO:END crons -->
@@ -159,9 +159,10 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | Système | Description |
 |---------|-------------|
 | **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
-| **Gmail Classifier v4** | Workflow n8n avec Ollama (qwen2.5:7b) — classification sémantique + mapping expéditeur. Un seul run automatique. |
-| **Labels** | 📁Admin 📁Finances 📁IA&Tech 📁Astro 📁Voyages 📁Famille 📁Achats 📁Maison ⭐VIP |
+| **Gmail Classifier v5** | Workflow n8n avec Ollama (qwen2.5:7b) — **mapping expéditeur** : 1 appel IA par nouvel expéditeur, puis mapping direct. 19 entrées en base. |
+| **Labels** | 📁Admin(1) 📁Finances(2) 📁IA(3) 📁Voyages(4) 📁Famille(5) 📁Achats(6) 📁Maison(7) ⭐VIP(8) |
 | **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
+| **Mapping** | 19 entrées — auto-apprenant, zéro coût après premier run |
 <!-- AUTO:END gmail -->
 
 ## 🔌 Plateformes connectées
@@ -177,14 +178,13 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 <!-- AUTO:START dashboards -->
 | Dashboard | URL |
 |-----------|-----|
-| **Hub Monitoring** | [localhost:8080](http://localhost:8080) |
 | **LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
 | **Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
 | **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
 | **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
 | **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
-| **n8n** | [http://100.92.102.28:5678](http://100.92.102.28:5678) (interface Web) |
-| **n8n Ping** | `GET /webhook/ping → {"response":"pong"}` (healthcheck) |
+| **n8n** | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) |
+| **Backup** | [leo-backup-dashboard](https://christophedanhier-hash.github.io/leo-backup-dashboard/) |
 <!-- AUTO:END dashboards -->
 
 ## 💰 Budget DeepSeek

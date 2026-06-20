@@ -108,10 +108,10 @@ volumes:
 **Réponse :** `{"response":"pong"}`  
 **Utilité :** Healthcheck — monitoring uptime n8n
 
-### 2. Gmail Classifier v4 — `Zj0hXh95RUa68PGK`
-**Statut :** ✅ Actif  
+### 2. Gmail Classifier v5 — `c6EAqQSyPOARTajK`
+**Statut :** ✅ Actif (remplace v4 supprimée)  
 **Déclencheur :** Toutes les 30 minutes  
-**Workflow :** 9 nœuds — classification sémantique via Ollama (qwen2.5:7b) + labelling Gmail
+**Workflow :** 8 nœuds — **mapping expéditeur** : Ollama uniquement pour les nouveaux expéditeurs
 
 <!-- AUTO:START gmail-classifier -->
 | # | Nœud | Type | Description |
@@ -120,18 +120,27 @@ volumes:
 | 2 | Gmail - Lister INBOX | `httpRequest` | `GET /gmail/v1/users/me/messages?maxResults=10&labelIds=INBOX` |
 | 3 | Extraire IDs | `code` | Parse réponse → 1 item par email |
 | 4 | Gmail - Détail email | `httpRequest` | `GET /gmail/v1/users/me/messages/{id}?format=metadata` |
-| 5 | Filtrer + Préparer prompt | `code` | Vérifie si déjà classifié (Label_1-8), prépare prompt |
-| 6 | Ollama Classifier | `httpRequest` | POST qwen2.5:7b (temp 0.1) → 1 appel par email |
-| 7 | Parser + Mapper labels | `code` | Parse réponse Ollama → associe chaque email à son label |
-| 8 | Gmail Appliquer Label | `httpRequest` | POST `modify` → ajoute label + retire INBOX (continueOnFail) |
-| 9 | Rapport final | `code` | Résumé classements effectués |
+| 5 | Filtrer déjà classifiés | `code` | Garde seulement les emails sans Label_1-8 |
+| 6 | Classer mapping + Ollama | `code` | Vérifie mapping → si connu : direct, si inconnu : Ollama + sauve mapping |
+| 7 | Gmail Appliquer Label | `httpRequest` | POST `modify` → ajoute label + retire INBOX (continueOnFail) |
+| 8 | Rapport final | `code` | Stats : mappés vs Ollama |
 
-**v4 vs v3 (supprimée) :**
-- ✅ Credential format corrigé (`{id, name}` au lieu de string brute ou `id: null`)
-- ✅ 10 emails/run au lieu de 5
-- ✅ 1 appel Ollama par email (plus fiable)
-- ✅ continueOnFail sur appliquage label
-- ✅ Europe/Brussels timezone
+**Évolution v4 → v5 :**
+- ✅ Mapping expéditeur : `extract_sender_email()` → clé = email complet
+- ✅ 0 appel Ollama pour expéditeurs connus
+- ✅ 19 entrées pré-remplies (Amazon, Proximus, Booking, etc.)
+- ✅ Fichier mapping : `/opt/data/gmail_sender_map.json`
+- ✅ Auto-apprenant : nouveau expéditeur → Ollama → mémorisé
+- ✅ Zéro coût après premier run
+
+**Mapping actuel (19 entrées) :**
+| Expéditeur | Catégorie |
+|:-----------|:----------|
+| `leodanhieria@gmail.com` | IA |
+| `christophe.danhier@gmail.com` | VOYAGES |
+| `no-reply@accounts.google.com` | ADMIN |
+| `drive-shares-dm-noreply@google.com` | ADMIN |
+| `orders@amazon.fr` → etc. | ACHATS..MAISON |
 <!-- AUTO:END gmail-classifier -->
 
 **Labels Gmail utilisés :**
@@ -219,7 +228,17 @@ Script : scripts/collect-n8n-status.py
 Type : no_agent
 ```
 
-Vérifie que l'API n8n répond et que les 4 workflows sont actifs.
+Vérifie que l'API n8n répond et que les 5 workflows sont actifs.
+
+### Doc Watch (Gardien documentation)
+
+```
+Cron : doc-watch (6dd20b6ac3ee)
+Schedule : 0 */6 * * *
+Type : Agent (DeepSeek Flash)
+```
+
+Capture l'état de l'écosystème toutes les 6h, compare avec le snapshot précédent, et met à jour automatiquement les wikis LEO si des changements sont détectés. Sections protégées par balises `<!-- AUTO -->`.
 
 ---
 
