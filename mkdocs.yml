@@ -69,4 +69,6 @@ nav:
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
         - Références: hermes/aller-plus-loin/references.md
+      - 🔧 Services LEO:
+        - n8n — Automatisation: hermes/services/n8n.md
       - 📋 État des lieux: hermes/etat-des-lieux.md
