@@ -238,7 +238,7 @@ Le dashboard n8n affiche :
 | **Volume perdu** | Restauration depuis le backup quotidien (`daily-backup` à 06:00) qui dump les scripts n8n + secrets |
 | **Token Gmail expiré** | Le cron `gmail-token-refresh` s'en charge automatiquement toutes les 30 min |
 | **Workflow désactivé** | Vérifier le credential Bearer Token — le script de refresh le PATCH et réactive |
-| **Reconstruction complète** | Suivre le [deployment checklist](../../skills/bavi-leo/deployment-checklist/SKILL.md) |
+| **Reconstruction complète** | Suivre le deployment checklist (skill bavi-leo/deployment-checklist) |
 
 ---
 
