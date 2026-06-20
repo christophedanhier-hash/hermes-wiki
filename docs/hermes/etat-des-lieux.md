@@ -144,8 +144,10 @@ fallback_providers:
 | **t600-drive-sync** | H:36 chaque heure | 🔧 Script | ✅ |
 | **bavi-leo-dashboard** | Every 60m | 🔧 Script | ✅ |
 | **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
+| **dashboard-n8n** | */15 min | 🔧 Script no_agent | ✅ Nouveau |
 | **gmail-classifier** | */15 min | 🔧 Script | ⏸️ Remplacé par n8n |
 | **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
+| **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ Nouveau |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
 

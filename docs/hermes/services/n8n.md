@@ -236,7 +236,9 @@ docker logs -f n8n  # suivi temps réel
 
 | Outil | Description | Fréquence |
 |-------|-------------|:---------:|
+| **📊 [Dashboard n8n](../dashboards/n8n.md)** | Page dédiée : santé, workflows, exécutions, credentials | Toutes les 15 min |
 | **`n8n-healthcheck`** (cron no_agent) | `GET /webhook/ping` → `pong` | Toutes les 15 min |
+| **`gmail-token-refresh`** (cron no_agent) | Refresh token Gmail + update credential Bearer n8n | Toutes les 30 min |
 | **Dashboard LEO** | Carte n8n : version, uptime, workflows | Chaque heure |
 | **`gmail-classifier-v2-followup`** (cron agent) | Vérifie progression classification et bascule filtre | Toutes les 30 min |
 | **Backup** | Sauvegarde volume + scripts | Quotidien 06:00 |
