@@ -156,7 +156,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | Système | Description |
 |---------|-------------|
 | **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
-| **Gmail Classifier v2** | Workflow n8n avec Ollama (qwen2.5:7b) — classification sémantique de tous les emails |
+| **Gmail Classifier v4** | Workflow n8n avec Ollama (qwen2.5:7b) — classification sémantique + mapping expéditeur. Un seul run automatique. |
 | **Labels** | 📁Admin 📁Finances 📁IA&Tech 📁Astro 📁Voyages 📁Famille 📁Achats 📁Maison ⭐VIP |
 | **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
 

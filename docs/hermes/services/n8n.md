@@ -108,22 +108,29 @@ volumes:
 **Réponse :** `{"response":"pong"}`  
 **Utilité :** Healthcheck — monitoring uptime n8n
 
-### 2. Gmail Classifier v3 — `FbrNhCwLzBDGNf6u`
+### 2. Gmail Classifier v4 — `Zj0hXh95RUa68PGK`
 **Statut :** ✅ Actif  
 **Déclencheur :** Toutes les 30 minutes  
-**Workflow :** 9 nœuds — classification sémantique via Ollama + labelling Gmail
+**Workflow :** 9 nœuds — classification sémantique via Ollama (qwen2.5:7b) + labelling Gmail
 
 | # | Nœud | Type | Description |
 |:-:|:-----|:-----|:-----------|
-| 1 | Schedule | `scheduleTrigger` | Toutes les 30 min |
-| 2 | Gmail - Lister INBOX | `httpRequest` | `GET /gmail/v1/users/me/messages?maxResults=5&labelIds=INBOX` |
-| 3 | Extraire IDs | `code` | Parse la réponse → 1 item par email |
+| 1 | Schedule | `scheduleTrigger` | Toutes les 30 min (Europe/Brussels) |
+| 2 | Gmail - Lister INBOX | `httpRequest` | `GET /gmail/v1/users/me/messages?maxResults=10&labelIds=INBOX` |
+| 3 | Extraire IDs | `code` | Parse réponse → 1 item par email |
 | 4 | Gmail - Détail email | `httpRequest` | `GET /gmail/v1/users/me/messages/{id}?format=metadata` |
-| 5 | Extraire + Filtrer + Prompt | `code` | Vérifie si déjà classifié (Label_1-8), prépare prompt Ollama |
-| 6 | Ollama Analyse | `httpRequest` | POST qwen2.5:7b → catégorise en ADMIN/FINANCES/IA/VOYAGES/FAMILLE/ACHATS/MAISON/VIP |
-| 7 | Parser + Mapper labels | `code` | Parse réponse Ollama → associe chaque email à son label Gmail |
-| 8 | Gmail Appliquer Label | `httpRequest` | POST `modify` → ajoute label + retire INBOX |
-| 9 | Rapport final | `code` | Résumé des classements effectués |
+| 5 | Filtrer + Préparer prompt | `code` | Vérifie si déjà classifié (Label_1-8), prépare prompt |
+| 6 | Ollama Classifier | `httpRequest` | POST qwen2.5:7b (temp 0.1) → 1 appel par email |
+| 7 | Parser + Mapper labels | `code` | Parse réponse Ollama → associe chaque email à son label |
+| 8 | Gmail Appliquer Label | `httpRequest` | POST `modify` → ajoute label + retire INBOX (continueOnFail) |
+| 9 | Rapport final | `code` | Résumé classements effectués |
+
+**v4 vs v3 (supprimée) :**
+- ✅ Credential format corrigé (`{id, name}` au lieu de string brute ou `id: null`)
+- ✅ 10 emails/run au lieu de 5
+- ✅ 1 appel Ollama par email (plus fiable)
+- ✅ continueOnFail sur appliquage label
+- ✅ Europe/Brussels timezone
 
 **Labels Gmail utilisés :**
 
