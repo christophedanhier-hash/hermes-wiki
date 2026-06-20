@@ -1,6 +1,6 @@
 # 📋 État des lieux — Installation Hermes de Christophe
 
-Page générée le **19/06/2026** — configuration actuelle du serveur **LEO**.
+Page générée le **20/06/2026** — configuration actuelle du serveur **LEO**.
 
 ---
 
@@ -74,13 +74,13 @@ fallback_providers:
 
 **Désactivés :** 🖱️ Computer Use (macOS — inapplicable sur Linux), 🎬 Video Analysis, 🎬 Video Generation, 🐦 X (Twitter), 🧠 MoA, 🧩 Context Engine, 🏠 Home Assistant, 🎵 Spotify, 🤖 Yuanbao
 
-## 📚 Skills installées (103)
+## 📚 Skills installées (105)
 
 ### Autonomous AI Agents
 - `claude-code`, `codex`, `hermes-agent`, `hermes-gateway`, `hermes-profiles-gateways`, `hermes-workspace`, `opencode`
 
 ### BAVI LEO
-- `assurance-obligatoire`, `bavi-leo-governance`, `bureau-gerard`, `bureau-robert`, `bureau-sophie`, `bureau-sylvie`
+- `assurance-obligatoire`, `bavi-leo-governance`, `bureau-gerard`, `bureau-michel`, `bureau-robert`, `bureau-sophie`, `bureau-sylvie`, `bureau-versioning`
 
 ### Creative
 - `architecture-diagram`, `ascii-art`, `ascii-video`, `baoyu-infographic`, `claude-design`, `comfyui`, `design-md`, `excalidraw`, `humanizer`, `manim-video`, `p5js`, `popular-web-designs`, `pretext`, `sketch`, `songwriting-and-ai-music`, `touchdesigner-mcp`
@@ -186,6 +186,20 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | **n8n** | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) |
 | **Backup** | [leo-backup-dashboard](https://christophedanhier-hash.github.io/leo-backup-dashboard/) |
 <!-- AUTO:END dashboards -->
+
+## 🧠 BAVI Knowledge Hub — Agent Pro
+
+Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agent Pro](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/)
+
+| Métrique | Valeur |
+|:---------|:-------|
+| **Bureaux actifs** | 5 (Gérard, Robert, Sophie, Michel, Sylvie) |
+| **Analyses totales** | 5 (3 Gérard T600 + 2 Michel n8n) |
+| **Versioning** | ✅ v1 → vN (frontmatter + section Versions) |
+| **Template** | `analyse-template.md` avec `version:` + statut |
+| **Index auto** | `agent-pro-index.py` (sync docs + génération tables) |
+| **Guide** | [📖 Guide utilisation](https://christophedanhier-hash.github.io/BAVI_LEO/guide-utilisation/) |
+| **Skill** | `bureau-versioning` — workflow itération analyses |
 
 ## 💰 Budget DeepSeek
 
