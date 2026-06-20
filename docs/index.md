@@ -188,6 +188,13 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">bavi-leo-dashboard</div>
 </a>
 
+<a href="https://christophedanhier-hash.github.io/hermes-wiki/hermes/dashboards/n8n/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🔧</div>
+    <div class="title">n8n</div>
+    <div class="desc">Santé workflows n8n, exécutions, credentials Gmail, statut temps réel</div>
+    <div class="url">dashboard n8n</div>
+</a>
+
 </div>
 
 ---
