@@ -16,16 +16,13 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-LEO a **7 dashboards** en production, tous rafraîchis automatiquement :
+LEO a **5 dashboards** en production, tous rafraîchis toutes les heures :
 
 | Dashboard | Contenu | URL | Cron |
 |-----------|---------|-----|------|
 | **Hermes KPI** | Budget DeepSeek, sessions, coûts | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) | H:10 |
 | **3 Machines** | CPU, RAM, disque LEO/Yoga/Penguin | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) | H:15 |
 | **Crons LEO** | État de tous les crons, historique 7j | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | H:20 |
-| **BAVI LEO** | KPIs bureaux, sessions, messages | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) | H:60 |
-| **GitHub Activity** | Commits, PRs, repos actifs | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) | H:25 |
-| **n8n** | Santé workflows, exécutions, credentials | [dashboard n8n](../dashboards/n8n.md) | */15 min |
 | **Backup** | Dernier backup, fichiers préservés | Google Drive | 06:00 |
 | **Drive Sync** | Dernière sync Drive ↔ GitHub bidirectionnelle | GitHub | 18:00 |
 
