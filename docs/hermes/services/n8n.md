@@ -113,6 +113,7 @@ volumes:
 **Déclencheur :** Toutes les 30 minutes  
 **Workflow :** 9 nœuds — classification sémantique via Ollama (qwen2.5:7b) + labelling Gmail
 
+<!-- AUTO:START gmail-classifier -->
 | # | Nœud | Type | Description |
 |:-:|:-----|:-----|:-----------|
 | 1 | Schedule | `scheduleTrigger` | Toutes les 30 min (Europe/Brussels) |
@@ -131,6 +132,7 @@ volumes:
 - ✅ 1 appel Ollama par email (plus fiable)
 - ✅ continueOnFail sur appliquage label
 - ✅ Europe/Brussels timezone
+<!-- AUTO:END gmail-classifier -->
 
 **Labels Gmail utilisés :**
 

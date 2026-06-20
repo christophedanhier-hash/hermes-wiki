@@ -124,9 +124,10 @@ fallback_providers:
 ### Software Development
 - `bureau-gerard` (ancien, doublon BAVI), `hermes-agent-skill-authoring`, `node-inspect-debugger`, `plan`, `python-debugpy`, `requesting-code-review`, `simplify-code`, `spike`, `systematic-debugging`, `test-driven-development`
 
-## ⏰ Crons programmés (17 → 18)
+## ⏱️ Crons LEO
 
-| Cron | Horaire | Type | Statut |
+<!-- AUTO:START crons -->
+| Cron | Schedule | Type | Statut |
 |------|---------|------|:------:|
 | **daily-backup** | 06:00 quotidien | 🔧 Script | ✅ |
 | **docs-update** | 08:00 quotidien | 🧠 Ollama | ✅ |
@@ -150,15 +151,18 @@ fallback_providers:
 | **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ Nouveau |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
+<!-- AUTO:END crons -->
 
 ## 📧 Gestion email
 
+<!-- AUTO:START gmail -->
 | Système | Description |
 |---------|-------------|
 | **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
 | **Gmail Classifier v4** | Workflow n8n avec Ollama (qwen2.5:7b) — classification sémantique + mapping expéditeur. Un seul run automatique. |
 | **Labels** | 📁Admin 📁Finances 📁IA&Tech 📁Astro 📁Voyages 📁Famille 📁Achats 📁Maison ⭐VIP |
 | **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
+<!-- AUTO:END gmail -->
 
 ## 🔌 Plateformes connectées
 
@@ -170,6 +174,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 
 ## 📊 Dashboards
 
+<!-- AUTO:START dashboards -->
 | Dashboard | URL |
 |-----------|-----|
 | **Hub Monitoring** | [localhost:8080](http://localhost:8080) |
@@ -180,6 +185,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
 | **n8n** | [http://100.92.102.28:5678](http://100.92.102.28:5678) (interface Web) |
 | **n8n Ping** | `GET /webhook/ping → {"response":"pong"}` (healthcheck) |
+<!-- AUTO:END dashboards -->
 
 ## 💰 Budget DeepSeek
 
