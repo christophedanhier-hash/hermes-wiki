@@ -2,266 +2,238 @@
 
 ## 🌐 Pourquoi n8n
 
-**Problème :** Le classifieur Gmail initial fonctionnait par règles regex — fragile, maintenance lourde, pas de classification sémantique. Les automations (veille IA, emails, webhooks) étaient éparpillées entre crons Hermes et scripts manuels.
+**Problème :** Les workflows métier (classement emails, veille IA, rapports hebdo) étaient éparpillés entre crons Hermes, scripts Python, et tâches manuelles. Fragile, maintenance lourde, pas de supervision centralisée.
 
-**Solution :** [n8n](https://n8n.io) (Fair-code) — orchestrateur visuel de workflows, auto-hébergé sur LEO :
-- ✅ **Classification sémantique** via Ollama (qwen2.5:7b) — labels Gmail intelligents
-- ✅ **Pas de dépendance cloud** — tout tourne localement
-- ✅ **Webhooks** — endpoints déclenchables par Hermes ou des services externes
-- ✅ **UI visuelle** — création et debugging de pipelines sans code
+**Solution :** [n8n](https://n8n.io) (Fair-code, v2.26.8) — orchestrateur visuel de workflows auto-hébergé sur LEO :
 
-n8n est **complémentaire** à Hermes :
-- **Hermes** = raisonnement, dispatch, décision
-- **n8n** = pipelines automatisés, intégrations API, transformations data
+- ✅ **Orchestration visuelle** — workflows auditables et modifiables sans code
+- ✅ **Pas de dépendance cloud** — tout tourne localement (Docker, `--network host`)
+- ✅ **API REST** — 100% automatisable (création, activation, monitoring)
+- ✅ **Credentials Gmail via Bearer token** — compatible CE (googleOAuth2Api bloqué par API REST)
+- ✅ **Ollama intégré** — analyse IA locale via qwen2.5:7b
 
 ---
 
 ## 🏗️ Architecture
 
 ```mermaid
-flowchart LR
-    subgraph LEO["Serveur LEO — 100.92.102.28"]
-        n8n["n8n<br/>Docker<br/>:5678"]
-        Ollama["Ollama<br/>qwen2.5:7b<br/>:11434"]
-        Hermes["Hermes Agent<br/>Docker"]
+graph TB
+    subgraph "📦 Docker LEO (100.92.102.28)"
+        N8N["🔧 n8n<br/>v2.26.8<br/>:5678"]
+        OLLAMA["🦙 Ollama<br/>qwen2.5:7b<br/>:11434"]
     end
 
-    Gmail["☁️ Gmail API"]
-    Telegram["📱 Telegram"]
-    Dashboards["📊 GitHub Pages"]
+    subgraph "🤖 Agent Hermes"
+        CRON["⏰ Cron gmail-token-refresh<br/>Toutes les 30min"]
+        DASH["📊 Dashboard n8n<br/>Toutes les 15min"]
+        SCRIPT["🐍 refresh_gmail_token_n8n.py"]
+    end
 
-    n8n -->|"HTTP Request /api/generate"| Ollama
-    n8n -->|"Gmail API<br/>labels, search, modify"| Gmail
-    Hermes -->|"webhook POST"| n8n
-    n8n -->|"webhook response"| Hermes
-    n8n -->|"healthcheck GET"| Hermes
-    n8n -->|"workflow results"| Dashboards
+    subgraph "🔌 Services Externes"
+        GMAIL["📧 Gmail API<br/>googleapis.com"]
+        RSS["📰 Flux RSS<br/>11 sources IA"]
+        GH["🐙 GitHub API"]
+    end
 
-    style n8n fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Ollama fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Hermes fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Gmail fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style Telegram fill:#e8eaf6,stroke:#283593,stroke-width:2px
-    style Dashboards fill:#fce4ec,stroke:#c62828,stroke-width:2px
-    linkStyle default stroke-width:2px,fill:none
+    N8N -->|HTTP POST| OLLAMA
+    N8N -->|HTTP Bearer| GMAIL
+    N8N -->|HTTP GET| RSS
+    CRON -->|exécute| SCRIPT
+    SCRIPT -->|PATCH credential| N8N
+    SCRIPT -->|refresh OAuth| GMAIL
+    DASH -->|API n8n| N8N
+    DASH -->|push HTML| GH
 ```
-
-### Composants
-
-| Service | Technologie | Port | Accès |
-|---------|------------|:----:|-------|
-| **n8n** | Docker (n8nio/n8n:latest) | `5678` | `http://100.92.102.28:5678` |
-| **Base de données** | SQLite (intégrée Docker) | — | Volume `n8n_data` |
-| **Modèle LLM** | Ollama qwen2.5:7b (4.7 GB) | `11434` | HTTP via n8n |
-| **Réseau** | `network_mode: host` | — | Accès direct à tous les services |
 
 ---
 
-## ⚙️ Installation
+## 🔌 Installation & Déploiement
 
-### Docker
+### Docker Compose (`/opt/data/n8n/docker-compose.yml`)
 
-```bash
-docker run -d \
-  --name n8n \
-  --network host \
-  -e N8N_SECURE_COOKIE=false \
-  -e WEBHOOK_URL=http://100.92.102.28:5678/ \
-  -e N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN=true \
-  -e EXECUTIONS_DATA_PRUNE=true \
-  -e EXECUTIONS_DATA_MAX_AGE=168 \
-  -v n8n_data:/home/node/.n8n \
-  --restart unless-stopped \
-  n8nio/n8n:latest
+```yaml
+services:
+  n8n:
+    image: docker.n8n.io/n8nio/n8n:latest
+    container_name: n8n
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - N8N_SECURE_COOKIE=false
+      - N8N_HOST=100.92.102.28
+      - N8N_PROTOCOL=http
+      - N8N_PORT=5678
+      - N8N_LISTEN_ADDRESS=0.0.0.0
+      - WEBHOOK_URL=http://100.92.102.28:5678/
+      - N8N_RUNNERS_ENABLED=true
+      - GENERIC_TIMEZONE=Europe/Paris
+    volumes:
+      - n8n_data:/home/node/.n8n
+volumes:
+  n8n_data:
 ```
 
-### Variables d'environnement
+### Accès
 
-| Variable | Valeur | Raison |
-|----------|--------|--------|
-| `N8N_SECURE_COOKIE` | `false` | Contexte réseau local uniquement |
-| `WEBHOOK_URL` | `http://100.92.102.28:5678/` | URL publique des webhooks |
-| `N8N_SKIP_WEBHOOK_DEREGISTRATION_SHUTDOWN` | `true` | Évite timeout à l'arrêt |
-| `EXECUTIONS_DATA_PRUNE` | `true` | Auto-nettoyage historique |
-| `EXECUTIONS_DATA_MAX_AGE` | `168` | Rétention 7 jours (heures) |
+| Info | Valeur |
+|:-----|:-------|
+| URL | http://100.92.102.28:5678 |
+| Email | leodanhier@proton.me |
+| Version | 2.26.8 |
+| Propriétaire | `ea1ce0e6-f282-428a-86d6-9ab5e30b0374` |
+| Projet | `opCrVdtfvJhGWzK7` |
+| API Key *(optionnelle)* | Définie dans `.env` (scopes: create, read, update, list) |
 
 ---
 
-## 🔐 Credentials
+## 📋 Credentials
 
-### n8n (créés dans l'interface)
+| Nom | Type | ID | Usage |
+|:----|:----|:---|:------|
+| **Gmail LEO Bearer Token** | `httpBearerAuth` | `IYACYoqL5skamxym` *(stable)* | Tous les appels Gmail API |
+| **Ollama LEO** | `ollamaApi` | `L23MxlJFmeINg1Cz` | Analyse IA locale |
+| **Hermes Agent - Ollama LEO** | `ollamaApi` | `VOmM3VrDS93897R4` | Réservé Hermes |
+| Gmail LEO | `googleOAuth2Api` | `ayWDZcN46YpzB3CG` | Inutilisable via API REST CE |
+| Gmail OAuth2 Generic | `oAuth2Api` | `aw266MRMsTtTTA3P` | Legacy |
 
-| Credential | Type | Usage |
-|-----------|------|-------|
-| **Ollama — LEO** | HTTP Request | Workflows Hermes |
-| **Ollama — Utilisateur** | HTTP Request | Workflows manuels |
-| **Gmail OAuth LEO** | OAuth2 | Classification emails |
-| **Hermes Agent** | API Key Hermes | Automation workflows |
-
-> ⚠️ Credentials stockés dans n8n (chiffrés). Le mot de passe admin et l'API key Hermes sont dans `BAVI/AGENT-PRO/bureau-michel/n8n/secrets.txt` (local uniquement — pas dans git).
-
----
-
-## 📋 Catalogue des Workflows
-
-### 🔵 `LEO Ping` — Webhook de santé
-
-| Propriété | Valeur |
-|-----------|--------|
-| **ID** | `JQ3C2RKBJJX6Zz1f` |
-| **Déclencheur** | Webhook GET |
-| **Endpoint** | `http://100.92.102.28:5678/webhook/ping` |
-| **Réponse** | `{"response": "pong"}` HTTP 200 |
-| **Statut** | ✅ Actif |
-| **Usage** | Healthcheck — appelé par le cron `n8n-healthcheck` toutes les 15min |
-
-**Architecture :**
-```mermaid
-flowchart LR
-    Webhook["Webhook node<br/>GET /ping"] --> Response["Set node<br/>response = pong"]
-
-    style Webhook fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Response fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-```
-
-**Note technique :** utilise `typeVersion: 2` avec `responseMode: "lastNode"` — pas besoin de nœud "Respond to Webhook".
+> **⚠️ Gmail Bearer Token** : Le credential `httpBearerAuth` est **PATCHé** toutes les 30 min (pas recréé). L'ID reste stable. Le script de refresh est dans `/opt/data/scripts/refresh_gmail_token_n8n.py`.
 
 ---
 
-### 🟢 `Gmail Classifier v2 — LLM` — Classification sémantique
+## ⚡ Workflows Actifs
 
-| Propriété | Valeur |
-|-----------|--------|
-| **Déclencheur** | Cron — toutes les 15 min |
-| **Filtre** | `in:all` (catch-up) → `newer_than:7d` (incrémental) |
-| **Modèle** | Ollama qwen2.5:7b via HTTP Request |
-| **Batch** | 10 emails par appel API |
-| **Limite** | 500 emails par run |
-| **Statut** | ✅ Actif |
+### 1. LEO Ping — `MwT0XLeN6hFjzkxS`
+**Statut :** ✅ Actif  
+**Déclencheur :** Webhook GET `/webhook/ping`  
+**Réponse :** `{"response":"pong"}`  
+**Utilité :** Healthcheck — monitoring uptime n8n
 
-**Architecture :**
-```mermaid
-flowchart LR
-    Cron["Cron */15<br/>Trigger"] --> Search["Gmail Search<br/>in:all batch:10"]
-    Search --> Check{"📧 restants > 0<br/>?"}
-    Check -->|Oui| Process["HTTP Request →<br/>Ollama /api/generate"]
-    Check -->|Non| Done["✅ Done —<br/>switch filter"]
-    Process --> Apply["Gmail Modify<br/>apply labels"]
-    Apply --> Search
+### 2. Gmail Classifier v2 — `KkVjbW7HwQbUWidi`
+**Statut :** ✅ Actif  
+**Déclencheur :** Toutes les 30 minutes  
+**Workflow :** 6 nœuds
 
-    style Cron fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    style Search fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Check fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style Process fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Apply fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-    style Done fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
-```
+| # | Nœud | Type | Description |
+|:-:|:-----|:-----|:-----------|
+| 1 | Schedule | `scheduleTrigger` | Toutes les 30 min |
+| 2 | Gmail - Lister INBOX | `httpRequest` | `GET /gmail/v1/users/me/messages?maxResults=5&labelIds=INBOX` |
+| 3 | Extraire IDs | `code` | Parse la réponse → 1 item par email |
+| 4 | Gmail - Détail email | `httpRequest` | `GET /gmail/v1/users/me/messages/{id}?format=metadata` |
+| 5 | Transformer résultats | `code` | Extrait sujet, from, date, snippet |
+| 6 | Résumé | `code` | Compte et résume les emails classés |
 
-**Prompt utilisé pour la classification :**
+### 3. Veille IA - n8n — `Qvm3agl0odLJnLm3`
+**Statut :** ✅ Actif  
+**Déclencheur :** Quotidien à 08:00  
+**Workflow :** 7 nœuds
 
-```
-Tu es un assistant qui classe les emails Gmail. Analyse le sujet et le corps du message ci-dessous.
+| # | Nœud | Type | Description |
+|:-:|:-----|:-----|:-----------|
+| 1 | Schedule | `scheduleTrigger` | 0 8 * * * |
+| 2 | Sources RSS | `code` | 5 sources : HN, AI News, ScienceDaily, Google AI, NYT Tech |
+| 3 | Fetch RSS | `httpRequest` | GET sur chaque flux |
+| 4 | Parser RSS | `code` | Regex XML → title, link, description, source |
+| 5 | Formater pour Résumé | `code` | Compile les 20 articles en 1 prompt |
+| 6 | Ollama Résumé | `httpRequest` | POST `qwen2.5:7b` → résumé 4-5 phrases |
+| 7 | Résultat Final | `code` | Date, résumé, status |
 
-Labels disponibles :
-- Admin — Administration, courrier officiel, assurances, mutuelle
-- Finances — Banque, placements, factures, impôts, comptabilité
-- IA&Tech — Intelligence artificielle, technologie, informatique
-- Voyages — Réservations, itinéraires, campings
-- Famille — Communications personnelles, famille, amis
-- Achats — Achats en ligne, colis, livraisons
-- Maison — Travaux, immobilier, énergie, jardin
-- VIP — Expéditeurs importants (chef, direction)
+### 4. LEO Dev Log — `sAU24vPIqRsdPLPB`
+**Statut :** ✅ Actif  
+**Déclencheur :** Tous les lundis à 09:00  
+**Workflow :** 1 nœud Code + résult  
 
-Réponds UNIQUEMENT par le nom du label, rien d'autre.
-```
-
-**Labels Gmail gérés :**
-
-| Label | Couleur | Type |
-|-------|:-------:|:----:|
-| 📁 **Admin** | Bleu | Système |
-| 📁 **Finances** | Vert | Système |
-| 📁 **IA&Tech** | Violet | Système |
-| 📁 **Voyages** | Orange | Système |
-| 📁 **Famille** | Jaune | Système |
-| 📁 **Achats** | Rouge | Système |
-| 📁 **Maison** | Cyan | Système |
-| ⭐ **VIP** | Jaune vif | Spécial |
-
----
-
-### 🧩 Workflows à venir
-
-| Workflow | Priorité | Statut |
-|----------|:--------:|:------:|
-| **Veille IA → Email** | Haute | 📋 Planifié |
-| **Sync Dashboards** | Basse | 📋 Planifié |
-| **Auto-réponse Gmail (VIP)** | Basse | 📋 Idée |
+| # | Nœud | Type | Description |
+|:-:|:-----|:-----|:-----------|
+| 1 | Schedule | `scheduleTrigger` | 0 9 * * 1 |
+| 2 | Rapport Dev Hebdo | `code` | Génère rapport avec date + résumé |
 
 ---
 
 ## 🔄 Maintenance
 
-### Mise à jour
+### Refresh Token Gmail (Automatique)
 
-```bash
-docker pull n8nio/n8n:latest
-docker stop n8n
-docker rm n8n
-# relancer avec la commande d'installation ci-dessus
+Le token Gmail OAuth expire toutes les 1h. Un cron Hermes le rafraîchit toutes les 30 min :
+
+```
+Cron : gmail-token-refresh (e9540f01db57)
+Schedule : */30 * * * *
+Script : scripts/refresh_gmail_token_n8n.py
+Type : no_agent
 ```
 
-### Backup
+**Ce que fait le script :**
+1. Refresh Gmail OAuth → nouveau `access_token`
+2. Login n8n
+3. **PATCH** le credential `Gmail LEO Bearer Token` (ID `IYACYoqL5skamxym` stable)
+4. Trouve dynamiquement les workflows par nom (Gmail, Veille, Dev Log)
+5. **PATCH** la référence `httpBearerAuth` dans chaque nœud HTTP si changé
+6. Réactive le workflow si nécessaire
 
-Les données n8n sont sauvegardées quotidiennement à **06:00** par `leo-backup.py` :
+> **⚠️ Règle critique :** Le script ne **SUPPRIME JAMAIS** les workflows. Il PATCH le credential existant et les nœuds. Cette règle a été instaurée après une régression le 20/06/2026 où l'ancien script (DELETE+RECREATE + IDs hardcodés) a perdu les 3 workflows.
 
-| Élément | Méthode |
-|---------|---------|
-| **Workflows (scénarios export)** | Script dédié |
-| **Credentials (API key, secrets)** | Fichier texte (hors git) |
-| **Volume Docker** | `docker run --rm -v n8n_data:/data ... tar czf` |
+### Dashboard n8n (Automatique)
 
-Procédure de restauration complète dans [Backup & Recovery](../utilisation/backup-recovery.md).
-
-### Logs
-
-```bash
-docker logs n8n
-docker logs -f n8n  # suivi temps réel
 ```
+Cron : dashboard-n8n (2a0806224c6b)
+Schedule : */15 * * * *
+Script : scripts/run-n8n-dashboard.sh
+Type : no_agent
+```
+
+Collecte les données via API n8n → génère `index.html` (style crons-dashboard) → push vers GitHub Pages.
+
+Disponible : [Dashboard n8n LEO](https://christophedanhier-hash.github.io/dashboard-n8n/)
+
+### Healthcheck
+
+```
+Cron : n8n-healthcheck (17f34eb1ce9c)
+Schedule : */15 * * * *
+Script : scripts/collect-n8n-status.py
+Type : no_agent
+```
+
+Vérifie que l'API n8n répond et que les 4 workflows sont actifs.
 
 ---
 
 ## 📊 Monitoring
 
-| Outil | Description | Fréquence |
-|-------|-------------|:---------:|
-| **📊 [Dashboard n8n](../dashboards/n8n.md)** | Page dédiée : santé, workflows, exécutions, credentials | Toutes les 15 min |
-| **`n8n-healthcheck`** (cron no_agent) | `GET /webhook/ping` → `pong` | Toutes les 15 min |
-| **`gmail-token-refresh`** (cron no_agent) | Refresh token Gmail + update credential Bearer n8n | Toutes les 30 min |
-| **Dashboard LEO** | Carte n8n : version, uptime, workflows | Chaque heure |
-| **`gmail-classifier-v2-followup`** (cron agent) | Vérifie progression classification et bascule filtre | Toutes les 30 min |
-| **Backup** | Sauvegarde volume + scripts | Quotidien 06:00 |
+| Dashboard | URL | Mise à jour |
+|:----------|:----|:-----------|
+| 🔧 n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) | Toutes les 15 min |
+| ⏱️ Crons LEO | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | Toutes les 4h |
+
+Le dashboard n8n affiche :
+- 🎴 4 stats cards (Workflows, Actifs, Exécutions, Credentials)
+- 📈 Bar chart exécutions / 7 jours (Chart.js)
+- ⚡ Cartes workflows (statut, dernier run, durée, badges)
+- 🔑 Credentials (types, IDs)
+- 📅 Heatmap 7 jours (✅/❌ par workflow)
 
 ---
 
-## 🚨 PRA
+## 🛡️ Plan de Reprise d'Activité (PRA)
 
-En cas de perte du serveur LEO :
-
-1. **Restaurer le volume Docker** `n8n_data` depuis la dernière sauvegarde
-2. **Relancer** le conteneur avec la commande d'installation
-3. **Re-créer les credentials** OAuth si le chiffrement a changé
-4. **Vérifier** le webhook ping
-5. **Activer** le cron `gmail-classifier` (regex) en fallback si Ollama pas encore restauré
+| Scénario | Procédure |
+|:---------|:----------|
+| **n8n planté** | `docker restart n8n` — les données sont persistées dans le volume `n8n_data` |
+| **Volume perdu** | Restauration depuis le backup quotidien (`daily-backup` à 06:00) qui dump les scripts n8n + secrets |
+| **Token Gmail expiré** | Le cron `gmail-token-refresh` s'en charge automatiquement toutes les 30 min |
+| **Workflow désactivé** | Vérifier le credential Bearer Token — le script de refresh le PATCH et réactive |
+| **Reconstruction complète** | Suivre le [deployment checklist](../../skills/bavi-leo/deployment-checklist/SKILL.md) |
 
 ---
 
-## 🔗 Références
+## 🧠 Leçons apprises
 
-- [Interface n8n](http://100.92.102.28:5678) (réseau local uniquement)
-- [Webhook santé](http://100.92.102.28:5678/webhook/ping)
-- [Documentation n8n](https://docs.n8n.io)
-- [Dashboard LEO](https://christophedanhier-hash.github.io/dashboard-leo/)
-- [État des lieux Hermes](../etat-des-lieux.md)
-- [Backup & Recovery](../utilisation/backup-recovery.md)
+1. **Jamais DELETE+RECREATE les workflows** (API n8n CE ne supporte pas le PATCH `active: true` sur archive). Toujours PATCH le credential directement.
+2. **IDs stables pour credentials** — le credential Bearer doit être PATCHé (pas recréé) pour garder le même ID. Sinon les références dans les nœuds HTTP cassent.
+3. **Workflows trouvés par nom** — ne jamais hardcoder les IDs. Le script de refresh les trouve dynamiquement avec `find_target_workflows()`.
+4. **googleOAuth2Api bloqué en CE** — n8n Community Edition ne peut pas créer/modifier ce type de credential via l'API REST. Solution : httpBearerAuth.
+5. **Rate limiting API n8n** — attendre 2s entre chaque appel API.
+
+---
+
+*Documentation générée par LEO 🦁 · Dernière mise à jour : 2026-06-20*
