@@ -114,26 +114,13 @@ volumes:
 **Workflow :** 8 nœuds — **mapping expéditeur** : Ollama uniquement pour les nouveaux expéditeurs
 
 <!-- AUTO:START gmail-classifier -->
-| # | Nœud | Type | Description |
-|:-:|:-----|:-----|:-----------|
-| 1 | Schedule | `scheduleTrigger` | Toutes les 30 min (Europe/Brussels) |
-| 2 | Gmail - Lister INBOX | `httpRequest` | `GET /gmail/v1/users/me/messages?maxResults=10&labelIds=INBOX` |
-| 3 | Extraire IDs | `code` | Parse réponse → 1 item par email |
-| 4 | Gmail - Détail email | `httpRequest` | `GET /gmail/v1/users/me/messages/{id}?format=metadata` |
-| 5 | Filtrer déjà classifiés | `code` | Garde seulement les emails sans Label_1-8 |
-| 6 | Classer mapping + Ollama | `code` | Vérifie mapping → si connu : direct, si inconnu : Ollama + sauve mapping |
-| 7 | Gmail Appliquer Label | `httpRequest` | POST `modify` → ajoute label + retire INBOX (continueOnFail) |
-| 8 | Rapport final | `code` | Stats : mappés vs Ollama |
+> ⚠️ **Workflow supprimé** — Gmail Classifier v5 (`c6EAqQSyPOARTajK`) n'existe plus dans n8n.
+>
+> **Nouveau workflow :** `Email Classifier` (`7kb4kcfmAIsb9LaH`) — **inactif** ⏸️
+> Créé le 20/06/2026 — 8 nœuds, reprend la même logique de classification Gmail + mapping Ollama.
+> Activation manuelle requise.
 
-**Évolution v4 → v5 :**
-- ✅ Mapping expéditeur : `extract_sender_email()` → clé = email complet
-- ✅ 0 appel Ollama pour expéditeurs connus
-- ✅ 19 entrées pré-remplies (Amazon, Proximus, Booking, etc.)
-- ✅ Fichier mapping : `/opt/data/gmail_sender_map.json`
-- ✅ Auto-apprenant : nouveau expéditeur → Ollama → mémorisé
-- ✅ Zéro coût après premier run
-
-**Mapping actuel (19 entrées) :**
+**Mapping expéditeur (14 entrées) :**
 | Expéditeur | Catégorie |
 |:-----------|:----------|
 | `leodanhieria@gmail.com` | IA |
