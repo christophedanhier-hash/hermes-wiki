@@ -197,6 +197,7 @@ Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agen
 | **Analyses totales** | 5 (3 Gérard T600 + 2 Michel n8n) |
 | **Versioning** | ✅ v1 → vN (frontmatter + section Versions) |
 | **Template** | `analyse-template.md` avec `version:` + statut |
+| **Architecture** | Source unique `hermes-christophe/BAVI/` ↔ Drive (cron 18h) — plus de triplication |
 | **Index auto** | `agent-pro-index.py` (sync docs + génération tables) |
 | **Guide** | [📖 Guide utilisation](https://christophedanhier-hash.github.io/BAVI_LEO/guide-utilisation/) |
 | **Skill** | `bureau-versioning` — workflow itération analyses |
