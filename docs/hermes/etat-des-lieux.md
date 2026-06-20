@@ -147,8 +147,9 @@ fallback_providers:
 | **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
 | **dashboard-n8n** | */15 min | 🔧 Script no_agent | ✅ |
 | **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
-| **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ |
-| **doc-watch** | 0 */6 * * * | 🤖 Agent | ✅ **Nouveau** |
+|| **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ |
+|| **Classifieur emails Christophe** | Every 30m | 🧠 Ollama | ✅ **Nouveau** |
+|| **doc-watch** | 0 */6 * * * | 🤖 Agent | ✅ |
 
 Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
 <!-- AUTO:END crons -->
@@ -159,8 +160,8 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 | Système | Description |
 |---------|-------------|
 | **Veille IA** | Scan 11 sources + Le Monde IA → rapport HTML formaté → email à Christophe + John + Steve |
-| **Gmail Classifier v5** | Workflow n8n avec Ollama (qwen2.5:7b) — **mapping expéditeur** : 1 appel IA par nouvel expéditeur, puis mapping direct. 19 entrées en base. |
-| **Labels** | 📁Admin(1) 📁Finances(2) 📁IA(3) 📁Voyages(4) 📁Famille(5) 📁Achats(6) 📁Maison(7) ⭐VIP(8) |
+|| **Classifieur emails** | Script Python (`classifier_christophe.py`) + Ollama (qwen2.5:7b) — classification par IA de la boîte christophe.danhier@gmail.com. Cron Hermes toutes les 30 min. Nettoyage automatique : archive les emails lus+classifiés > 2j. |
+|| **Labels** | 📁Admin(108) 📁Finances(109) 📁IA&Tech(110) 📁Astro(111) 📁Voyages(112) 📁Famille(113) 📁Achats(114) 📁Maison(115) ⭐VIP(105) 📨Outlook(103) |
 | **Expéditeur** | leodanhieria@gmail.com uniquement, Christophe TOUJOURS en CC |
 | **Mapping** | 19 entrées — auto-apprenant, zéro coût après premier run |
 <!-- AUTO:END gmail -->

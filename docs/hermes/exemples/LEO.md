@@ -106,8 +106,8 @@ Tous les crons tournent en `no_agent` (0 token LLM) sauf `veille-ia-quotidienne`
 | **H:36** | t600-drive-sync | Sync Drive → T600 |
 | **Every 60m** | bavi-leo-dashboard | Dashboard BAVI LEO |
 | **18:00** | drive-sync | Sync bidirectionnelle Drive ↔ GitHub |
-| ***/15** | gmail-classifier | Classification emails Gmail |
-| ***/15** | n8n-healthcheck | Vérification santé n8n (no_agent) |
+|| **Every 30m** | Classifieur emails Christophe | Classification Gmail christophe.danhier@gmail.com via Ollama |
+|| ** */15** | n8n-healthcheck | Vérification santé n8n (no_agent) |
 
 ---
 
@@ -215,22 +215,22 @@ Workflow minimal de test — utilisé comme healthcheck par le monitoring (cron 
 | POST | /rest/workflows/:id/deactivate | Désactiver un workflow |
 | GET | /webhook/:path | Déclencher un workflow webhook |
 
-### Workflow Gmail Classifier v2 — LLM
+### Classifieur Gmail — Python + Ollama (cron Hermes)
 
-Classifieur intelligent des emails Gmail via Ollama (qwen2.5:7b). Remplace l'ancien cron `gmail-classifier` (règles regex, mis en pause).
+Classifieur intelligent des emails Gmail via Ollama (qwen2.5:7b). Remplace l'ancien workflow n8n (désactivé pour instabilité).
 
 | Propriété | Valeur |
 |-----------|--------|
-| **ID** | `SICASCw3sLMmLYeQ` |
-| **Fréquence** | Toutes les 15 min |
+| **Type** | Script Python + cron Hermes |
+| **Fréquence** | Toutes les 30 min |
 | **Modèle** | qwen2.5:7b via Ollama (RTX 3050, gratuit) |
-| **Filtre** | `in:all` (première passe), puis `newer_than:7d` |
-| **Labels** | 9 labels Gmail (VIP, Admin, Finances, IA-Tech, Voyages, Achats, Astro, Maison, Famille) |
-| **Credential Gmail** | `Gmail LEO` (OAuth2, googleOAuth2Api) |
+| **Cible** | christophe.danhier@gmail.com |
+| **Script** | `/opt/data/classifier_christophe.py` |
+| **Labels** | 10 labels Gmail (VIP, Admin, Finances, IA&Tech, Astro, Voyages, Achats, Maison, Famille, Outlook) |
+| **Nettoyage** | Archive automatique des emails lus+classifiés > 2 jours |
+| **Cron ID** | `067838045e05` — Classifieur emails Christophe |
 
-Architecture : Schedule → Gmail API (500 messages) → Split batches (10) → Get details → Extract headers → Ollama classify → Parse → Apply label.
-
-**Règle d'or :** Le nœud Webhook doit être en `typeVersion: 2` avec `responseMode: "lastNode"` pour fonctionner correctement via API. Le mode `responseNode` + `respondToWebhook` ne fonctionne pas bien en API — utiliser un nœud `Set` ou `Code` comme dernier nœud.
+Le script utilise l'API Gmail directe (pas de credential n8n problématique) + Ollama pour la classification. Plus fiable et plus simple que le workflow n8n abandonné.
 
 ### Maintenance
 
