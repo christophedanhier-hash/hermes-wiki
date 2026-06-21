@@ -114,20 +114,10 @@ volumes:
 **Workflow :** 8 nœuds — **mapping expéditeur** : Ollama uniquement pour les nouveaux expéditeurs
 
 <!-- AUTO:START gmail-classifier -->
-> ⚠️ **Workflow supprimé** — Gmail Classifier v5 (`c6EAqQSyPOARTajK`) n'existe plus dans n8n.
->
-> **Nouveau workflow :** `Email Classifier` (`7kb4kcfmAIsb9LaH`) — **inactif** ⏸️
-> Créé le 20/06/2026 — 8 nœuds, reprend la même logique de classification Gmail + mapping Ollama.
-> Activation manuelle requise.
-
-**Mapping expéditeur (14 entrées) :**
-| Expéditeur | Catégorie |
-|:-----------|:----------|
-| `leodanhieria@gmail.com` | IA |
-| `christophe.danhier@gmail.com` | VOYAGES |
-| `no-reply@accounts.google.com` | ADMIN |
-| `drive-shares-dm-noreply@google.com` | ADMIN |
-| `orders@amazon.fr` → etc. | ACHATS..MAISON |
+> Mise a jour : 22/06/2026 00:00
+> (N) 🛡️ Dashboard Watch v2 (avec retry + notifications)
+> (N) 💰 Budget Check (via Hermes Webhook)
+> (N) Dashboard Watch
 <!-- AUTO:END gmail-classifier -->
 
 **Labels Gmail utilisés :**
