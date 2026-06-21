@@ -73,6 +73,7 @@ nav:
       - 🔧 Services LEO:
         - n8n — Automatisation: hermes/services/n8n.md
         - 📊 Dashboard n8n: hermes/dashboards/n8n.md
+        - 🎵 Spotify: hermes/services/spotify.md
       - 📋 État des lieux: hermes/etat-des-lieux.md
 
   - 🌐 Portail LEO:

@@ -71,8 +71,9 @@ fallback_providers:
 | 👥 Task Delegation | ✅ |
 | ⏰ Cron Jobs | ✅ |
 | 📨 Cross-Platform Messaging | ✅ |
+| 🎵 Spotify | ✅ (connecté 21/06/2026 — OAuth PKCE, Pixel 8 Pro + Web Player)
 
-**Désactivés :** 🖱️ Computer Use (macOS — inapplicable sur Linux), 🎬 Video Analysis, 🎬 Video Generation, 🐦 X (Twitter), 🧠 MoA, 🧩 Context Engine, 🏠 Home Assistant, 🎵 Spotify, 🤖 Yuanbao
+**Désactivés :** 🖱️ Computer Use (macOS — inapplicable sur Linux), 🎬 Video Analysis, 🎬 Video Generation, 🐦 X (Twitter), 🧠 MoA, 🧩 Context Engine, 🏠 Home Assistant, 🤖 Yuanbao
 
 ## 📚 Skills installées (105)
 
