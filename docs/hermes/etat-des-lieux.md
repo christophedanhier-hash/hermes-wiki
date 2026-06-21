@@ -179,15 +179,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 ## 📊 Dashboards
 
 <!-- AUTO:START dashboards -->
-| Dashboard | URL |
-|-----------|-----|
-| **LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
-| **Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
-| **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
-| **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
-| **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
-| **n8n** | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) |
-| **Backup** | [leo-backup-dashboard](https://christophedanhier-hash.github.io/leo-backup-dashboard/) |
+> 📊 Dernière màj : 21/06/2026 18:15 — 0 dashboards
 <!-- AUTO:END dashboards -->
 
 ## 🧠 BAVI Knowledge Hub — Agent Pro
