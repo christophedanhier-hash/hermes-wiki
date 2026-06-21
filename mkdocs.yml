@@ -62,7 +62,8 @@ nav:
       - Utilisation:
         - Usage quotidien: hermes/utilisation/quotidien.md
         - Crons & planification: hermes/utilisation/crons.md
-        - Dashboards: hermes/utilisation/dashboards.md
+        - Dashboards & monitoring: hermes/utilisation/dashboards.md
+        - 🏛️ Architecture LEO (vue complète): hermes/utilisation/architecture-leo.md
         - 🌐 Interface Web: hermes/interface-web.md
         - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
       - 📚 Catalogue des Skills: hermes/utilisation/skills-catalogue.md
