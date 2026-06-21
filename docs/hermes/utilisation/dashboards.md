@@ -132,6 +132,18 @@ git pull origin main
 
 > 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n (juin 2026).
 
+### 🔴 Webhook budget pour n8n
+
+Si vous utilisez n8n pour remplacer un cron Hermes, n8n tourne dans Docker et n'a pas accès direct au filesystem. Créez un **webhook HTTP** sur l'hôte :
+
+```python
+# budget-webhook.py — mini serveur HTTP
+# POST /budget-update → écrit dans budget.json
+# GET  /health        → status
+```
+
+Lancé en background (`python3 scripts/budget-webhook.py &`). n8n y POSTe les données collectées.
+
 ### 🔴 Budget désynchronisé
 
 Si le budget affiché sur un dashboard ne correspond pas au `budget.json`, le cron `dashboard-watch` (voir `crons.md`) déclenche une alerte. Vérifiez que les clés lues par le script de déploiement correspondent exactement à celles du JSON :
@@ -166,4 +178,5 @@ subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
 ## Pour aller plus loin
 
 - Voir `03-utilisation/crons.md` pour le déploiement automatisé
+- Voir `03-utilisation/architecture-leo.md` pour la vue complète (schéma Mermaid, interactions, filets)
 - Voir `exemples/LEO.md` pour les dashboards en production
