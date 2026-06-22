@@ -114,12 +114,9 @@ volumes:
 **Workflow :** 8 nœuds — **mapping expéditeur** : Ollama uniquement pour les nouveaux expéditeurs
 
 <!-- AUTO:START gmail-classifier -->
-> Mise a jour : 22/06/2026 12:01
+> Mise a jour : 22/06/2026 18:01
 > (N) LEO Check
-> (N) 🛡️ Dashboard Watch v8 (Gemini)
-> (X) 🛡️ Dashboard Watch v2 (avec retry + notifications)
-> (X) 💰 Budget Check (via Hermes Webhook)
-> (X) Dashboard Watch
+> (X) LEO Check
 <!-- AUTO:END gmail-classifier -->
 
 **Labels Gmail utilisés :**
