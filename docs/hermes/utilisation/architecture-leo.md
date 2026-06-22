@@ -1,6 +1,6 @@
 # 🏛️ Architecture LEO — Dashboards, Crons & n8n
 
-> Document vivant — généré le 21/06/2026. Met à jour la vision globale de l'écosystème LEO : qui produit quoi, comment les données circulent, et quels filets de sécurité protègent l'ensemble.
+> Document vivant — généré le 22/06/2026. Met à jour la vision globale de l'écosystème LEO : qui produit quoi, comment les données circulent, et quels filets de sécurité protègent l'ensemble.
 
 ---
 
@@ -15,48 +15,50 @@ flowchart TB
         N8N_API["n8n API<br/>localhost:5678"]
     end
 
-    subgraph Collecte["⏱️ Collecte (Crons Hermes 23)"]
+    subgraph Collecte["⏱️ Collecte (Crons Hermes 25)"]
         BC["budget-check-v6<br/>H:05"]
         MK["machines-kpi<br/>H:00"]
         CD["crons-dashboard<br/>H:20"]
         GD["github-dashboard<br/>H:25"]
         ND["dashboard-n8n<br/>*/15"]
         WD["dashboard-watch<br/>30 */2h"]
-        DOC["doc-watch-auto<br/>00/06/12/18"]
+        DW["doc-watch-auto<br/>00/06/12/18"]
         BAVI["bavi-leo-dashboard<br/>H:05"]
         LD["dashboard-leo<br/>H:10"]
         MM["leo-metrics<br/>H:15"]
         NC["n8n-healthcheck<br/>*/15"]
-        VEILLE["Veille IA<br/>07:30/08:00"]
+        VEILLE["Veille IA<br/>05:30/06:00"]
         SYNC["drive-sync<br/>18:00"]
+        GLOB["🌍 Global Dashboard<br/>H:05"]
+        AH["🛡️ Auto-Heal<br/>H:45 · dashboard-watch"]
     end
 
     subgraph n8n["🤖 Workflows n8n (3)"]
         BC_N8N["💰 Budget Check<br/>H:05 · retry 3x"]
-        DW_N8N["🛡️ Dashboard Watch v2<br/>30min · retry 3x"]
+        DW_N8N["🛡️ Dashboard Watch v8<br/>1h · retry 3x"]
         PING["🟢 LEO Ping<br/>15min"]
     end
 
-    subgraph Transit["🌉 Transit & Webhooks"]
-        WH["Webhook budget<br/>port 9199"]
+    subgraph Transit["🌉 Transit"]
         BJ["budget.json<br/>/opt/data/metrics/"]
-        WD_Script["dashboard-watch.py<br/>vérification budget"]
+        WD_Script["dashboard-watch.py<br/>vérification budget<br/>+ contenu dashboards"]
     end
 
-    subgraph Dashboards["📊 GitHub Pages (6)"]
+    subgraph Dashboards["📊 GitHub Pages (7)"]
         LEO["📊 LEO KPI<br/>sessions · budget · tokens"]
         BAVI_D["🏛️ BAVI LEO<br/>KPIs BAVI · budget"]
         MACHINES["💻 Machines<br/>CPU · RAM · Disque"]
-        CRONS_D["⏱️ Crons<br/>23 crons · historique 7j"]
+        CRONS_D["⏱️ Crons<br/>25 crons · historique 7j"]
         GITHUB_D["🐙 GitHub<br/>22 repos · activité"]
         N8N_D["🔧 n8n<br/>workflows · exécutions"]
+        GLOBAL_D["🌍 Global<br/>portail agrégé"]
     end
 
     subgraph Securite["🛡️ Filets de sécurité"]
         WATCHDOG["Watchdog webhook<br/>*/5min"]
-        ALERTE["Alerte Telegram<br/>(dashboard-watch)"]
         DOC_WATCH["doc-watch-auto<br/>snapshot → commit"]
         HERMES_BACKUP["Crons Hermes<br/>backup n8n"]
+        CONTENT_CHECK["dashboard-watch<br/>vérification contenu<br/>+ auto-redeploy"]
     end
 
     subgraph Notifications["📨 Notifications"]
@@ -65,13 +67,14 @@ flowchart TB
     end
 
     %% Connexions Hermes → Dashboards
-    BC -->|"écrit"| BJ
-    LD -->|"déploie"| LEO
-    BAVI -->|"déploie"| BAVI_D
-    MM -->|"déploie"| MACHINES
-    CD -->|"déploie"| CRONS_D
-    GD -->|"déploie"| GITHUB_D
-    ND -->|"déploie"| N8N_D
+    BC -->|écrit| BJ
+    LD -->|déploie| LEO
+    BAVI -->|déploie| BAVI_D
+    MM -->|déploie| MACHINES
+    CD -->|déploie| CRONS_D
+    GD -->|déploie| GITHUB_D
+    ND -->|déploie| N8N_D
+    GLOB -->|déploie| GLOBAL_D
 
     %% Sources → Crons
     DS --> BC
@@ -82,27 +85,16 @@ flowchart TB
 
     %% n8n → Transit
     DS --> BC_N8N
-    BC_N8N -->|"POST"| WH
-    WH -->|"écrit"| BJ
-
-    DW_N8N -->|"GET (retry 3x)"| LEO
-    DW_N8N -->|"GET (retry 3x)"| BAVI_D
-    DW_N8N -->|"GET (retry 3x)"| MACHINES
-    DW_N8N -->|"GET (retry 3x)"| CRONS_D
-    DW_N8N -->|"GET (retry 3x)"| GITHUB_D
-    DW_N8N -->|"GET (retry 3x)"| N8N_D
-    DW_N8N -->|"GET /health"| WH
-    WH -->|"budget attendu"| DW_N8N
 
     %% Filets
-    WATCHDOG -->|"relance si down"| WH
-    WD -->|"vérifie + alerte"| Dashboards
-    WD -->|"vérifie budget"| BJ
-    WD -->|"🚨 si problème"| TG
-    HERMES_BACKUP -->|"backup si n8n down"| Transit
+    WATCHDOG --> BJ
+    WD -->|vérifie HTTP + contenu| Dashboards
+    WD -->|vérifie budget| BJ
+    CONTENT_CHECK -->|auto-redeploy| Dashboards
+    HERMES_BACKUP -->|backup si n8n down| Transit
 
     %% Doc
-    DOC -->|"commit auto"| DOC_WATCH
+    DW -->|commit auto| DOC_WATCH
 
     %% Veille
     VEILLE -->|"envoi"| EMAIL_COWORK
@@ -110,7 +102,7 @@ flowchart TB
 
 ---
 
-## 2. Les 6 Dashboards
+## 2. Les 7 Dashboards
 
 Chaque dashboard est un **HTML statique** hébergé sur GitHub Pages, généré par un cron Hermes (ou n8n), sans backend ni base de données.
 
@@ -119,19 +111,20 @@ Chaque dashboard est un **HTML statique** hébergé sur GitHub Pages, généré 
 | **📊 LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) | Sessions, tokens, budget DeepSeek, status n8n | `deploy_leo_dashboard.py` | H:10 | **0$** |
 | **🏛️ BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) | KPIs BAVI, budget, tokens | `deploy_bavi_leo_dashboard.py` | H:05 | **0$** |
 | **💻 Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) | CPU/RAM/Disque LEO/Yoga/Penguin | `deploy_machines.py` | H:15 | **0$** |
-| **⏱️ Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | État 23 crons, historique 7j | `deploy-crons-dashboard.py` | H:20 | **0$** |
+| **⏱️ Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | État 25 crons, historique 7j | `deploy-crons-dashboard.py` | H:20 | **0$** |
 | **🐙 GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) | Activité 22 repos Hermes vs Dev | `deploy-github-dashboard.py` | H:25 | **0$** |
 | **🔧 n8n** | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) | Workflows n8n, exécutions, credentials | `collect_n8n_dashboard.py` | */15 | **0$** |
+| **🌍 Global** | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) | Portail agrégé tous dashboards | `deploy_leo_global.py` | H:05 | **0$** |
 
-**Navigation :** chaque dashboard a une barre de navigation avec les 6 liens. Tous les scripts de déploiement partagent la même nav.
+**Navigation :** chaque dashboard a une barre de navigation avec les 7 liens.
 
 ---
 
-## 3. Les Crons Hermes (23)
+## 3. Les Crons Hermes (25)
 
-Tous en `no_agent` = **0$ de consommation LLM**.
+Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 
-### Monitoring & Budgétisation (5)
+### Monitoring & Budgétisation (7)
 
 | Cron | Horaire | Script | Rôle | Redondance |
 |------|---------|--------|------|-----------|
@@ -139,7 +132,9 @@ Tous en `no_agent` = **0$ de consommation LLM**.
 | `dashboard-leo` | **H:10** | `deploy_leo_dashboard.py` | Génère 📊 LEO KPI | — |
 | `bavi-leo-dashboard` | 60min | `deploy_bavi_leo_dashboard.py` | Génère 🏛️ BAVI LEO | — |
 | `crons-dashboard` | **H:20** | `deploy-crons-dashboard.py` | Génère ⏱️ Crons | — |
-| `dashboard-watch` | **30 */2h** | `dashboard-watch.py` | Vérifie 6 dashboards + budget → alerte TG | 🟡 n8n Dashboard Watch |
+| `dashboard-watch` | **30 */2h** | `dashboard-watch.py` | Vérifie 7 dashboards + budget + contenu → auto-redeploy | 🟡 n8n Dashboard Watch |
+| `Auto-Heal` | **H:45** | `dashboard-watch.py` | Redondance watch (no_agent) | 🟡 Même script que watch |
+| `Global Dashboard` | **H:05** | `deploy_leo_global.py` | Génère 🌍 Global Dashboard | — |
 
 ### Infra & Machines (3)
 
@@ -188,13 +183,15 @@ Tous en `no_agent` = **0$ de consommation LLM**.
 
 n8n tourne sur `100.92.102.28:5678` (même machine que Hermes). Il offre **retry natif + monitoring visuel**.
 
-| Workflow | Horaire | Étapes | Retry | Backup Hermes |
-|----------|---------|--------|-------|--------------|
-| **🟢 LEO Ping** | 15min | Ping API n8n health | — | `n8n-healthcheck` |
-| **💰 Budget Check** | **H:05** | DeepSeek API → parse → POST webhook → budget.json | **3x** | `budget-check-v6` |
-| **🛡️ Dashboard Watch v2** | **30min** | GET 6 dashboards HTTP + vérif budget via webhook | **3x** | `dashboard-watch` (2h) |
+| Workflow | Horaire | Étapes | Retry | Backup Hermes | Statut |
+|----------|---------|--------|-------|--------------|--------|
+| **🟢 LEO Ping** | 15min | Ping API n8n health | — | `n8n-healthcheck` | ✅ OK |
+| **💰 Budget Check** | **H:05** | DeepSeek API → parse → POST webhook → budget.json | **3x** | `budget-check-v6` | ⚠️ 0 nœuds, 4 erreurs |
+| **🛡️ Dashboard Watch v8** | **1h** | GET 7 dashboards HTTP + Code node jsCode (Gemini) | **3x** | `dashboard-watch` (2h) | ✅ OK |
 
 **Pattern :** n8n = exécution garantie (retry), Hermes = backup si n8n down. Double filet.
+
+> ⚠️ **Attention :** Le Budget Check n8n a 0 nœuds configurés et 4 exécutions en erreur. À investiguer.
 
 ---
 
@@ -285,11 +282,12 @@ flowchart LR
 
 | Filet | Quoi | Activation | Action si problème |
 |-------|------|-----------|-------------------|
-| **n8n Dashboard Watch** | Ping 6 dashboards + vérif budget | 30min (retry 3x) | Log dans n8n |
-| **Hermes dashboard-watch** | Idem + budget.json | 2h → Telegram si problème | **🚨 Alerte Telegram** + redéploiement auto |
-| **n8n Budget Check** | Appel DeepSeek API | H:05 (retry 3x) | Retry automatique |
-| **Hermes budget-check-v6** | Idem (backup) | H:05 | Prend le relais si n8n down |
-| **Watchdog webhook** | Vérifie port 9199 | 5min | Relance le webhook |
+| **n8n Dashboard Watch v8** | Ping 7 dashboards HTTP + Code node jsCode | 1h (retry 3x) | Log dans n8n |
+| **Hermes dashboard-watch** | Idem + budget.json + **vérification contenu** | 2h → auto-redeploy | **Redéploiement auto** + alerte |
+| **Hermes Auto-Heal** | Redondance du dashboard-watch | H:45 (no_agent) | Redéploiement auto |
+| **n8n Budget Check** | Appel DeepSeek API | H:05 (retry 3x) | **⚠️ Inactif** (0 nœuds) |
+| **Hermes budget-check-v6** | Idem (backup) | H:05 | Prend le relais |
+| **Watchdog webhook** | Vérifie port 9199 | 5min | **⚠️ Service down** (ECONNREFUSED) |
 | **doc-watch-auto** | Snapshot → compare → patch | 6h | Commit automatique |
 | **n8n healthcheck** | Ping n8n API | 15min | — |
 
@@ -297,7 +295,7 @@ flowchart LR
 
 ## 7. Barre de navigation dashboards
 
-Tous les dashboards partagent la même barre de navigation. Le dashboard actif est surligné.
+Tous les dashboards partagent la même barre de navigation (7 liens). Le dashboard actif est surligné.
 
 ```mermaid
 flowchart LR
@@ -307,7 +305,8 @@ flowchart LR
     D["⏱️ Crons"]
     E["🐙 GitHub"]
     F["🔧 n8n"]
-    A -.-> B -.-> C -.-> D -.-> E -.-> F
+    G["🌍 Global"]
+    A -.-> B -.-> C -.-> D -.-> E -.-> F -.-> G
 ```
 
 ---
@@ -342,15 +341,15 @@ flowchart TB
 
 | Métrique | Valeur |
 |----------|--------|
-| Crons Hermes | **23** (dont 22 en no_agent = 0$) |
-| Workflows n8n | **3** (2 avec retry) |
-| Dashboards | **6** (tous HTTP 200) |
-| Budget DeepSeek | **27.60$** |
-| Consommation/jour | **~2.21$** |
-| Autonomie restante | **~13 jours** |
+| Crons Hermes | **25** (dont 23 en no_agent = quasi 0$) |
+| Workflows n8n | **3** (1 inactif ⚠️) |
+| Dashboards | **7** (tous HTTP 200) |
+| Budget DeepSeek | **26.24$** |
+| Consommation/jour | **~1.88$** |
+| Autonomie restante | **~14 jours** |
 | Wiks surveillés | **5** (BAVI, Pro, OCA, Voyages, Général) |
-| Alertes configurées | **3** (TG + doc-watch + dashboard-watch) |
+| Alertes configurées | **3** (dashboard-watch + doc-watch + auto-heal) |
 
 ---
 
-> **Document maintenu par doc-watch-auto** — dernière mise à jour : 21/06/2026 22:00.
+> **Document maintenu par doc-watch-auto** — dernière mise à jour : 22/06/2026 11:30.
