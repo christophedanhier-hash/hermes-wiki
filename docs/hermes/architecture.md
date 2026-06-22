@@ -11,18 +11,19 @@
 
 ### 2. Budget API
 
-- **Balance DeepSeek actuelle** : $29.02
+- **Balance DeepSeek actuelle** : $26.79
 - **Seuil alerte** : < $30
 - **Seuil stop** : < $10
 - **Routage** : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
 
-### 3. Crons Actifs (18)
+### 3. Crons Actifs (25)
 
 | Nom | Horaire | Description |
 | --- | --- | --- |
 | daily-backup | `0 6 * * *` | Backup Drive quotidien (fichiers plats) |
 | docs-update | `0 8 * * *` | Mise à jour hebdo wiki + guide + changelog (Ollama) |
 | machines-kpi | `0 * * * *` | Métriques CPU/RAM/disque 3 machines → Sheet |
+| budget-check-v6 | `5 * * * *` | Solde DeepSeek → Sheet Budget |
 | dashboard-leo | `10 * * * *` | run-dashboard.sh |
 | leo-metrics | `15 * * * *` | Métriques machines → dashboard HTML (GH Pages) |
 | crons-dashboard | `20 * * * *` | Statut des 10 crons → dashboard HTML (GH Pages) |
@@ -31,19 +32,18 @@
 | wiki-sync | `30 * * * *` | Sync fichiers sources → Wiki MkDocs |
 | wiki-oca-sync | `35 * * * *` | Sync fichiers Cowork Drive → wiki OCA + push |
 | bavi-leo-dashboard | `every 60m` | run-bavi-leo-dashboard.sh |
-| credentials-check | `0 9 * * 1` | check-credentials.py |
-| t600-drive-sync | `36 * * * *` | run-t600-drive-sync.sh |
+| credentials-check | `0 9 * * 1` | check-credentia |
 
 ### 4. Dashboards
 
-- Crons: [https://christophedanhier-hash.github.io/crons-dashboard/](https://christophedanhier-hash.github.io/crons-dashboard/)
-- GitHub: [https://christophedanhier-hash.github.io/github-dashboard/](https://christophedanhier-hash.github.io/github-dashboard/)
-- Machines: [https://christophedanhier-hash.github.io/dashboard-leo/](https://christophedanhier-hash.github.io/dashboard-leo/)
-- Wiki: [https://christophedanhier-hash.github.io/hermes-wiki/](https://christophedanhier-hash.github.io/hermes-wiki/)
+- Crons : [https://christophedanhier-hash.github.io/crons-dashboard/](https://christophedanhier-hash.github.io/crons-dashboard/)
+- GitHub : [https://christophedanhier-hash.github.io/github-dashboard/](https://christophedanhier-hash.github.io/github-dashboard/)
+- Machines : [https://christophedanhier-hash.github.io/dashboard-leo/](https://christophedanhier-hash.github.io/dashboard-leo/)
+- Wiki : [https://christophedanhier-hash.github.io/hermes-wiki/](https://christophedanhier-hash.github.io/hermes-wiki/)
 
 ### 5. Sessions & Utilisation
 
-- **Total sessions** : 142
-- **Total messages** : 7020
+- **Total sessions** : 205
+- **Total messages** : 7894
 - **Sessions cli** : 3
-- **Sessions telegram** : 90
+- **Sessions telegram** : 94
