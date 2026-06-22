@@ -186,7 +186,7 @@ Gestion des profils Hermes.
 
 | Profil | Modèle | Usage |
 |--------|--------|-------|
-| **default** | deepseek-chat | Conversations principales, maintenance |
+| **default** | deepseek-v4-flash | Conversations principales, maintenance |
 | **bavi-leo** | deepseek-v4-flash | Bot voyages Telegram |
 
 Chaque profil a sa propre configuration : modèle, provider, skills, plugins, crons.

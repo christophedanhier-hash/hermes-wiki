@@ -89,7 +89,7 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 
 | Skill | Description | Utilisé par |
 |-------|-------------|-------------|
-| **deepseek-pro** | Bascule sur DeepSeek Pro (deepseek-chat) pour analyses complexes via delegate_task | Tous profils |
+| **deepseek-pro** | Bascule sur DeepSeek Pro (deepseek-v4-pro) pour analyses complexes via delegate_task | Tous profils |
 | **dashboard-deployment** | Déploiement dashboards HTML sur GitHub Pages avec collecte horaire 0$ | Crons LEO |
 | **dashboard-kpi** | Système dashboard KPI Hermes : SQLite → JSON → HTML (Chart.js) | Cron dashboard-leo |
 | **machine-metrics** | Dashboard 3 machines (LEO, Yoga, Penguin) : CPU/RAM/DISK | Cron leo-metrics |

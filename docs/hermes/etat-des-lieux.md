@@ -28,7 +28,7 @@ Page générée le **20/06/2026** — configuration actuelle du serveur **LEO**.
 
 | Champ | Valeur |
 |-------|--------|
-| **Modèle (default)** | `deepseek-chat` (DeepSeek Pro) |
+| **Modèle (default)** | `deepseek-v4-flash` (DeepSeek Flash) |
 | **Modèle (bavi-leo)** | `deepseek-v4-flash` |
 | **Provider** | DeepSeek (`api.deepseek.com`) |
 | **Turns max** | 60 |
@@ -39,7 +39,7 @@ Page générée le **20/06/2026** — configuration actuelle du serveur **LEO**.
 ```yaml
 fallback_providers:
   - provider: google
-    model: gemini-2.0-flash-001
+    model: gemini-2.5-flash
 ```
 
 ## 🏠 Provider local (Ollama)

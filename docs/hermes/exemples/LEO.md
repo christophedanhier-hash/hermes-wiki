@@ -63,7 +63,7 @@
 
 | Profil | Modèle | Provider | Gateway | Usage |
 |--------|--------|----------|---------|-------|
-| **default** | `deepseek-chat` | DeepSeek | Telegram LEO | Conversations, analyses, maintenance |
+| **default** | `deepseek-v4-flash` | DeepSeek | Telegram LEO | Conversations, analyses, maintenance |
 | **bavi-leo** | `deepseek-v4-flash` | DeepSeek | Telegram bot voyages | Bot voyages partagé (@bavi_leo_voyages_bot) |
 
 ### Sessions
