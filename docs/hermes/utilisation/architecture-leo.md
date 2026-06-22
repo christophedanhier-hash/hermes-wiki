@@ -15,7 +15,7 @@ flowchart TB
         N8N_API["n8n API<br/>localhost:5678"]
     end
 
-    subgraph Collecte["⏱️ Collecte (Crons Hermes 25)"]
+    subgraph Collecte["⏱️ Collecte (Crons Hermes 24)"]
         BC["budget-check-v6<br/>H:05"]
         MK["machines-kpi<br/>H:00"]
         CD["crons-dashboard<br/>H:20"]
@@ -33,8 +33,7 @@ flowchart TB
         AH["🛡️ Auto-Heal<br/>H:45 · dashboard-watch"]
     end
 
-    subgraph n8n["🤖 Workflows n8n (3)"]
-        BC_N8N["💰 Budget Check<br/>H:05 · retry 3x"]
+    subgraph n8n["🤖 Workflows n8n (2)"]
         DW_N8N["🛡️ Dashboard Watch v8<br/>1h · retry 3x"]
         PING["🟢 LEO Ping<br/>15min"]
     end
@@ -48,14 +47,13 @@ flowchart TB
         LEO["📊 LEO KPI<br/>sessions · budget · tokens"]
         BAVI_D["🏛️ BAVI LEO<br/>KPIs BAVI · budget"]
         MACHINES["💻 Machines<br/>CPU · RAM · Disque"]
-        CRONS_D["⏱️ Crons<br/>25 crons · historique 7j"]
+        CRONS_D["⏱️ Crons<br/>24 crons · historique 7j"]
         GITHUB_D["🐙 GitHub<br/>22 repos · activité"]
         N8N_D["🔧 n8n<br/>workflows · exécutions"]
         GLOBAL_D["🌍 Global<br/>portail agrégé"]
     end
 
     subgraph Securite["🛡️ Filets de sécurité"]
-        WATCHDOG["Watchdog webhook<br/>*/5min"]
         DOC_WATCH["doc-watch-auto<br/>snapshot → commit"]
         HERMES_BACKUP["Crons Hermes<br/>backup n8n"]
         CONTENT_CHECK["dashboard-watch<br/>vérification contenu<br/>+ auto-redeploy"]
@@ -83,11 +81,10 @@ flowchart TB
     N8N_API --> ND
     N8N_API --> NC
 
-    %% n8n → Transit
-    DS --> BC_N8N
+    %% n8n → Transit (plus de Budget Check n8n)
+    %% Budget géré uniquement par Hermes budget-check-v6
 
     %% Filets
-    WATCHDOG --> BJ
     WD -->|vérifie HTTP + contenu| Dashboards
     WD -->|vérifie budget| BJ
     CONTENT_CHECK -->|auto-redeploy| Dashboards
@@ -120,7 +117,7 @@ Chaque dashboard est un **HTML statique** hébergé sur GitHub Pages, généré 
 
 ---
 
-## 3. Les Crons Hermes (25)
+## 3. Les Crons Hermes (24)
 
 Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 
@@ -169,7 +166,6 @@ Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 | `credentials-check` | **Lun 09:00** | `check-credentials.py` | Vérification tokens OAuth |
 | `check-hermes-update` | **09:00** | `check_hermes_update.py` | Nouvelle version Hermes ? |
 | `doc-watch-auto` | **00/06/12/18** | `doc-watch-auto.py` | Snapshot docs → patch auto → commit |
-| `budget-webhook-watchdog` | ***/5** | `budget-webhook-watchdog.sh` | Relance webhook budget si down |
 
 ### GitHub (1)
 
@@ -179,44 +175,38 @@ Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 
 ---
 
-## 4. Les Workflows n8n (3)
+## 4. Les Workflows n8n (2)
 
 n8n tourne sur `100.92.102.28:5678` (même machine que Hermes). Il offre **retry natif + monitoring visuel**.
 
 | Workflow | Horaire | Étapes | Retry | Backup Hermes | Statut |
 |----------|---------|--------|-------|--------------|--------|
 | **🟢 LEO Ping** | 15min | Ping API n8n health | — | `n8n-healthcheck` | ✅ OK |
-| **💰 Budget Check** | **H:05** | DeepSeek API → parse → POST webhook → budget.json | **3x** | `budget-check-v6` | ⚠️ 0 nœuds, 4 erreurs |
 | **🛡️ Dashboard Watch v8** | **1h** | GET 7 dashboards HTTP + Code node jsCode (Gemini) | **3x** | `dashboard-watch` (2h) | ✅ OK |
 
 **Pattern :** n8n = exécution garantie (retry), Hermes = backup si n8n down. Double filet.
 
-> ⚠️ **Attention :** Le Budget Check n8n a 0 nœuds configurés et 4 exécutions en erreur. À investiguer.
+> ℹ️ **💰 Budget Check supprimé** le 22/06/2026 — workflow vide (0 nœuds). Budget géré uniquement par `budget-check-v6` (Hermes).
 
 ---
 
 ## 5. Flux de données détaillé
 
-### 5.1 Budget (le flux le plus critique)
+### 5.1 Budget (flux simplifié)
 
 ```mermaid
 flowchart LR
     DS[DeepSeek API]
     HERMES[Cron Hermes<br/>H:05]
-    N8N[💰 n8n Budget Check<br/>H:05 · retry 3x]
     BJ[(budget.json)]
     GS[(Google Sheets)]
-    WH[Webhook<br/>port 9199]
     L[Dashboard LEO KPI]
     B[Dashboard BAVI LEO]
     DW[dashboard-watch<br/>vérifie < 1$]
 
     DS -->|appel direct| HERMES
-    DS -->|appel retry 3x| N8N
     HERMES --> BJ
     HERMES --> GS
-    N8N -->|POST| WH
-    WH --> BJ
     BJ --> L
     BJ --> B
     L -->|vérifie cohérence| DW
@@ -228,28 +218,16 @@ flowchart LR
 
 ```mermaid
 flowchart TB
-    subgraph n8n_check["n8n — 30min · retry 3x"]
-        direction LR
-        N1[LEO] -->|vérifie budget| N1B[OK?]
-        N2[BAVI LEO] -->|vérifie budget| N2B[OK?]
-        N3[Crons] -->|HTTP 200?| N3B[OK?]
-        N4[GitHub] -->|HTTP 200?| N4B[OK?]
-        N5[n8n] -->|HTTP 200?| N5B[OK?]
-        N6[Machines] -->|HTTP 200?| N6B[OK?]
-    end
-
-    subgraph hermes_check["Hermes — 2h · alerte Telegram"]
-        H_ALL["Vérifie 6 dashboards<br/>+ budget.json"]
-        H_STALE{"stale ou erreur?"}
-        H_DEPLOY["Redéploie"]
-        H_TG["🚨 Alerte Telegram"]
+    subgraph hermes_check["Hermes — 2h · auto-redeploy"]
+        H_ALL["Vérifie 7 dashboards<br/>+ budget.json<br/>+ contenu (n8n, crons, github...)"]
+        H_STALE{"stale ou mismatch?"}
+        H_DEPLOY["Redéploie auto"]
         H_OK["✅ Silence"]
     end
 
     H_ALL --> H_STALE
     H_STALE -->|oui| H_DEPLOY
     H_STALE -->|non| H_OK
-    H_DEPLOY --> H_TG
 ```
 
 ### 5.3 Sauvegarde & Documentation
@@ -283,11 +261,9 @@ flowchart LR
 | Filet | Quoi | Activation | Action si problème |
 |-------|------|-----------|-------------------|
 | **n8n Dashboard Watch v8** | Ping 7 dashboards HTTP + Code node jsCode | 1h (retry 3x) | Log dans n8n |
-| **Hermes dashboard-watch** | Idem + budget.json + **vérification contenu** | 2h → auto-redeploy | **Redéploiement auto** + alerte |
+| **Hermes dashboard-watch** | Idem + budget.json + **vérification contenu** | 2h → auto-redeploy | **Redéploiement auto** |
 | **Hermes Auto-Heal** | Redondance du dashboard-watch | H:45 (no_agent) | Redéploiement auto |
-| **n8n Budget Check** | Appel DeepSeek API | H:05 (retry 3x) | **⚠️ Inactif** (0 nœuds) |
-| **Hermes budget-check-v6** | Idem (backup) | H:05 | Prend le relais |
-| **Watchdog webhook** | Vérifie port 9199 | 5min | **⚠️ Service down** (ECONNREFUSED) |
+| **Hermes budget-check-v6** | Appel DeepSeek API → budget.json | H:05 | Source unique |
 | **doc-watch-auto** | Snapshot → compare → patch | 6h | Commit automatique |
 | **n8n healthcheck** | Ping n8n API | 15min | — |
 
@@ -341,8 +317,8 @@ flowchart TB
 
 | Métrique | Valeur |
 |----------|--------|
-| Crons Hermes | **25** (dont 23 en no_agent = quasi 0$) |
-| Workflows n8n | **3** (1 inactif ⚠️) |
+| Crons Hermes | **24** (dont 22 en no_agent = quasi 0$) |
+| Workflows n8n | **2** ✅ |
 | Dashboards | **7** (tous HTTP 200) |
 | Budget DeepSeek | **26.24$** |
 | Consommation/jour | **~1.88$** |
