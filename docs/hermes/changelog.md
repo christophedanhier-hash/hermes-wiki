@@ -2,18 +2,15 @@
 
 *Document vivant — suivi hebdomadaire des évolutions.*
 
-## [2026-06-14 au 21/06/2026]
+## [2026-06-15 au 22/06/2026]
 
-- **Nouvelles fonctionnalités:**
-  - Ajout de la page "Interface Web Hermes Agent" dans le wiki, couvrant les 18 sections UI.
-  - Mise à jour du README pour retirer l'arborescence Bureau-Gerard-Skills et supprimer son dossier.
-  - Migration vers hermes-christophe/BAVI/, synchronisant la source unique entre Drive et BAVI.
-
-- **Corrections:**
-  - Correction des balises AUTO dans doc-watch pour les mises à jour automatiques.
-  - Suppression des chemins duplicés t600/voyages/install/leo dans le wiki-sync.
-  - Mise à jour du cron daily-backup pour un backup Drive quotidien (fichiers plats).
-  - Ajout de crons pour la mise à jour hebdomadaire du wiki et du guide, ainsi que pour les dashboards associés.
+- **Nouveau cron** : `doc-watch-auto` a été ajouté pour surveiller automatiquement les changements dans les documents.
+- **Mises à jour wiki** : Les fichiers sources ont été synchronisés avec la wiki, y compris l'ajout de l'architecture LEO complète et des schémas Mermaid.
+- **Corrections** :
+  - `ac26d6d` : Le submodule GUIDE a été mis à jour pour le Global Dashboard.
+  - `0645b85` : La version v0.16+ du submodule GUIDE a été mise à jour avec 7 fichiers.
+  - `c6ba46d` : Migration vers un source unique synchronisé Drive pour Bavi-LEO.
+  - `d8eb865` : Mises à jour des feuilles de calcul pour les données machines et le changelog le 19/06.
 
 ---
 
