@@ -179,7 +179,7 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 ## 📊 Dashboards
 
 <!-- AUTO:START dashboards -->
-> Mise a jour : 22/06/2026 12:01 - 7 dashboards
+> Mise a jour : 24/06/2026 00:00 - 8 dashboards
 <!-- AUTO:END dashboards -->
 
 ## 🧠 BAVI Knowledge Hub — Agent Pro
