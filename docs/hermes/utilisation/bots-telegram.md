@@ -10,7 +10,7 @@
 flowchart LR
     User["👤 Utilisateur"]
     LeoFlash["🤖 @hermes_leo_bot<br/>DeepSeek Flash"]
-    Copilot["🤖 @hermes_leo_copilot_bot<br/>Claude Sonnet"]
+    Copilot["🤖 @hermes_leo_copilot_bot<br/>Gemini 3.5 Flash"]
     Voyages["🧭 @bavi_leo_voyages_bot<br/>Bureau Sylvie"]
 
     User -->|"chat quotidien"| LeoFlash
@@ -18,13 +18,15 @@ flowchart LR
     User -->|"roadbooks, voyages"| Voyages
 
     LeoFlash -->|"fallback"| Copilot
-    Copilot -.->|"proxy local:8902"| GitHubCopilot["☁️ GitHub Copilot API"]
+    Copilot -->|"API"| Gemini["Google Gemini API"]
+    Copilot -.->|"Fallback"| DS["DeepSeek Flash"]
 
     style User fill:#e3f2fd,stroke:#1976d2
     style LeoFlash fill:#e3f2fd,stroke:#1976d2
     style Copilot fill:#f3e5f5,stroke:#7b1fa2
     style Voyages fill:#e8f5e9,stroke:#388e3c
-    style GitHubCopilot fill:#fff3e0,stroke:#e65100
+    style Gemini fill:#fff3e0,stroke:#e65100
+    style DS fill:#e3f2fd,stroke:#1976d2
     linkStyle default stroke-width:2px,fill:none
 ```
 
@@ -59,37 +61,36 @@ model: deepseek-chat
 
 ---
 
-## 2️⃣ 🤖 `@hermes_leo_copilot_bot` — Leo Copilot
+## 2️⃣ 🤖 `@hermes_leo_copilot_bot` — Leo Copilot (Gemini)
 
 | | |
-|--|--|
+|:--|:--|
 | **Rôle** | Code, infrastructure, n8n, analyses complexes |
-| **Modèle** | Claude Sonnet 4.6 (par défaut) |
-| **Provider** | `custom` → proxy local `http://localhost:8902/v1` |
+| **Modèle** | Gemini 3.5 Flash (par défaut) |
+| **Provider** | Google Gemini API (direct) |
 | **Profil Hermes** | `leo-copilot` (isolé, dédié) |
-| **Latence** | ~5-15s (via proxy ACP → GitHub Copilot CLI) |
-| **Coût** | $0 — inclus dans abonnement GitHub Copilot (~3000 credits/mois) |
-| **Modèles disponibles** | Sonnet 4.6 (défaut), Opus 4.6, Sonnet 4.5, GPT-5.5, GPT-5.4, GPT-Codex |
+| **Latence** | ⚡ < 3s |
+| **Coût** | $0.10/M tokens — gratuit jusqu'à 60 req/min (API tier gratuit) |
+| **Fallback** | DeepSeek Flash si Gemini indisponible |
+| **Sync mémoire** | Cron `sync-memory` toutes les 30min — partage mémoire entre profil `default` et `leo-copilot` |
 
 ### Architecture technique
 
 ```
-Telegram → Gateway (profil leo-copilot) → Proxy local (:8902) → CLI Copilot (ACP) → GitHub Copilot API → Claude Sonnet
+Telegram → Gateway (profil leo-copilot, provider: gemini) → Google Gemini API → Gemini 3.5 Flash
 ```
 
-### Proxy local (`copilot-proxy.py`)
+### Intégration Gemini
 
-- Port **8902**, endpoint OpenAI-compatible `/v1/chat/completions`
-- Mode **ACP** (stdio) — gère les conversations longues sans limite de prompt
-- SSE streaming supporté ✅
-- Watchdog cron toutes les 5 min (`proxy-watchdog`)
-- Supporte 6 modèles, modèle par défaut configurable
+- Connexion directe à l'API Google Gemini (plus de proxy local)
+- Endpoint : `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
+- Streaming supporté ✅
+- Mémoire partagée via `sync-memory.py` (toutes les 30min)
 
-### Dashboard intégré
+### Dashboard
 
-- Carte **Copilot Usage** sur le [Global Dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/)
-- Métriques : crédits consommés, appels, statut proxy
-- Logs : `copilot-calls.log`, agrégation toutes les 10 min
+- Le [Global Dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) suit le budget DeepSeek et les métriques des machines
+- Les métriques Gemini ne sont plus trackées individuellement (API gratuite, pas de limite de crédits)
 
 ---
 
@@ -116,28 +117,24 @@ Telegram → Gateway (profil leo-copilot) → Proxy local (:8902) → CLI Copilo
 
 ## 📊 Comparatif
 
-| Critère | Leo DeepSeek | Leo Copilot | Voyages |
-|:--------|:------------:|:-----------:|:-------:|
-| **Modèle** | DeepSeek Flash | Claude Sonnet 4.6 | DeepSeek Flash |
-| **Latence** | ⚡ < 2s | ~5-15s | ⚡ < 2s |
-| **Coût** | $ pay-as-you-go | $0 (abonnement) | $ pay-as-you-go |
-| **Usage principal** | Chat quotidien | Code, infra, n8n | Voyages |
-| **Profil dédié** | ❌ (default) | ✅ leo-copilot | Partagé |
-| **Proxy** | ❌ | ✅ local:8902 | ❌ |
-| **Accès invités** | ❌ | ❌ | ✅ |
+|| Critère | Leo DeepSeek | Leo Copilot | Voyages |
+||:--------|:------------:|:-----------:|:-------:|
+|| **Modèle** | DeepSeek Flash | Gemini 3.5 Flash | DeepSeek Flash |
+|| **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s |
+|| **Coût** | $ pay-as-you-go | $0.10/M tokens (tier gratuit) | $ pay-as-you-go |
+|| **Usage principal** | Chat quotidien | Code, infra, n8n | Voyages |
+|| **Profil dédié** | ❌ (default) | ✅ leo-copilot | Partagé |
+|| **Provider** | DeepSeek | Google Gemini | DeepSeek |
+|| **Accès invités** | ❌ | ❌ | ✅ |
 
 ---
 
 ## 🔧 Maintenance
 
-| Action | Commande / Cron |
-|:-------|:----------------|
-| **Redémarrer Leo Copilot** | `hermes gateway restart` (profil leo-copilot) |
-| **Redémarrer proxy** | `pkill -f copilot-proxy; python3 /opt/data/scripts/copilot-proxy.py &` |
-| **Watchdog proxy** | Cron `proxy-watchdog` toutes les 5 min |
-| **Logs Copilot** | `/opt/data/scripts/copilot-calls.log` |
-| **Agrégation usage** | Cron `copilot-tracker` toutes les 10 min |
-| **Dashboards** | Tous auto-déployés via GH Pages |
+|| Action | Commande / Cron |
+||:-------|:----------------|
+|| **Redémarrer Leo Copilot** | `hermes gateway restart` (profil leo-copilot) |
+|| **Dashboards** | Tous auto-déployés via GH Pages |
 
 ---
 
