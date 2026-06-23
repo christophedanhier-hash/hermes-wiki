@@ -61,12 +61,12 @@ model: deepseek-chat
 
 ---
 
-## 2️⃣ 🤖 `@hermes_leo_copilot_bot` — Leo Copilot (Gemini)
+## 2️⃣ 🤖 `@hermes_leo_copilot_bot` — Leo Copilot (Gemini Pro)
 
 | | |
 |:--|:--|
 | **Rôle** | Code, infrastructure, n8n, analyses complexes |
-| **Modèle** | Gemini 3.5 Flash (par défaut) |
+| **Modèle** | Gemini 2.5 Pro (par défaut) |
 | **Provider** | Google Gemini API (direct) |
 | **Profil Hermes** | `leo-copilot` (isolé, dédié) |
 | **Latence** | ⚡ < 3s |
@@ -77,13 +77,13 @@ model: deepseek-chat
 ### Architecture technique
 
 ```
-Telegram → Gateway (profil leo-copilot, provider: gemini) → Google Gemini API → Gemini 3.5 Flash
+Telegram → Gateway (profil leo-copilot, provider: gemini) → Google Gemini API → Gemini 2.5 Pro
 ```
 
 ### Intégration Gemini
 
 - Connexion directe à l'API Google Gemini (plus de proxy local)
-- Endpoint : `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent`
+- Endpoint : `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent`
 - Streaming supporté ✅
 - Mémoire partagée via `sync-memory.py` (toutes les 30min)
 
@@ -119,7 +119,7 @@ Telegram → Gateway (profil leo-copilot, provider: gemini) → Google Gemini AP
 
 || Critère | Leo DeepSeek | Leo Copilot | Voyages |
 ||:--------|:------------:|:-----------:|:-------:|
-|| **Modèle** | DeepSeek Flash | Gemini 3.5 Flash | DeepSeek Flash |
+|| **Modèle** | DeepSeek Flash | Gemini 2.5 Pro | DeepSeek Flash |
 || **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s |
 || **Coût** | $ pay-as-you-go | $0.10/M tokens (tier gratuit) | $ pay-as-you-go |
 || **Usage principal** | Chat quotidien | Code, infra, n8n | Voyages |
