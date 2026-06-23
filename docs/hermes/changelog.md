@@ -2,15 +2,15 @@
 
 *Document vivant — suivi hebdomadaire des évolutions.*
 
-## [2026-06-15 au 22/06/2026]
+## [2026-06-16 au 23/06/2026]
 
-- **Nouveau cron** : `doc-watch-auto` a été ajouté pour surveiller automatiquement les changements dans les documents.
-- **Mises à jour wiki** : Les fichiers sources ont été synchronisés avec la wiki, y compris l'ajout de l'architecture LEO complète et des schémas Mermaid.
+- **Nouveau cron** : `budget-webhook-watchdog` a été ajouté pour surveiller les webhooks budgétaires.
+- **Nouvelles fonctionnalités** :
+  - Le `GUIDE submodule` a été mis à jour et intégré au `Global Dashboard doc`.
+  - La page `Bots Telegram` a été ajoutée dans le wiki, décrivant 3 bots (DeepSeek, Copilot, Voyages).
 - **Corrections** :
-  - `ac26d6d` : Le submodule GUIDE a été mis à jour pour le Global Dashboard.
-  - `0645b85` : La version v0.16+ du submodule GUIDE a été mise à jour avec 7 fichiers.
-  - `c6ba46d` : Migration vers un source unique synchronisé Drive pour Bavi-LEO.
-  - `d8eb865` : Mises à jour des feuilles de calcul pour les données machines et le changelog le 19/06.
+  - Les références aux modèles ont été mises à jour pour les versions `deepseek-v4` et `gemini-2.5`.
+  - Des corrections mineures ont été apportées dans le wiki, notamment dans la section `doc-watch`, avec des mises à jour automatiques des changements `n8n`.
 
 ---
 
