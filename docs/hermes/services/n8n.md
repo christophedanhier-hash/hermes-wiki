@@ -16,7 +16,8 @@ n8n (direct, port 5678)  ←── API REST (Hermes scripts)
     ├── 🟢 LEO Ping          — Webhook GET /ping → pong
     ├── 🟢 Dashboard Watch v8 — Vérifie 7 dashboards HTTP + contenu
     ├── 🟢 LEO Check          — Vérifications système
-    └── 🟢 🚨 Alerte LEO     — Notificateur Central d'erreurs
+    ├── 🟢 🚨 Alerte LEO     — Notificateur Central d'erreurs
+    └── 🟢 🔗 Drive → Issue  — Google Drive → GitHub Issues
 ```
 
 ### Accès
@@ -30,24 +31,35 @@ n8n (direct, port 5678)  ←── API REST (Hermes scripts)
 
 ---
 
-## ⚡ Workflows Actifs (4)
+## ⚡ Workflows Actifs (5)
+
+<!-- AUTO:START gmail-classifier -->
+> Mise à jour : 23/06/2026 18:00
+> (N) 🔗 Drive → Issue GitHub
+> (N) 🚨 Alerte LEO — Notificateur Central
+> (X) 🚨 Alerte LEO — Notificateur Central
+<!-- AUTO:END gmail-classifier -->
 
 ### 1. 🟢 LEO Ping
+- **ID** : `MwT0XLeN6hFjzkxS`
 - **Déclencheur** : Webhook GET `/ping`
 - **Réponse** : `{"response":"pong"}`
 - **Utilité** : Healthcheck uptime n8n
 
 ### 2. 🟢 Dashboard Watch v8 (Gemini)
+- **ID** : `uwvOESa6Xk0jaYJO`
 - **Déclencheur** : Toutes les heures
 - **Fonction** : Vérifie les 7 dashboards (HTTP 200 + contenu), détecte les mismatches
 - **Retry** : 3x natif n8n
 - **Backup Hermes** : `dashboard-watch` (toutes les 2h)
 
 ### 3. 🟢 LEO Check
+- **ID** : `UdUuH8EgAvjMrCh3`
 - **Déclencheur** : Webhook
 - **Fonction** : Vérifications système à la demande
 
 ### 4. 🟢 🚨 Alerte LEO — Notificateur Central
+- **ID** : `Jvf4Lbus10jdmjlN`
 - **Déclencheur** : Webhook POST `/webhook/leo-alert`
 - **Fonction** : Reçoit les alertes des scripts Hermes et les transmet en temps réel sur Telegram
 - **Architecture** : Webhook → Code (build message) → HTTP Telegram API
@@ -59,6 +71,14 @@ curl -X POST http://100.92.102.28:5678/webhook/leo-alert \
   -H 'Content-Type: application/json' \
   -d '{"script":"budget-check-v6","error":"Token expiré","timestamp":"2026-06-23T10:00:00"}'
 ```
+
+### 5. 🟢 🔗 Drive → Issue GitHub
+- **ID** : `Aa492uNCEHJy6fsn`
+- **Déclencheur** : Webhook POST `/webhook/drive-change-v2`
+- **Fonction** : Crée automatiquement une issue dans `leo-tracker` quand un fichier est modifié sur Google Drive
+- **Architecture** : Webhook → Code (Process Change) → HTTP GitHub API
+- **Payload** : `{"file", "folder", "modified", "driveUrl", "mimeType"}`
+- **Labels** : `drive-sync`, `automatique`
 
 ### Scripts intégrés avec l'alerte
 
@@ -93,9 +113,8 @@ send_alert("mon_script.py", f"Erreur: {e}")
 
 | Tâche | Cron/Commande |
 |:------|:--------------|
-| Refresh token Gmail | `gmail-token-refresh` — */30 min |
 | Dashboard n8n | `dashboard-n8n` — */15 min |
-| Healthcheck n8n | `n8n-healthcheck` — */15 min |
+| Doc Watch | `doc-watch-auto` — toutes les 6h |
 
 ---
 
