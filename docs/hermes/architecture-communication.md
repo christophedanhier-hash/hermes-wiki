@@ -117,7 +117,7 @@ flowchart TB
         SKILLS["📚 Skills<br/>n8n · dashboards · drive<br/>watchdogs · budget"]
     end
 
-    subGRAPH EXTERNE["🌐 Services gérés"]
+    subgraph EXTERNE["🌐 Services gérés"]
         N8N["🔧 n8n :5678"]
         DASH["📊 7 Dashboards<br/>GitHub Pages"]
         CRONS["⏰ 30 Crons Hermes"]
