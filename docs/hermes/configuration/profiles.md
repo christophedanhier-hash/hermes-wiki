@@ -27,62 +27,106 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 └── logs/           # Logs
 ```
 
-### 🏛️ L'Architecture Multi-Profils LEO — Un seul "Cerveau" répliqué
+### Règle LEO : un seul profil
 
-Contrairement à l'adage d'origine *"un seul profil"*, l'écosystème LEO a évolué pour s'appuyer sur **trois profils isolés et actifs simultanément**, chacun étant optimisé pour un domaine précis de réflexion et doté de son propre Gateway Telegram :
+> *"Un seul profil, un seul gateway, tout dedans."*
 
-| Profil | Bot Telegram associé | Moteur Principal (LLM) | Mission & Rôle |
-| :--- | :--- | :---: | :--- |
-| **`default`** (H) | `@hermes_leo_bot` | **DeepSeek Flash** | **Dialogue Principal & Général** — Rapide, disponible 24/7 et très économique. |
-| **`leo-copilot`** | `@hermes_leo_copilot_bot` | **Gemini 3.5 Flash** | **Infrastructure & Réflexion Technique** — N8n, serveurs, Code-Server, diagnostics, scripts et dashboards. Plus puissant en réflexion. |
-| **`bavi-leo`** | `@bavi_leo_voyages_bot` | **DeepSeek Flash** | **Bureaux & Activités Spécialisés** — Conseil (Robert), Finance (Sophie), Technique (Gérard), Voyages (Sylvie/bot voyages dédié). |
+La tentation est grande de créer un profil par usage (un pour les conversations, un pour le batch, un de secours). **Ne faites pas ça.** Chaque profil supplémentaire ajoute de la complexité et des points de défaillance.
 
-### 🔄 La Réplication de Mémoire (Une seule entité LEO)
+- **Un seul profil** (`default`) — tout votre assistant vit dedans
+- **plusieurs providers** au sein du même profil (DeepSeek + Ollama + Gemini)
+- **Zéro bascule de profil** — la fiabilité avant tout
 
-Pour garantir que ces trois profils agissent comme un seul assistant unifié (LEO) pour Christophe, un mécanisme de synchronisation automatique de la mémoire est actif :
+| Propriété | Configuration | Description |
+|-----------|--------------|-------------|
+| **Modèle** | `model.default` | LLM principal (ex: `deepseek-v4-flash`) |
+| **Provider** | `model.provider` | Fournisseur (ex: `deepseek`, `openrouter`) |
+| **Gateway** | `gateways.telegram.bot_token` | Token du bot Telegram |
+| **Outils** | `hermes tools` | Toolsets activés par plateforme |
+| **Skills** | `hermes skills install <id>` | Procédures chargées automatiquement |
 
-*   **Le Script** : `/opt/data/scripts/sync-memory.py`
-*   **Fréquence** : Toutes les **30 minutes** (géré par le cron `sync-memory` sur le profil `default`).
-*   **Fonctionnement** : Le script compare les dates de modification du fichier `MEMORY.md` de chaque profil (`~/.hermes/profiles/<nom>/memories/MEMORY.md`). La version la plus récente est immédiatement copiée et propagée vers les deux autres profils.
-*   **Bénéfice** : Tout ce que LEO Copilote apprend lors d'une session de debug technique est instantanément accessible à LEO Hermes lors d'un chat général sur ton téléphone, créant un assistant doté d'un cerveau unifié.
-
----
-
-### Commandes profils utiles
+### Commandes profils
 
 ```bash
-# Lister les profils actifs et leur statut de passerelle (gateway)
-/opt/hermes/bin/hermes profile list
+# Lister les profils
+hermes profile list
 
-# Voir les détails de configuration d'un profil précis
-/opt/hermes/bin/hermes profile show leo-copilot
+# Créer un profil (vide)
+hermes profile create mon-profil
 
-# Lancer un chat local interactif sur un profil spécifique
-/opt/hermes/bin/hermes -p leo-copilot chat
+# Créer avec clonage de la config actuelle
+hermes profile create mon-profil --clone
+
+# Créer en clonant depuis un autre profil
+hermes profile create mon-profil --clone-from default
+
+# Utiliser un profil par défaut
+hermes profile use mon-profil
+
+# Voir les détails
+hermes profile show mon-profil
+
+# Supprimer
+hermes profile delete mon-profil
+
+# Renommer
+hermes profile rename ancien nouveau
+
+# Exporter / Importer (tar.gz)
+hermes profile export mon-profil
+hermes profile import archive.tar.gz
+
+# Lancer avec un profil spécifique
+hermes -p mon-profil chat
+hermes -p mon-profil chat -q "Bonjour"
 ```
 
-## Gateways (Passerelles de communication)
+## Gateways
 
-Un **gateway** est le canal par lequel vous communiquez avec votre assistant (Telegram, Discord, Slack, etc.).
+Un **gateway** est le canal par lequel vous communiquez avec votre assistant.
 
-Dans l'écosystème LEO, **chaque profil dispose d'un gateway Telegram dédié** et configuré avec son propre token de bot dans `config.yaml` :
+### Gateway Telegram (recommandé)
+
+Permet de parler à votre assistant depuis votre téléphone.
+
+1. Créez un bot Telegram via [@BotFather](https://t.me/botfather)
+2. Notez le token du bot
+3. Configurez dans config.yaml :
 
 ```yaml
-# Exemple dans config.yaml du profil leo-copilot
 gateways:
   telegram:
     bot_token: "******"
     allowed_users:
-      - "Tofdan"
+      - "votre_username"
+      - 123456789  # Votre user ID Telegram
 ```
 
-Les trois gateways tournent de manière autonome sur le serveur via le superviseur **s6-supervisor** pour assurer un fonctionnement ininterrompu 24h/24.
+4. Lancez le gateway :
 
----
+```bash
+hermes gateway start
+```
+
+### Gateway Discord
+
+```yaml
+gateways:
+  discord:
+    bot_token: "******"
+```
+
+### Gateway local (terminal)
+
+```bash
+# Mode terminal interactif (aucune configuration)
+hermes
+# ou : hermes chat
+```
 
 ## Skills
 
-Les **skills** sont des procédures que l'assistant charge automatiquement pour savoir comment effectuer des tâches spécifiques. C'est la mémoire procédurale de votre assistant.
+Les **skills** sont des procédures que l'assistant charge pour savoir comment effectuer des tâches spécifiques. C'est la mémoire procédurale de votre assistant.
 
 ### Structure d'un skill
 
@@ -108,18 +152,25 @@ Quand [condition], faire [action].
 - Attention à [piège connu]
 ```
 
-### Skills essentiels de l'écosystème LEO
+### Skills essentiels (exemple LEO)
 
 | Skill | Description |
-| :--- | :--- |
-| `bavi-leo-governance` | Méthodologie d'audit multi-bureaux, standard 7 phases, interopérabilité, facturation. |
-| `leo-architecture` | Topologie des profils, hiérarchie des LLM, règles anti-régression et réflexe commit. |
-| `budget-tracking` | Suivi économique et relevés financiers des comptes d'API. |
-| `system-management` | Gestion centralisée des serveurs physiques via Tailscale et SSH. |
-| `dashboard-kpi` | Spécifications des dashboards HTML générés automatiquement. |
+|-------|-------------|
+| `living-documentation` | Tenir la documentation à jour |
+| `budget-tracking` | Suivi des coûts LLM |
+| `leo-architecture` | Architecture et règles de fonctionnement |
+| `routage-llm` | Quel LLM utiliser pour quelle tâche |
+| `system-management` | Gestion des machines distantes |
+
+### Bonnes pratiques
+
+- **Un skill = une responsabilité** (pas de fourre-tout)
+- **Versionnez** les skills (ils évoluent avec votre assistant)
+- **Stockez les corrections dans les skills**, pas en mémoire passagère
+- **Patchez** un skill obsolète plutôt que d'en créer un nouveau
 
 ## Pour aller plus loin
 
-*   [Documentation officielle Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
-*   Voir `02-configuration/providers.md` pour la topologie des LLM
-*   Voir `03-utilisation/architecture-leo.md` pour le fonctionnement complet des crons et dashboards
+- [Documentation Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
+- Voir `02-configuration/providers.md` pour la configuration LLM
+- Voir `exemples/LEO.md` pour l'architecture complète
