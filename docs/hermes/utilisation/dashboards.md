@@ -26,7 +26,7 @@ LEO a **7 dashboards** en production, tous rafraîchis par des crons no_agent :
 | **Crons LEO** | État de tous les crons, historique 7j | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | H:20 |
 | **GitHub** | Activité repos Hermes vs Développement | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) | H:25 |
 | **n8n** | Monitoring workflows n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) | */15 |
-| **Global LEO** | Vue consolidée : crons, dashboards, budget, n8n, machines | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) | H:06 |
+| **Global LEO** | Vue consolidée : crons, dashboards, budget, n8n, machines | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) | H:05 |
 
 Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
 
