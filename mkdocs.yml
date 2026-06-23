@@ -68,7 +68,8 @@ nav:
         - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
       - 🤖 Bots Telegram: hermes/utilisation/bots-telegram.md
       - 📚 Catalogue des Skills: hermes/utilisation/skills-catalogue.md
-      - 📋 Changelog: hermes/changelog.md
+      - 🗺️ Carte Documentaire: hermes/utilisation/documentation-map.md
+    - Services:
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
         - Références: hermes/aller-plus-loin/references.md
