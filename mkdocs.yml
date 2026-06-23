@@ -68,7 +68,6 @@ nav:
         - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
       - 🤖 Bots Telegram: hermes/utilisation/bots-telegram.md
       - 📚 Catalogue des Skills: hermes/utilisation/skills-catalogue.md
-      - 🗺️ Carte Documentaire: hermes/utilisation/documentation-map.md
     - Services:
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
@@ -78,6 +77,8 @@ nav:
         - 📊 Dashboard n8n: hermes/dashboards/n8n.md
         - 🎵 Spotify: hermes/services/spotify.md
       - 📋 État des lieux: hermes/etat-des-lieux.md
+
+  - 🗺️ Carte Documentaire: hermes/utilisation/documentation-map.md
 
   - 🌐 Portail LEO:
     - 🏛️ BAVI LEO: https://christophedanhier-hash.github.io/BAVI_LEO/
