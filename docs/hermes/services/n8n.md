@@ -114,9 +114,8 @@ volumes:
 **Workflow :** 8 nœuds — **mapping expéditeur** : Ollama uniquement pour les nouveaux expéditeurs
 
 <!-- AUTO:START gmail-classifier -->
-> Mise a jour : 22/06/2026 18:01
-> (N) LEO Check
-> (X) LEO Check
+> Mise a jour : 23/06/2026 12:00
+> (N) 🚨 Alerte LEO — Notificateur Central
 <!-- AUTO:END gmail-classifier -->
 
 **Labels Gmail utilisés :**
