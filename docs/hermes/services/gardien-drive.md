@@ -1,6 +1,7 @@
 # 🧠 Gardien du Drive — Workflow n8n
 
-> Classification automatique Google Drive via Ollama qwen2.5:7b local. **Coût : 0 €.**
+> Classification auto Google Drive via Ollama qwen2.5:7b local. **Coût : 0 €.**
+> Tout ce qui doit être jeté → `100 - Corbeille` (gestion manuelle).
 
 ---
 
@@ -9,13 +10,11 @@
 ```
 ⏰ Schedule (toutes les heures)
   │
-  └─ 🧠 Code Node (Gardien du Drive)
-       │
-       ├─ 🔐 Refresh token Google OAuth
-       ├─ 🔍 PHASE 1 : Détection des doublons
-       ├─ 📥 PHASE 2 : Inbox → Classement
+  └─ 🧠 Code Node
+       ├─ 🔍 PHASE 1 : Doublons → copie excédentaire → 100-Corbeille
+       ├─ 📥 PHASE 2 : Inbox + Racine → Ollama classement
        ├─ 📦 PHASE 2.5 : Archives → Reclasser ou 100-Corbeille
-       ├─ 🗑️ PHASE 3 : Obsolètes → Corbeille
+       ├─ 🗑️ PHASE 3 : Obsolètes (>3 mois) → 100-Corbeille (max 10/h)
        └─ 🩺 PHASE 4 : Rapport de santé
 ```
 
@@ -23,35 +22,25 @@
 
 ## Les 5 phases
 
-### 🔍 Phase 1 — Doublons
-Détecte les fichiers en double dans tout le Drive. Rapport uniquement.
-
-### 📥 Phase 2 — Inbox + Racine
-Surveille `📥 À classer` et la racine du Drive. Ollama classe → déplace automatiquement.
-
-### 📦 Phase 2.5 — Archives (deep scan)
-Analyse les dossiers `99_ARCHIVES` et `Archives` :
-- Si Ollama trouve un dossier pertinent → **reclassé**
-- Sinon → déplacé dans **`100 - Corbeille`** (révision manuelle)
-
-### 🗑️ Phase 3 — Obsolètes
-Fichiers > 3 mois non modifiés → `🗑️ Corbeille Drive` (max 10/run).
-
-### 🩺 Phase 4 — Santé
-Résumé global : doublons, inbox, archives, conseils.
+| Phase | Action | Destination |
+|:---|:---|:---|
+| 🔍 **Doublons** | Garde le + récent, les autres → | **100 - Corbeille** |
+| 📥 **Inbox** | Fichiers dans `📥 À classer` ou racine → Ollama classe | Dossier pertinent |
+| 📦 **Archives** | `99_ARCHIVES` + `Archives` → Ollama reclasser ou | **100 - Corbeille** |
+| 🗑️ **Obsolètes** | Fichiers > 3 mois non modifiés → | **100 - Corbeille** (max 10/h) |
+| 🩺 **Santé** | Résumé : doublons, inbox, volume | Rapport JSON |
 
 ---
 
-## Dossiers gérés
+## Dossiers
 
-| Dossier | Rôle | Action |
+| Dossier | Rôle | Géré par |
 |:---|:---|:---|
-| **📥 À classer** | Dépôt des fichiers à classer | Classement auto |
-| **99_ARCHIVES** | Archives à trier | Reclasser ou → 100-Corbeille |
-| **Archives** | Archives générales | Reclasser ou → 100-Corbeille |
-| **100 - Corbeille** | Révision manuelle avant suppression | À vérifier régulièrement |
-| **🗑️ Corbeille Drive** | Fichiers obsolètes auto | À vérifier + supprimer |
-| **📚 Backups** | Librairie EPUB Calibre | 🛡️ Zone protégée |
+| **📥 À classer** | Dépôt des fichiers à classer | Automatique |
+| **99_ARCHIVES** | Archives à trier | Automatique |
+| **Archives** | Archives générales | Automatique |
+| **100 - Corbeille** | Révision manuelle avant suppression | **Toi** |
+| **📚 Backups** | Librairie EPUB Calibre | 🛡️ Protégé |
 
 ---
 
@@ -61,8 +50,7 @@ Résumé global : doublons, inbox, archives, conseils.
 |:---|:---|
 | Workflow | `🧠 Gardien du Drive` (ID: `sTly8jZ2dHWcJQ3w`) |
 | Déclencheur | Toutes les heures |
-| LLM | Ollama qwen2.5:7b (LEO, port 11434) |
-| API | Google Drive v3 (OAuth leodanhieria) |
+| LLM | Ollama qwen2.5:7b (LEO:11434) |
 | Coût | **0 €** |
 
 ---
