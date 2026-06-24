@@ -48,33 +48,26 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
   - assets/mermaid-init.js
 
-extra_css:
-  - assets/nav-indent.css
-
 nav:
   - 🏠 Accueil: index.md
   - 🛡️ Hermes Agent:
       - 📖 Présentation: hermes/index.md
       - 🏗️ Architecture & Communication: hermes/architecture-communication.md
-      - 💻 Installation:
-        - 🐧 Linux: hermes/installation/linux.md
-        - 🪟 Windows: hermes/installation/windows.md
-      - ⚙️ Configuration:
-        - 🤖 Providers LLM: hermes/configuration/providers.md
-        - 👤 Profils: hermes/configuration/profiles.md
-      - 🚀 Utilisation:
-        - 📋 Usage quotidien: hermes/utilisation/quotidien.md
-        - ⏰ Crons & planification: hermes/utilisation/crons.md
-        - 📊 Dashboards & monitoring: hermes/utilisation/dashboards.md
-        - 🏛️ Architecture LEO: hermes/utilisation/architecture-leo.md
-        - 🌐 Interface Web: hermes/interface-web.md
-        - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
+      - 💻 Installation Linux: hermes/installation/linux.md
+      - 💻 Installation Windows: hermes/installation/windows.md
+      - ⚙️ Configuration — Providers LLM: hermes/configuration/providers.md
+      - ⚙️ Configuration — Profils: hermes/configuration/profiles.md
+      - 📋 Usage quotidien: hermes/utilisation/quotidien.md
+      - ⏰ Crons & planification: hermes/utilisation/crons.md
+      - 📊 Dashboards & monitoring: hermes/utilisation/dashboards.md
+      - 🏛️ Architecture LEO: hermes/utilisation/architecture-leo.md
+      - 🌐 Interface Web: hermes/interface-web.md
+      - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
       - 🤖 Bots Telegram: hermes/utilisation/bots-telegram.md
       - 📚 Catalogue des Skills: hermes/utilisation/skills-catalogue.md
       - 📋 Changelog: hermes/changelog.md
-      - 🔬 Aller plus loin:
-        - 🛠️ Dépannage: hermes/aller-plus-loin/troubleshooting.md
-        - 📖 Références: hermes/aller-plus-loin/references.md
+      - 🛠️ Dépannage: hermes/aller-plus-loin/troubleshooting.md
+      - 📖 Références: hermes/aller-plus-loin/references.md
       - 📋 État des lieux: hermes/etat-des-lieux.md
 
   - 🗺️ Carte Documentaire: hermes/utilisation/documentation-map.md
