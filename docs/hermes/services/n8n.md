@@ -10,14 +10,14 @@
 
 ## 🏗️ Architecture
 
-```
-n8n (direct, port 5678)  ←── API REST (Hermes scripts)
-    │
-    ├── 🟢 LEO Ping          — Webhook GET /ping → pong
-    ├── 🟢 Dashboard Watch v8 — Vérifie 7 dashboards HTTP + contenu
-    ├── 🟢 LEO Check          — Vérifications système
-    ├── 🟢 🚨 Alerte LEO     — Notificateur Central d'erreurs
-    └── 🟢 🔗 Drive → Issue  — Google Drive → GitHub Issues
+```mermaid
+graph TD
+    N8N["n8n :5678<br/>API REST"] --> PING["🟢 LEO Ping<br/>Webhook GET /ping"]
+    N8N --> DASH["🟢 Dashboard Watch v8<br/>7 dashboards HTTP"]
+    N8N --> CHECK["🟢 LEO Check<br/>Vérifications système"]
+    N8N --> ALERT["🟢 🚨 Alerte LEO<br/>Notificateur Central"]
+    N8N --> DRIVE["🟢 🔗 Drive → Issue<br/>Google Drive → GitHub"]
+    N8N --> GARDIEN["🟢 🧠 Gardien du Drive<br/>Ollama · classement auto"]
 ```
 
 ### Accès
@@ -31,7 +31,7 @@ n8n (direct, port 5678)  ←── API REST (Hermes scripts)
 
 ---
 
-## ⚡ Workflows Actifs (5)
+## ⚡ Workflows Actifs (6)
 
 <!-- AUTO:START gmail-classifier -->
 > Mise a jour : 24/06/2026 12:00

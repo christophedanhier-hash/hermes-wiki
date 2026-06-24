@@ -7,15 +7,14 @@
 
 ## Architecture
 
-```
-⏰ Schedule (toutes les heures)
-  │
-  └─ 🧠 Code Node
-       ├─ 🔍 PHASE 1 : Doublons → copie excédentaire → 100-Corbeille
-       ├─ 📥 PHASE 2 : Inbox + Racine → Ollama classement
-       ├─ 📦 PHASE 2.5 : Archives → Reclasser ou 100-Corbeille
-       ├─ 🗑️ PHASE 3 : Obsolètes (>3 mois) → 100-Corbeille (max 10/h)
-       └─ 🩺 PHASE 4 : Rapport de santé
+```mermaid
+graph TD
+    SCHEDULE["⏰ Schedule<br/>toutes les heures"] --> CODE["🧠 Code Node<br/>Ollama qwen2.5:7b"]
+    CODE --> P1["🔍 PHASE 1<br/>Doublons → 100-Corbeille"]
+    CODE --> P2["📥 PHASE 2<br/>Inbox + Racine → classement"]
+    CODE --> P2B["📦 PHASE 2.5<br/>Archives → reclasser"]
+    CODE --> P3["🗑️ PHASE 3<br/>Obsolètes >3 mois → Corbeille"]
+    CODE --> P4["🩺 PHASE 4<br/>Rapport de santé"]
 ```
 
 ---
