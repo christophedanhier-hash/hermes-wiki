@@ -120,25 +120,27 @@ docker exec -it hermes hermes setup
 
 ## 🔧 Exemple : LEO (serveur de production)
 
-LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Ubuntu 26.04 LTS** (Resolute Raccoon) en conteneur Docker, accessible 24/7. Le serveur est équipé d'un **Intel i7-7700K** (4 cœurs / 8 threads), **22,9 GiB RAM** et une **NVIDIA RTX 3050 8GB** (CUDA 13.2) utilisée pour l'inférence locale via Ollama.
+LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Debian 13 Trixie** (kernel 7.0.0) en conteneur Docker, accessible 24/7. Le serveur est équipé d'un **Intel i7-7700K** (4 cœurs / 8 threads), **24 GB RAM** et une **NVIDIA RTX 3050 8GB** (driver 595) utilisée pour l'inférence locale via Ollama.
 
 ### Architecture
 
 ```
-┌──────────────────────────────────────────┐
-│          HOST (Ubuntu 26.04)            │
-│                                          │
-│  ┌─────────┐  ┌──────────┐  ┌────────┐ │
-│  │ Hermes  │  │ Dashboard│ │
-│  │ Gateway │  │ (port    │ │
-│  │ (bot)   │  │  18792)  │ │
-│  └─────────┘  └──────────┘ │
-│                                          │
-│  ┌──────────────────────────────────┐    │
-│  │       tailscale serve            │
-│  │  /chat → Hermes (9119)           │
-│  └──────────────────────────────────┘    │
-└──────────────────────────────────────────┘
+┌──────────────────────────────────────────────────┐
+│            HOST (Debian 13 Trixie)               │
+│                                                  │
+│  ┌──────────┐  ┌──────────┐  ┌───────────────┐  │
+│  │ Ollama   │  │  n8n     │  │ Hermes (Docker)│  │
+│  │ :11434   │  │  :5678   │  │ 3 profils      │  │
+│  │ qwen2.5  │  │ 6 WF     │  │ 29 crons       │  │
+│  └──────────┘  └──────────┘  │ 8 dashboards   │  │
+│                               └───────┬────────┘  │
+│                                       │           │
+│                              Telegram Gateway     │
+│                              (3 bots actifs)      │
+│                                                  │
+│  Dashboards → GitHub Pages (8 sites statiques)   │
+│  Google APIs → Drive, Gmail, Calendar, Sheets    │
+└──────────────────────────────────────────────────┘
 ```
 
 ### docker-compose.yml
@@ -184,7 +186,7 @@ services:
 |:--------|:-----|:----------|
 | **Ollama** | LLM local (qwen2.5:7b) | API `http://host:11434/v1` |
 | **DeepSeek** | LLM principal (via Telegram) | Clé API |
-| **Tailscale** | Réseau privé + serve | `tailscale serve` |
+| **Tailscale** | Réseau privé (VPN mesh) | IPs 100.x.x.x |
 
 ---
 
