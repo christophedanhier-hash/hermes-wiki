@@ -124,23 +124,22 @@ LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Debian 1
 
 ### Architecture
 
-```
-┌──────────────────────────────────────────────────┐
-│            HOST (Debian 13 Trixie)               │
-│                                                  │
-│  ┌──────────┐  ┌──────────┐  ┌───────────────┐  │
-│  │ Ollama   │  │  n8n     │  │ Hermes (Docker)│  │
-│  │ :11434   │  │  :5678   │  │ 3 profils      │  │
-│  │ qwen2.5  │  │ 6 WF     │  │ 29 crons       │  │
-│  └──────────┘  └──────────┘  │ 8 dashboards   │  │
-│                               └───────┬────────┘  │
-│                                       │           │
-│                              Telegram Gateway     │
-│                              (3 bots actifs)      │
-│                                                  │
-│  Dashboards → GitHub Pages (8 sites statiques)   │
-│  Google APIs → Drive, Gmail, Calendar, Sheets    │
-└──────────────────────────────────────────────────┘
+```mermaid
+graph TB
+    subgraph HOST["HOST — Debian 13 Trixie"]
+        Ollama["Ollama :11434<br/>qwen2.5:7b"]
+        n8n["n8n :5678<br/>6 workflows"]
+        subgraph Docker["Hermes (Docker)"]
+            GW["3 profils Gateway<br/>default · leo-copilot · bavi-leo"]
+            Crons["29 crons"]
+        end
+    end
+    
+    Telegram["📱 Telegram"] -->|"3 bots"| GW
+    GW -->|"déploie"| GH["GitHub Pages<br/>8 dashboards"]
+    GW -->|"utilise"| Google["Google APIs<br/>Drive · Gmail · Calendar · Sheets"]
+    GW -->|"appelle"| Ollama
+    GW -->|"surveille"| n8n
 ```
 
 ### docker-compose.yml
