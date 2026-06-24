@@ -202,13 +202,6 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">dashboard-n8n</div>
 </a>
 
-<a href="https://christophedanhier-hash.github.io/leo-nest-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🏠</div>
-    <div class="title">Nest Hub</div>
-    <div class="desc">Google Nest — caméras, thermostat, sonnettes (en déploiement)</div>
-    <div class="url">leo-nest-dashboard</div>
-</a>
-
 </div>
 
 ---
