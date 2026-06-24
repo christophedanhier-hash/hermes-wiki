@@ -69,6 +69,12 @@ Résumé global : nombre de fichiers, doublons, inbox en attente, conseils.
 2. Dans l'heure qui suit, le workflow le classe automatiquement
 3. Vérifie régulièrement **🗑️ Corbeille Drive** et supprime ce qui doit l'être
 
+## 🛡️ Zones protégées (jamais touchées)
+
+| Dossier | Contenu | Protection |
+|:---|:---|:---|
+| **Backups** | 📚 Librairie EPUB Calibre (livres français) + backups LEO | Aucune action automatique |
+
 ---
 
 *Document créé le 24/06/2026 — LEO 🦁*
