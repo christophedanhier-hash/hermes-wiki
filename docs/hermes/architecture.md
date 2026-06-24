@@ -2,48 +2,50 @@
 
 ### 1. Infrastructure
 
-| Élément | Détails |
+| **Nom** | **Spécifications** |
 | --- | --- |
-| **Host LEO** | i7-7700K, 22GB RAM, 457GB, Ubuntu 26.04 |
-| **Container Hermes** | Debian 13, Python 3.13, DeepSeek V4 Flash |
-| **Interface Chromebook** | Telegram |
-| **Ollama local** | qwen2.5:7b sur http://100.92.102.28:11434 |
+| Host LEO | i7-7700K, 22GB RAM, 457GB, Ubuntu 26.04 |
+| Container Hermes | Debian 13, Python 3.13, DeepSeek V4 Flash |
+| Interface Chromebook | Telegram |
+| Ollama local | qwen2.5:7b sur http://100.92.102.28:11434 |
 
 ### 2. Budget API
 
-- Balance DeepSeek actuelle : $24.66
-- Seuil alerte : < $30
-- Seuil stop : < $10
-- Routage : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
+- **Balance DeepSeek actuelle** : $22.63
+- **Seuil alerte** : < $30
+- **Seuil stop** : < $10
+- **Routage** : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
 
-### 3. Crons Actifs (30)
+### 3. Crons Actifs (28)
 
 | Nom | Horaire | Description |
 | --- | --- | --- |
-| **daily-backup** | `0 6 * * *` | Backup Drive quotidien (fichiers plats) |
-| **docs-update** | `0 8 * * *` | Mise à jour hebdo wiki + guide + changelog (Ollama) |
-| **machines-kpi** | `0 * * * *` | Métriques CPU/RAM/disque 3 machines → Sheet |
-| **budget-check-v6** | `5 * * * *` | Solde DeepSeek → Sheet Budget |
-| **dashboard-leo** | `10 * * * *` | run-dashboard.sh |
-| **leo-metrics** | `15 * * * *` | Métriques machines → dashboard HTML (GH Pages) |
-| **crons-dashboard** | `20 * * * *` | Statut des 10 crons → dashboard HTML (GH Pages) |
-| **drive-sync** | `0 18 * * *` | Sync Drive → hermes-christophe (bidirectionnel) |
-| **github-dashboard** | `25 * * * *` | Activité GitHub repos → dashboard HTML (GH Pages) |
-| **wiki-sync** | `30 * * * *` | Sync fichiers sources → Wiki MkDocs |
-| **wiki-oca-sync** | `35 * * * *` | Sync fichiers Cowork Drive → wiki OCA + push |
-| **bavi-leo-dashboard** | `every 60m` | run-bavi-leo-dashboard.sh |
-| **credentials-check** | `0 9 * * 1` | check-credentia |
+| daily-backup | `0 6 * * *` | Backup Drive quotidien (fichiers plats) |
+| docs-update | `0 8 * * *` | Mise à jour hebdo wiki + guide + changelog (Ollama) |
+| machines-kpi | `0 * * * *` | Métriques CPU/RAM/disque 3 machines → Sheet |
+| budget-check-v6 | `5 * * * *` | Solde DeepSeek → Sheet Budget |
+| dashboard-leo | `10 * * * *` | run-dashboard.sh |
+| leo-metrics | `15 * * * *` | Métriques machines → dashboard HTML (GH Pages) |
+| crons-dashboard | `20 * * * *` | Statut des 10 crons → dashboard HTML (GH Pages) |
+| drive-sync | `0 18 * * *` | Sync Drive → hermes-christophe (bidirectionnel) |
+| github-dashboard | `25 * * * *` | Activité GitHub repos → dashboard HTML (GH Pages) |
+| wiki-sync | `30 * * * *` | Sync fichiers sources → Wiki MkDocs |
+| wiki-oca-sync | `35 * * * *` | Sync fichiers Cowork Drive → wiki OCA + push |
+| bavi-leo-dashboard | `every 60m` | run-bavi-leo-dashboard.sh |
+| credentials-check | `0 9 * * 1` | check-credentia |
 
 ### 4. Dashboards
 
-- Crons : [Cliquez ici](https://christophedanhier-hash.github.io/crons-dashboard/)
-- GitHub : [Cliquez ici](https://christophedanhier-hash.github.io/github-dashboard/)
-- Machines : [Cliquez ici](https://christophedanhier-hash.github.io/dashboard-leo/)
-- Wiki : [Cliquez ici](https://christophedanhier-hash.github.io/hermes-wiki/)
+- Crons : [https://christophedanhier-hash.github.io/crons-dashboard/](https://christophedanhier-hash.github.io/crons-dashboard/)
+- GitHub : [https://christophedanhier-hash.github.io/github-dashboard/](https://christophedanhier-hash.github.io/github-dashboard/)
+- Machines : [https://christophedanhier-hash.github.io/dashboard-leo/](https://christophedanhier-hash.github.io/dashboard-leo/)
+- Wiki : [https://christophedanhier-hash.github.io/hermes-wiki/](https://christophedanhier-hash.github.io/hermes-wiki/)
 
 ### 5. Sessions & Utilisation
 
-- **Total sessions** : 265
-- **Total messages** : 9378
-- **Sessions cli** : 3
-- **Sessions telegram** : 105
+- **Total sessions** : 316
+- **Total messages** : 9999
+- **cli sessions** : 3
+- **telegram sessions** : 110
+
+Pour plus de détails sur l'utilisation, veuillez consulter la section statistiques récente.
