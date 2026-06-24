@@ -72,20 +72,20 @@ nav:
       - Aller plus loin:
         - Dépannage: hermes/aller-plus-loin/troubleshooting.md
         - Références: hermes/aller-plus-loin/references.md
-      - 🔧 Services LEO:
-        - n8n — Automatisation: hermes/services/n8n.md
-        - 📊 Dashboard n8n: hermes/dashboards/n8n.md
-        - 🎵 Spotify: hermes/services/spotify.md
       - 📋 État des lieux: hermes/etat-des-lieux.md
 
   - 🗺️ Carte Documentaire: hermes/utilisation/documentation-map.md
+
+  - 🔧 Services LEO:
+    - n8n — Automatisation: hermes/services/n8n.md
+    - 📊 Dashboard n8n: hermes/dashboards/n8n.md
+    - 🎵 Spotify: hermes/services/spotify.md
 
   - 📐 Décisions d'Architecture:
     - 🦁 DeepSeek vs Copilot: hermes/decisions/pourquoi-deepseek-pas-copilot.md
     - 💰 DeepSeek vs Gemini: hermes/decisions/pourquoi-deepseek-pas-gemini.md
 
   - 🌐 Portail LEO:
-    - 🤖 Wiki LEO (Hermes): https://christophedanhier-hash.github.io/hermes-wiki/
     - 🏛️ BAVI LEO: https://christophedanhier-hash.github.io/BAVI_LEO/
     - 🧭 Voyages: https://christophedanhier-hash.github.io/voyages-wiki/
     - 🔭 Wiki OCA: https://christophedanhier-hash.github.io/wiki-oca/
