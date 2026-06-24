@@ -4,11 +4,12 @@ Hermes Agent peut exécuter des actions automatiquement selon un planning. C'est
 
 ## Principe
 
-```mermaid
-graph TD
-    CRON["Cron = tâche planifiée<br/>automatique"] --> SCRIPT["📜 Script pur (no_agent)<br/>Aucun LLM · 0$ ✅"]
-    CRON --> OLLAMA["🦙 Ollama local<br/>Gratuit (votre machine)"]
-    CRON --> CLOUD["☁️ Provider payant<br/>Coût par exécution 💰"]
+```
+Cron = tâche planifiée qui s'exécute automatiquement
+     │
+     ├── Script pur (no_agent) → Aucun LLM, exécution directe 0$ ✅
+     ├── LLM sur Ollama local  → Gratuit (votre machine)
+     └── LLM sur provider payant → Coût par exécution 💰
 ```
 
 ## Types de crons
