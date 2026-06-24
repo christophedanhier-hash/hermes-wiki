@@ -1,0 +1,23 @@
+/* ─── Indentation visuelle du menu latéral ─── */
+
+/* Niveau 1 : sous-éléments d'une section */
+nav.md-nav--secondary .md-nav__list {
+  padding-left: 0.6rem !important;
+  border-left: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Niveau 2 : sous-sous-éléments */
+nav.md-nav--secondary .md-nav__list .md-nav__list {
+  padding-left: 0.8rem !important;
+  border-left: 2px solid rgba(0, 0, 0, 0.04);
+}
+
+/* Labels de section en gras pour meilleure hiérarchie */
+.md-nav__item--section > .md-nav__link {
+  font-weight: 600;
+}
+
+/* Petit espace entre les sections principales */
+.md-nav__item--nested {
+  margin-bottom: 0.15rem;
+}
