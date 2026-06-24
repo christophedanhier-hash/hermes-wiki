@@ -153,6 +153,13 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
+<a href="https://christophedanhier-hash.github.io/leo-global-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🌍</div>
+    <div class="title">Global Dashboard</div>
+    <div class="desc">Vue consolidée — 30 crons, budget DeepSeek, santé n8n, KPIs consolidés</div>
+    <div class="url">leo-global-dashboard</div>
+</a>
+
 <a href="https://christophedanhier-hash.github.io/dashboard-leo/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🤖</div>
     <div class="title">Dashboard LEO</div>
@@ -193,6 +200,13 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="title">n8n</div>
     <div class="desc">Santé workflows n8n, exécutions, credentials Gmail, statut temps réel</div>
     <div class="url">dashboard-n8n</div>
+</a>
+
+<a href="https://christophedanhier-hash.github.io/leo-nest-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🏠</div>
+    <div class="title">Nest Hub</div>
+    <div class="desc">Google Nest — caméras, thermostat, sonnettes (en déploiement)</div>
+    <div class="url">leo-nest-dashboard</div>
 </a>
 
 </div>
