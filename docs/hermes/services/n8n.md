@@ -34,10 +34,8 @@ n8n (direct, port 5678)  ←── API REST (Hermes scripts)
 ## ⚡ Workflows Actifs (5)
 
 <!-- AUTO:START gmail-classifier -->
-> Mise à jour : 23/06/2026 18:00
-> (N) 🔗 Drive → Issue GitHub
-> (N) 🚨 Alerte LEO — Notificateur Central
-> (X) 🚨 Alerte LEO — Notificateur Central
+> Mise a jour : 24/06/2026 12:00
+> (N) 🧠 Gardien du Drive
 <!-- AUTO:END gmail-classifier -->
 
 ### 1. 🟢 LEO Ping
