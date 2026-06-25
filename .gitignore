@@ -2,3 +2,5 @@
 site/
 __pycache__/
 *.pyc
+
+credentials_vault.json
