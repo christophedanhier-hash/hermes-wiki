@@ -34,8 +34,13 @@ graph TD
 ## ⚡ Workflows Actifs (6)
 
 <!-- AUTO:START gmail-classifier -->
-> Mise a jour : 24/06/2026 12:00
-> (N) 🧠 Gardien du Drive
+> Mise a jour : 25/06/2026 12:00
+> (X) 🔗 Drive → Issue GitHub
+> (X) 🚨 Alerte LEO — Notificateur Central
+> (X) LEO Ping
+> (X) LEO Check
+> (X) 🧠 Gardien du Drive
+> (X) 🛡️ Dashboard Watch v8 (Gemini)
 <!-- AUTO:END gmail-classifier -->
 
 ### 1. 🟢 LEO Ping
