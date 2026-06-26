@@ -129,7 +129,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 <a href="https://christophedanhier-hash.github.io/voyages-wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🧭</div>
     <div class="title">Voyages</div>
-    <div class="desc">Roadbooks camping-car — Sylvie, itinéraires, cartes Folium, budget</div>
+    <div class="desc">Roadbooks camping-car — Sylvia, itinéraires, cartes Folium, budget</div>
     <div class="url">voyages-wiki</div>
 </a>
 
