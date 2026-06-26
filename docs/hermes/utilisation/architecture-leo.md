@@ -1,6 +1,63 @@
 # 🏛️ Architecture LEO — Dashboards, Crons & n8n
 
-> Document vivant — généré le 22/06/2026. Met à jour la vision globale de l'écosystème LEO : qui produit quoi, comment les données circulent, et quels filets de sécurité protègent l'ensemble.
+> Document vivant — généré le 22/06/2026, mis à jour le 26/06/2026.
+
+---
+
+## Architecture Physique
+
+```mermaid
+flowchart TB
+    subgraph LEO["🖥️ LEO — Serveur Ubuntu (tofdan-System-Product-Name)"]
+        direction TB
+        subgraph CONTAINER["📦 Conteneur Docker — Hermes (s6-overlay)"]
+            GW1["🦁 default — DeepSeek Flash — Dialogue"]
+            GW2["🔧 leo-copilot — DeepSeek Pro — Infra"]
+            GW3["🧭 bavi-leo — DeepSeek Flash — Voyages"]
+            DASH["📊 Dashboard Web — port 9119"]
+        end
+        subgraph HOST["Hôte LEO"]
+            N8N["🔧 n8n — port 5678 — 6 workflows"]
+            DOCKER["🐳 Docker daemon"]
+            REPOS["📁 15 repos Git + GitHub Pages"]
+        end
+        DRIVE["☁️ Google Drive — OAuth LEO + Christophe"]
+        DEEPSEEK["🧠 DeepSeek API"]
+    end
+
+    LEA["💻 LEA — Penguin/Crostini — Chromebook"]
+    YOGA["🪟 YOGA — Windows 11"]
+
+    Christophe["👤 Christophe"] -->|Telegram| GW1
+    Christophe -->|Telegram| GW2
+    Christophe -->|Telegram| GW3
+
+    GW1 --> DEEPSEEK
+    GW2 --> DEEPSEEK
+    GW3 --> DEEPSEEK
+
+    GW2 -->|gère| N8N
+    GW2 -->|gère| REPOS
+    GW2 -->|backup| DRIVE
+    N8N -->|ping| GW2
+
+    CONTAINER -.->|host networking| HOST
+
+    style Christophe fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
+    style LEO fill:#f3e5f5,stroke:#7b1fa2
+    style CONTAINER fill:#ede7f6,stroke:#5e35b1
+    style LEA fill:#e8f5e9,stroke:#388e3c
+    style YOGA fill:#fff3e0,stroke:#e65100
+```
+
+**3 machines :**
+| Machine | Rôle | OS |
+|---------|------|-----|
+| **LEO** | Serveur central — Hermes, n8n, Docker, tous les dashboards | Ubuntu |
+| **LEA** | Chromebook — Penguin/Crostini | ChromeOS |
+| **Yoga** | PC portable | Windows 11 |
+
+**Note :** Hermes tourne **DANS** un conteneur Docker sur LEO (host networking). Le daemon Docker est sur l'hôte → inaccessible depuis l'agent Hermes.
 
 ---
 
