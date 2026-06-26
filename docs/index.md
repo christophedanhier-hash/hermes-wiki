@@ -147,6 +147,13 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">BAVI_LEO/wiki</div>
 </a>
 
+<a href="https://christophedanhier-hash.github.io/emile-wiki/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🎓</div>
+    <div class="title">Wiki Émile — Mémoire</div>
+    <div class="desc">Assistant pédagogique — mémoire de fin d'études en sciences de l'éducation</div>
+    <div class="url">emile-wiki</div>
+</a>
+
 </div>
 
 <div class="section-title"><span class="emoji">📊</span>Dashboards & Monitoring</div>
