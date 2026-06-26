@@ -1,21 +1,25 @@
-## 1. Infrastructure
+## Architecture Système
 
-- **Host LEO**: i7-7700K, 22GB RAM, 457GB, Ubuntu 26.04
-- **Container Hermes**: Debian 13, Python 3.13, DeepSeek V4 Flash
-- **Interface Chromebook**: Telegram
-- **Ollama local**: qwen2.5:7b sur http://100.92.102.28:11434
+### 1. Infrastructure
 
-## 2. Budget API
+| Nom | Spécifications |
+| --- | --- |
+| Host LEO | i7-7700K, 22GB RAM, 457GB, Ubuntu 26.04 |
+| Container Hermes | Debian 13, Python 3.13, DeepSeek V4 Flash |
+| Interface Chromebook | Telegram |
+| Ollama local | qwen2.5:7b sur http://100.92.102.28:11434 |
 
-- **Balance DeepSeek actuelle**: $19.99
-- **Seuil alerte**: < $30
-- **Seuil stop**: < $10
-- **Routage**: Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
+### 2. Budget API
 
-## 3. Crons Actifs (28)
+- Balance DeepSeek actuelle : $18.3
+- Seuil alerte : < $30
+- Seuil stop : < $10
+- Routage : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
+
+### 3. Crons Actifs (28)
 
 | Nom | Horaire | Description |
-| --- | ------- | ----------- |
+| --- | --- | --- |
 | daily-backup | `0 6 * * *` | Backup Drive quotidien (fichiers plats) |
 | docs-update | `0 8 * * *` | Mise à jour hebdo wiki + guide + changelog (Ollama) |
 | machines-kpi | `0 * * * *` | Métriques CPU/RAM/disque 3 machines → Sheet |
@@ -28,19 +32,19 @@
 | wiki-sync | `30 * * * *` | Sync fichiers sources → Wiki MkDocs |
 | wiki-oca-sync | `35 * * * *` | Sync fichiers Cowork Drive → wiki OCA + push |
 | bavi-leo-dashboard | `every 60m` | run-bavi-leo-dashboard.sh |
-| credentials-check | `0 9 * * 1` | check-credentials |
+| credentials-check | `0 9 * * 1` | check-credentia |
 
-## 4. Dashboards
+### 4. Dashboards
 
-- **Crons**: https://christophedanhier-hash.github.io/crons-dashboard/
-- **GitHub**: https://christophedanhier-hash.github.io/github-dashboard/
-- **Machines**: https://christophedanhier-hash.github.io/dashboard-leo/
-- **Wiki**: https://christophedanhier-hash.github.io/hermes-wiki/
+- Crons : [https://christophedanhier-hash.github.io/crons-dashboard/](https://christophedanhier-hash.github.io/crons-dashboard/)
+- GitHub : [https://christophedanhier-hash.github.io/github-dashboard/](https://christophedanhier-hash.github.io/github-dashboard/)
+- Machines : [https://christophedanhier-hash.github.io/dashboard-leo/](https://christophedanhier-hash.github.io/dashboard-leo/)
+- Wiki : [https://christophedanhier-hash.github.io/hermes-wiki/](https://christophedanhier-hash.github.io/hermes-wiki/)
 
-## 5. Sessions & Utilisation
+### 5. Sessions & Utilisation
 
-- **Total sessions**: 365
-- **Total messages**: 11005
-- **cli**: 3 sessions
-- **telegram**: 110 sessions
-- **Database size**: 161.0 MB
+- Total sessions : 413
+- Total messages : 12756
+- cli : 3 sessions
+- telegram : 112 sessions
+- Database size : 176.4 MB
