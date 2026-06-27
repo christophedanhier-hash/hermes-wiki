@@ -11,12 +11,12 @@
 
 ### 2. Budget API
 
-- Balance DeepSeek actuelle : $18.3
-- Seuil alerte : < $30
-- Seuil stop : < $10
-- Routage : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
+- **Balance DeepSeek actuelle** : $16.94
+- **Seuil alerte** : < $30
+- **Seuil stop** : < $10
+- **Routage** : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
 
-### 3. Crons Actifs (28)
+### 3. Crons Actifs (29)
 
 | Nom | Horaire | Description |
 | --- | --- | --- |
@@ -43,8 +43,7 @@
 
 ### 5. Sessions & Utilisation
 
-- Total sessions : 413
-- Total messages : 12756
-- cli : 3 sessions
-- telegram : 112 sessions
-- Database size : 176.4 MB
+- **Total sessions** : 461
+- **Total messages** : 13617
+- **Sessions cli** : 3
+- **Sessions telegram** : 112
