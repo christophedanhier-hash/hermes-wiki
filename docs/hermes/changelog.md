@@ -2,15 +2,14 @@
 
 *Document vivant*
 
-## 2026-06-24 au 01/07/2026
+## 2026-07-01
 
-- **Balance DeepSeek** : $54.57
-- **Cróns actifs** : 14 cróns continuent à fonctionner sans changements notables.
-- **Commits hermes-christophe** (132) : 
-  - Synchronisation complète le 2026-07-01 à 19:00
-  - Mises à jour hebdomadaires régulières de publications
-- **Commits wiki** (38) :
-  - Mise à jour hebdomadaire du 01/07/2026
-  - Suppression des liens d'anciens dashboards, maintien uniquement de leo-dashboard
-  - Corrections et améliorations des liens vers les dashboards unifiés
+- **Balance DeepSeek** : $53.37
+- **Crons actifs** : 14 crons continuent à fonctionner normalement.
+- **Commits hermes-christophe (135)** :
+  - Synchronisations régulières effectuées.
+- **Commits wiki (33)** :
+  - Mises à jour hebdomadaires du wiki.
+  - Suppression des liens anciens dashboards et ajout de nouveaux liens.
+  - Corrections de bugs concernant les liens des dashboards.
 - **Aucun changement majeur.**
