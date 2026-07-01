@@ -89,13 +89,13 @@ Tous en **HTML statique** hébergés sur **GitHub Pages** — zéro backend, zé
 
 | Dashboard | URL | Contenu | Màj |
 |:----------|:----|:--------|:---:|
-| 🌍 **Global LEO** | [lien](https://christophedanhier-hash.github.io/leo-global-dashboard/) | Portail agrégé | H:05 |
-| 📊 **LEO KPI** | [lien](https://christophedanhier-hash.github.io/dashboard-leo/) | Sessions, budget, tokens | H:10 |
-| 🏛️ **BAVI LEO** | [lien](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) | KPIs BAVI | H:05 |
-| 💻 **Machines** | [lien](https://christophedanhier-hash.github.io/leo-metrics/) | CPU/RAM/disque 3 machines | H:15 |
-| ⏱️ **Crons** | [lien](https://christophedanhier-hash.github.io/crons-dashboard/) | 25 crons, historique 7j | H:20 |
-| 🐙 **GitHub** | [lien](https://christophedanhier-hash.github.io/github-dashboard/) | Activité 22 repos | H:25 |
-| 🔧 **n8n** | [lien](https://christophedanhier-hash.github.io/dashboard-n8n/) | Workflows n8n | */15 |
+| 🌍 **Global LEO** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé | H:05 |
+| 📊 **LEO KPI** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, budget, tokens | H:10 |
+| 🏛️ **BAVI LEO** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | KPIs BAVI | H:05 |
+| 💻 **Machines** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | CPU/RAM/disque 3 machines | H:15 |
+| ⏱️ **Crons** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | 25 crons, historique 7j | H:20 |
+| 🐙 **GitHub** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Activité 22 repos | H:25 |
+| 🔧 **n8n** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Workflows n8n | */15 |
 
 ### Les 25 crons (tâches planifiées)
 
