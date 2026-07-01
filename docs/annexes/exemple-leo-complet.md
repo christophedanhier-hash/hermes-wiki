@@ -71,13 +71,13 @@ Depuis juin 2026, certains crons critiques sont **doublés dans n8n** pour bén�
 
 | Dashboard | Technologie | Màj | Lien |
 |-----------|-------------|-----|------|
-| 🌍 Global LEO | HTML + CSS | H:05 | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| LEO KPI (budget DeepSeek, sessions) | HTML + Chart.js | H:10 | [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| BAVI LEO (KPIs session BAVI) | HTML + Chart.js | H:05 | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| 3 Machines (CPU/RAM/disque) | HTML + CSS | H:15 | [leo-metrics](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| Crons (22 crons, historique 7j) | HTML + CSS pur | H:20 | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| GitHub (22 repos) | HTML + CSS | H:25 | [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| n8n (workflows, exécutions) | HTML + CSS | */15 | [dashboard-n8n](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| 🌍 Global LEO | HTML + CSS | H:05 | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) |
+| LEO KPI (budget DeepSeek, sessions) | HTML + Chart.js | H:10 | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
+| BAVI LEO (KPIs session BAVI) | HTML + Chart.js | H:05 | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
+| 3 Machines (CPU/RAM/disque) | HTML + CSS | H:15 | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
+| Crons (22 crons, historique 7j) | HTML + CSS pur | H:20 | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
+| GitHub (22 repos) | HTML + CSS | H:25 | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
+| n8n (workflows, exécutions) | HTML + CSS | */15 | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) |
 
 Tous les scripts de déploiement incluent :
 - `--allow-empty` + `run_id` dans le footer pour éviter "nothing to commit"
