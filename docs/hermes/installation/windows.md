@@ -103,7 +103,7 @@ docker run -d ^
 ## 🔧 Exemple : LEO (serveur de production)
 
 LEO tourne sur un serveur Ubuntu 24.04 conteneurisé via Docker Compose.  
-→ Voir [l'exemple LEO sur Linux](./linux.md#-exemple-leo-serveur-de-production)
+→ Voir [l'exemple LEO sur Linux](./linux.md)
 
 Les principes sont identiques, seuls changent :
 - Le gestionnaire de paquets : `apt` → `choco` / `winget` sur Windows
