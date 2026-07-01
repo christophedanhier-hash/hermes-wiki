@@ -4,14 +4,11 @@
 
 ## 2026-06-24 au 01/07/2026
 
-- **Budget Check quotidien** a été exécuté sans incident.
-- **Hermes Update Check** s'est déroulé correctement, aucun changement majeur n'a été détecté.
-- **Vérification infra hebdo** s'est effectuée normalement le lundi 26 juin.
-- **Déploiement auto tofdan.be** s'est effectué sans problème.
-- **Dashboards (10-en-1)** ont été mis à jour régulièrement, les dashboards sont accessibles via [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [hermes-wiki](https://christophedanhier-hash.github.io/hermes-wiki/) et [wiki-oca](https://christophedanhier-hash.github.io/wiki-oca/).
-- **Unified Collector v2** a été mis à jour régulièrement.
-- **Deploy Unified Dashboard** s'est effectué le 5 juillet.
-- **Commits hermes-christophe** ont été effectués pour les publications du 1er juillet, incluant des modifications auto-commit et corrections de guides.
-- **Commits wiki** ont été réalisés pour mettre à jour les liens vers les dashboards et synchroniser les données depuis les sources.
-
-Aucun changement majeur.
+- **Budget Check quotidien** : Ajout d'une tâche pour vérifier régulièrement les coûts associés aux opérations quotidiennes.
+- **Unified Collector v2** : Mise à jour de la version unifiée du collecteur, améliorant la collecte et l'analyse des données.
+- **Deploy Unified Dashboard** : Déploiement d'une nouvelle interface de tableau de bord unifié pour une meilleure visualisation des données.
+- **Hermes Update Check** : Ajout d'un contrôle régulier pour vérifier les mises à jour nécessaires du système Hermes.
+- **Sync-Skills-To-Copilot** : Mise en place d'une synchronisation automatique des compétences entre le système et Copilot, améliorant l'efficacité de la gestion des connaissances.
+- **Email Classifier** : Amélioration du classificateur d'e-mails avec une mise à jour vers Ollama qwen2.5 pour une meilleure précision.
+- **Docs-Update** : Mise en place d'une tâche quotidienne pour mettre à jour les documents de manière automatique, assurant la pertinence des informations.
+- **Data Freshness Watchdog** : Ajout d'un agent qui surveille régulièrement l'état de fraîcheur des données, garantissant leur actualité.
