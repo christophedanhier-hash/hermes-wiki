@@ -166,7 +166,7 @@ tail -f /opt/data/logs/gateway.log
 tail -f /opt/data/profiles/leo-copilot/logs/agent.log
 
 # Dashboard de monitoring
-# → https://user.github.io/leo-global-dashboard/
+# → https://user.github.io/leo-dashboard/
 ```
 
 ### Les 7 dashboards de monitoring

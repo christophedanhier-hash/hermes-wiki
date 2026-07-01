@@ -20,13 +20,13 @@ LEO a **7 dashboards** en production, tous rafraîchis par des crons no_agent :
 
 | Dashboard | Contenu | URL | Cron |
 |-----------|---------|-----|------|
-| **LEO KPI** | Budget DeepSeek, sessions, coûts | [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/) | H:10 |
-| **BAVI LEO** | KPIs BAVI (sessions, tokens, budget) | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:05 |
-| **3 Machines** | CPU, RAM, disque LEO/Yoga/Penguin | [leo-metrics](https://christophedanhier-hash.github.io/leo-dashboard/) | H:15 |
-| **Crons LEO** | État de tous les crons, historique 7j | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:20 |
-| **GitHub** | Activité repos Hermes vs Développement | [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:25 |
-| **n8n** | Monitoring workflows n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/leo-dashboard/) | */15 |
-| **Global LEO** | Vue consolidée : crons, dashboards, budget, n8n, machines | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:05 |
+| **LEO KPI** | Budget DeepSeek, sessions, coûts | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:10 |
+| **BAVI LEO** | KPIs BAVI (sessions, tokens, budget) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:05 |
+| **3 Machines** | CPU, RAM, disque LEO/Yoga/Penguin | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:15 |
+| **Crons LEO** | État de tous les crons, historique 7j | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:20 |
+| **GitHub** | Activité repos Hermes vs Développement | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:25 |
+| **n8n** | Monitoring workflows n8n | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | */15 |
+| **Global LEO** | Vue consolidée : crons, dashboards, budget, n8n, machines | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:05 |
 
 Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
 
