@@ -116,11 +116,11 @@ Tous les crons tournent en `no_agent` (0 token LLM) sauf `veille-ia-quotidienne`
 | Dashboard | URL | Cron | Technologie |
 |-----------|-----|------|-------------|
 | **Hub Monitoring** | [localhost:8080](http://localhost:8080) | Statique | HTML + CSS |
-| **LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) | H:10 | HTML + Chart.js |
-| **Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) | H:15 | HTML + Chart.js |
-| **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | H:20 | HTML + CSS pur |
-| **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) | H:25 | HTML + CSS pur |
-| **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) | Every 60m | HTML + Chart.js |
+| **LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/) | H:10 | HTML + Chart.js |
+| **Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-dashboard/) | H:15 | HTML + Chart.js |
+| **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:20 | HTML + CSS pur |
+| **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:25 | HTML + CSS pur |
+| **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Every 60m | HTML + Chart.js |
 | **n8n** | [http://100.92.102.28:5678](http://100.92.102.28:5678) | */15 | Healthcheck (cron) |
 
 Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.

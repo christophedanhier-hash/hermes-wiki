@@ -106,9 +106,9 @@ send_alert("mon_script.py", f"Erreur: {e}")
 
 | Dashboard | URL | Mise à jour |
 |:----------|:----|:-----------|
-| 🔧 n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) | Toutes les 15 min |
-| ⏱️ Crons LEO | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) | Toutes les heures |
-| 🌍 Global | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) | Toutes les heures |
+| 🔧 n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les 15 min |
+| ⏱️ Crons LEO | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les heures |
+| 🌍 Global | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les heures |
 
 ---
 

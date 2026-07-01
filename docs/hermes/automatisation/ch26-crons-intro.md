@@ -170,7 +170,7 @@ Depuis le 21/06/2026, un cron **agent-driven** (pas no_agent) tourne toutes les 
 | Import Python cassé | Traceback d'import | pip install dans le venv |
 
 **Rapport :** livré en local (plus sur Telegram). Consultez le **🌍 Global Dashboard** à
-https://christophedanhier-hash.github.io/leo-global-dashboard/ pour tout voir en un coup d'œil.
+https://christophedanhier-hash.github.io/leo-dashboard/ pour tout voir en un coup d'œil.
 
 ## Pièges à éviter
 

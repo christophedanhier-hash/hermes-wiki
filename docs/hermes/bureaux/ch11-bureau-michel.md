@@ -156,13 +156,13 @@ Sur 30 crons, **22 sont en no_agent** — le coût total des crons est d'environ
 
 | Dashboard | URL | Contenu |
 |:----------|:----|:--------|
-| **LEO KPI** | `christophedanhier-hash.github.io/dashboard-leo/` | Sessions, tokens, budget |
-| **BAVI LEO** | `christophedanhier-hash.github.io/bavi-leo-dashboard/` | KPIs voyages |
-| **Machines** | `christophedanhier-hash.github.io/leo-metrics/` | CPU, RAM, disque (3 machines) |
-| **Crons** | `christophedanhier-hash.github.io/crons-dashboard/` | Statut 30 crons |
-| **GitHub** | `christophedanhier-hash.github.io/github-dashboard/` | Activité repos |
-| **n8n** | `christophedanhier-hash.github.io/dashboard-n8n/` | Workflows, exécutions |
-| **Global** | `christophedanhier-hash.github.io/leo-global-dashboard/` | Portail agrégé |
+| **LEO KPI** | `christophedanhier-hash.github.io/leo-dashboard/` | Sessions, tokens, budget |
+| **BAVI LEO** | `christophedanhier-hash.github.io/leo-dashboard/` | KPIs voyages |
+| **Machines** | `christophedanhier-hash.github.io/leo-dashboard/` | CPU, RAM, disque (3 machines) |
+| **Crons** | `christophedanhier-hash.github.io/leo-dashboard/` | Statut 30 crons |
+| **GitHub** | `christophedanhier-hash.github.io/leo-dashboard/` | Activité repos |
+| **n8n** | `christophedanhier-hash.github.io/leo-dashboard/` | Workflows, exécutions |
+| **Global** | `christophedanhier-hash.github.io/leo-dashboard/` | Portail agrégé |
 | **Nest** | Dashboard domotique | Capteurs maison |
 
 Tous ces dashboards sont des fichiers **HTML statiques** (zéro backend) :

@@ -1,7 +1,7 @@
 # 📊 Dashboard n8n
 
 > *Le dashboard complet avec graphiques est disponible ici :*
-> **[🔧 Dashboard n8n — HTML Charts](https://christophedanhier-hash.github.io/dashboard-n8n/)**
+> **[🔧 Dashboard n8n — HTML Charts](https://christophedanhier-hash.github.io/leo-dashboard/)**
 
 ---
 
@@ -16,4 +16,4 @@
 
 ---
 
-*[Voir le dashboard complet](https://christophedanhier-hash.github.io/dashboard-n8n/) · Page générée par LEO 🦁*
+*[Voir le dashboard complet](https://christophedanhier-hash.github.io/leo-dashboard/) · Page générée par LEO 🦁*
