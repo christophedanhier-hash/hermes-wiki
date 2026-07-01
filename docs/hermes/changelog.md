@@ -4,13 +4,13 @@
 
 ## 2026-06-24 au 01/07/2026
 
-- **Budget Check quotidien** : Ajout d'une tâche pour vérifier régulièrement les coûts associés aux opérations.
-- **Unified Collector v2** : Mise à jour de la version 2 du collecteur unifié pour améliorer la collecte des données.
-- **Deploy Unified Dashboard** : Déploiement d'une nouvelle interface de tableau de bord unifié pour une meilleure visualisation des données.
-- **Hermes Update Check** : Ajout d'un contrôle régulier des mises à jour pour assurer la stabilité du système.
-- **Sync-Skills-To-Copilot** : Mise en place d'une synchronisation automatique des compétences entre le système et le copilote pour une meilleure intégration.
-- **Email Classifier** : Amélioration de l'analyse des emails avec un classificateur Ollama qwen2.5 pour une classification plus précise.
-- **Docs-Update** : Mise à jour automatique des documents pour garantir qu'ils sont toujours à jour et pertinents.
-- **Data Freshness Watchdog** : Ajout d'un agent de surveillance pour vérifier la fraîcheur des données, assurant leur récente actualisation.
-
-Aucun changement majeur.
+- **Balance DeepSeek** : $54.57
+- **Cróns actifs** : 14 cróns continuent à fonctionner sans changements notables.
+- **Commits hermes-christophe** (132) : 
+  - Synchronisation complète le 2026-07-01 à 19:00
+  - Mises à jour hebdomadaires régulières de publications
+- **Commits wiki** (38) :
+  - Mise à jour hebdomadaire du 01/07/2026
+  - Suppression des liens d'anciens dashboards, maintien uniquement de leo-dashboard
+  - Corrections et améliorations des liens vers les dashboards unifiés
+- **Aucun changement majeur.**
