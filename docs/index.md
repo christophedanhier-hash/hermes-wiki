@@ -160,59 +160,10 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
-<a href="https://christophedanhier-hash.github.io/leo-global-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🌍</div>
-    <div class="title">Global Dashboard</div>
-    <div class="desc">Vue consolidée — 30 crons, budget DeepSeek, santé n8n, KPIs consolidés</div>
-    <div class="url">leo-global-dashboard</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/dashboard-leo/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🤖</div>
-    <div class="title">Dashboard LEO</div>
-    <div class="desc">KPI Hermes — sessions, tokens, coûts DeepSeek, utilisation par source, bots</div>
-    <div class="url">dashboard-leo</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/leo-metrics/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">💻</div>
-    <div class="title">Machines</div>
-    <div class="desc">CPU, RAM, disque, uptime — 3 machines : LEO, Yoga, Penguin</div>
-    <div class="url">leo-metrics</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/crons-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">⏰</div>
-    <div class="title">Crons</div>
-    <div class="desc">État et historique des crons automatisés — runs, succès, échecs</div>
-    <div class="url">crons-dashboard</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/github-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🐙</div>
-    <div class="title">GitHub</div>
-    <div class="desc">Activité des repos — commits, déploiements, stats par projet</div>
-    <div class="url">github-dashboard</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/bavi-leo-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🏛️</div>
-    <div class="title">BAVI LEO</div>
-    <div class="desc">KPIs Bureaux Virtuels — usage PRO/PRIVÉ, coûts, performances</div>
-    <div class="url">bavi-leo-dashboard</div>
-</a>
-
-<a href="https://christophedanhier-hash.github.io/dashboard-n8n/" class="portail-card" target="_blank" rel="noreferrer noopener">
-    <div class="icon">🔧</div>
-    <div class="title">n8n</div>
-    <div class="desc">Santé workflows n8n, exécutions, credentials Gmail, statut temps réel</div>
-    <div class="url">dashboard-n8n</div>
-</a>
-
 <a href="https://christophedanhier-hash.github.io/leo-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🦁</div>
     <div class="title">LEO Dashboard Unifié</div>
-    <div class="desc">Nouveau dashboard central — budget live, sessions, crons, infra, BAVI, 4 onglets</div>
+    <div class="desc">Budget live, sessions, crons, infra, BAVI — 4 onglets, 1 source de vérité</div>
     <div class="url">leo-dashboard</div>
 </a>
 
