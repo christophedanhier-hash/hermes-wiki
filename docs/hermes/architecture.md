@@ -1,49 +1,56 @@
-## Architecture Système
+# Architecture Système
 
-### 1. Infrastructure
+## 1. Infrastructure
+L'infrastructure de l'assistant LEO est composée des éléments suivants :
 
-| Nom | Spécifications |
-| --- | --- |
-| Host LEO | i7-7700K, 22GB RAM, 457GB, Ubuntu 26.04 |
-| Container Hermes | Debian 13, Python 3.13, DeepSeek V4 Flash |
-| Interface Chromebook | Telegram |
-| Ollama local | qwen2.5:7b sur http://100.92.102.28:11434 |
+- **Host LEO**: i7-7700K avec 22GB de RAM.
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**.
+- **Chromebook Telegram** pour la communication via Telegram.
+- **Ollama qwen2.5:7b** pour le traitement des tâches complexes.
 
-### 2. Budget API
+## 2. Budget API
+Le budget actuel pour les APIs est de $56.36, avec des seuils d'alerte à $30 et un seuil de stop à $10. Le routage des requêtes API suit la séquence suivante : Ollama → Gemini → DeepSeek V4 Flash.
 
-- **Balance DeepSeek actuelle** : $16.94
-- **Seuil alerte** : < $30
-- **Seuil stop** : < $10
-- **Routage** : Ollama (gratuit) → Gemini (fallback) → DeepSeek (payant)
+## 3. Crons Actifs
+Le tableau ci-dessous présente les 19 crons actifs :
 
-### 3. Crons Actifs (29)
-
-| Nom | Horaire | Description |
+| **Nom du Cron** | **Heure de lancement** | **Description** |
 | --- | --- | --- |
-| daily-backup | `0 6 * * *` | Backup Drive quotidien (fichiers plats) |
-| docs-update | `0 8 * * *` | Mise à jour hebdo wiki + guide + changelog (Ollama) |
-| machines-kpi | `0 * * * *` | Métriques CPU/RAM/disque 3 machines → Sheet |
-| budget-check-v6 | `5 * * * *` | Solde DeepSeek → Sheet Budget |
-| dashboard-leo | `10 * * * *` | run-dashboard.sh |
-| leo-metrics | `15 * * * *` | Métriques machines → dashboard HTML (GH Pages) |
-| crons-dashboard | `20 * * * *` | Statut des 10 crons → dashboard HTML (GH Pages) |
-| drive-sync | `0 18 * * *` | Sync Drive → hermes-christophe (bidirectionnel) |
-| github-dashboard | `25 * * * *` | Activité GitHub repos → dashboard HTML (GH Pages) |
-| wiki-sync | `30 * * * *` | Sync fichiers sources → Wiki MkDocs |
-| wiki-oca-sync | `35 * * * *` | Sync fichiers Cowork Drive → wiki OCA + push |
-| bavi-leo-dashboard | `every 60m` | run-bavi-leo-dashboard.sh |
-| credentials-check | `0 9 * * 1` | check-credentia |
+| LEO Full Backup quotidien (complet) | `0 2 * * *` | Effectue une sauvegarde complète du système. |
+| Budget Check quotidien | `0 8,20 * * *` | Vérifie le budget et envoie des alertes si nécessaire. |
+| Hermes Update Check | `0 9 * * *` | Vérifie la mise à jour de l'application Hermes. |
+| Veille IA quotidienne | `0 7 * * *` | Effectue une veille IA pour maintenir les connaissances à jour. |
+| Vérification infra hebdo | `0 8 * * 1` | Effectue une vérification hebdomadaire de l'infrastructure. |
+| Déploiement auto tofdan.be | `0 * * * *` | Déploie automatiquement les mises à jour sur le site tofdan.be. |
+| Dashboards (10-en-1) | `0 * * * *` | Lance la génération des dashboards. run-all-dashboards.sh |
+| Watchdogs | `*/5 * * * *` | Lance la surveillance continue de l'infrastructure. run-all-watchdogs.sh |
+| Auto-commit repos | `*/15 * * * *` | Effectue un commit automatique des modifications dans les répertoires de code. auto-commit-repos.sh |
+| Publish (index+HTML) | `15 * * * *` | Publie l'index et les fichiers HTML générés. publish.sh |
+| sync-memory | `*/30 * * * *` | Synchronise la mémoire du système. sync-memory.py |
+| Email Classifier — Ollama qwen2.5 | `*/30 * * * *` | Classifie les emails avec l'assistant Ollama qwen2.5. gmail_classifier.py |
+| docs-update | `0 */4 * * *` | Met à jour les documents automatiquement. run-docs-update.sh |
+| drive-sync | `0 * * * *` | Synchronise le contenu du cloud Drive. drive-sync.sh |
+| credentials-check | `0 6 * * *` | Vérifie la validité des informations de connexion. check-credentials.py |
+| doc-watch-auto | `0 */6 * * *` | Surveillance automatique des documents. doc-watch-auto.py |
+| Auto-Heal Agent | `*/15 * * * *` | Gère l'autoréparation du système. |
 
-### 4. Dashboards
+## 4. Dashboards
+Les dashboards sont gérés par les crons suivants :
 
-- Crons : [https://christophedanhier-hash.github.io/crons-dashboard/](https://christophedanhier-hash.github.io/crons-dashboard/)
-- GitHub : [https://christophedanhier-hash.github.io/github-dashboard/](https://christophedanhier-hash.github.io/github-dashboard/)
-- Machines : [https://christophedanhier-hash.github.io/dashboard-leo/](https://christophedanhier-hash.github.io/dashboard-leo/)
-- Wiki : [https://christophedanhier-hash.github.io/hermes-wiki/](https://christophedanhier-hash.github.io/hermes-wiki/)
+- **crons**: Lance la génération des dashboards pour les métriques de cron.
+- **github**: Lance la génération des dashboards pour les données GitHub.
+- **machines**: Lance la génération des dashboards pour l'état des machines.
+- **wiki**: Lance la génération des dashboards pour le contenu du wiki.
 
-### 5. Sessions & Utilisation
+## 5. Sessions & Utilisation
+Le système a enregistré un total de 59 sessions et 3720 messages. Les détails sont les suivants :
 
-- **Total sessions** : 461
-- **Total messages** : 13617
-- **Sessions cli** : 3
-- **Sessions telegram** : 112
+- **Total sessions**: 59
+- **Total messages**: 3720
+- **Sessions via Telegram**: 4
+
+La taille de la base de données est de 25.8 MB, ce qui indique un usage modéré et une gestion efficace des ressources.
+
+--- 
+
+Cette page Wiki MkDocs fournit une vue d'ensemble détaillée de l'architecture système, permettant une meilleure compréhension et gestion des opérations en cours.
