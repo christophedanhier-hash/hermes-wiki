@@ -87,5 +87,5 @@ with open("/tmp/dashboard-machines.html", "w") as f:
 tail -20 /opt/data/profiles/leo-copilot/logs/agent.log
 
 # Vérifier le dashboard en ligne
-curl -s https://user.github.io/leo-metrics/ | head -5
+curl -s https://user.github.io/leo-dashboard/ | head -5
 ```

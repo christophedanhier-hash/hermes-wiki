@@ -18,14 +18,14 @@ flowchart TB
     subgraph Collecte["⏱️ Collecte (Crons Hermes 24)"]
         BC["budget-check-v6<br/>H:05"]
         MK["machines-kpi<br/>H:00"]
-        CD["crons-dashboard<br/>H:20"]
-        GD["github-dashboard<br/>H:25"]
-        ND["dashboard-n8n<br/>*/15"]
+        CD["leo-dashboard<br/>H:20"]
+        GD["leo-dashboard<br/>H:25"]
+        ND["leo-dashboard<br/>*/15"]
         WD["dashboard-watch<br/>30 */2h"]
         DW["doc-watch-auto<br/>00/06/12/18"]
-        BAVI["bavi-leo-dashboard<br/>H:05"]
-        LD["dashboard-leo<br/>H:10"]
-        MM["leo-metrics<br/>H:15"]
+        BAVI["leo-dashboard<br/>H:05"]
+        LD["leo-dashboard<br/>H:10"]
+        MM["leo-dashboard<br/>H:15"]
         NC["n8n-healthcheck<br/>*/15"]
         VEILLE["Veille IA<br/>05:30/06:00"]
         SYNC["drive-sync<br/>18:00"]
@@ -105,13 +105,13 @@ Chaque dashboard est un **HTML statique** hébergé sur GitHub Pages, généré 
 
 | Dashboard | URL | Contenu | Généré par | Fréquence | Coût |
 |-----------|-----|---------|-----------|-----------|------|
-| **📊 LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, tokens, budget DeepSeek, status n8n | `deploy_leo_dashboard.py` | H:10 | **0$** |
-| **🏛️ BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | KPIs BAVI, budget, tokens | `deploy_bavi_leo_dashboard.py` | H:05 | **0$** |
-| **💻 Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-dashboard/) | CPU/RAM/Disque LEO/Yoga/Penguin | `deploy_machines.py` | H:15 | **0$** |
-| **⏱️ Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | État 25 crons, historique 7j | `deploy-crons-dashboard.py` | H:20 | **0$** |
-| **🐙 GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Activité 22 repos Hermes vs Dev | `deploy-github-dashboard.py` | H:25 | **0$** |
-| **🔧 n8n** | [dashboard-n8n](https://christophedanhier-hash.github.io/leo-dashboard/) | Workflows n8n, exécutions, credentials | `collect_n8n_dashboard.py` | */15 | **0$** |
-| **🌍 Global** | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé tous dashboards | `deploy_leo_global.py` | H:05 | **0$** |
+| **📊 LEO KPI** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, tokens, budget DeepSeek, status n8n | `deploy_leo_dashboard.py` | H:10 | **0$** |
+| **🏛️ BAVI LEO** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | KPIs BAVI, budget, tokens | `deploy_bavi_leo_dashboard.py` | H:05 | **0$** |
+| **💻 Machines** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | CPU/RAM/Disque LEO/Yoga/Penguin | `deploy_machines.py` | H:15 | **0$** |
+| **⏱️ Crons** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | État 25 crons, historique 7j | `deploy-leo-dashboard.py` | H:20 | **0$** |
+| **🐙 GitHub** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Activité 22 repos Hermes vs Dev | `deploy-leo-dashboard.py` | H:25 | **0$** |
+| **🔧 n8n** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Workflows n8n, exécutions, credentials | `collect_n8n_dashboard.py` | */15 | **0$** |
+| **🌍 Global** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé tous dashboards | `deploy_leo_global.py` | H:05 | **0$** |
 
 **Navigation :** chaque dashboard a une barre de navigation avec les 7 liens.
 
@@ -126,9 +126,9 @@ Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 | Cron | Horaire | Script | Rôle | Redondance |
 |------|---------|--------|------|-----------|
 | `budget-check-v6` | **H:05** | `update_budget_v6.py` | Solde DeepSeek → Google Sheets + budget.json | 🟡 n8n Budget Check |
-| `dashboard-leo` | **H:10** | `deploy_leo_dashboard.py` | Génère 📊 LEO KPI | — |
-| `bavi-leo-dashboard` | 60min | `deploy_bavi_leo_dashboard.py` | Génère 🏛️ BAVI LEO | — |
-| `crons-dashboard` | **H:20** | `deploy-crons-dashboard.py` | Génère ⏱️ Crons | — |
+| `leo-dashboard` | **H:10** | `deploy_leo_dashboard.py` | Génère 📊 LEO KPI | — |
+| `leo-dashboard` | 60min | `deploy_bavi_leo_dashboard.py` | Génère 🏛️ BAVI LEO | — |
+| `leo-dashboard` | **H:20** | `deploy-leo-dashboard.py` | Génère ⏱️ Crons | — |
 | `dashboard-watch` | **30 */2h** | `dashboard-watch.py` | Vérifie 7 dashboards + budget + contenu → auto-redeploy | 🟡 n8n Dashboard Watch |
 | `Auto-Heal` | **H:45** | `dashboard-watch.py` | Redondance watch (no_agent) | 🟡 Même script que watch |
 | `Global Dashboard` | **H:05** | `deploy_leo_global.py` | Génère 🌍 Global Dashboard | — |
@@ -138,7 +138,7 @@ Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 | Cron | Horaire | Script | Rôle | Redondance |
 |------|---------|--------|------|-----------|
 | `machines-kpi` | **H:00** | `update_machines_kpi.py` | Collecte CPU/RAM/Disque 3 machines | — |
-| `leo-metrics` | **H:15** | `deploy_machines.py` | Génère 💻 Machines | — |
+| `leo-dashboard` | **H:15** | `deploy_machines.py` | Génère 💻 Machines | — |
 | `n8n-healthcheck` | ***/15** | `collect-n8n-status.py` | Ping API n8n + Docker | — |
 
 ### Données & Sync (5)
@@ -172,7 +172,7 @@ Tous en `no_agent` sauf 2 = **quasi 0$ de consommation LLM**.
 
 | Cron | Horaire | Script | Rôle |
 |------|---------|--------|------|
-| `github-dashboard` | **H:25** | `deploy-github-dashboard.py` | Génère 🐙 GitHub |
+| `leo-dashboard` | **H:25** | `deploy-leo-dashboard.py` | Génère 🐙 GitHub |
 
 ---
 

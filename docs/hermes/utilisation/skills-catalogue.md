@@ -91,8 +91,8 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 |-------|-------------|-------------|
 | **deepseek-pro** | Bascule sur DeepSeek Pro (deepseek-v4-pro) pour analyses complexes via delegate_task | Tous profils |
 | **dashboard-deployment** | Déploiement dashboards HTML sur GitHub Pages avec collecte horaire 0$ | Crons LEO |
-| **dashboard-kpi** | Système dashboard KPI Hermes : SQLite → JSON → HTML (Chart.js) | Cron dashboard-leo |
-| **machine-metrics** | Dashboard 3 machines (LEO, Yoga, Penguin) : CPU/RAM/DISK | Cron leo-metrics |
+| **dashboard-kpi** | Système dashboard KPI Hermes : SQLite → JSON → HTML (Chart.js) | Cron leo-dashboard |
+| **machine-metrics** | Dashboard 3 machines (LEO, Yoga, Penguin) : CPU/RAM/DISK | Cron leo-dashboard |
 | **leo-architecture** | Architecture LEO finale : 1 profil, 1 gateway, DeepSeek + Ollama + Gemini | Setup |
 | **leo-backup-dr** | Plan de Reprise d'Activité — backup Drive + restauration ~45min | Cron daily-backup |
 | **routage-llm** | Règles de routage : DeepSeek (Telegram) vs Ollama (local) vs Gemini (fallback) | Quotidien |

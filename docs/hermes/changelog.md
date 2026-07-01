@@ -8,7 +8,7 @@
 - **Hermes Update Check** s'est déroulé correctement, aucun changement majeur n'a été détecté.
 - **Vérification infra hebdo** s'est effectuée normalement le lundi 26 juin.
 - **Déploiement auto tofdan.be** s'est effectué sans problème.
-- **Dashboards (10-en-1)** ont été mis à jour régulièrement, les dashboards sont accessibles via [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/), [hermes-wiki](https://christophedanhier-hash.github.io/hermes-wiki/) et [wiki-oca](https://christophedanhier-hash.github.io/wiki-oca/).
+- **Dashboards (10-en-1)** ont été mis à jour régulièrement, les dashboards sont accessibles via [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/), [hermes-wiki](https://christophedanhier-hash.github.io/hermes-wiki/) et [wiki-oca](https://christophedanhier-hash.github.io/wiki-oca/).
 - **Unified Collector v2** a été mis à jour régulièrement.
 - **Deploy Unified Dashboard** s'est effectué le 5 juillet.
 - **Commits hermes-christophe** ont été effectués pour les publications du 1er juillet, incluant des modifications auto-commit et corrections de guides.

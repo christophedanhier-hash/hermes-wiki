@@ -106,9 +106,9 @@ send_alert("mon_script.py", f"Erreur: {e}")
 
 | Dashboard | URL | Mise à jour |
 |:----------|:----|:-----------|
-| 🔧 n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les 15 min |
-| ⏱️ Crons LEO | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les heures |
-| 🌍 Global | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les heures |
+| 🔧 n8n | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les 15 min |
+| ⏱️ Crons LEO | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les heures |
+| 🌍 Global | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Toutes les heures |
 
 ---
 
@@ -116,7 +116,7 @@ send_alert("mon_script.py", f"Erreur: {e}")
 
 | Tâche | Cron/Commande |
 |:------|:--------------|
-| Dashboard n8n | `dashboard-n8n` — */15 min |
+| Dashboard n8n | `leo-dashboard` — */15 min |
 | Doc Watch | `doc-watch-auto` — toutes les 6h |
 
 ---

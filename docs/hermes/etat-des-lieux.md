@@ -138,16 +138,16 @@ fallback_providers:
 | **credentials-check** | Lun 09:00 hebdo | 🔧 Script | ✅ |
 | **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
 | **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
-| **dashboard-leo** | H:10 chaque heure | 🔧 Script | ✅ |
-| **leo-metrics** | H:15 chaque heure | 🔧 Script | ✅ |
-| **crons-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
-| **github-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
+| **leo-dashboard** | H:10 chaque heure | 🔧 Script | ✅ |
+| **leo-dashboard** | H:15 chaque heure | 🔧 Script | ✅ |
+| **leo-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
+| **leo-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
 | **wiki-sync** | H:30 chaque heure | 🔧 Script | ✅ |
 | **wiki-oca-sync** | H:35 chaque heure | 🔧 Script | ✅ |
 | **t600-drive-sync** | H:36 chaque heure | 🔧 Script | ✅ |
-| **bavi-leo-dashboard** | Every 60m | 🔧 Script | ✅ |
+| **leo-dashboard** | Every 60m | 🔧 Script | ✅ |
 | **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
-| **dashboard-n8n** | */15 min | 🔧 Script no_agent | ✅ |
+| **leo-dashboard** | */15 min | 🔧 Script no_agent | ✅ |
 | **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
 || **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ |
 || **Classifieur emails Christophe** | Every 30m | 🧠 Ollama | ✅ **Nouveau** |
@@ -282,7 +282,7 @@ flowchart TD
 
 ### Réflexe nouveau cron
 
-1. Forcer màj monitoring crons-dashboard
+1. Forcer màj monitoring leo-dashboard
 2. Mettre à jour le guide Hermes
 3. Sauvegarder dans les skills concernés
 

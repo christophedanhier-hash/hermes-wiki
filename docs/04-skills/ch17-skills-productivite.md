@@ -53,13 +53,13 @@ with open("/tmp/dashboard.html", "w") as f:
 
 | Dashboard | Contenu | URL |
 |:----------|:--------|:----|
-| **LEO KPI** | Sessions, tokens, budget, crons | `dashboard-leo/` |
-| **BAVI LEO** | KPIs voyages, analyses produites | `bavi-leo-dashboard/` |
-| **Machines** | CPU, RAM, disque 3 machines | `leo-metrics/` |
-| **Crons** | Statut 30 crons, temps d'exécution | `crons-dashboard/` |
-| **GitHub** | Activité repos, commits, issues | `github-dashboard/` |
-| **n8n** | Workflows, exécutions, erreurs | `dashboard-n8n/` |
-| **Global** | Portail agrégé tous dashboards | `leo-global-dashboard/` |
+| **LEO KPI** | Sessions, tokens, budget, crons | `leo-dashboard/` |
+| **BAVI LEO** | KPIs voyages, analyses produites | `leo-dashboard/` |
+| **Machines** | CPU, RAM, disque 3 machines | `leo-dashboard/` |
+| **Crons** | Statut 30 crons, temps d'exécution | `leo-dashboard/` |
+| **GitHub** | Activité repos, commits, issues | `leo-dashboard/` |
+| **n8n** | Workflows, exécutions, erreurs | `leo-dashboard/` |
+| **Global** | Portail agrégé tous dashboards | `leo-dashboard/` |
 
 ### Déploiement automatisé
 

@@ -1,6 +1,6 @@
 # Monitoring crons : le tableau de bord des tâches
 
-Avec 30 crons qui tournent 24h/24, il faut un dashboard pour savoir si tout va bien. C'est le rôle du **crons-dashboard**.
+Avec 30 crons qui tournent 24h/24, il faut un dashboard pour savoir si tout va bien. C'est le rôle du **leo-dashboard**.
 
 ## Le tableau de bord des crons
 
@@ -24,11 +24,11 @@ python3 /opt/data/scripts/collect_crons_status.py
 # → JSON : { "cron_id": { "status": "ok", "last_run": "...", "next_run": "..." } }
 
 # 2. Génération du dashboard
-python3 /opt/data/scripts/deploy-crons-dashboard.py
+python3 /opt/data/scripts/deploy-leo-dashboard.py
 # → HTML avec Chart.js + tableau
 
 # 3. Push sur GitHub Pages
-cd /opt/data/crons-dashboard && git push
+cd /opt/data/leo-dashboard && git push
 ```
 
 ## Indicateurs clés

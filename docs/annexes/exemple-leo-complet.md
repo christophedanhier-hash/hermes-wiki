@@ -33,13 +33,13 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 | `🌍 Global Dashboard` | **H:05** | 🔧 Script | **0$** | Portail unique monitoring consolidé |
 | `machines-kpi` | **H:00** | 🔧 Script | **0$** | Collecte CPU/RAM/disque 3 machines |
 | `budget-check-v6` | **H:05** | 🔧 Script | **0$** | Relevé solde DeepSeek + projection |
-| `dashboard-leo` | **H:10** | 🔧 Script | **0$** | Dashboard KPI LEO (sessions, budget) |
-| `leo-metrics` | **H:15** | 🔧 Script | **0$** | Dashboard 3 machines |
-| `crons-dashboard` | **H:20** | 🔧 Script | **0$** | Monitoring de tous les crons |
-| `github-dashboard` | **H:25** | 🔧 Script | **0$** | Activité GitHub (repos Hermes vs Dev) |
+| `leo-dashboard` | **H:10** | 🔧 Script | **0$** | Dashboard KPI LEO (sessions, budget) |
+| `leo-dashboard` | **H:15** | 🔧 Script | **0$** | Dashboard 3 machines |
+| `leo-dashboard` | **H:20** | 🔧 Script | **0$** | Monitoring de tous les crons |
+| `leo-dashboard` | **H:25** | 🔧 Script | **0$** | Activité GitHub (repos Hermes vs Dev) |
 | `wiki-sync` | **H:30** | 🔧 Script | **0$** | Synchronisation sources → Wiki MkDocs |
-| `bavi-leo-dashboard` | H:05 | 🔧 Script | **0$** | Dashboard KPIs BAVI LEO |
-| `dashboard-n8n` | */15 | 🔧 Script | **0$** | Dashboard monitoring n8n |
+| `leo-dashboard` | H:05 | 🔧 Script | **0$** | Dashboard KPIs BAVI LEO |
+| `leo-dashboard` | */15 | 🔧 Script | **0$** | Dashboard monitoring n8n |
 | `n8n-healthcheck` | */15 | 🔧 Script | **0$** | Ping n8n API |
 | `dashboard-watch` | 30 */2 | 🔧 Script | **0$** | Surveillance dashboards + budget ✅ |
 | `daily-backup` | 06:00 | 🔧 Script | **0$** | Backup fichiers critiques |
@@ -71,13 +71,13 @@ Depuis juin 2026, certains crons critiques sont **doublés dans n8n** pour bén�
 
 | Dashboard | Technologie | Màj | Lien |
 |-----------|-------------|-----|------|
-| 🌍 Global LEO | HTML + CSS | H:05 | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| LEO KPI (budget DeepSeek, sessions) | HTML + Chart.js | H:10 | [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| BAVI LEO (KPIs session BAVI) | HTML + Chart.js | H:05 | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| 3 Machines (CPU/RAM/disque) | HTML + CSS | H:15 | [leo-metrics](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| Crons (22 crons, historique 7j) | HTML + CSS pur | H:20 | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| GitHub (22 repos) | HTML + CSS | H:25 | [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| n8n (workflows, exécutions) | HTML + CSS | */15 | [dashboard-n8n](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| 🌍 Global LEO | HTML + CSS | H:05 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| LEO KPI (budget DeepSeek, sessions) | HTML + Chart.js | H:10 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| BAVI LEO (KPIs session BAVI) | HTML + Chart.js | H:05 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| 3 Machines (CPU/RAM/disque) | HTML + CSS | H:15 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| Crons (22 crons, historique 7j) | HTML + CSS pur | H:20 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| GitHub (22 repos) | HTML + CSS | H:25 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| n8n (workflows, exécutions) | HTML + CSS | */15 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
 
 Tous les scripts de déploiement incluent :
 - `--allow-empty` + `run_id` dans le footer pour éviter "nothing to commit"
@@ -136,9 +136,9 @@ LEO a vécu la perte d'accès Telegram lors d'un basculement de profil. Leçon a
     ├── run-budget.sh
     ├── run-machines-kpi.sh
     ├── run-dashboard.sh
-    ├── run-leo-metrics.sh
-    ├── run-crons-dashboard.sh
-    └── deploy-crons-dashboard.py
+    ├── run-leo-dashboard.sh
+    ├── run-leo-dashboard.sh
+    └── deploy-leo-dashboard.py
 ```
 
 ## Leçons apprises

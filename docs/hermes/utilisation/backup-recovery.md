@@ -106,11 +106,11 @@ gh repo clone christophedanhier-hash/wiki-oca
 gh repo clone christophedanhier-hash/voyages-wiki
 
 # Dashboards
-gh repo clone christophedanhier-hash/dashboard-leo
-gh repo clone christophedanhier-hash/leo-metrics
-gh repo clone christophedanhier-hash/crons-dashboard
-gh repo clone christophedanhier-hash/github-dashboard
-gh repo clone christophedanhier-hash/bavi-leo-dashboard
+gh repo clone christophedanhier-hash/leo-dashboard
+gh repo clone christophedanhier-hash/leo-dashboard
+gh repo clone christophedanhier-hash/leo-dashboard
+gh repo clone christophedanhier-hash/leo-dashboard
+gh repo clone christophedanhier-hash/leo-dashboard
 
 # Drive mirror
 gh repo clone christophedanhier-hash/hermes-christophe

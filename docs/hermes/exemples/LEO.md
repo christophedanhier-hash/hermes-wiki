@@ -97,14 +97,14 @@ Tous les crons tournent en `no_agent` (0 token LLM) sauf `veille-ia-quotidienne`
 | **Lun 09:00** | credentials-check | Vérification validité tokens OAuth |
 | **H:00** | machines-kpi | Collecte CPU/RAM/disque 3 machines |
 | **H:05** | budget-check-v6 | Relevé solde DeepSeek + projection |
-| **H:10** | dashboard-leo | Dashboard KPI Hermes |
-| **H:15** | leo-metrics | Dashboard 3 machines |
-| **H:20** | crons-dashboard | Monitoring de tous les crons |
-| **H:25** | github-dashboard | Activité GitHub (20 repos) |
+| **H:10** | leo-dashboard | Dashboard KPI Hermes |
+| **H:15** | leo-dashboard | Dashboard 3 machines |
+| **H:20** | leo-dashboard | Monitoring de tous les crons |
+| **H:25** | leo-dashboard | Activité GitHub (20 repos) |
 | **H:30** | wiki-sync | Synchronisation sources → Wiki MkDocs |
 | **H:35** | wiki-oca-sync | Sync documentation T600 |
 | **H:36** | t600-drive-sync | Sync Drive → T600 |
-| **Every 60m** | bavi-leo-dashboard | Dashboard BAVI LEO |
+| **Every 60m** | leo-dashboard | Dashboard BAVI LEO |
 | **18:00** | drive-sync | Sync bidirectionnelle Drive ↔ GitHub |
 || **Every 30m** | Classifieur emails Christophe | Classification Gmail christophe.danhier@gmail.com via Ollama |
 || ** */15** | n8n-healthcheck | Vérification santé n8n (no_agent) |
@@ -116,11 +116,11 @@ Tous les crons tournent en `no_agent` (0 token LLM) sauf `veille-ia-quotidienne`
 | Dashboard | URL | Cron | Technologie |
 |-----------|-----|------|-------------|
 | **Hub Monitoring** | [localhost:8080](http://localhost:8080) | Statique | HTML + CSS |
-| **LEO KPI** | [dashboard-leo](https://christophedanhier-hash.github.io/leo-dashboard/) | H:10 | HTML + Chart.js |
-| **Machines** | [leo-metrics](https://christophedanhier-hash.github.io/leo-dashboard/) | H:15 | HTML + Chart.js |
-| **Crons** | [crons-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:20 | HTML + CSS pur |
-| **GitHub** | [github-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:25 | HTML + CSS pur |
-| **BAVI LEO** | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Every 60m | HTML + Chart.js |
+| **LEO KPI** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:10 | HTML + Chart.js |
+| **Machines** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:15 | HTML + Chart.js |
+| **Crons** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:20 | HTML + CSS pur |
+| **GitHub** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:25 | HTML + CSS pur |
+| **BAVI LEO** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Every 60m | HTML + Chart.js |
 | **n8n** | [http://100.92.102.28:5678](http://100.92.102.28:5678) | */15 | Healthcheck (cron) |
 
 Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
@@ -168,7 +168,7 @@ Serveur local (s6 supervision) : dashboard interne à `localhost:9119`.
 | Type | Nb | Exemples |
 |------|:--:|----------|
 | **Wikis** | 4 | hermes-wiki, BAVI_LEO, wiki-oca, voyages-wiki |
-| |**Dashboards** | 6 | dashboard-leo, leo-metrics, crons-dashboard, github-dashboard, bavi-leo-dashboard, **n8n (interface Web)** |
+| |**Dashboards** | 6 | leo-dashboard, leo-dashboard, leo-dashboard, leo-dashboard, leo-dashboard, **n8n (interface Web)** |
 | |**Automation** | 1 | n8n — workflow LEO Ping (GET /webhook/ping) |
 | **Drive** | 1 | hermes-christophe |
 | **Guides** | 1 | hermes-guide |
