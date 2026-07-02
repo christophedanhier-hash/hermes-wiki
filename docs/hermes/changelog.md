@@ -2,8 +2,10 @@
 
 *Document vivant*
 
-## 2026-07-02
+## 2026-06-25 au 02/07/2026
 
-- **Synchronisations Daily:** Effectuées quatre fois au cours de la journée (23:00, 21:00, 20:00, 19:00), garantissant l'actualisation régulière des données.
-- **Mises à Jour Wiki Hebdomadaire:** Mise à jour hebdomadaire du wiki effectuée le 02/07/2026, incluant la mise à jour de plusieurs documents et l'intégration d'un nouveau dashboard et annuaire contacts.
-- **Budget Alert:** Actif pour les notifications à 8h et 20h chaque jour.
+- **Synchronisation Daily:** Effectuée quatre fois par jour à 00:00, 19:00, 20:00, 21:00 et 22:00 du 25 juin au 2 juillet.
+- **Mises à Jour Wiki Hebdomadaires:** Trois mises à jour effectuées le 2 juillet 2026.
+- **Ajouts de Dashboards:** Nouvelles pages dashboards ajoutées, y compris "crons", "github", "machines", "wiki" et "wiki_oca".
+- **Commits Hermes-Christophe:** 135 commits enregistrés, principalement liés à des synchronisations.
+- **Commits Wiki:** 37 commits effectués, majoritairement pour la mise à jour hebdomadaire du 2 juillet 2026.
