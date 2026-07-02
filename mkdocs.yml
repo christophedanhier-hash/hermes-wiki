@@ -74,7 +74,8 @@ nav:
 
   - 🔧 Services LEO:
     - 🔗 n8n — Automatisation: hermes/services/n8n.md
-    - 📊 Dashboard n8n: hermes/dashboards/n8n.md
+    - 📊 Dashboard LEO: https://christophedanhier-hash.github.io/leo-dashboard/
+    - 📇 Annuaire Contacts: https://christophedanhier-hash.github.io/leo-contacts/
     - 🎵 Spotify: hermes/services/spotify.md
 
   - 📐 Décisions d'Architecture:
