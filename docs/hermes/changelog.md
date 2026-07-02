@@ -4,8 +4,6 @@
 
 ## 2026-07-02
 
-- **Balance DeepSeek** : $52.22
-- **Commits hermes-christophe** : 136 commits ont été effectués, principalement liés à la synchronisation quotidienne.
-- **Commits wiki** : 35 commits ont été ajoutés, principalement pour mettre à jour les documents et ajouter des dashboards et un annuaire de contacts.
-- **Suppression de liens d'anciens dashboards** : Tous les liens anciens ont été supprimés dans le guide, laissant uniquement le lien vers le dashboard Leo.
-- **Crons actifs** : Les crons restent stables avec une activité normale.
+- **Synchronisations Daily:** Effectuées quatre fois au cours de la journée (23:00, 21:00, 20:00, 19:00), garantissant l'actualisation régulière des données.
+- **Mises à Jour Wiki Hebdomadaire:** Mise à jour hebdomadaire du wiki effectuée le 02/07/2026, incluant la mise à jour de plusieurs documents et l'intégration d'un nouveau dashboard et annuaire contacts.
+- **Budget Alert:** Actif pour les notifications à 8h et 20h chaque jour.
