@@ -1,23 +1,24 @@
 ## Architecture Système
 
 ### 1. Infrastructure
-- **Host LEO**: i7-7700K avec 22GB de RAM
-- **Container Debian 13** : Python 3.13, DeepSeek V4 Flash, Chromebook Telegram, Ollama qwen2.5:7b
+- **Host LEO**: i7-7700K, 22GB RAM  
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**  
+- **Telegram Chromebook**: Utilisé pour interactions Telegram  
+- **Ollama qwen2.5:7b**: Gestion et intégration des ressources IA
 
 ### 2. Budget API
-- Balance actuelle: $53.37
-- Seuils d'alerte: $30
-- Stop: $10
-- Routage: Ollama → Gemini → DeepSeek
+- **Balance DeepSeek**: $53.3  
+- **Seuils d'alerte**: $30, stop: $10  
+- **Routage**: Ollama → Gemini → DeepSeek
 
 ### 3. Crons Actifs (14)
-| **Nom du Cron** | **Horaires de lancement** | **Script** |
-|---|---|---|
+| Tâche | Horodatage | Script |
+| --- | --- | --- |
 | LEO Full Backup quotidien (complet) | `0 2 * * *` | - |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
 | 🔄 Déploiement auto tofdan.be | `0 * * * *` | - |
 | 📧 Email Classifier — Ollama qwen2.5 | `*/30 * * * *` | gmail_classifier.py |
-| ✍️ docs-update | `0 */4 * * *` | run-docs-update.sh |
+| 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
 | 🩺 Auto-Heal Agent | `*/15 * * * *` | - |
@@ -29,12 +30,12 @@
 | 🛡️ Auto-Fix Daemon | `*/5 * * * *` | auto-fix-daemon.sh |
 
 ### 4. Dashboards
-- crons
-- github
-- machines
-- wiki
+- **crons**: Surveillance des tâches planifiées  
+- **github**: Suivi des modifications et déploiements GitHub  
+- **machines**: État des machines et performances  
+- **wiki**: Documentation et informations sur l'architecture
 
 ### 5. Sessions & Utilisation
-- Total sessions: 227
-- Total messages: 9645
-- Telegram: 8 sessions
+- **Total sessions**: 264  
+- **Total messages**: 9918  
+- **Telegram**: 8 sessions
