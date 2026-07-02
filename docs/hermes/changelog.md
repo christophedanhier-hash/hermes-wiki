@@ -2,9 +2,10 @@
 
 *Document vivant*
 
-## 2026-06-25 au 02/07/2026
+## 2026-07-02
 
-- **Balance DeepSeek** : Le solde est resté stable à $52.37.
-- **Commits hermes-christophe (138)** : Plusieurs synchronisations ont été effectuées, notamment des synchronisations complètes à 00:00, 01:00 et 03:00 du 02/07/2026.
-- **Commits wiki (36)** : Mises à jour hebdomadaires des documents, ajout de dashboards et correction de liens dans le portail.
-- **Crons actifs** : Tous les crons sont restés actifs sans modifications notables.
+- **Balance DeepSeek** : $52.22
+- **Commits hermes-christophe** : 136 commits ont été effectués, principalement liés à la synchronisation quotidienne.
+- **Commits wiki** : 35 commits ont été ajoutés, principalement pour mettre à jour les documents et ajouter des dashboards et un annuaire de contacts.
+- **Suppression de liens d'anciens dashboards** : Tous les liens anciens ont été supprimés dans le guide, laissant uniquement le lien vers le dashboard Leo.
+- **Crons actifs** : Les crons restent stables avec une activité normale.
