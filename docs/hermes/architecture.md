@@ -1,41 +1,41 @@
-## Architecture Système
+# Architecture Système
 
-### 1. Infrastructure
-- **Host LEO**: i7-7700K, 22GB RAM  
-- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**  
-- **Telegram Chromebook**: Utilisé pour interactions Telegram  
-- **Ollama qwen2.5:7b**: Gestion et intégration des ressources IA
+## 1. Infrastructure
+- **Host LEO**: i7-7700K, 22GB RAM
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
+- **Telegram Client** (Chromebook)
+- **Ollama qwen2.5:7b**
 
-### 2. Budget API
-- **Balance DeepSeek**: $53.3  
-- **Seuils d'alerte**: $30, stop: $10  
-- **Routage**: Ollama → Gemini → DeepSeek
+## 2. Budget API
+- Balance DeepSeek: $52.37
+- Seuils d'alerte: $30 / stop: $10
+- Routage: Ollama → Gemini → DeepSeek
 
-### 3. Crons Actifs (14)
-| Tâche | Horodatage | Script |
+## 3. Crons Actifs (14)
+| **Nom** | **Horaires** | **Scripts/Actions** |
 | --- | --- | --- |
-| LEO Full Backup quotidien (complet) | `0 2 * * *` | - |
-| 🔍 Veille IA quotidienne | `0 7 * * *` | - |
-| 🔄 Déploiement auto tofdan.be | `0 * * * *` | - |
+| LEO Full Backup quotidien (complet) | `0 2 * * *` |  |
+| 🔍 Veille IA quotidienne | `0 7 * * *` |  |
+| 🔄 Déploiement auto tofdan.be | `0 * * * *` |  |
 | 📧 Email Classifier — Ollama qwen2.5 | `*/30 * * * *` | gmail_classifier.py |
-| 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
+| ✍️ docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
-| 🩺 Auto-Heal Agent | `*/15 * * * *` | - |
+| 🩺 Auto-Heal Agent | `*/15 * * * *` |  |
 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh |
 | 📦 Archive Watch — leo-tracker | `0 */6 * * *` | agent-pro-archive.sh |
-| 📊 Unified Collector v2 | `*/15 * * * *` | - |
+| 📊 Unified Collector v2 | `*/15 * * * *` |  |
 | 🚀 Deploy Unified Dashboard | `2,17,32,47 * * * *` | deploy-dashboard.sh |
 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert.sh |
 | 🛡️ Auto-Fix Daemon | `*/5 * * * *` | auto-fix-daemon.sh |
 
-### 4. Dashboards
-- **crons**: Surveillance des tâches planifiées  
-- **github**: Suivi des modifications et déploiements GitHub  
-- **machines**: État des machines et performances  
-- **wiki**: Documentation et informations sur l'architecture
+## 4. Dashboards
+- crons
+- github
+- machines
+- wiki
 
-### 5. Sessions & Utilisation
-- **Total sessions**: 264  
-- **Total messages**: 9918  
-- **Telegram**: 8 sessions
+## 5. Sessions & Utilisation
+- Total sessions: 302
+- Total messages: 11,438
+- Telegram: 9 sessions
