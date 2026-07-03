@@ -101,7 +101,7 @@ Les crons Hermes ne sont pas de simples tâches shell. Chaque cron peut être :
 - **Un prompt LLM** — l'agent réfléchit et agit
 - **Un script + un prompt** — collecte des données puis analyse
 
-LEO a **25 crons actifs** dont 23 en no_agent (0$ de consommation LLM pour les tâches répétitives).
+LEO a **14 crons actifs** dont 23 en no_agent (0$ de consommation LLM pour les tâches répétitives).
 
 #### 5. 🗂️ Profils et gateways parallèles
 

@@ -159,7 +159,7 @@ Sur 14 crons, **13 sont en no_agent** — le coût total des crons est d'environ
 | **LEO KPI** | `christophedanhier-hash.github.io/leo-dashboard/` | Sessions, tokens, budget |
 | **BAVI LEO** | `christophedanhier-hash.github.io/leo-dashboard/` | KPIs voyages |
 | **Machines** | `christophedanhier-hash.github.io/leo-dashboard/` | CPU, RAM, disque (serveur unique) |
-| **Crons** | `christophedanhier-hash.github.io/leo-dashboard/` | Statut 30 crons |
+| **Crons** | `christophedanhier-hash.github.io/leo-dashboard/` | Statut 14 crons |
 | **GitHub** | `christophedanhier-hash.github.io/leo-dashboard/` | Activité repos |
 | **n8n** | `christophedanhier-hash.github.io/leo-dashboard/` | Workflows, exécutions |
 | **Global** | `christophedanhier-hash.github.io/leo-dashboard/` | Portail agrégé |
