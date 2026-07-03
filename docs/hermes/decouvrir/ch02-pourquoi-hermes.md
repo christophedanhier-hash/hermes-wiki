@@ -117,9 +117,9 @@ Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et p
 
 ## 🦁 Pourquoi Christophe a choisi Hermès
 
-> « J'ai essayé Claude Code — excellent pour le code, mais incapable de m'envoyer un message Telegram ou de classer mes emails. J'ai essayé ChatGPT — il parle bien, mais il ne fait rien. Hermès est le seul qui combine la puissance d'un LLM avec la liberté d'un vrai assistant. »
+> *Ce qui distingue Hermès des autres, c'est qu'il ne se contente pas de répondre — il agit. Là où un chatbot vous donne une réponse, Hermès peut envoyer l'email, mettre à jour le dashboard, lancer le backup, et classer vos messages. C'est la différence entre un conseiller qui parle et un assistant qui fait.*
 
-— Christophe (Tofdan), créateur de LEO
+— Inspiré de l'expérience de Christophe, créateur de LEO
 
 **Le critère décisif :** Hermès a le meilleur rapport **puissance/flexibilité/prix**. Gratuit, open source, multi-provider, multi-plateforme, avec un système de skills qui le rend évolutif à l'infini.
 

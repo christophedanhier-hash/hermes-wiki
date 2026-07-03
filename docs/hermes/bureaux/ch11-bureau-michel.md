@@ -8,13 +8,13 @@ C'est le padron de la machine — il a accès root complet (`sudo` sans restrict
 
 ```
 Bureau Michel = l'ingénieur système de LEO
-├── 🔧 30 crons automatisés
-├── 📊 8 dashboards temps réel
-├── 🔄 6 workflows n8n
+├── 🔧 14 crons automatisés
+├── 📊 1 dashboard (4 onglets)
+├── 🔄 3 workflows n8n (2 actifs)
 ├── 🌐 Nginx + Cloudflare Tunnel
 ├── 🔒 UFW + SSL + DNS
 ├── 💰 Suivi du budget DeepSeek
-├── 🖥️ Monitoring 3 machines
+├── 🖥️ Surveillance serveur unique
 └── 🔑 Accès root complet (sudo)
 ```
 
@@ -82,9 +82,9 @@ Utilisateur ──→ tofdan.be ──→ Cloudflare ──→ Tunnel ──→ 
 | **Yoga** | Windows 11 | — | CPU, RAM (via SSH) |
 | **Penguin** | Debian 13 | 6.3 Go | CPU, RAM, VS Code + Kilo Code |
 
-## Les 30 crons
+## Les 14 crons
 
-Les crons sont le cœur de l'automatisation. Environ 30 tâches planifiées tournent 24/7 :
+Les crons sont le cœur de l'automatisation. 14 tâches planifiées tournent 24/7 :
 
 ### Crons horaires (métriques + dashboard)
 
@@ -101,12 +101,12 @@ Les crons sont le cœur de l'automatisation. Environ 30 tâches planifiées tour
 
 - Nom: Dashboard Machines
   Horaire: Toutes les heures
-  Action: CPU/RAM/disque des 3 machines
+  Action: CPU/RAM/disque serveur unique
   Coût: 0€ (no_agent)
 
 - Nom: Dashboard Crons
   Horaire: Toutes les heures
-  Action: Statut des 30 crons
+  Action: Statut des 14 crons
   Coût: 0€ (no_agent)
 ```
 
@@ -150,7 +150,7 @@ cron-metrics:
   script: collect-metrics.sh
 ```
 
-Sur 30 crons, **22 sont en no_agent** — le coût total des crons est d'environ **0,10 €/jour**.
+Sur 14 crons, **13 sont en no_agent** — le coût total des crons est d'environ **quelques centimes par jour**.
 
 ## Les 8 dashboards
 
@@ -158,7 +158,7 @@ Sur 30 crons, **22 sont en no_agent** — le coût total des crons est d'environ
 |:----------|:----|:--------|
 | **LEO KPI** | `christophedanhier-hash.github.io/leo-dashboard/` | Sessions, tokens, budget |
 | **BAVI LEO** | `christophedanhier-hash.github.io/leo-dashboard/` | KPIs voyages |
-| **Machines** | `christophedanhier-hash.github.io/leo-dashboard/` | CPU, RAM, disque (3 machines) |
+| **Machines** | `christophedanhier-hash.github.io/leo-dashboard/` | CPU, RAM, disque (serveur unique) |
 | **Crons** | `christophedanhier-hash.github.io/leo-dashboard/` | Statut 30 crons |
 | **GitHub** | `christophedanhier-hash.github.io/leo-dashboard/` | Activité repos |
 | **n8n** | `christophedanhier-hash.github.io/leo-dashboard/` | Workflows, exécutions |

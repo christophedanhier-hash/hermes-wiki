@@ -38,7 +38,7 @@ coûts = {
 ```markdown
 | Métrique              | Valeur          |
 |:---------------------|:----------------|
-| Solde actuel         | $60.31          |
+| Solde actuel         | ~1-3 €/mois (estimé)          |
 | Dépense totale       | $0.41           |
 | Moyenne quotidienne  | $0.03           |
 | Jours restants       | 2 315 (>6 ans) |
