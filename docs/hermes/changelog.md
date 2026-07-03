@@ -2,11 +2,8 @@
 
 *Document vivant*
 
-## 2026-06-26 au 03/07/2026
+## 2026-07-03
 
-- **Budget Alert** activé à 8h et 20h chaque jour.
-- **Unified Collector v2** mis à jour toutes les 15 minutes.
-- **Deploy Unified Dashboard** programmé pour 15h chaque jour.
-- **Sync Skills to Copilot** déployé tous les 30 minutes.
-- Mises à jour hebdomadaires des documents sur le Wiki du 2 au 3 juillet 2026.
-- Synchronisations quotidiennes effectuées par LEO Full Backup et Drive Sync.
+- **Synchronisation Daily Full**: Effectuée à plusieurs reprises entre le 1er et le 3 juillet, assurant la mise à jour régulière des données.
+- **Documentation Weekly Update**: Mise à jour hebdomadaire du wiki effectuée le 2 juillet, incluant l'ajout de dashboards et des contacts dans le portail.
+- **Budget Alert**: Actif depuis le 1er juillet, il surveille régulièrement les dépenses pour prévenir toute surcharge budgétaire.
