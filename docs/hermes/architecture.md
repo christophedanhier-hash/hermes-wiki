@@ -1,18 +1,19 @@
-## Architecture Système
+# Architecture Système
 
-### 1. Infrastructure
-L'infrastructure du système est composée des éléments suivants :
+## 1. Infrastructure
+L'infrastructure de LEO est composée des éléments suivants :
+- **Host LEO** : i7-7700K avec 22GB de RAM.
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**.
+- **Chromebook Telegram** pour la communication via Telegram.
+- **Ollama qwen2.5:7b** pour le traitement linguistique et l'intelligence artificielle.
 
-- **Host LEO**: i7-7700K, 22GB de RAM
-- **Container Debian 13** : Python 3.13, DeepSeek V4 Flash, Chromebook Telegram, Ollama qwen2.5:7b
+## 2. Budget API
+Le budget actuel de l'API est de $50.65, avec des seuils d'alerte à $30 et un seuil de stop à $10. Le routage est configuré comme suit : Ollama → Gemini → DeepSeek.
 
-### 2. Budget API
-Le budget actuel pour les APIs est de $50.8. Les seuils d'alerte sont définis à $30 et le stop à $10. Le routage des requêtes est organisé comme suit : Ollama → Gemini → DeepSeek.
+## 3. Crons Actifs
+Il y a actuellement 13 crons en cours :
 
-### 3. Crons Actifs
-Il y a actuellement 13 crons en activité :
-
-| **Nom du Cron** | **Horaires** | **Scripts/Actions** |
+| **Nom du Cron** | **Heure d'exécution** | **Fichier/Commande** |
 | --- | --- | --- |
 | LEO Full Backup quotidien (complet) | `0 2 * * *` | - |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
@@ -28,19 +29,15 @@ Il y a actuellement 13 crons en activité :
 | 🚀 Deploy Unified Dashboard | `15 * * * *` | deploy-dashboard.sh |
 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert.sh |
 
-### 4. Dashboards
-Les dashboards suivants sont mis à jour régulièrement :
+## 4. Dashboards
+Les dashboards suivants sont actuellement disponibles :
+- crons
+- github
+- machines
+- wiki
 
-- **crons**
-- **github**
-- **machines**
-- **wiki**
-
-### 5. Sessions & Utilisation
-Le système enregistre les sessions et l'utilisation comme suit :
-
-- **Total de sessions** : 629
-- **Total de messages** : 14,431
-- **Sessions Telegram** : 10
-
-La taille totale de la base de données est de 100.9 MB.
+## 5. Sessions & Utilisation
+- **Total sessions** : 665
+- **Total messages** : 14719
+- **Telegram** : 10 sessions
+- **Database size** : 103.6 MB
