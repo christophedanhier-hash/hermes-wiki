@@ -1,3 +1,14 @@
+---
+archive: true
+archived_date: 2026-07-03
+reason: "Contient des informations obsolètes (pré-crash 30/06). Consultez le guide v3.2 pour les données à jour."
+statut: archive
+---
+
+> ⚠️ **Document archivé le 03/07/2026** — ce document date d'avant la reconstruction post-crash. Les chiffres (crons, machines, GPU, skills) ne reflètent plus la réalité.  
+> 📖 Référence à jour : [Guide Hermès pour les Nuls v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/)
+
+
 # Crons horaires : métriques, KPI, dashboards
 
 Les crons horaires sont la cheville ouvrière de LEO. Ils tournent 24h/24 et maintiennent les dashboards à jour sans intervention humaine.
