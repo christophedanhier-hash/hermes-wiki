@@ -2,7 +2,7 @@
 
 ## 🌐 Pourquoi n8n
 
-[n8n](https://n8n.io) (v2.26.8, Community Edition) est notre orchestrateur de workflows auto-hébergé. Il tourne **en direct sur LEO** (pas de Docker) et gère les automatisations qui nécessitent des **intégrations natives** (Telegram, Google Drive, GitHub) ou une **logique événementielle** (webhooks).
+[n8n](https://n8n.io) (v2.26.8, Community Edition) est notre orchestrateur de workflows auto-hébergé. Il tourne **dans un conteneur Docker** (`docker.n8n.io/n8nio/n8n:latest`) et gère les automatisations qui nécessitent des **intégrations natives** (Telegram, Google Drive, GitHub) ou une **logique événementielle** (webhooks).
 
 > **Doctrine LEO** : Hermes gère les scripts planifiés (crons no_agent), n8n gère les workflows événementiels et les intégrations complexes.
 
@@ -27,7 +27,7 @@ graph TD
 | URL | http://100.92.102.28:5678 |
 | Email | leodanhier@proton.me |
 | Version | 2.26.8 |
-| Mode | Direct (`npx n8n start`), pas Docker |
+| Mode | Docker (`docker.n8n.io/n8nio/n8n:latest`) |
 
 ---
 

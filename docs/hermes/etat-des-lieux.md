@@ -1,46 +1,28 @@
 # 📋 État des lieux — Installation Hermes de Christophe
 
-Page générée le **20/06/2026** — configuration actuelle du serveur **LEO**.
+> ⚠️ **Document archivé au 03/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
 
----
-
-## 🖥️ Informations système
+## Configuration actuelle (03/07/2026)
 
 | Élément | Valeur |
 |---------|--------|
-| **Version Hermes** | v0.16.0 (2026.6.5) |
+| **Version Hermes** | v0.17.0 |
 | **Python** | 3.13.5 |
-| **OpenAI SDK** | 2.24.0 |
-| **Installation** | `/opt/hermes` |
-| **Config** | `/opt/data/config.yaml` |
-| **Secrets** | `/opt/data/.env` |
-| **Profils actifs** | `default` + `bavi-leo` |
-| **Timezone** | Europe/Brussels |
-| **OS Hôte** | Ubuntu 26.04 LTS (Resolute Raccoon) |
-| **Kernel** | Linux 7.0.0-22-generic |
+| **OS Hôte** | Ubuntu 26.04 LTS |
+| **Kernel** | Linux 7.0.0-27-generic |
 | **CPU** | Intel i7-7700K (4C/8T, 4.2 GHz) |
-| **RAM** | 22,9 GiB (22,9 total, ~17 libres) |
-| **GPU** | NVIDIA RTX 3050 8GB (CUDA 13.2, driver 595.71.05) |
-| **Disque** | 457 GB total, 371 GB libre (sda2) |
-| **Docker** | Engine 29.5.3, 3 conteneurs (hermes-agent + ollama + n8n) |
+| **RAM** | 22 GiB total |
+| **GPU** | Aucun (Ollama sur CPU) |
+| **Stockage** | 457 Go SSD système + 1 To HDD backups |
+| **Docker** | 3 conteneurs (hermes-agent + ollama + n8n) |
+| **Profils actifs** | 4 (default, leo-copilot, bavi-leo, emile) |
+| **Gateways** | 4 actifs (s6 supervision) |
+| **Modèle principal** | `deepseek-v4-flash` |
+| **Fallback** | Gemini 2.5 Flash |
+| **Crons actifs** | 14 (13 no_agent) |
+| **Skills installés** | 126 |
 
-## 🤖 Modèle principal
-
-| Champ | Valeur |
-|-------|--------|
-| **Modèle (default)** | `deepseek-v4-flash` (DeepSeek Flash) |
-| **Modèle (bavi-leo)** | `deepseek-v4-flash` |
-| **Provider** | DeepSeek (`api.deepseek.com`) |
-| **Turns max** | 60 |
-| **Gateways** | 🟢 2 actifs (un par profil) |
-
-## ⚡ Fallback
-
-```yaml
-fallback_providers:
-  - provider: google
-    model: gemini-2.5-flash
-```
+> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](https://christophedanhier-hash.github.io/leo-dashboard/).
 
 ## 🏠 Provider local (Ollama)
 

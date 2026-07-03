@@ -40,7 +40,7 @@ Si la RAM utilisée dépasse 85%, les conteneurs Docker risquent l'OOM kill.
 
 ```bash
 nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv
-# → RTX 3050, 8 Go VRAM
+# → Aucun (CPU), 8 Go VRAM
 # → Utilisé par Ollama pour la classification
 ```
 
@@ -79,7 +79,7 @@ Seuils d'alerte:
 
 L'auto-heal détecte ces seuils toutes les 30 minutes.
 
-## 3 machines surveillées
+## 1 machine — le serveur LEO
 
 | Machine | OS | RAM | Stockage | Rôle |
 |:--------|:---|:---:|:--------:|:-----|
