@@ -2,11 +2,10 @@
 
 *Document vivant*
 
-## 2026-06-26 - 2026-07-03
+## 2026-06-26 au 03/07/2026
 
-- **Synchronisation Daily** : 126 commits ont été effectués, majoritairement concernant la synchronisation full à différents moments.
-- **Wiki Updates** : 41 commits ont été ajoutés pour mettre à jour le wiki, notamment des corrections et mises à jour de pages spécifiques.
-- **Cron Jobs** : 13 crons actifs continuent leur fonctionnement régulier, dont LEO Full Backup quotidien, Veille IA quotidienne, Email Classifier, etc.
-- **Unified Collector v2** : Activité continue avec des collectes toutes les 15 minutes.
-- **Budget Alert** : Avertissements budgétaires activés à 8h et 20h chaque jour.
-- **Dashboards** : Les dashboards continuent à être mis à jour régulièrement, avec des liens vers différents panneaux de contrôle disponibles.
+- **Synchronisation Daily**: Effectuée quotidiennement à des intervalles différents, la synchronisation a été effectuée plusieurs fois entre le 1er et le 3 juillet.
+- **Mises à Jour Wiki**: Mise à jour hebdomadaire du wiki le 03/07/2026, incluant des corrections d'informations et des mises à jour de guides.
+- **Budget Alert**: Actif avec des alertes envoyées aux heures prévues (08:00 et 20:00).
+- **Unified Collector v2**: Opérationnel et collecte des données régulièrement.
+- **Deploy Unified Dashboard**: Planifié pour le 15ème minute de chaque heure, il déclenche la mise à jour du tableau de bord unifié.
