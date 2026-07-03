@@ -1,18 +1,18 @@
 ## Architecture Système
 
 ### 1. Infrastructure
-- **Host LEO**: i7-7700K, 22GB RAM
-- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
-- **Telegram Client**: Chromebook Telegram
-- **Modèles IA**: Ollama qwen2.5:7b
+L'infrastructure du système est composée des éléments suivants :
+
+- **Host LEO**: i7-7700K, 22GB de RAM
+- **Container Debian 13** : Python 3.13, DeepSeek V4 Flash, Chromebook Telegram, Ollama qwen2.5:7b
 
 ### 2. Budget API
-- Balance DeepSeek: $50.87
-- Seuils d'alerte: $30 / stop: $10
-- Routage des requêtes: Ollama → Gemini → DeepSeek
+Le budget actuel pour les APIs est de $50.8. Les seuils d'alerte sont définis à $30 et le stop à $10. Le routage des requêtes est organisé comme suit : Ollama → Gemini → DeepSeek.
 
-### 3. Crons Actifs (13)
-| **Nom** | **Horaires** | **Scripts/Actions** |
+### 3. Crons Actifs
+Il y a actuellement 13 crons en activité :
+
+| **Nom du Cron** | **Horaires** | **Scripts/Actions** |
 | --- | --- | --- |
 | LEO Full Backup quotidien (complet) | `0 2 * * *` | - |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
@@ -29,13 +29,18 @@
 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert.sh |
 
 ### 4. Dashboards
-- crons
-- github
-- machines
-- wiki
+Les dashboards suivants sont mis à jour régulièrement :
+
+- **crons**
+- **github**
+- **machines**
+- **wiki**
 
 ### 5. Sessions & Utilisation
-- **Total sessions**: 593
-- **Total messages**: 14169
-- **Telegram**: 10 sessions
-- **Database size**: 98.1 MB
+Le système enregistre les sessions et l'utilisation comme suit :
+
+- **Total de sessions** : 629
+- **Total de messages** : 14,431
+- **Sessions Telegram** : 10
+
+La taille totale de la base de données est de 100.9 MB.
