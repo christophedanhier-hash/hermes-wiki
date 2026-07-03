@@ -17,7 +17,7 @@ Profils : 1 seul (default)
 | Provider | Rôle | Coût |
 |----------|------|------|
 | DeepSeek 🤖 | Principal (Telegram, conversations, tâches complexes) | Payant ($42 de solde) |
-| Ollama 🏠 | Local, gratuit (batch, traitement bulk, qwen2.5:7b) | Gratuit (RTX 3050) |
+| Ollama 🏠 | Local, gratuit (batch, traitement bulk, qwen2.5:7b) | Gratuit (pas de GPU (CPU)) |
 | Gemini ⚡ | Fallback automatique | Gratuit (quota API) |
 
 ## Communications

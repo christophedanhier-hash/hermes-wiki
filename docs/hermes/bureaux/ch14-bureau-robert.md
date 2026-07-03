@@ -68,7 +68,7 @@ Le Bureau Robert a produit une **analyse comparative de 5 modèles open-source**
 | Llama 4 Scout | 22 GB | ~75% | ~50 tok/s |
 | Qwen 3 32B | 34 GB ❌ | ~80% | ~40 tok/s |
 
-**Recommandation** : Gemma 4 26B MoE en Q8 sur RTX 3050 + RTX 3090 (32 GB total).
+**Recommandation** : Gemma 4 26B MoE en Q8 sur pas de GPU (CPU) + RTX 3090 (32 GB total).
 
 ## Collaboration avec Sophie
 

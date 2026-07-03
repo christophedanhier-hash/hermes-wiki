@@ -116,7 +116,7 @@ L'adresse `host.docker.internal` permet à WSL de communiquer avec les services 
 | Aspect | Linux natif | WSL Windows |
 |--------|-------------|-------------|
 | Performances | Optimal, bare-metal | ~95% (excellentes) |
-| GPU pour Ollama | Direct (CUDA/NVIDIA) | Nécessite CUDA dans WSL |
+| GPU pour Ollama | Direct (CUDA/GPU) | Nécessite CUDA dans WSL |
 | Démarrage auto | Systemd | Lancement manuel ou tâche planifiée |
 | Accès réseau | Direct | Configuration supplémentaire |
 | Mise à jour | `apt update` | Pareil (dans WSL) |

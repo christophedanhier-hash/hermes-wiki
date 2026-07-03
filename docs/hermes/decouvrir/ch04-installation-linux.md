@@ -6,7 +6,7 @@
 - **Python 3.11+**
 - **Curl**
 - Un compte GitHub
-- (Optionnel) Un GPU NVIDIA pour exécuter des LLM locaux
+- (Optionnel) Un GPU GPU pour exécuter des LLM locaux
 
 ## 2. Installer Hermes Agent (méthode officielle)
 
