@@ -39,7 +39,7 @@ category: infrastructure
 
 ## L'écosystème de skills LEO
 
-Environ **117 skills** répartis en **22 catégories** :
+Environ **126 skills** répartis en **22 catégories** :
 
 ```
 skills/

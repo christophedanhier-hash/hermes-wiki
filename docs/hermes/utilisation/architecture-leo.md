@@ -108,7 +108,7 @@ Chaque dashboard est un **HTML statique** hébergé sur GitHub Pages, généré 
 | **📊 LEO KPI** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, tokens, budget DeepSeek, status n8n | `deploy_leo_dashboard.py` | H:10 | **0$** |
 | **🏛️ BAVI LEO** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | KPIs BAVI, budget, tokens | `deploy_bavi_leo_dashboard.py` | H:05 | **0$** |
 | **💻 Machines** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | CPU/RAM/Disque LEO/Yoga/Penguin | `deploy_machines.py` | H:15 | **0$** |
-| **⏱️ Crons** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | État 25 crons, historique 7j | `deploy-leo-dashboard.py` | H:20 | **0$** |
+| **⏱️ Crons** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | État 14 crons, historique 7j | `deploy-leo-dashboard.py` | H:20 | **0$** |
 | **🐙 GitHub** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Activité 22 repos Hermes vs Dev | `deploy-leo-dashboard.py` | H:25 | **0$** |
 | **🔧 n8n** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Workflows n8n, exécutions, credentials | `collect_n8n_dashboard.py` | */15 | **0$** |
 | **🌍 Global** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé tous dashboards | `deploy_leo_global.py` | H:05 | **0$** |

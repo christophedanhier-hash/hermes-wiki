@@ -40,7 +40,7 @@ OS: Ubuntu 26.04 (resolute)
 Kernel: 7.0.0
 CPU: i7-7700K
 RAM: 22.94 Go
-GPU: NVIDIA RTX 3050 (CUDA 13.2)
+GPU: NVIDIA pas de GPU (CPU) (CUDA 13.2)
 SSD: 465 Go (/dev/sda2)
 HDD: 1 To (/dev/sdb2 → /mnt/data)
 ```

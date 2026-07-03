@@ -32,7 +32,7 @@ Le skill `ai-tech-watch` est le plus sophistiqué des skills de veille. Chaque m
 - Anthropic Blog
 - OpenAI Blog
 - Microsoft Research (AI)
-- NVIDIA Blog (AI)
+- GPU Blog (AI)
 - MIT News (AI)
 - Stanford AI (HAI)
 - Papers With Code

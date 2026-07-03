@@ -89,7 +89,7 @@ Un skill, c'est un document qui dit à Hermès : « Voici comment faire X. » Vo
 4. Vérifier que le dashboard répond HTTP 200
 ```
 
-LEO a **117 skills** répartis en 22 catégories. Chaque skill encapsule une procédure — déployer un dashboard, envoyer un email, analyser un RSS, etc. Résultat : LEO sait faire des choses qu'on ne lui a jamais montrées, parce qu'il a le mode d'emploi.
+LEO a **126 skills** répartis en 22 catégories. Chaque skill encapsule une procédure — déployer un dashboard, envoyer un email, analyser un RSS, etc. Résultat : LEO sait faire des choses qu'on ne lui a jamais montrées, parce qu'il a le mode d'emploi.
 
 > 🦁 **Exemple LEO :** Le skill `dashboard-deployment` contient toute la procédure de déploiement d'un dashboard HTML sur GitHub Pages. LEO peut déployer un nouveau dashboard en 30 secondes, sans erreur, parce que le skill lui dit exactement quoi faire.
 
