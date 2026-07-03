@@ -1,3 +1,14 @@
+---
+archive: true
+archived_date: 2026-07-03
+reason: "Contient des informations obsolètes (pré-crash 30/06). Consultez le guide v3.2 pour les données à jour."
+statut: archive
+---
+
+> ⚠️ **Document archivé le 03/07/2026** — ce document date d'avant la reconstruction post-crash. Les chiffres (crons, machines, GPU, skills) ne reflètent plus la réalité.  
+> 📖 Référence à jour : [Guide Hermès pour les Nuls v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/)
+
+
 # Architecture LEO — Exemple concret
 
 > **Document généré le** : 19/06/2026 | **Source** : Audit complet environnement LEO

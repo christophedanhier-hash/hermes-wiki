@@ -1,3 +1,14 @@
+---
+archive: true
+archived_date: 2026-07-03
+reason: "Contient des informations obsolètes (pré-crash 30/06). Consultez le guide v3.2 pour les données à jour."
+statut: archive
+---
+
+> ⚠️ **Document archivé le 03/07/2026** — ce document date d'avant la reconstruction post-crash. Les chiffres (crons, machines, GPU, skills) ne reflètent plus la réalité.  
+> 📖 Référence à jour : [Guide Hermès pour les Nuls v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/)
+
+
 # 🧠 Analyse : Gestion des Releases Hermes
 
 > Comment garantir zéro casse lors des mises à jour d'un agent qui tourne 24/7 sur 3 profils, 30 crons, 5 workflows n8n.
