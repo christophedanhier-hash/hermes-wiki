@@ -97,4 +97,4 @@ Wikis synchronisés:
 0 18 * * *  → Tous les jours à 18:00
 0 23 * * *  → Tous les jours à 23:00
 ```
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

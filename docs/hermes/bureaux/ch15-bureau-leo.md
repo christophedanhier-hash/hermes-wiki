@@ -135,4 +135,4 @@ flowchart TD
 - **Ch.12** : Bureau Sylvia (voyages)
 - **Ch.13** : Bureau Émile (pédagogie)
 - **Ch.14** : Bureau Robert (conseil stratégique)
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

@@ -158,4 +158,4 @@ LEO a vécu la perte d'accès Telegram lors d'un basculement de profil. Leçon a
 ## Inspirez-vous, ne copiez pas
 
 LEO est taillé sur mesure pour Christophe. Votre assistant aura ses propres besoins, règles et personnalité. Prenez ce qui vous est utile, adaptez le reste.
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

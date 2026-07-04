@@ -176,4 +176,4 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 
 - Voir la [documentation des providers Hermes](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/profiles.md` pour les profils et gateways
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

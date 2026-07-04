@@ -78,4 +78,4 @@ Accès : [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/
 
 ---
 
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
