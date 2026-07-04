@@ -1,5 +1,7 @@
 name: Deploy Wiki
 on:
+  push:
+    branches: [main]
   schedule:
     - cron: '0 10 * * *'  # 12:00 Brussels (UTC+2)
   workflow_dispatch:
@@ -46,3 +48,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          timeout: 60000
+          artifact_name: github-pages
