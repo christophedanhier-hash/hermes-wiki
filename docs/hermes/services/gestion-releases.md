@@ -70,4 +70,4 @@ uv pip install hermes-agent==VERSION_PRÉCÉDENTE
 
 ---
 
-*Document créé le 24/06/2026 — LEO 🦁*
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

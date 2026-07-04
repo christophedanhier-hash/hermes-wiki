@@ -174,3 +174,4 @@ Quand [condition], faire [action].
 - [Documentation Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/providers.md` pour la configuration LLM
 - Voir `exemples/LEO.md` pour l'architecture complète
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

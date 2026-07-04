@@ -127,3 +127,4 @@ Les principes sont identiques, seuls changent :
 - [Windows Terminal](https://github.com/microsoft/terminal)
 - [Ollama pour Windows](https://ollama.com/download)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

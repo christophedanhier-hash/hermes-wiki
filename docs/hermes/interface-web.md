@@ -265,4 +265,4 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 
 ---
 
-*Document généré par LEO — 04/07/2026 | Interface Hermes Agent v0.18.0*
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

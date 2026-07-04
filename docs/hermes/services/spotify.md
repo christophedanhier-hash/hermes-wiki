@@ -45,3 +45,4 @@ Depuis Telegram, dire :
 - Spotify doit être **ouvert sur au moins un appareil** pour contrôler la lecture
 - Le token se **rafraîchit automatiquement** — aucune intervention nécessaire
 - Le compte **Premium** est requis pour play/pause/next
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

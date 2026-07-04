@@ -93,3 +93,4 @@ Sophie (financier):
 - **Ch.10** : Architecture des bureaux
 - **Ch.11** : Bureau Michel (implémente les recommandations)
 - **Ch.15** : Bureau Sophie (pilotage financier)
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

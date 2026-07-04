@@ -136,4 +136,4 @@ Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et p
 
 ---
 
-**[Chapitre suivant → L'architecture LEO](ch03-architecture-leo.md)**
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

@@ -291,4 +291,4 @@ hermes skills list
 
 ---
 
-*Document généré par LEO — 19/06/2026 | Source : skills Hermes Agent*
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

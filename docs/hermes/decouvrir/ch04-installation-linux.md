@@ -122,3 +122,4 @@ hermes status
 
 - [Documentation officielle Hermes](https://hermes-agent.nousresearch.com/docs)
 - [GitHub Hermes Agent](https://github.com/NousResearch/hermes-agent)
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

@@ -167,3 +167,4 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 **[Partie II → Configurer son assistant](../02-configurer/ch05-gateway.md)**
 
 > **💡 Astuce :** Vous voulez voir un exemple concret ? Passez directement à [l'architecture complète de LEO](../annexes/exemple-leo-complet.md) en annexe.
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

@@ -154,4 +154,4 @@ delegation:
 | `bavi-leo` | Sylvia 🚐 | DeepSeek V4 Flash | Roadbooks camping-car, voyages |
 | `emile` | Émile 🎓 | DeepSeek V4 Flash | Assistant pédagogique mémoire |
 
-**Règle d'or** : si un sujet est technique (infra, cron, dashboard), LEO redirige vers Léo Copilote. Si c'est un voyage, LEO redirige vers Sylvia. Les bots savent qui fait quoi.
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

@@ -260,4 +260,4 @@ flowchart TB
 
 ---
 
-*Document mis à jour le 23/06/2026 — Architecture 100% DeepSeek, 3 profils, 1 mémoire 🦁*
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

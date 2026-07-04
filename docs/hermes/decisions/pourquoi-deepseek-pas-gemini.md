@@ -203,4 +203,4 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 ---
 
-*Document rédigé par LEO 🦁 — Juin 2026 · [hermes-wiki](https://github.com/christophedanhier-hash/hermes-wiki)*
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
