@@ -2,12 +2,15 @@
 
 *Document vivant*
 
-## 2026-07-04
+## 2026-07-05
 
-- **Synchronisation Daily:** Effectuée plusieurs fois entre le 3 et le 4 juillet, garantissant la mise à jour régulière des données.
-- **Wiki Updates:** Mises à jour hebdomadaires du wiki effectuées le 4 juillet, améliorant la documentation existante.
-- **Budget Alert:** Actif avec des alertes programmées pour 08:00 et 20:00 chaque jour.
-- **Unified Collector v2:** Fonctionnement continu pour la collecte unifiée de données.
-- **Deploy Unified Dashboard:** Déploiement du tableau de bord unifié à 12:00, offrant une vue consolidée des métriques.
-- **Audit Wiki (04/07):** Correction des pages obsolètes — consolidation 7 dashboards → 1, mise à jour budget (~$19.97), suppression Auto-Heal, mise à jour crons (collect-v2.py, déploiement horaire), mise à jour n8n (3 workflows), ajout vaults Obsidian.
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+- **Synchronisations**:
+  - Synchronisation complète effectuée à 03:00, 01:00, 08:01, 07:01, 02:01 et 00:01 du 04/07/2026.
+- **Crons**:
+  - Tous les crons sont actifs et fonctionnent normalement.
+- **Commits**:
+  - Mises à jour de la documentation et des guides, notamment l'ajout d'un trigger push workflow et la correction de bugs.
+  - Mise à jour du footer sur 68 fichiers pour un format uniformisé.
+  - Ajout de documents à reviser dans le guide.
+- **Budget Alert**:
+  - Aucune alerte budgétaire n'a été déclenchée pendant cette période.
