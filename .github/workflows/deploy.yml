@@ -1,7 +1,7 @@
 name: Deploy Wiki
 on:
-  push:
-    branches: [main]
+  schedule:
+    - cron: '0 10 * * *'  # 12:00 Brussels (UTC+2)
   workflow_dispatch:
 
 permissions:
