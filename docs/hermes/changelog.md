@@ -4,18 +4,8 @@
 
 ## 2026-07-04
 
-- **Synchronisations**:
-  - Synchronisation complète effectuée à 03:00 et 01:00.
-  
-- **Veille IA**:
-  - Veille IA quotidienne activée à 07:00.
-
-- **Déploiements**:
-  - Déploiement automatique du site tofdan.be activé.
-  - Unified Dashboard déployé à 12:00.
-
-- **Budget Alert**:
-  - Alertes budgétaires activées à 08:00 et 20:00.
-
-- **Documents**:
-  - Mises à jour hebdomadaires des documents effectuées le 04/07/2026.
+- **Synchronisation Daily:** Effectuée plusieurs fois entre le 3 et le 4 juillet, garantissant la mise à jour régulière des données.
+- **Wiki Updates:** Mises à jour hebdomadaires du wiki effectuées le 4 juillet, améliorant la documentation existante.
+- **Budget Alert:** Actif avec des alertes programmées pour 08:00 et 20:00 chaque jour.
+- **Unified Collector v2:** Fonctionnement continu pour la collecte unifiée de données.
+- **Deploy Unified Dashboard:** Déploiement du tableau de bord unifié à 12:00, offrant une vue consolidée des métriques.
