@@ -60,7 +60,7 @@ En cas d'échec:
 
 ## Dashboard Watch
 
-Le Dashboard Watch vérifie que les 7 dashboards sont en ligne et à jour :
+Le Dashboard Watch vérifie que le dashboard unifié est en ligne et à jour :
 
 ```bash
 for dashboard in leo-kpi machines crons github n8n bavi-leo global; do
