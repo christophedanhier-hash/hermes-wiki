@@ -16,17 +16,19 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-LEO a **7 dashboards** en production, tous rafraîchis par des crons no_agent :
+> ⚠️ **Mise à jour du 04/07/2026** : Les 7 dashboards pré-crash (LEO KPI, BAVI LEO, Machines, Crons, GitHub, n8n, Global) sont OBSOLÈTES et figés au 30/06/2026. NE PLUS les consulter.
 
-| Dashboard | Contenu | URL | Cron |
-|-----------|---------|-----|------|
-| **LEO KPI** | Budget DeepSeek, sessions, coûts | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:10 |
-| **BAVI LEO** | KPIs BAVI (sessions, tokens, budget) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:05 |
-| **3 Machines** | CPU, RAM, disque LEO/Yoga/Penguin | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:15 |
-| **Crons LEO** | État de tous les crons, historique 7j | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:20 |
-| **GitHub** | Activité repos Hermes vs Développement | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:25 |
-| **n8n** | Monitoring workflows n8n | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | */15 |
-| **Global LEO** | Vue consolidée : crons, dashboards, budget, n8n, machines | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | H:05 |
+LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (9 sources) :
+
+| Dashboard | Contenu | URL | Collecte | Déploiement |
+|-----------|---------|-----|----------|-------------|
+| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | collect-v2.py */15 | deploy-dashboard.py H:10 |
+
+Scripts :
+- `/opt/data/scripts/collect-v2.py` — collecteur unifié (state.db des 4 profils, n8n, infra, budget, vaults)
+- `/opt/data/scripts/deploy-dashboard.py` — génère HTML + push GitHub Pages
+
+Cron ID `4d6ec4488b3c` dans le profil `leo-copilot`.
 
 Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
 
