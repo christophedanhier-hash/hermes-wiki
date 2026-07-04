@@ -1,6 +1,14 @@
 # 📋 État des lieux — Installation Hermes de Christophe
 
 > ⚠️ **Document archivé au 03/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
+>
+> **Mise à jour 04/07/2026** : les principaux changements post-reconstruction sont :
+> - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard)
+> - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, n8n, github, bavi, services, vaults)
+> - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
+> - **n8n** : URL `localhost:5678`, 3 workflows (Drive->Issue, Gardien du Drive, Save Contacts)
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire
+> - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
 

@@ -26,9 +26,9 @@ Toutes les 30 minutes:
   - 🩺 Auto-heal complet       → crons, Ollama, n8n, Docker, disque, tokens
   - 📧 Classifieur Gmail       → nouveaux emails à classer
 
-Toutes les 2 heures:
-  - 📊 Dashboard Watch         → vérifie que les 7 dashboards répondent
-  - 🔄 Dashboard redeploy      → redéploie si un dashboard est obsolète
+| Toutes les 2 heures:
+|  - 📊 Dashboard Watch         → vérifie que le dashboard unifié répond
+|  - 🔄 Dashboard redeploy      → redéploie si le dashboard est obsolète
 
 Toutes les 6 heures:
   - 🔭 Drive Watch             → détecte les changements dans Google Drive
@@ -40,9 +40,11 @@ Tous les jours:
 
 ## Auto-heal : le watchdog principal
 
+> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot.
+
 ```yaml
-Vérifications:
-  ✅ Crons:        19/19 OK ?
+Vérifications (via dashboard-watch):
+  ✅ Dashboard unifié: HTTP 200 ?
   ✅ Ollama:       qwen2.5:7b responsive ?
   ✅ n8n:          healthz 200 ?
   ✅ Docker:       3/3 conteneurs UP ?

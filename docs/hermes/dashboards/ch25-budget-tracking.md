@@ -1,21 +1,21 @@
 # Budget et tracking DeepSeek
 
-LEO coûte environ 1,50 € par mois à faire fonctionner. Voici comment suivre et maîtriser ce budget.
+LEO coûte environ **$19.97 (coût réel constaté)**. Voici comment suivre et maîtriser ce budget.
 
 ## Le coût réel de LEO
 
 ```yaml
-Budget mensuel LEO:
-  DeepSeek V4 Flash (quotidien):  ~1,00 €
-  DeepSeek V4 Pro (analyses):     ~0,50 €
+Budget LEO (post-reconstruction 04/07/2026):
+  DeepSeek V4 Flash (quotidien):   composant principal
+  DeepSeek V4 Pro (analyses):      usage ponctuel
   Gemini (fallback):                0 € (gratuit)
   Ollama (classification):          0 € (local)
   GitHub Pages (hébergement):       0 € (gratuit)
   n8n (workflows):                  0 € (self-hosted)
-  Total:                           ~1,50 €
+  Coût réel constaté:              ~$19.97
 ```
 
-Le secret de ce coût ridicule : **Ollama pour le gratuit** (classification emails), **Flash pour le quotidien** (0,05 €/jour), **Pro seulement pour le complexe** (0,10 €/tâche).
+> ⚠️ **Mise à jour 04/07/2026** : le budget DeepSeek réel est d'environ **$19.97** (coût total constaté). Les projections pré-crash (1-3€/mois) ne sont plus valides suite aux changements de modèles et d'usage.
 
 ## Triple ventilation
 
@@ -26,10 +26,10 @@ vrai_coût = solde_avant - solde_après
 
 # Ventiler par usage
 coûts = {
-    "deepseek_flash":  0.05 * jours,    # Usage quotidien
-    "deepseek_pro":    0.10 * analyses, # Analyses complexes
-    "ollama":           0.00,           # Gratuit
-    "gemini":           0.00,           # Gratuit (fallback)
+    "deepseek_flash":  ~$0.03/jour,    # Usage quotidien
+    "deepseek_pro":    ~$0.05/jour,    # Analyses complexes
+    "ollama":           0.00,          # Gratuit
+    "gemini":           0.00,          # Gratuit (fallback)
 }
 ```
 
@@ -38,11 +38,10 @@ coûts = {
 ```markdown
 | Métrique              | Valeur          |
 |:---------------------|:----------------|
-| Solde actuel         | ~1-3 €/mois (estimé)          |
-| Dépense totale       | $0.41           |
-| Moyenne quotidienne  | $0.03           |
-| Jours restants       | 2 315 (>6 ans) |
-| Coût 14 jours        | $11.47          |
+| Solde réel           | ~$19.97         |
+| Dépense totale       | ~$19.97         |
+| Moyenne quotidienne  | variable        |
+| Coût 14 jours        | ~$19.97         |
 | Tendance             | Stable 📊       |
 ```
 
