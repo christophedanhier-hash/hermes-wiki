@@ -1,51 +1,83 @@
-# 💾 Backup & Recovery
+# 💾 Backup & Recovery — État actuel (04/07/2026)
+
+> **Mise à jour post-crash du 30/06/2026** — le backup a été révisé et simplifié. Plus de scripts obsolètes, plus de 17 crons, une seule archive complète, un seul cron.
 
 ## Vue d'ensemble
 
-Un backup automatisé de LEO est effectué **tous les jours à 06:00** vers **Google Drive**.
+| Destination | Format | Taille | Rétention | Fréquence |
+|-------------|--------|--------|-----------|-----------|
+| 🖥️ Local (`/opt/data/backups/`) | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~100 MB | 7 jours | Quotidien 06:00 |
+| ☁️ Google Drive `Hermes_Christophe/Backups/` | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~100 MB | 7 jours | Quotidien 06:00 |
 
-| Destination | Format | Taille | Rétention |
-|-------------|--------|--------|-----------|
-| Google Drive `Hermes_Christophe/Backups/` | `leo-backup-YYYY-MM-DD.tar.gz` | ~20 MB | 7 jours |
+Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 
 ## Ce qui est backupé
 
 | Élément | Détail |
 |---------|--------|
 | ⚙️ Config Hermes | `config.yaml` (gateways, providers, crons) |
-| 🔑 Tokens OAuth | google_token.json, leo_google_token.json |
-| 🐙 Token GitHub | leo_token.json |
-| 📚 Skills | ~150 skills Hermes (~8 MB) |
-| 👤 Profile Bot | bavi-leo (profil voyages, ~56 MB) |
-| 📜 Scripts personnalisés | Tous les scripts dans scripts/ |
-| ⚙️ n8n (scripts) | Scripts de déploiement n8n dans n8n/ |
-| 🔐 n8n (secrets) | Identifiants, API keys dans BAVI/AGENT-PRO/bureau-michel/n8n/ |
-| 📦 n8n (volume Docker) | Workflows, data du volume `n8n_data` (dumpé via Docker) |
-| 📊 Métriques Dashboards | Bases de données metrics/ |
+| 🔑 Tous les tokens OAuth | google_token, leo_google_token, leo_drive_token, leo_email_token, leo_sheets_token, gdrive-service-account |
+| 🔐 Credentials vault | `credentials_vault.json` (tous les .env, secrets) |
+| 📚 Skills Hermes | ~990 fichiers, 22 skills actifs |
+| 👤 **Tous les profils** | `profiles/default`, `profiles/leo-copilot`, `profiles/bavi-leo`, `profiles/emile` — configs, skills, memory, cron |
+| 🏛️ Vaults Obsidian | `vault-leo`, `vault-default`, `vault-emile`, `vault-bavi` |
+| 📜 Scripts personnalisés | ~123 scripts dans `scripts/` |
+| 🧠 Session DB | `state.db` (~48 MB) — historique complet des conversations |
+| 📋 Kanban | `kanban.db` |
+| 📊 Crons & jobs | `cron/` (jobs.json + historique des runs) |
+| 🧠 Mémoires persistantes | `memories/` (USER.md, MEMORY.md) |
+| 💫 SOUL.md | Fichier d'identité LEO |
 
 ## Cron associé
 
-```
-Nom :      daily-backup
-Horaire :  06:00 quotidien
-Script :   run-backup.sh → leo-backup.py
-Mode :     no_agent (0 token LLM)
+```json
+{
+  "Nom":       "LEO Backup quotidien → GDrive",
+  "ID":        "55465c2cedde",
+  "Horaire":   "0 6 * * *" (tous les jours à 06:00),
+  "Script":    "leo-full-backup.py",
+  "Mode":      "no_agent" (0 token LLM),
+  "Deliver":   "local"
+}
 ```
 
-Le cron utilise `no_agent=True` : le script s'exécute directement, sans LLM.
+Le script :
+1. Crée une archive tar.gz de **27 chemins** critiques
+2. Sauvegarde localement dans `/opt/data/backups/`
+3. Upload sur Google Drive via OAuth (token `leo_drive_token.json`)
+4. Nettoie les backups locaux > 7 jours
 
 ## Usage manuel
 
 ```bash
 # Backup immédiat
-/opt/hermes/.venv/bin/python3 /opt/data/scripts/leo-backup.py
+/opt/hermes/.venv/bin/python3 /opt/data/scripts/leo-full-backup.py
 
-# Lister les backups sur Drive
-/opt/hermes/.venv/bin/python3 /opt/data/scripts/leo-backup.py --list
-
-# Forcer le nettoyage (rotation)
-/opt/hermes/.venv/bin/python3 /opt/data/scripts/leo-backup.py --prune
+# Vérifier via cron
+hermes cron list | grep backup
+hermes cron run backup
 ```
+
+## Nettoyage et maintenance automatiques
+
+Un cron de maintenance tourne tous les jours à **03:00** :
+
+```json
+{
+  "Nom":       "LEO Maintenance quotidienne",
+  "ID":        "af37c79fc7c5",
+  "Horaire":   "0 3 * * *" (tous les jours à 03:00),
+  "Script":    "leo-daily-maintenance.py",
+  "Mode":      "no_agent" (0 token LLM)
+}
+```
+
+Vérifications automatiques :
+- ✅ Purge des outputs cron > 30 jours
+- ✅ Détection de fichiers orphelins `_*.py` à la racine
+- ✅ Vérification des symlinks cassés
+- ✅ Détection de débris (`.bak`, `.dead`, fichiers coquille)
+- ✅ Alerte espace disque
 
 ## Procédure de restauration complète (PRA)
 
@@ -67,75 +99,77 @@ pip install -e .
 
 ### Étape 2 — Restaurer la config (5 min)
 
-Télécharger le dernier backup depuis **Google Drive → Hermes_Christophe → Backups/** et extraire :
+Télécharger le dernier backup depuis **Google Drive → Hermes_Christophe → Backups/** :
 
 ```bash
-tar xzf leo-backup-2026-06-18.tar.gz -C /opt/data/
+# Copier depuis Google Drive (téléchargement manuel ou via API)
+# Puis extraire dans /opt/data/
+tar xzf leo-full-backup-2026-07-04.tar.gz -C /opt/data/
+
+# Permissions
+chown -R hermes:hermes /opt/data/profiles /opt/data/state.db /opt/data/.env
 ```
 
 ### Étape 3 — Restaurer les accès (5 min)
 
-```bash
-# Copier les tokens OAuth
-cp /opt/data/leo/google_token.json /opt/data/google_token.json
-cp /opt/data/leo/leo_google_token.json /opt/data/leo_google_token.json
+Le backup contient déjà tous les tokens. Vérifier :
 
-# Restaurer le token GitHub
-cat /opt/data/leo/leo_token.json
-# Copier la valeur : gh auth login --with-token
+```bash
+ls /opt/data/*.json /opt/data/.env
+# Les tokens OAuth et credentials sont inclus dans l'archive
+```
+
+Configurer GitHub :
+
+```bash
+gh auth login --with-token < /opt/data/leo_token.json
+# Ou recréer le token depuis l'interface GitHub
 ```
 
 ### Étape 4 — Restaurer skills et profils (5 min)
 
+Les profils et skills sont dans l'archive extraite à l'étape 2. Vérifier :
+
 ```bash
-cp -r /opt/data/leo/skills/ /opt/data/skills/
-cp -r /opt/data/leo/profiles/ /opt/data/profiles/
-cp -r /opt/data/leo/scripts/ /opt/data/scripts/
-cp -r /opt/data/leo/metrics/ /opt/data/metrics/
+ls /opt/data/profiles/
+ls /opt/data/skills/ | wc -l
 ```
 
-### Étape 5 — Cloner les repos GitHub et restaurer n8n (15 min)
+### Étape 5 — Cloner les repos GitHub (15 min)
 
 ```bash
 cd /opt/data
 
-# Wikis
+# Wikis actifs
 gh repo clone christophedanhier-hash/hermes-wiki
+gh repo clone christophedanhier-hash/hermes-guide
 gh repo clone christophedanhier-hash/BAVI_LEO
+gh repo clone christophedanhier-hash/BAVI_PLUS
 gh repo clone christophedanhier-hash/wiki-oca
 gh repo clone christophedanhier-hash/voyages-wiki
-
-# Dashboards
-gh repo clone christophedanhier-hash/leo-dashboard
-gh repo clone christophedanhier-hash/leo-dashboard
-gh repo clone christophedanhier-hash/leo-dashboard
-gh repo clone christophedanhier-hash/leo-dashboard
-gh repo clone christophedanhier-hash/leo-dashboard
+gh repo clone christophedanhier-hash/emile-wiki
 
 # Drive mirror
 gh repo clone christophedanhier-hash/hermes-christophe
-
-# Autres
-gh repo clone christophedanhier-hash/hermes-guide
-gh repo clone christophedanhier-hash/dashboard-kpi
-gh repo clone christophedanhier-hash/machine-metrics
-
-# Restaurer n8n (Docker volume)
-docker volume create n8n_data
-docker run --rm \
-  -v /opt/data/leo/n8n_data:/backup:ro \
-  -v n8n_data:/dest \
-  alpine sh -c "cp -r /backup/. /dest/"
-
-# Redéployer le conteneur n8n
-/opt/data/n8n/run-n8n.sh
 ```
 
 ### Étape 6 — Recréer les crons (5 min)
 
-Liste des 17 crons à restaurer. La config Hermes dans `~/.hermes/` est restaurée à l'étape 2.
+Restaurer depuis le backup — les crons sont dans l'archive à l'étape 2. Vérifier :
 
-Vérifier avec : `hermes cron list`
+```bash
+cat /opt/data/cron/jobs.json | python3 -c "import json,sys; j=json.load(sys.stdin); [print(f'{jb[\"name\"]:40s} {jb[\"schedule\"][\"expr\"]:15s}') for jb in j['jobs']]"
+```
+
+**Crons actifs au 04/07/2026 :**
+
+| Nom | Horaire | Script | Mode |
+|-----|---------|--------|------|
+| LEO Backup quotidien → GDrive | 0 6 * * * | `leo-full-backup.py` | no_agent |
+| LEO Maintenance quotidienne | 0 3 * * * | `leo-daily-maintenance.py` | no_agent |
+| LEO Health Check bots | */15 * * * * | `leo-health-check.py` | no_agent |
+| vault-daily-journal | 0 23 * * * | (prompt + skill obsidian) | LLM |
+| vault-default-daily-journal | 0 23 * * * | (prompt + skill obsidian) | LLM |
 
 ### Étape 7 — Vérification (5 min)
 
@@ -144,27 +178,28 @@ Vérifier avec : `hermes cron list`
 hermes gateway list
 
 # Dashboards en ligne ?
-for url in hermes-wiki BAVI_LEO wiki-oca voyages-wiki; do
+for url in hermes-wiki BAVI_LEO wiki-oca voyages-wiki emile-wiki hermes-guide; do
   curl -s -o /dev/null -w "$url: %{http_code}\n" \
     "https://christophedanhier-hash.github.io/$url/"
 done
-
-# Sync scripts — exécuter manuellement
-/opt/data/scripts/wiki-sync.py          # Guide → wiki LEO
-/opt/data/scripts/t600-drive-sync.py    # T600 → wiki OCA
 ```
 
 ## Points d'attention
 
-- **Permissions root** — certains fichiers skills sont en `root:root`, le script les ignore proprement
-- **Rotation automatique** — ne pas désactiver (max 7 backups conservés)
-- **Test mensuel** — exécuter `--list` pour vérifier la présence des backups
+- **Permissions** — après restauration, vérifier `chown -R hermes:hermes /opt/data/`
+- **Rotation automatique** — ne pas désactiver (max 7 jours de rétention)
+- **Test mensuel** — vérifier que les backups apparaissent dans Backups/ sur GDrive
+- **Le token GDrive (`leo_drive_token.json`) est inclus dans le backup** — il permet de restaurer et uploader les backups suivants
+- **Anciens fichiers sur GDrive** — des fichiers individuels pré-crash (`.env`, `config.yaml`, etc.) traînent encore dans Backups/ mais n'interfèrent pas avec les nouvelles archives
 
 ## Emplacement des fichiers
 
 | Fichier | Chemin |
 |---------|--------|
-| Script de backup | `/opt/data/scripts/leo-backup.py` |
-| Wrapper cron | `/opt/data/scripts/run-backup.sh` |
-| Skill DR | `leo-backup-dr` (skill Hermes) |
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+| Script de backup principal | `/opt/data/scripts/leo-full-backup.py` |
+| Script de maintenance | `/opt/data/scripts/leo-daily-maintenance.py` |
+| Backups locaux | `/opt/data/backups/` |
+| Backups GDrive | `Hermes_Christophe/Backups/` |
+| Skill hygiène | `workspace-hygiene` (skill Hermes — infrastructure) |
+| PRA complet | https://github.com/christophedanhier-hash/BAVI_LEO/blob/main/docs/wiki/agent-pro/bureau-michel/pra-leo-recovery-20260629.md |
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
