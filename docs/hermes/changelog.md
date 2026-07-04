@@ -10,4 +10,4 @@
 - **Unified Collector v2:** Fonctionnement continu pour la collecte unifiée de données.
 - **Deploy Unified Dashboard:** Déploiement du tableau de bord unifié à 12:00, offrant une vue consolidée des métriques.
 - **Audit Wiki (04/07):** Correction des pages obsolètes — consolidation 7 dashboards → 1, mise à jour budget (~$19.97), suppression Auto-Heal, mise à jour crons (collect-v2.py, déploiement horaire), mise à jour n8n (3 workflows), ajout vaults Obsidian.
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

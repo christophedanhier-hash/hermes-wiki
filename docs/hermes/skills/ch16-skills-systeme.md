@@ -218,4 +218,4 @@ hermes cron run <id>    # Exécution immédiate
 - **Ch.9** : Mémoire persistante
 - **Ch.26** : Crons avancés
 - **Annexe B** : Guide de démarrage rapide
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

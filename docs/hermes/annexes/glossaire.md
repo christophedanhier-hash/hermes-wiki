@@ -91,4 +91,4 @@
 ---
 
 > **💡 Glossaire vivant** — ce glossaire est mis à jour au fil de l'évolution du guide. N'hésitez pas à suggérer des ajouts.
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

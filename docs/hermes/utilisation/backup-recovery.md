@@ -167,4 +167,4 @@ done
 | Script de backup | `/opt/data/scripts/leo-backup.py` |
 | Wrapper cron | `/opt/data/scripts/run-backup.sh` |
 | Skill DR | `leo-backup-dr` (skill Hermes) |
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

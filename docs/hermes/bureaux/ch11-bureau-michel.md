@@ -222,4 +222,4 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 - **Ch.22** : Dashboards et monitoring (Partie V)
 - **Ch.26** : Tâches planifiées — crons (Partie VI)
 - **Annexe B** : Guide de démarrage rapide
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

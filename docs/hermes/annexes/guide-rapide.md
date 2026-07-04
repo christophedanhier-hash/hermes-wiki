@@ -62,4 +62,4 @@ every monday 9am → Tous les lundis 9h
 ```
 
 > 🔗 **Documentation complète :** [hermes-agent.nousresearch.com/docs](https://hermes-agent.nousresearch.com/docs)
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

@@ -127,4 +127,4 @@ LEO vérifie, supprime ce qui est obsolète, et confirme.
 - Voir `03-utilisation/crons.md` pour les tâches planifiées
 - Voir `03-utilisation/dashboards.md` pour le monitoring
 - Voir `exemples/LEO.md` pour l'architecture complète
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*

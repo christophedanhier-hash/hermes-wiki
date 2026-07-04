@@ -203,4 +203,4 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 ---
 
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
