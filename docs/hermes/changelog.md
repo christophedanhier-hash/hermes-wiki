@@ -4,15 +4,12 @@
 
 ## 2026-06-27 au 04/07/2026
 
-- **Balance DeepSeek** : Le solde est resté stable à $50.65.
-- **Crons actifs** : Tous les crons sont restés en activité normale sans modifications notables.
-- **Commits hermes-christophe (115)** :
-  - Synchronisations régulières effectuées, notamment le 3 juillet à 08:01 et 07:01.
-  - Sync guide v3.2 depuis BAVI_LEO a été intégré.
-- **Commits wiki (43)** :
-  - Mises à jour hebdomadaires du 3 juillet, incluant des corrections et mises à jour de pages naviguées.
-  - Mise à jour de la version v3.2 de l'wiki avec des corrections d'informations et un état-des-lieux.
-- **Commits guide (0)** :
-  - Le dépôt du guide n'a pas été cloné, aucune modification notée.
+- **Synchronisation Full** : 117 commits ont été effectués pour la synchronisation full, incluant des dates comme le 04/07/2026 et les jours précédents.
+- **Mise à Jour Wiki** : 44 commits ont été réalisés pour mettre à jour la documentation hebdomadaire du 04/07/2026 et des dates antérieures.
+- **Archive Watch** : Un commit a été ajouté pour le déplacement de 6 fichiers orphelins pré-crash et l'ajout d'un bandeau archive.
+- **Budget Alert** : La tâche a continué à s'exécuter régulièrement chaque jour.
+- **Unified Collector v2** : Une tâche continue son exécution tous les 15 minutes.
+- **Deploy Unified Dashboard** : La déploiement du tableau de bord unifié a été effectué à l'heure prévue.
+- **Crons Dashboard** : Les dashboards des crons sont mis à jour régulièrement pour surveiller l'état des tâches.
 
 Aucun changement majeur.
