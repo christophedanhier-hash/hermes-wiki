@@ -1,6 +1,6 @@
 # 🌐 Interface Web Hermes Agent
 
-Page générée le **21/06/2026** — Documentation de l'interface utilisateur Hermes Agent v0.16.0.
+Page mise à jour le **04/07/2026** — Documentation de l'interface utilisateur Hermes Agent v0.18.0.
 
 ---
 
@@ -24,7 +24,7 @@ http://100.92.102.28:9119
 
 La barre latérale gauche est organisée en sections :
 
-- **Profil actif** : sélecteur de profil en haut (`default`, `bavi-leo`)
+- **Profil actif** : sélecteur de profil en haut (`default`, `leo-copilot`, `bavi-leo`, `emile`)
 - **Navigation principale** : toutes les sections listées ci-dessous
 - **Plugins** : extensions installées (Kanban, Achievements)
 - **System** : statut du gateway, boutons Restart/Update, thème, langue
@@ -101,7 +101,7 @@ Gestion des tâches planifiées. **Section la plus utilisée pour LEO.**
 
 | Fonctionnalité | Description |
 |----------------|-------------|
-| **Liste des jobs** | 22 jobs listés avec nom, statut, schedule, derniers/prochains runs |
+| **Liste des jobs** | Jobs listés avec nom, statut, schedule, derniers/prochains runs |
 | **CREATE** | Créer un nouveau job cron |
 | **Trigger now** | Exécution immédiate d'un job |
 | **Pause/Resume** | Activer/désactiver un job |
@@ -125,7 +125,7 @@ Gestion des compétences (skills) installées.
 
 | Fonctionnalité | Description |
 |----------------|-------------|
-| **Liste des skills** | 105 skills installées, avec description |
+| **Liste des skills** | Skills installées, avec description |
 | **Catégories** | Autonomous AI Agents, BAVI LEO, Creative, Email, GitHub, etc. |
 | **Recherche** | Filtre par nom de skill |
 
@@ -155,7 +155,7 @@ Configuration des plateformes de messagerie connectées.
 
 | Plateforme | Statut LEO |
 |------------|:----------:|
-| **Telegram** | ✅ Connecté |
+| **Telegram** | ✅ Connecté (4 bots : default, leo-copilot, bavi-leo, emile) |
 | **CLI** | ✅ Connecté |
 | **Discord** | ❌ Non configuré |
 | **Slack** | ❌ Non configuré |
@@ -186,10 +186,12 @@ Gestion des profils Hermes.
 
 | Profil | Modèle | Usage |
 |--------|--------|-------|
-| **default** | deepseek-v4-flash | Conversations principales, maintenance |
-| **bavi-leo** | deepseek-v4-flash | Bot voyages Telegram |
+| **default** | deepseek-v4-flash | Hub central — conversations, analyses, documentation |
+| **leo-copilot** | deepseek-v4-pro | Infrastructure — crons, déploiements, maintenance |
+| **bavi-leo** | deepseek-v4-flash | Bot voyages Telegram (Sylvia) |
+| **emile** | deepseek-v4-flash | Assistant pédagogique |
 
-Chaque profil a sa propre configuration : modèle, provider, skills, plugins, crons.
+Chaque profil a sa propre configuration : modèle, provider, skills, plugins, crons, gateway Telegram.
 
 ---
 
@@ -219,11 +221,11 @@ Informations système et diagnostics.
 
 | Métrique | Valeur (LEO) |
 |----------|--------------|
-| **Version Hermes** | v0.16.0 |
+| **Version Hermes** | v0.18.0 |
 | **Python** | 3.13.5 |
 | **OS** | Ubuntu 26.04 LTS |
 | **Gateway** | Running |
-| **Sessions actives** | 1 |
+| **Profils actifs** | 4 (default, leo-copilot, emile, bavi-leo) |
 
 ---
 
@@ -239,7 +241,7 @@ Présente dans toutes les pages :
 | **Update Hermes** | Mise à jour de l'agent |
 | **Theme** | HERMES TEAL (défaut) |
 | **Language** | EN/FR |
-| **Version** | v0.16.0 |
+| **Version** | v0.18.0 |
 
 ---
 
@@ -263,4 +265,4 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 
 ---
 
-*Document généré par LEO — 21/06/2026 | Interface Hermes Agent v0.16.0*
+*Document généré par LEO — 04/07/2026 | Interface Hermes Agent v0.18.0*
