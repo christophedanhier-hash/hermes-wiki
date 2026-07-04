@@ -180,7 +180,7 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - 🏛️ **BAVI LEO** — sessions, messages, tokens
 - 🖥️ **Machines (3)** — statut en ligne/hors ligne
 - 🚨 **Alertes** — dernières anomalies détectées
-- 🔗 **Liens rapides** — accès aux 7 dashboards détaillés
+- 🔗 **Liens rapides** — accès au dashboard unifié
 
 **Avantages :**
 - ✅ **Plus aucun rapport Telegram** — dashboard-watch et Auto-Heal livrent en local
