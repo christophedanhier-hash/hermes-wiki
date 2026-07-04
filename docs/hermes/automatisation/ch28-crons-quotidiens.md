@@ -4,15 +4,21 @@ Les crons quotidiens sont les tâches lourdes qui s'exécutent une fois par jour
 
 ## Les crons quotidiens de LEO
 
+> ⚠️ **Mise à jour 04/07/2026** : suite aux changements post-crash, le déploiement des dashboards est maintenant unifié toutes les heures via `collect-v2.py`. L'Auto-Fix Daemon a été supprimé.
+
 ```yaml
-04:00 — Backup → GDrive
+06:00 — Backup → GDrive
   Action: Archive tous les profils + config → Google Drive
   Rétention: 7 jours
   Coût: 0 € (no_agent)
   Script: /opt/data/scripts/hermes-backup.py
 
-07:00 — Veille IA
-  Action: Collecte 15 sources RSS → analyse DeepSeek → email
+07:30 — Veille IA (Phase 1)
+  Action: Collecte 11 sources RSS
+  Coût: 0 € (no_agent)
+
+08:00 — Veille IA (Phase 2)
+  Action: Analyse DeepSeek → email Cowork Copilote
   Coût: ~0,05 €/jour (agent LLM)
   Durée: ~2 minutes
 
@@ -24,8 +30,8 @@ Les crons quotidiens sont les tâches lourdes qui s'exécutent une fois par jour
   Action: Miroir bidirectionnel Google Drive ↔ GitHub
   Coût: 0 € (no_agent)
 
-23:00 — Budget Snapshot
-  Action: Sauvegarde du budget quotidien dans l'historique
+H:10 — Deploy Unified Dashboard (toutes les heures)
+  Action: collect-v2.py → 9 sources unifiées → leo-dashboard
   Coût: 0 € (no_agent)
 ```
 

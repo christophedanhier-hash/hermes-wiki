@@ -8,12 +8,12 @@ C'est le padron de la machine — il a accès root complet (`sudo` sans restrict
 
 ```
 Bureau Michel = l'ingénieur système de LEO
-├── 🔧 14 crons automatisés
-├── 📊 1 dashboard (4 onglets)
-├── 🔄 3 workflows n8n (2 actifs)
+├── 🔧 Crons automatisés (déploiement horaire unifié)
+├── 📊 1 dashboard unifié (leo-dashboard)
+├── 🔄 3 workflows n8n (Drive→Issue, Gardien du Drive, Save Contacts)
 ├── 🌐 Nginx + Cloudflare Tunnel
 ├── 🔒 UFW + SSL + DNS
-├── 💰 Suivi du budget DeepSeek
+├── 💰 Suivi du budget DeepSeek (~$19.97)
 ├── 🖥️ Surveillance serveur unique
 └── 🔑 Accès root complet (sudo)
 ```
@@ -152,23 +152,15 @@ cron-metrics:
 
 Sur 14 crons, **13 sont en no_agent** — le coût total des crons est d'environ **quelques centimes par jour**.
 
-## Les 8 dashboards
+## Le dashboard unifié
+
+> ⚠️ **Mise à jour 04/07/2026** : les 8 dashboards listés ci-dessous (pré-crash) ont été consolidés en **1 dashboard unifié** : leo-dashboard.
 
 | Dashboard | URL | Contenu |
 |:----------|:----|:--------|
-| **LEO KPI** | `christophedanhier-hash.github.io/leo-dashboard/` | Sessions, tokens, budget |
-| **BAVI LEO** | `christophedanhier-hash.github.io/leo-dashboard/` | KPIs voyages |
-| **Machines** | `christophedanhier-hash.github.io/leo-dashboard/` | CPU, RAM, disque (serveur unique) |
-| **Crons** | `christophedanhier-hash.github.io/leo-dashboard/` | Statut 14 crons |
-| **GitHub** | `christophedanhier-hash.github.io/leo-dashboard/` | Activité repos |
-| **n8n** | `christophedanhier-hash.github.io/leo-dashboard/` | Workflows, exécutions |
-| **Global** | `christophedanhier-hash.github.io/leo-dashboard/` | Portail agrégé |
-| **Nest** | Dashboard domotique | Capteurs maison |
+| **LEO Dashboard** | `christophedanhier-hash.github.io/leo-dashboard/` | Portail agrégé (sessions, budget, machines, crons, GitHub, n8n, BAVI, services, vaults) |
 
-Tous ces dashboards sont des fichiers **HTML statiques** (zéro backend) :
-1. Un script collecte les données → JSON
-2. Un template Chart.js génère le HTML
-3. Push sur GitHub Pages → site en ligne
+Tous les dashboards sont des fichiers **HTML statiques** (zéro backend). La collecte unifiée utilise `collect-v2.py` (9 sources).
 
 ## Budget DeepSeek
 
@@ -176,10 +168,13 @@ Le Bureau Michel suit le budget en temps réel :
 
 | Métrique | Valeur |
 |:---------|:------:|
-| Solde | **$60.31** |
-| Dépense totale | $0.41 |
-| Moyenne quotidienne | $0.03 |
-| Jours restants | **2 315** (>6 ans) |
+| Solde | **~$19.97** (coût réel constaté) |
+| Dépense totale | ~$19.97 |
+| Moyenne quotidienne | variable |
+| Seuil alerte | $30 |
+| Seuil arrêt | $10 |
+
+> ⚠️ **Mise à jour 04/07/2026** : les chiffres pré-crash ($60.31) ne sont plus valides. Le coût réel est d'environ $19.97.
 
 Le secret de ce coût ridicule : **Ollama local pour la classification**, **DeepSeek Flash pour le quotidien**, **DeepSeek Pro seulement pour les analyses complexes**.
 

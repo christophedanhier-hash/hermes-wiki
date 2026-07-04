@@ -54,7 +54,7 @@ docker ps
 
 ## Dashboard machines sur LEO
 
-Le dashboard **leo-dashboard** affiche en temps réel :
+Le dashboard **leo-dashboard** (unifié) affiche en temps réel les métriques machines parmi ses autres données :
 
 ```markdown
 | Machine  | CPU | RAM  | Disque | Statut |

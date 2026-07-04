@@ -143,34 +143,16 @@ horaire.
 
 ### 🔍 dashboard-watch — surveillance automatique
 
-Un cron `dashboard-watch` (toutes les 2h) vérifie que tous les dashboards sont à jour :
+Un cron `dashboard-watch` (toutes les 2h) vérifie que le dashboard est à jour :
 
-- **HTTP 200** — chaque dashboard répond
+- **HTTP 200** — le dashboard répond
 - **Âge < 2h** — données fraîches
 - **Budget cohérent** — valeur affichée du budget ≈ `budget.json` (écart max 1$)
 - **Redeploiement auto** — si stale ou 404, le script relance le déploiement
 
 Le script est dans `scripts/dashboard-watch.py` et son état est sauvegardé dans `metrics/dashboard-watch-state.json`.
 
-### 🛡️ Auto-Heal — cicatrisation automatique (cron agent, H:45)
-
-Depuis le 21/06/2026, un cron **agent-driven** (pas no_agent) tourne toutes les heures à H:45 pour détecter et corriger automatiquement les problèmes connus :
-
-- **Crons en erreur** → détection via `cronjob list`, diagnostic (PATH `gh`, script cassé, import manquant) et correction auto + execution forcée
-- **Dashboard HTTP non-200** → redéploiement immédiat
-- **budget-webhook down** → redémarrage automatique
-- **Disque plein** → alerte
-
-**Patterns auto-réparables :**
-| Pattern | Détection | Correction |
-|---------|-----------|------------|
-| `gh` introuvable | Stderr "gh: command not found" | Patch avec chemin absolu `/opt/data/home/.local/bin/gh` |
-| Dashboard 404 | HTTP != 200 | Relance le script de déploiement |
-| budget-webhook down | Process manquant | Relance via watchdog |
-| Import Python cassé | Traceback d'import | pip install dans le venv |
-
-**Rapport :** livré en local (plus sur Telegram). Consultez le **🌍 Global Dashboard** à
-https://christophedanhier-hash.github.io/leo-dashboard/ pour tout voir en un coup d'œil.
+> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot. La vérification continue via `dashboard-watch`.
 
 ## Pièges à éviter
 

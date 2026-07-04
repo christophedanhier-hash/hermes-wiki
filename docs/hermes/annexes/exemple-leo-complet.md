@@ -26,22 +26,20 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 
 ## Tâches quotidiennes
 
-### Crons (26 actifs, 0$ LLM)
+### Collecte & Déploiement
+
+```yaml
+H:10 — collect-v2.py (9 sources unifiées)
+  - sessions, budget, crons, infra, n8n, github, bavi, services, vaults
+  - Déploiement toutes les heures via leo-copilot
+  Coût: 0 € (no_agent)
+```
+
+### Crons
 
 | Cron | Horaire | Type | Coût | Description |
 |------|---------|------|------|-------------|
-| `🌍 Global Dashboard` | **H:05** | 🔧 Script | **0$** | Portail unique monitoring consolidé |
-| `machines-kpi` | **H:00** | 🔧 Script | **0$** | Collecte CPU/RAM/disque 3 machines |
-| `budget-check-v6` | **H:05** | 🔧 Script | **0$** | Relevé solde DeepSeek + projection |
-| `leo-dashboard` | **H:10** | 🔧 Script | **0$** | Dashboard KPI LEO (sessions, budget) |
-| `leo-dashboard` | **H:15** | 🔧 Script | **0$** | Dashboard 3 machines |
-| `leo-dashboard` | **H:20** | 🔧 Script | **0$** | Monitoring de tous les crons |
-| `leo-dashboard` | **H:25** | 🔧 Script | **0$** | Activité GitHub (repos Hermes vs Dev) |
-| `wiki-sync` | **H:30** | 🔧 Script | **0$** | Synchronisation sources → Wiki MkDocs |
-| `leo-dashboard` | H:05 | 🔧 Script | **0$** | Dashboard KPIs BAVI LEO |
-| `leo-dashboard` | */15 | 🔧 Script | **0$** | Dashboard monitoring n8n |
-| `n8n-healthcheck` | */15 | 🔧 Script | **0$** | Ping n8n API |
-| `dashboard-watch` | 30 */2 | 🔧 Script | **0$** | Surveillance dashboards + budget ✅ |
+| `collect-v2` | **H:10** | 🔧 Script | **0$** | Collecte unifiée 9 sources → leo-dashboard |
 | `daily-backup` | 06:00 | 🔧 Script | **0$** | Backup fichiers critiques |
 | `drive-sync` | 18:00 | 🔧 Script | **0$** | Sync Drive ↔ GitHub |
 | `credentials-check` | Lun 09:00 | 🔧 Script | **0$** | Vérification tokens OAuth |
@@ -50,34 +48,30 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 | Veille IA (phase 1) | 07:30 | 🔧 Script | **0$** | Collecte RSS 11 sources |
 | Veille IA (phase 2) | 08:00 | 🤖 DeepSeek | ~0.05$ | Analyse + email Cowork |
 | `check-hermes-update` | 09:00 | 🔧 Script | **0$** | Vérification nouvelle version Hermes |
-| `🛡️ Auto-Heal` | **H:45** | 🧠 Agent | **0$** | Détection + correction auto des erreurs |
-| `watchdog-code-server` | **\*/5** | 🔧 Script | **0$** | Relance code-server si arrêté |
-| `watchdog-code-server-tunnel` | **\*/5** | 🔧 Script | **0$** | Maintient le tunnel SSH code-server |
+| `dashboard-watch` | */2h | 🔧 Script | **0$** | Vérification leo-dashboard |
 
-**>95% des crons sont en no_agent ou Ollama local** (zéro DeepSeek consommé par les tâches planifiées).
+### Workflows n8n (3)
 
-### Workflows n8n (redondance)
+| Workflow n8n | Rôle |
+|-------------|------|
+| Drive → Issue | Surveillance Drive → issue GitHub |
+| Gardien du Drive | Protection documents Google Docs |
+| Save Contacts | Sauvegarde des contacts Google |
 
-Depuis juin 2026, certains crons critiques sont **doublés dans n8n** pour bénéficier du retry natif :
-
-| Workflow n8n | Horaire | Rôle | Redondance |
-|-------------|---------|------|------------|
-| `💰 Budget Check` | H:05 | Appel DeepSeek API → webhook → budget.json | ⚡ Retry 3x + backup Hermes |
-| `🛡️ Dashboard Watch v2` | 30min | Ping 6 dashboards HTTP | ⚡ Retry 3x + backup Hermes (2h) |
-
-**Pattern :** n8n = exécution garantie (retry) / Hermes = backup si n8n down. Double filet.
-
-### Dashboards (7)
+### Dashboard (1 seul)
 
 | Dashboard | Technologie | Màj | Lien |
 |-----------|-------------|-----|------|
-| 🌍 Global LEO | HTML + CSS | H:05 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| LEO KPI (budget DeepSeek, sessions) | HTML + Chart.js | H:10 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| BAVI LEO (KPIs session BAVI) | HTML + Chart.js | H:05 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| 3 Machines (CPU/RAM/disque) | HTML + CSS | H:15 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| Crons (22 crons, historique 7j) | HTML + CSS pur | H:20 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| GitHub (22 repos) | HTML + CSS | H:25 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| n8n (workflows, exécutions) | HTML + CSS | */15 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| 🌍 leo-dashboard | HTML + Chart.js | H:10 | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+
+### Vaults Obsidian (4)
+
+| Vault | Usage |
+|-------|-------|
+| leo | Vault personnel LEO |
+| default | Vault par défaut Hermes |
+| emile | Vault pédagogie Émile |
+| bavi | Vault bureaux BAVI |
 
 Tous les scripts de déploiement incluent :
 - `--allow-empty` + `run_id` dans le footer pour éviter "nothing to commit"

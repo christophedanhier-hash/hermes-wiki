@@ -79,21 +79,19 @@ Docker Container
 
 Avantage de s6 : si un gateway crashe, il redémarre automatiquement en moins d'une seconde.
 
-### Les 7 dashboards
+### Les dashboards
 
 Tous en **HTML statique** hébergés sur **GitHub Pages** — zéro backend, zéro base de données :
 
+> ⚠️ **Mise à jour 04/07/2026** : les 7 dashboards pré-crash ont été consolidés en **un seul dashboard unifié**.
+
 | Dashboard | URL | Contenu | Màj |
 |:----------|:----|:--------|:---:|
-| 🌍 **Global LEO** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé | H:05 |
-| 📊 **LEO KPI** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, budget, tokens | H:10 |
-| 🏛️ **BAVI LEO** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | KPIs BAVI | H:05 |
-| 💻 **Machine** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | CPU/RAM/disque serveur unique | */15 |
-| ⏱️ **Crons** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | 14 crons, historique 7j | H:20 |
-| 🐙 **GitHub** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Activité 22 repos | H:25 |
-| 🔧 **n8n** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Workflows n8n | */15 |
+| 🌍 **LEO Dashboard** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé (sessions, budget, machines, crons, GitHub, n8n, BAVI) | H:10 (collect-v2.py) |
 
-### Les 14 crons (tâches planifiées)
+La collecte unifiée utilise `collect-v2.py` : 9 sources (sessions, budget, crons, infra, n8n, github, bavi, services, vaults) → un seul dashboard Chart.js.
+
+### Les crons (tâches planifiées)
 
 > 13 sur 14 sont en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
 
@@ -164,17 +162,17 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 | Métrique | Valeur |
 |:---------|:-------|
-| Crons actifs | **25** (23 no_agent) |
+| Crons actifs | **Déploiement horaire unifié** (collect-v2.py) |
 | Skills installés | **126** |
-| Dashboards | **1** (central 4 onglets) |
+| Dashboards | **1** (unifié — leo-dashboard) |
 | Wikis | **5** (98 pages total) |
 | Repos GitHub | **20** |
-| Consommation DeepSeek/jour | **~quelques centimes** |
+| Consommation DeepSeek | **~$19.97 coût réel constaté** |
 | Machine hôte | **1** (serveur LEO) |
 
 ## 📝 À retenir
 
-- LEO = 1 serveur principal + 4 bots Telegram + 1 dashboard central (4 onglets) + 14 crons + 126 skills
+- LEO = 1 serveur principal + 3 bots Telegram + 1 dashboard unifié + collecte horaire unique + 126 skills
 - Tout tourne sur Hermes Agent dans un conteneur Docker supervisé par s6
 - Le secret : une organisation stricte (profils, bureaux, skills) qui permet à l'agent de gérer la complexité
 - Les erreurs du passé ont forgé les règles du présent

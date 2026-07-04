@@ -158,9 +158,9 @@
 ## Partie V — Dashboards et Monitoring 📊
 *Voir l'invisible*
 
-- **[Ch.22 — L'écosystème de dashboards](05-dashboards/ch22-ecosysteme-dashboards.md)**
-  - Architecture : 7 dashboards, HTML statique, GitHub Pages
-  - Navigation interconnectée
+| **[Ch.22 — L'écosystème de dashboards](05-dashboards/ch22-ecosysteme-dashboards.md)**
+|  - Architecture : 7 dashboards pré-crash → **1 dashboard unifié** (leo-dashboard)
+|  - Navigation interconnectée
   - Cycle de vie d'une donnée : du chat Telegram au graphique
 
 - **[Ch.23 — Métriques machines](05-dashboards/ch23-metriques-machines.md)**
