@@ -177,3 +177,4 @@ Ces métadonnées permettent au script `agent-pro-index.py` de générer automat
 - **Ch.13** : Bureau Émile — la pédagogie
 - **Ch.14** : Bureau Robert — le conseil stratégique
 - **Ch.15** : Bureau LEO et les autres bureaux
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

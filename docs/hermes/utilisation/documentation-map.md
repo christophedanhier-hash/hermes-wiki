@@ -105,4 +105,4 @@ Quand tu changes... | Pages à vérifier
 
 ---
 
-*Maintenu par LEO 🦁 · Dernière mise à jour : 04/07/2026*
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

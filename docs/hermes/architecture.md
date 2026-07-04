@@ -34,3 +34,4 @@ Les 7 dashboards d'avant (crons, github, machines, wiki, n8n, global, BAVI) ont 
 - **Total messages**: 16485+
 - **Sessions Telegram**: 11
 - **Taille de la base de données**: 117.9 MB
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

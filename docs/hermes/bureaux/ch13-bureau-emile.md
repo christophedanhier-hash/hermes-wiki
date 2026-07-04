@@ -110,3 +110,4 @@ Le Bureau Émile est inspiré du Bureau Sylvia (voyages) — même pattern, adap
 - **Ch.7** : Multi-bots — comment créer un profil dédié
 - **Ch.8** : Skills — les compétences pédagogiques
 - **Ch.9** : Mémoire persistante
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

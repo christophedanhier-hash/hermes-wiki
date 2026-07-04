@@ -203,3 +203,4 @@ services:
 - [Documentation officielle](https://hermes-agent.nousresearch.com/docs)
 - [GitHub](https://github.com/NousResearch/hermes-agent)
 - [Docker Hub](https://hub.docker.com/r/nousresearch/hermes-agent)
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

@@ -59,4 +59,4 @@ Ce guide est en licence libre — libre à vous de le partager, l'adapter et l'e
 
 ---
 
-**Projet vivant** — ce guide évolue avec Hermes Agent. N'hésitez pas à contribuer !
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

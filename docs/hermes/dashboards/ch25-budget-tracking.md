@@ -62,3 +62,4 @@ Seuils d'alerte:
 | DeepSeek Pro | $1.50 | $5.00 | ~2 mois |
 | Gemini Flash | **0 €** | **0 €** | ∞ (quotas gratuits) |
 | Ollama | **0 €** | **0 €** | ∞ (local) |
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

@@ -116,3 +116,4 @@ C'est le secret le mieux gardé d'Hermès. Un **skill**, c'est un mode d'emploi 
 ---
 
 **[Chapitre suivant → Pourquoi Hermès ?](ch02-pourquoi-hermes.md)**
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*

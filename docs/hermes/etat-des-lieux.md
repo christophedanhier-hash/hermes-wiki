@@ -319,3 +319,4 @@ Tester le résultat avant de livrer :
 **Problème :** Crons qui utilisaient le mauvais Python, scripts introuvables, identité Git manquante, push qui échoue.
 
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
+*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
