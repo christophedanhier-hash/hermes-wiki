@@ -1,3 +1,5 @@
+> **📦 ARCHIVE** — Cette decision a ete depassee. Copilot a ete teste (proxy ACP) puis remplace par Gemini 3.5 Flash sur le bot leo-copilot. DeepSeek reste le moteur principal du profil default. Voir le skill `routage-llm` pour l'architecture actuelle.
+
 # 🦁 Pourquoi LEO utilise DeepSeek, pas GitHub Copilot
 
 > Analyse technique — Juin 2026. À partager librement.

@@ -79,5 +79,5 @@ nav:
     - 🎵 Spotify: hermes/services/spotify.md
 
   - 📐 Décisions d'Architecture:
-    - 🦁 DeepSeek vs Copilot: hermes/decisions/pourquoi-deepseek-pas-copilot.md
+    - 🦁 DeepSeek vs Copilot: hermes/archives/decisions/pourquoi-deepseek-pas-copilot.md
     - 💰 DeepSeek vs Gemini: hermes/decisions/pourquoi-deepseek-pas-gemini.md
