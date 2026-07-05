@@ -171,4 +171,5 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 ---
 
-**🛡️ [Portail LEO](https://christophedanhier-hash.github.io/hermes-wiki/)** · Mis à jour en continu par LEO · 🦁
+> 🕐 **Dernière mise en ligne : 05/07/2026 20:27**  
+> *Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com) · 🦁 LEO*
