@@ -1,18 +1,22 @@
-## Architecture Système
+# Architecture Système
 
-### 1. Infrastructure
-L'infrastructure du système est composée des éléments suivants :
-- **Host LEO**: i7-7700K avec 22GB de RAM
-- **Container Debian 13** : Python 3.13, DeepSeek V4 Flash, Chromebook Telegram, Ollama qwen2.5:7b
+## 1. Infrastructure
+L'infrastructure de LEO est composée du suivant :
 
-### 2. Budget API
-Le budget actuel pour les APIs est de $48.92. Les seuils d'alerte sont fixés à $30 et le montant minimal pour la suspension des services est de $10. Le routage des requêtes est organisé comme suit : Ollama → Gemini → DeepSeek.
+- **Host LEO** : i7-7700K, 22GB de RAM
+- **Container Debian 13** avec Python 3.13 et DeepSeek V4 Flash
+- **Flash** pour l'accélération des requêtes
+- **Chromebook Telegram** pour la communication via le réseau Telegram
+- **Ollama qwen2.5:7b** pour la génération de texte
 
-### 3. Crons Actifs
-Il y a actuellement 13 crons en activité, détaillés ci-dessous :
+## 2. Budget API
+Le budget actuel pour les APIs est de $48.7, avec un seuil d'alerte à $30 et une limite de stop à $10. Le routage des requêtes se fait dans l'ordre suivant : Ollama → Gemini → DeepSeek.
 
-| **Nom** | **Horaires** | **Script** |
-| --- | --- | --- |
+## 3. Crons Actifs
+Il y a actuellement 13 crons en cours d'exécution :
+
+| **Nom du Cron** | **Horodatage** | **Script** |
+|-----------------|---------------|------------|
 | LEO Full Backup quotidien (complet) | `0 2 * * *` | - |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
 | 🔄 Déploiement auto tofdan.be | `0 * * * *` | - |
@@ -27,22 +31,15 @@ Il y a actuellement 13 crons en activité, détaillés ci-dessous :
 | 🚀 Deploy Unified Dashboard | `10 * * * *` | deploy-dashboard.sh |
 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert.sh |
 
-### 4. Dashboards
-Les dashboards actuellement disponibles sont les suivants :
-- crons
-- github
-- machines
-- wiki
+## 4. Dashboards
+Les dashboards suivants sont disponibles :
 
-### 5. Sessions & Utilisation
-Le système a enregistré un total de 961 sessions et 17153 messages. Les détails des utilisations sont comme suit :
+- **crons**
+- **github**
+- **machines**
+- **wiki**
 
-- **Total sessions**: 961
-- **Total messages**: 17153
-- **Sessions Telegram**: 11
+## 5. Sessions & Utilisation
+Le nombre total de sessions est de 997, avec un total de 17363 messages échangés. Il y a également 11 sessions Telegram et la taille totale de la base de données est de 125.6 MB.
 
-La taille totale de la base de données est de 124.2 MB.
-
----
-
-Cela couvre les principaux aspects de l'architecture système actuelle, y compris l'infrastructure, le budget API, les crons en activité, les dashboards et les sessions d'utilisation.
+Cette configuration optimise l'efficacité du système tout en assurant une utilisation efficace des ressources et un suivi précis des opérations.
