@@ -1,26 +1,25 @@
 # Architecture Système
 
 ## 1. Infrastructure
-L'infrastructure de LEO est composée du suivant :
+L'infrastructure du système est composée des éléments suivants :
 
-- **Host LEO** : i7-7700K, 22GB de RAM
-- **Container Debian 13** avec Python 3.13 et DeepSeek V4 Flash
-- **Flash** pour l'accélération des requêtes
-- **Chromebook Telegram** pour la communication via le réseau Telegram
-- **Ollama qwen2.5:7b** pour la génération de texte
+- **Host LEO** : i7-7700K avec 22GB de RAM.
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**.
+- **Telegram Chromebook** pour la communication et l'interaction via Telegram.
+- **Ollama qwen2.5:7b** : Modèle d'intelligence artificielle utilisé pour diverses tâches.
 
 ## 2. Budget API
-Le budget actuel pour les APIs est de $48.7, avec un seuil d'alerte à $30 et une limite de stop à $10. Le routage des requêtes se fait dans l'ordre suivant : Ollama → Gemini → DeepSeek.
+Le budget actuel pour les APIs est de $48.38. Les seuils d'alerte sont définis à $30, et le montant minimal avant arrêt des opérations est fixé à $10. Le routage des requêtes est organisé comme suit : Ollama → Gemini → DeepSeek.
 
 ## 3. Crons Actifs
 Il y a actuellement 13 crons en cours d'exécution :
 
-| **Nom du Cron** | **Horodatage** | **Script** |
-|-----------------|---------------|------------|
+| **Nom du Cron** | **Horaires de lancement** | **Script/Commande** |
+| --- | --- | --- |
 | LEO Full Backup quotidien (complet) | `0 2 * * *` | - |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
 | 🔄 Déploiement auto tofdan.be | `0 * * * *` | - |
-| 📧 Email Classifier — Ollama qwen2.5 | `*/30 * * * *` | gmail_classifier.py |
+| 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
 | 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
@@ -32,14 +31,22 @@ Il y a actuellement 13 crons en cours d'exécution :
 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert.sh |
 
 ## 4. Dashboards
-Les dashboards suivants sont disponibles :
+Les dashboards actuellement disponibles sont :
 
-- **crons**
-- **github**
-- **machines**
-- **wiki**
+- crons : Affiche l'état des tâches planifiées.
+- github : Moniteur des activités sur GitHub.
+- machines : Surveillance de l'état des machines et du système.
+- wiki : Page documentaire pour la documentation interne.
 
-## 5. Sessions & Utilisation
-Le nombre total de sessions est de 997, avec un total de 17363 messages échangés. Il y a également 11 sessions Telegram et la taille totale de la base de données est de 125.6 MB.
+## 5. Sessions & utilisation
+Les statistiques d'utilisation sont les suivantes :
 
-Cette configuration optimise l'efficacité du système tout en assurant une utilisation efficace des ressources et un suivi précis des opérations.
+- **Total sessions** : 1033
+- **Total messages** : 17585
+- **Telegram** : 11 sessions
+
+La taille de la base de données est de 127.4 MB.
+
+---
+
+Ce résumé fournit une vue d'ensemble détaillée de l'architecture système, des ressources utilisées et des tâches planifiées pour assurer le bon fonctionnement du système.
