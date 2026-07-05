@@ -1,20 +1,24 @@
 # Architecture Système
 
 ## 1. Infrastructure
-LEO est hébergé sur un host i7-7700K avec 22GB de RAM, exécutant Debian 13 et Python 3.13. L'application DeepSeek V4 Flash y est déployée, ainsi que le Telegram Chromebook pour les communications externes. Ollama qwen2.5:7b est également intégré dans ce système.
+L'infrastructure de LEO est composée des éléments suivants :
+- **Host LEO** : i7-7700K, 22GB RAM
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
+- **Chromebook Telegram**
+- **Ollama qwen2.5:7b**
 
 ## 2. Budget API
-- **Balance DeepSeek :** $47.66
-- **Seuils d'alerte :** $30 (pour des alertes), $10 (pour le stop)
-- **Routage :** Ollama → Gemini → DeepSeek
+Le budget actuel pour les APIs est de $47.34, avec des seuils d'alerte à $30 et un seuil de stop à $10. Le routage des requêtes se fait selon la hiérarchie suivante : Ollama → Gemini → DeepSeek.
 
 ## 3. Crons Actifs
-| **Nom du Cron** | **Heure de Déclenchement** | **Commande Exécutée** |
-|-----------------|----------------------------|-----------------------|
+Le tableau ci-dessous présente les 19 crons actifs :
+
+| **Tâche** | **Horodatage** | **Script** |
+|-----------|----------------|------------|
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
-| 🔄 Déploiement auto tofdan.be | `0 * * * *` | /opt/data/scripts/deploy-tofdan.sh |
+| 🔄 Déploiement auto tofdan.be | `0 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
-| ✍️ docs-update | `0 */4 * * *` | run-docs-update.sh |
+| 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh |
@@ -25,18 +29,18 @@ LEO est hébergé sur un host i7-7700K avec 22GB de RAM, exécutant Debian 13 et
 | 📒 vault-daily-journal (vault-leo) | `0 23 * * *` | - |
 | 📒 vault-default-daily-journal | `0 23 * * *` | - |
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
-| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-ful
+| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-full-backup.py |
 
 ## 4. Dashboards
-Les dashboards couvrent les sections suivantes :
+Les dashboards suivants sont disponibles :
 - **crons**
 - **github**
 - **machines**
 - **wiki**
 
 ## 5. Sessions & Utilisation
-- **Total des sessions :** 1062
-- **Total des messages :** 18104
-- **Sessions Telegram :** 13
+- **Total sessions** : 1082
+- **Total messages** : 18473
+- **Sessions Telegram** : 13
 
-La taille de la base de données est actuellement de 134.2 MB.
+La taille de la base de données est de 140.3 MB.
