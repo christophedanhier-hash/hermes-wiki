@@ -4,6 +4,10 @@
 
 ## 2026-07-05
 
-- **Synchronisation Full** : 7 commits ont été effectués pour la synchronisation full, incluant des modifications et mises à jour dans divers scripts et documents.
-- **Mise à Jour Wiki** : 3 commits ont été ajoutés pour mettre à jour le wiki hebdomadairement. Des corrections de footer et une mise à jour sur l'état réel post-crash ont également été apportées.
-- **Aucun changement majeur.**
+- **Sync Full**: Effectués plusieurs sync full à différentes heures du jour, garantissant la mise à jour régulière des données.
+- **Vault Daily Journal**: Mises à jour quotidiennes des journaux de vault.
+- **Maintenance Daily**: Exécution quotidienne de la maintenance de LEO.
+- **Backup Daily**: Effectué le backup quotidien vers GDrive sans incident.
+- **Sync Skills to Copilot**: Mise à jour régulière des compétences vers Copilot.
+- **Unified Collector v2**: Collecte unifiée des données avec une fréquence de 15 minutes.
+- **Budget Alert**: Actif pour surveiller les dépenses et envoyer des alertes en temps opportun.
