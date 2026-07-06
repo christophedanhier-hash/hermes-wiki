@@ -119,31 +119,23 @@
 ## ⏱️ Crons LEO
 
 <!-- AUTO:START crons -->
-| Cron | Schedule | Type | Statut |
-|------|---------|------|:------:|
-| **daily-backup** | 06:00 quotidien | 🔧 Script | ✅ |
-| **docs-update** | 08:00 quotidien | 🧠 Ollama | ✅ |
-| **veille-ia-quotidienne** | 08:00 quotidien | 🤖 Agent | ✅ |
-| **check-hermes-update** | 09:00 quotidien | 🔧 Script | ✅ |
-| **credentials-check** | Lun 09:00 hebdo | 🔧 Script | ✅ |
-| **machines-kpi** | H:00 chaque heure | 🔧 Script | ✅ |
-| **budget-check-v6** | H:05 chaque heure | 🔧 Script | ✅ |
-| **leo-dashboard** | H:10 chaque heure | 🔧 Script | ✅ |
-| **leo-dashboard** | H:15 chaque heure | 🔧 Script | ✅ |
-| **leo-dashboard** | H:20 chaque heure | 🔧 Script | ✅ |
-| **leo-dashboard** | H:25 chaque heure | 🔧 Script | ✅ |
-| **wiki-sync** | H:30 chaque heure | 🔧 Script | ✅ |
-| **wiki-oca-sync** | H:35 chaque heure | 🔧 Script | ✅ |
-| **t600-drive-sync** | H:36 chaque heure | 🔧 Script | ✅ |
-| **leo-dashboard** | Every 60m | 🔧 Script | ✅ |
-| **drive-sync** | 18:00 quotidien | 🔧 Script | ✅ |
-| **leo-dashboard** | */15 min | 🔧 Script no_agent | ✅ |
-| **n8n-healthcheck** | */15 min | 🔧 Script no_agent | ✅ |
-|| **gmail-token-refresh** | */30 min | 🔧 Script no_agent | ✅ |
-|| **Classifieur emails Christophe** | Every 30m | 🧠 Ollama | ✅ **Nouveau** |
-|| **doc-watch** | 0 */6 * * * | 🤖 Agent | ✅ |
+<!-- AUTO:START crons -->
+> **Dernière synchro : 06/07/2026 à 21:45**
+> **22 crons Hermes** (tous consolidés dans `leo-copilot`)
 
-Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui envoie aussi par email.
+| Profil | Crons |
+|--------|:-----:|
+| `leo-copilot` (consolidateur) | 22 |
+| `default` | 0 |
+| `bavi-leo` | 0 |
+| `emile` | 0 |
+
+**5 crons hôte** (tofdan@172.17.0.1)
+
+**Total général : 27**
+
+📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
+<!-- AUTO:END crons -->
 <!-- AUTO:END crons -->
 
 ## 📧 Gestion email
@@ -169,7 +161,22 @@ Tous les crons livrent en **local** (fichiers, pas Telegram). Sauf veille-ia qui
 ## 📊 Dashboards
 
 <!-- AUTO:START dashboards -->
-> Mise a jour : 24/06/2026 00:00 - 8 dashboards
+<!-- AUTO:START dashboards -->
+> **Dernière synchro : 06/07/2026 à 21:45**
+> **9 dashboards actifs**
+
+| Dashboard | URL |
+|-----------|-----|
+| Dashboard LEO (principal) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
+| Dashboard KPIs | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
+| Dashboard Crons | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
+| Dashboard n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) |
+| Dashboard GitHub | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
+| Dashboard Global | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) |
+| Dashboard Nest | [leo-nest-dashboard](https://christophedanhier-hash.github.io/leo-nest-dashboard/) |
+| Leo Metrics | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
+| BAVI Dashboard | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
+<!-- AUTO:END dashboards -->
 <!-- AUTO:END dashboards -->
 
 ## 🧠 BAVI Knowledge Hub — Agent Pro
