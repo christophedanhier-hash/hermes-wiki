@@ -2,17 +2,12 @@
 
 *Document vivant*
 
-## 2026-07-02
+## 2026-07-01
 
-- **Changements dans les tâches planifiées :**
-  - Ajout d'une mise à jour hebdomadaire des documents sur `gmail_classifier.py`.
-  - Mise à jour du script de journalisation quotidien pour le coffre-fort (`vault-emile-daily-journal`).
-
-- **Changements dans les dashboards :**
-  - Mises à jour des données sur le dashboard des machines et du wiki.
-
-- **Commits :**
-  - Ajout d'une mise à jour hebdomadaire des documents sur `gmail_classifier.py`.
-  - Mise à jour hebdomadaire des documents sur `wiki` avec la note `docs: mise à jour hebdomadaire du 06/07/2026`.
-
-Aucun changement majeur.
+- Mises à jour hebdomadaires du journal Vault pour les utilisateurs Emile et BAVI.
+- Nouvelle version du script Unified Collector v2, maintenant activée toutes les 15 minutes.
+- Ajout d'une mise à jour automatique des documents Wiki toutes les heures.
+- Mise en place d'un déploiement automatique du dashboard Unifié à 10h.
+- Amélioration de l'auto-commit pour les wikis, maintenant activé toutes les minutes.
+- Mise à jour des tokens Google tous les 50 minutes.
+- Ajout d'une fonctionnalité de veille IA quotidienne active à 7h.
