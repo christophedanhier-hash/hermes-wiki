@@ -1,20 +1,19 @@
-# Architecture Système
+## Architecture Système
 
-## 1. Infrastructure
-L'infrastructure de LEO est composée des éléments suivants :
-- **Host LEO** : i7-7700K, 22GB RAM
-- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
-- **Chromebook Telegram**
-- **Ollama qwen2.5:7b**
+### 1. Infrastructure
+LEO est hébergé sur un host i7-7700K avec 22GB de RAM, exécutant un conteneur Debian 13 Python 3.13 DeepSeek V4 Flash. Les autres composants du système incluent :
 
-## 2. Budget API
-Le budget actuel pour les APIs est de $47.34, avec des seuils d'alerte à $30 et un seuil de stop à $10. Le routage des requêtes se fait selon la hiérarchie suivante : Ollama → Gemini → DeepSeek.
+- **Telegram Chromebook** : Utilisé pour la communication via Telegram.
+- **Ollama qwen2.5:7b** : Modèle de langage utilisé pour certaines tâches.
 
-## 3. Crons Actifs
-Le tableau ci-dessous présente les 19 crons actifs :
+### 2. Budget API
+Le budget actuel est de $47.33, avec des seuils d'alerte à $30 et un seuil de stop à $10. Le routage des API suit la stratégie suivante : Ollama → Gemini → DeepSeek V4 Flash.
 
-| **Tâche** | **Horodatage** | **Script** |
-|-----------|----------------|------------|
+### 3. Crons Actifs
+LEO exécute actuellement 19 tâches planifiées :
+
+| **Tâche** | **Horaires** | **Script** |
+| --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | - |
 | 🔄 Déploiement auto tofdan.be | `0 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
@@ -31,16 +30,17 @@ Le tableau ci-dessous présente les 19 crons actifs :
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-full-backup.py |
 
-## 4. Dashboards
+### 4. Dashboards
 Les dashboards suivants sont disponibles :
-- **crons**
-- **github**
-- **machines**
-- **wiki**
 
-## 5. Sessions & Utilisation
-- **Total sessions** : 1082
-- **Total messages** : 18473
-- **Sessions Telegram** : 13
+- **crons** : Suivi des tâches planifiées.
+- **github** : Suivi de l'activité sur GitHub.
+- **machines** : Suivi des machines et de leurs performances.
+- **wiki** : Suivi de la documentation et des mises à jour.
 
-La taille de la base de données est de 140.3 MB.
+### 5. Sessions & Utilisation
+- **Total sessions** : 1098
+- **Total messages** : 18539
+- **Telegram sessions** : 13
+
+La taille de la base de données est actuellement de 140.3 MB.

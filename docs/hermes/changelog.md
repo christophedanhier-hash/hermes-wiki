@@ -2,12 +2,10 @@
 
 *Document vivant*
 
-## 2026-07-01
+## 2026-06-29 au 07-07-2026
 
-- **Budget Alert** : Une nouvelle règle a été ajoutée pour surveiller les dépenses.
-- **Unified Collector v2** : Mises à jour mineures pour améliorer la stabilité du collecteur.
-- **Sync Skills to Copilot** : Correction d'un bug qui perturbait le déclenchement automatique des mises à jour des compétences.
-- **LEO Health Check** : Ajout d'une vérification supplémentaire de l'état du système pour une surveillance plus précise.
-- **Auto-Archive BAVI LEO** : Intégration d'un nouveau critère de durée pour les archives automatiques.
-
-Aucun changement majeur.
+- **Budget Alert** a été activé pour des alertes financières à 8h et 20h.
+- **Unified Collector v2** a été mis à jour pour une collecte unifiée plus efficace.
+- **Deploy Unified Dashboard** a été déployé automatiquement le 10h du matin.
+- **Auto-commit wikis** est devenu plus fréquent, avec des commits toutes les heures.
+- Un commit hebdomadaire a été ajouté au wiki pour la mise à jour du 6 juillet 2026.
