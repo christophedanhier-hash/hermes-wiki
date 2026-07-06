@@ -2,11 +2,17 @@
 
 *Document vivant*
 
-## 2026-07-01
+## 2026-07-02
 
-- **Unified Collector v2** a été mis à jour pour améliorer la collecte des données.
-- **Deploy Unified Dashboard** a été exécuté à l'heure prévue, mettant à jour les dashboards en temps réel.
-- **Budget Alert** a déclenché une alerte pour un dépassement du budget prévu. Vérification et ajustement effectués.
-- **LEO Maintenance quotidienne** a effectué des mises à jour de sécurité et des optimisations du système.
-- **LEO Backup quotidien → GDrive** s'est exécuté sans incident, garantissant la sauvegarde régulière des données.
-- **Auto-commit wikis (toutes les heures)** a continué à effectuer des commits automatiques pour maintenir la synchronisation des répertoires.
+- **Changements dans les tâches planifiées :**
+  - Ajout d'une mise à jour hebdomadaire des documents sur `gmail_classifier.py`.
+  - Mise à jour du script de journalisation quotidien pour le coffre-fort (`vault-emile-daily-journal`).
+
+- **Changements dans les dashboards :**
+  - Mises à jour des données sur le dashboard des machines et du wiki.
+
+- **Commits :**
+  - Ajout d'une mise à jour hebdomadaire des documents sur `gmail_classifier.py`.
+  - Mise à jour hebdomadaire des documents sur `wiki` avec la note `docs: mise à jour hebdomadaire du 06/07/2026`.
+
+Aucun changement majeur.
