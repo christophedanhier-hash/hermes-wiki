@@ -115,15 +115,64 @@ Les profils peuvent partager des informations de plusieurs façons :
 
 ### 1. Mémoire partagée (symlinks)
 
-```bash
+\`\`\`bash
 # Les deux profils pointent vers les mêmes fichiers
 ln -s /opt/data/memories/MEMORY.md /opt/data/profiles/leo-copilot/memories/MEMORY.md
 ln -s /opt/data/memories/USER.md /opt/data/profiles/leo-copilot/memories/USER.md
-```
+\`\`\`
 
 Quand un bot met à jour sa mémoire, l'autre voit les changements automatiquement.
 
-### 2. Skills synchronisés
+### 2. SOUL.md — L'alignement TUI ↔ Telegram
+
+**Problème critique :** Hermes charge le SOUL.md depuis \`$HERMES_HOME/SOUL.md\` (mécanisme interne dans \`agent/prompt_builder.py\`). Tous les profils qui partagent le même \`$HERMES_HOME\` chargent **exactement le même fichier** — quel que soit le profil actif.
+
+```python
+# Dans agent/prompt_builder.py
+def load_soul_md(...):
+    soul_path = get_hermes_home() / "SOUL.md"  # ← MÊME chemin pour tous les profils
+```
+
+Si le fichier racine n'est pas synchronisé avec le profil, **TUI et Telegram chargent des personnalités différentes**.
+
+**Solution : un symlink unique**
+
+```bash
+# 1 fichier source de vérité
+rm -f /opt/data/SOUL.md
+ln -s /opt/data/profiles/<profil>/SOUL.md /opt/data/SOUL.md
+```
+
+Pour les profils qui partagent la même identité (ex: default + leo-copilot sont tous deux LEO) : **un seul SOUL.md unifié** avec un tableau des rôles, et les deux profils symlinkent vers le même fichier :
+
+```bash
+# Les 3 chemins pointent vers le même inode
+ln -sf /opt/data/profiles/default/SOUL.md /opt/data/SOUL.md
+ln -sf /opt/data/profiles/default/SOUL.md /opt/data/profiles/leo-copilot/SOUL.md
+```
+
+Structure du SOUL.md unifié :
+```markdown
+## Rôles des profils
+
+| Profil | Moteur | Rôle |
+|--------|--------|------|
+| **\`default\`** | DeepSeek Flash | Dialogue — échange, ne touche pas à l'infrastructure |
+| **\`leo-copilot\`** | DeepSeek Pro | Infra — crons, dashboard, scripts, déploiements |
+
+- Si tu es \`default\` → interface de dialogue
+- Si tu es \`leo-copilot\` → chef d'infrastructure
+```
+
+**Vérification :**
+```bash
+stat -L -c "%n → inode %i" /opt/data/SOUL.md /opt/data/profiles/*/SOUL.md
+# Tous doivent montrer le MÊME inode
+```
+
+**⚠️ Quand NE PAS unifier :** les profils avec des personnalités différentes (Sylvia voyage ≠ Émile pédagogie) gardent leur propre SOUL.md indépendant. Seuls les profils qui sont la **même personne avec un modèle différent** partagent un SOUL.md unifié.
+
+### 3. Skills synchronisés
 
 Le profil principal (source de vérité) synchronise ses skills vers les autres profils toutes les 30 minutes :
 
