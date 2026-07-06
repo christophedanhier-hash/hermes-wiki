@@ -120,7 +120,7 @@
 
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
-> **Dernière synchro : 06/07/2026 à 21:45**
+> **Dernière synchro : 06/07/2026 à 21:46**
 > **22 crons Hermes** (tous consolidés dans `leo-copilot`)
 
 | Profil | Crons |
@@ -135,6 +135,7 @@
 **Total général : 27**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
+<!-- AUTO:END crons -->
 <!-- AUTO:END crons -->
 <!-- AUTO:END crons -->
 
@@ -162,7 +163,7 @@
 
 <!-- AUTO:START dashboards -->
 <!-- AUTO:START dashboards -->
-> **Dernière synchro : 06/07/2026 à 21:45**
+> **Dernière synchro : 06/07/2026 à 21:46**
 > **9 dashboards actifs**
 
 | Dashboard | URL |
@@ -176,6 +177,7 @@
 | Dashboard Nest | [leo-nest-dashboard](https://christophedanhier-hash.github.io/leo-nest-dashboard/) |
 | Leo Metrics | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
 | BAVI Dashboard | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
+<!-- AUTO:END dashboards -->
 <!-- AUTO:END dashboards -->
 <!-- AUTO:END dashboards -->
 
