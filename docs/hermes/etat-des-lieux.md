@@ -1,8 +1,8 @@
 # 📋 État des lieux — Installation Hermes de Christophe
 
-> ⚠️ **Document archivé au 03/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
+> ⚠️ **Document archivé au 07/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
 >
-> **Mise à jour 04/07/2026** : les principaux changements post-reconstruction sont :
+> **Mise à jour 07/07/2026** : les principaux changements post-reconstruction sont :
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard)
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, n8n, github, bavi, services, vaults)
 > - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
@@ -26,8 +26,8 @@
 | **Profils actifs** | 4 (default, leo-copilot, bavi-leo, emile) |
 | **Gateways** | 4 actifs (s6 supervision) |
 | **Modèle principal** | `deepseek-v4-flash` |
-| **Fallback** | Gemini 2.5 Flash |
-| **Crons actifs** | 14 (13 no_agent) |
+| **Fallback** | Gemini 3.5 Flash |
+| **Crons actifs** | 22 (17 no_agent) |
 | **Skills installés** | 126 |
 
 > 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](https://christophedanhier-hash.github.io/leo-dashboard/).
@@ -162,23 +162,8 @@
 ## 📊 Dashboards
 
 <!-- AUTO:START dashboards -->
-<!-- AUTO:START dashboards -->
-> **Dernière synchro : 06/07/2026 à 21:46**
-> **9 dashboards actifs**
-
-| Dashboard | URL |
-|-----------|-----|
-| Dashboard LEO (principal) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) |
-| Dashboard KPIs | [dashboard-leo](https://christophedanhier-hash.github.io/dashboard-leo/) |
-| Dashboard Crons | [crons-dashboard](https://christophedanhier-hash.github.io/crons-dashboard/) |
-| Dashboard n8n | [dashboard-n8n](https://christophedanhier-hash.github.io/dashboard-n8n/) |
-| Dashboard GitHub | [github-dashboard](https://christophedanhier-hash.github.io/github-dashboard/) |
-| Dashboard Global | [leo-global-dashboard](https://christophedanhier-hash.github.io/leo-global-dashboard/) |
-| Dashboard Nest | [leo-nest-dashboard](https://christophedanhier-hash.github.io/leo-nest-dashboard/) |
-| Leo Metrics | [leo-metrics](https://christophedanhier-hash.github.io/leo-metrics/) |
-| BAVI Dashboard | [bavi-leo-dashboard](https://christophedanhier-hash.github.io/bavi-leo-dashboard/) |
-<!-- AUTO:END dashboards -->
-<!-- AUTO:END dashboards -->
+> **Dernière synchro : 07/07/2026**
+> **1 dashboard unifié : leo-dashboard**
 <!-- AUTO:END dashboards -->
 
 ## 🧠 BAVI Knowledge Hub — Agent Pro
@@ -198,7 +183,7 @@ Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agen
 
 ## 💰 Budget DeepSeek
 
-- **Solde restant estimé :** ~$28
+- **Solde restant estimé :** ~$19.97
 - **Tokens consommés (14j) :** ~4,7M+ IN / ~1,8M+ OUT
 - **Sessions :** 90 (62 Telegram, 3 CLI)
 - **Messages :** 4 651
@@ -253,8 +238,7 @@ flowchart TD
 ## 🔴 Règles de vie critiques
 
 ### Infra
-- **1 profil principal** (`default`), **1 profil auxiliaire** (`bavi-leo` pour le bot voyages uniquement — profil isolé avec son propre gateway et modèle deepseek-v4-flash)
-- **NE PAS créer d'autres profils** — le cas bot voyages est une exception documentée
+- **4 profils** (`default`, `leo-copilot`, `bavi-leo`, `emile`)
 - **NE JAMAIS** arrêter/redémarrer le gateway sans accord explicite
 
 ### Email
@@ -328,4 +312,4 @@ Tester le résultat avant de livrer :
 **Problème :** Crons qui utilisaient le mauvais Python, scripts introuvables, identité Git manquante, push qui échoue.
 
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 07/07/2026 — Léo 🦁*
