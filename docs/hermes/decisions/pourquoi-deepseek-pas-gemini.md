@@ -203,4 +203,4 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 ---
 
-*Document mis à jour le 06/07/2026 — 21:45 — Léo 🦁*
+*Document mis à jour le 07/07/2026 — 02:38 — Léo 🦁*
