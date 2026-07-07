@@ -1,15 +1,18 @@
 # Architecture Système
 
 ## 1. Infrastructure
-- **Host LEO**: Processeur récent, RAM suffisante
-- **Container**: Debian 13, Python 3.13, DeepSeek V4 Flash
-- **Telegram Client**: Chromebook Telegram
-- **Modèles d'IA**: Ollama qwen2.5:7b
+- **Host LEO**: i7-7700K, 22GB RAM
+- **Container Debian 13**:
+  - Python 3.13
+  - DeepSeek V4 Flash
+  - Telegram Chromebook
+  - Ollama qwen2.5:7b
 
 ## 2. Budget API
-- **Balance DeepSeek**: $46.1
-- **Seuils d'alerte**: $30 (avertissement), $10 (arrêt)
-- **Routage**: Ollama → Gemini → DeepSeek
+- Balance DeepSeek: $46.05
+- Seuils d'alerte: $30
+- Stop budget: $10
+- Routage: Ollama → Gemini → DeepSeek
 
 ## 3. Crons Actifs (22)
 | **Tâche** | **Horodatage** | **Script** |
@@ -28,15 +31,15 @@
 | 📒 vault-daily-journal (vault-leo) | `0 23 * * *` |  |
 | 📒 vault-default-daily-journal | `0 23 * * *` |  |
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
-| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-backup.sh |
+| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-...
 
-## 4. Dashboards
-- **crons**: Moniteur des tâches planifiées
-- **github**: Suivi des dépôts et contributions GitHub
-- **machines**: Surveillance de l'état des machines
-- **wiki**: Gestion et mise à jour du wiki
+## 4. Dashboards: crons/github/machines/wiki
+- **Crons**: Moniteur des tâches planifiées et de leur exécution.
+- **GitHub**: Intégration continue pour le déploiement automatique.
+- **Machines**: Surveillance des performances du système hôte.
+- **Wiki**: Documentation et suivi des procédures.
 
-## 5. Sessions & Utilisation
-- **Total sessions**: 1206
-- **Total messages**: 19521
-- **Telegram**: 14 sessions
+## 5. Sessions & utilisation
+- Total sessions: 1222
+- Total messages: 19585
+- Telegram: 14 sessions
