@@ -22,7 +22,7 @@ LEO a **1 dashboard unifié** en production, généré par le collecteur `collec
 
 | Dashboard | Contenu | URL | Collecte | Déploiement |
 |-----------|---------|-----|----------|-------------|
-| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | collect-v2.py */15 | deploy-dashboard.py H:10 |
+| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | collect-v2.py */15 | deploy-dashboard.sh H:10 |
 
 Scripts :
 - `/opt/data/scripts/collect-v2.py` — collecteur unifié (state.db des 4 profils, n8n, infra, budget, vaults)
@@ -173,8 +173,8 @@ subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
 ## 🦁 Global Dashboard LEO (portail unique)
 
 Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seule page :
-- 🔵 **Crons (24)** — statut, historique, erreurs
-- 📊 **Dashboards (7)** — HTTP, âge, budget
+- 🔵 **Crons (22)** — statut, historique (collect-v2)
+- 📊 **1 Dashboard unifié** (leo-dashboard) — remplace les 7 anciens dashboards
 - 💰 **Budget DeepSeek** — solde, jours restants
 - 🩺 **n8n** — online/offline
 - 🏛️ **BAVI LEO** — sessions, messages, tokens
@@ -183,15 +183,10 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - 🔗 **Liens rapides** — accès au dashboard unifié
 
 **Avantages :**
-- ✅ **Plus aucun rapport Telegram** — dashboard-watch et Auto-Heal livrent en local
+- ✅ **Plus aucun rapport Telegram** — collect-v2 + déploiement horaire livrent en local
 - ✅ **Un seul bookmark** au lieu de 7
-- ✅ **Cron no_agent toutes les 10min** (H:05) — 0$ de coût
-- ✅ **Auto-déploiement GH Pages**
-
-```bash
-# Le cron
-🌍 Global Dashboard — H:05 → /opt/data/scripts/deploy_leo_global.py (no_agent)
-```
+- ✅ **Collecte */15, déploiement H:10** — 0$ de coût LLM
+- ✅ **Auto-déploiement GH Pages** via deploy-dashboard.sh
 
 - **Usage LLM** — requêtes/jour, tokens consommés, coût estimé
 - **Système** — CPU, RAM, disque, uptime de votre serveur
@@ -203,4 +198,4 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `03-utilisation/crons.md` pour le déploiement automatisé
 - Voir `03-utilisation/architecture-leo.md` pour la vue complète (schéma Mermaid, interactions, filets)
 - Voir `exemples/LEO.md` pour les dashboards en production
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 07/07/2026 — Léo 🦁*
