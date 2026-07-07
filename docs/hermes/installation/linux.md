@@ -120,7 +120,7 @@ docker exec -it hermes hermes setup
 
 ## 🔧 Exemple : LEO (serveur de production)
 
-LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Debian 13 Trixie** (kernel 7.0.0) en conteneur Docker, accessible 24/7. Le serveur est équipé d'un **Intel i7-7700K** (4 cœurs / 8 threads), **24 GB RAM** et une **pas de GPU (CPU) 8GB** (driver 595) utilisée pour l'inférence locale via Ollama.
+LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Debian 13 Trixie** en conteneur Docker, accessible 24/7. Le serveur est équipé d'un processeur moderne avec mémoire suffisante pour l'inférence IA locale.
 
 ### Architecture
 

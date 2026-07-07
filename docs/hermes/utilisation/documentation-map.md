@@ -32,6 +32,7 @@
 | 23 | ~~`dashboards/n8n.md`~~ | **SUPPRIMÉ** (dashboard n8n 404, remplacé par leo-dashboard) | — | ❌ |
 | — | `hermes/index.md` | Présentation Hermes Agent, philosophie LEO | 9, 12 | ✅ |
 | 24 | `decisions/pourquoi-deepseek-pas-gemini.md` | Choix DeepSeek vs Gemini, prix juillet 2026 | 7, 9, 14 | ✅ |
+| 25 | `utilisation/securite.md` | Sécurité — bonnes pratiques documentaires, données sensibles | Toutes | ✅ |
 | — | `services/gardien-drive.md` | Gardien du Drive (workflow n8n) | 19 | ✅ |
 
 ### Pages archivées (plus dans la navigation)

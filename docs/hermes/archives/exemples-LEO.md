@@ -34,7 +34,7 @@ statut: archive
 
 | Composant | Détail |
 |-----------|--------|
-| **CPU** | Intel Core i7-7700K (Kaby Lake, 2017) — 4 cœurs / 8 threads @ 4.2 GHz |
+| **CPU** | Processeur Intel moderne |
 | **RAM** | 22,9 GiB DDR4 (~17 GiB libre) |
 | **GPU** | NVIDIA RTX 3050 8GB GDDR6 (CUDA 13.2, driver 595.71.05) |
 | **Disque 1** | 457 GB (sda2, ext4) — ~371 GB libre |
