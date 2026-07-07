@@ -17,9 +17,9 @@
 | **Version Hermes** | v0.17.0 |
 | **Python** | 3.13.5 |
 | **OS Hôte** | Ubuntu 26.04 LTS |
-| **Kernel** | Linux 7.0.0-27-generic |
-| **CPU** | Intel i7-7700K (4C/8T, 4.2 GHz) |
-| **RAM** | 22 GiB total |
+| **Kernel** | Linux 7.x |
+| **CPU** | Processeur Intel récent (multi-cœurs) |
+| **RAM** | Mémoire suffisante |
 | **GPU** | Aucun (Ollama sur CPU) |
 | **Stockage** | 457 Go SSD système + 1 To HDD backups |
 | **Docker** | 3 conteneurs (hermes-agent + ollama + n8n) |

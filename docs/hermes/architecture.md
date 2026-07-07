@@ -1,7 +1,7 @@
 # Architecture Système
 
 ## 1. Infrastructure
-- **Host LEO**: i7-7700K, 22GB RAM
+- **Host LEO**: Processeur récent, RAM suffisante
 - **Container**: Debian 13, Python 3.13, DeepSeek V4 Flash
 - **Telegram Client**: Chromebook Telegram
 - **Modèles d'IA**: Ollama qwen2.5:7b

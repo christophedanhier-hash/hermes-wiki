@@ -48,7 +48,7 @@ LEO tourne sur **1 machine serveur**. Les autres postes (Yoga, Penguin) sont des
 ```mermaid
 graph TB
     subgraph "🖥️ Serveur LEO"
-        HW["i7-7700K · 22 Go RAM<br/>457 Go SSD + 1 To HDD"]
+        HW["Processeur récent · RAM suffisante<br/>457 Go SSD + 1 To HDD"]
     end
     subgraph "💻 Postes clients"
         YOGA["Yoga (Windows)"]
