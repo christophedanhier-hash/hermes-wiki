@@ -2,11 +2,15 @@
 
 *Document vivant*
 
-## 2026-07-03
+## 2026-06-30 au 07-07-2026
 
-- **Budget Alert** : Nouvelle alerte budgétaire activée à 8h et 20h chaque jour.
-- **Unified Collector v2** : Mise à jour du collecteur unifié pour améliorer la performance des données collectées.
-- **Auto-Archive BAVI LEO** : Ajout de l'auto-archivage BAVI LEO toutes les 5 minutes pour une gestion optimisée des archives.
-- **Refresh Google Tokens** : Mise à jour du script de renouvellement des tokens Google pour une meilleure stabilité.
-- **GitHub Actions Watchdog** : Amélioration de la surveillance des actions GitHub pour une détection plus précise des anomalies.
-- **Cron Health Watchdog** : Ajout d'une fonctionnalité supplémentaire pour le suivi des logs cron, améliorant ainsi la santé globale du système.
+- **Budget Alert** : Nouvelle règle ajoutée pour une alerte financière à 8h et 20h.
+- **Unified Collector v2** : Mise à jour de l'intervalle de collecte à chaque 15 minutes.
+- **Deploy Unified Dashboard** : Ajout d'une nouvelle intégration avec le tableau de bord unifié pour une mise à jour automatique des données.
+- **Sync Skills to Copilot** : Intégration améliorée pour synchroniser les compétences avec Copilot toutes les 30 minutes.
+- **Refresh Google Tokens** : Intervalle de rafraîchissement des tokens Google ajusté à chaque 50 minutes.
+- **Auto-Archive BAVI LEO** : Nouvelle fonctionnalité ajoutée pour l'archivage automatique des données toutes les cinq minutes.
+- **Vault Daily Journal** : Mise à jour de la journalisation quotidienne du coffre-fort pour une meilleure intégration et gestion des données.
+- **GitHub Actions Watchdog** : Ajout d'une nouvelle fonctionnalité pour surveiller l'état des actions GitHub, notifiant en cas de problème.
+- **Cron Health Watchdog** : Intégration améliorée pour le suivi des tâches cron, avec un log scanner automatique toutes les 15 minutes.
+- **Commits Hermes-Christophe et Wiki** : Plusieurs modifications et mises à jour dans les repositories, incluant des corrections de bugs et des synchronisations de données.
