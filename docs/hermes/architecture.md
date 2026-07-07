@@ -2,18 +2,18 @@
 
 ## 1. Infrastructure
 - **Host LEO**: i7-7700K, 22GB RAM
-- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
-- **Chromebook Telegram**
-- **Ollama qwen2.5:7b**
+- **Container**: Debian 13, Python 3.13, DeepSeek V4 Flash
+- **Telegram Client**: Chromebook Telegram
+- **Modèles d'IA**: Ollama qwen2.5:7b
 
 ## 2. Budget API
-- **Balance DeepSeek**: $46.45
-- **Seuils d'alerte**: $30 / stop $10
+- **Balance DeepSeek**: $46.1
+- **Seuils d'alerte**: $30 (avertissement), $10 (arrêt)
 - **Routage**: Ollama → Gemini → DeepSeek
 
 ## 3. Crons Actifs (22)
 | **Tâche** | **Horodatage** | **Script** |
-|-----------|----------------|------------|
+| --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `0 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
@@ -28,15 +28,15 @@
 | 📒 vault-daily-journal (vault-leo) | `0 23 * * *` |  |
 | 📒 vault-default-daily-journal | `0 23 * * *` |  |
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
-| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-fu
+| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` | leo-backup.sh |
 
 ## 4. Dashboards
-- **crons**
-- **github**
-- **machines**
-- **wiki**
+- **crons**: Moniteur des tâches planifiées
+- **github**: Suivi des dépôts et contributions GitHub
+- **machines**: Surveillance de l'état des machines
+- **wiki**: Gestion et mise à jour du wiki
 
 ## 5. Sessions & Utilisation
-- **Total sessions**: 1190
-- **Total messages**: 19457
+- **Total sessions**: 1206
+- **Total messages**: 19521
 - **Telegram**: 14 sessions
