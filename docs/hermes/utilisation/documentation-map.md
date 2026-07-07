@@ -30,6 +30,7 @@
 | 21 | `aller-plus-loin/references.md` | Aide-mémoire commandes Hermes | — | ✅ |
 | 22 | `aller-plus-loin/troubleshooting.md` | Problèmes courants | — | ✅ |
 | 23 | ~~`dashboards/n8n.md`~~ | **SUPPRIMÉ** (dashboard n8n 404, remplacé par leo-dashboard) | — | ❌ |
+| 24 | `decisions/pourquoi-deepseek-pas-gemini.md` | Choix DeepSeek vs Gemini, prix juillet 2026 | 7, 9, 14 | ✅ |
 | — | `services/gardien-drive.md` | Gardien du Drive (workflow n8n) | 19 | ✅ |
 
 ### Pages archivées (plus dans la navigation)
@@ -105,4 +106,4 @@ Quand tu changes... | Pages à vérifier
 
 ---
 
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 07/07/2026 — 02:45 — Léo 🦁*
