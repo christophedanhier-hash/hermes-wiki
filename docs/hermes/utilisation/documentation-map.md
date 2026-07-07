@@ -13,7 +13,7 @@
 | 4 | `changelog.md` | Historique des modifications | Toutes | ✅ |
 | 5 | `etat-des-lieux.md` | Installation Hermes de Christophe (inventaire) | 14, 18, 20 | ✅ |
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
-| 7 | `exemples/LEO.md` | Architecture LEO (provider, routage, dashboards) | 3, 14, 20, 21 | ✅ |
+| 7 | `exemples/LEO.md` | **LIEN MORT** — fichier déplacé/supprimé | — | ❌ |
 | 8 | `configuration/profiles.md` | Profils, gateways, skills | 20 | ✅ |
 | 9 | `configuration/providers.md` | Providers LLM (DeepSeek, Gemini, Ollama) | 7, 14 | ✅ |
 | 10 | `installation/linux.md` | Installation Linux | — | ✅ |
@@ -30,6 +30,7 @@
 | 21 | `aller-plus-loin/references.md` | Aide-mémoire commandes Hermes | — | ✅ |
 | 22 | `aller-plus-loin/troubleshooting.md` | Problèmes courants | — | ✅ |
 | 23 | ~~`dashboards/n8n.md`~~ | **SUPPRIMÉ** (dashboard n8n 404, remplacé par leo-dashboard) | — | ❌ |
+| — | `hermes/index.md` | Présentation Hermes Agent, philosophie LEO | 9, 12 | ✅ |
 | 24 | `decisions/pourquoi-deepseek-pas-gemini.md` | Choix DeepSeek vs Gemini, prix juillet 2026 | 7, 9, 14 | ✅ |
 | — | `services/gardien-drive.md` | Gardien du Drive (workflow n8n) | 19 | ✅ |
 
