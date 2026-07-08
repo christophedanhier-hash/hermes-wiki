@@ -5,23 +5,22 @@
 - **Container Debian 13**:
   - Python 3.13
   - DeepSeek V4 Flash
-- **Services**:
-  - Telegram Chromebook
-  - Ollama qwen2.5:7b
+- **Telegram Client**: Chromebook Telegram
+- **Ollama Model**: qwen2.5:7b
 
 ## 2. Budget API
-- **Balance**: $44.58
-- **Seuils d'alerte**: $30
-- **Stop**: $10
-- **Routage**: Ollama → Gemini → DeepSeek
+- Balance: $44.56
+- Seuils d'alerte: $30
+- Stop: $10
+- Routage: Ollama → Gemini → DeepSeek
 
 ## 3. Crons Actifs (26)
 | **Tâche** | **Horodatage** | **Script** |
-|-----------|----------------|------------|
+| --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
-| ✍️ docs-update | `0 */4 * * *` | run-docs-update.sh |
+| 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh |
@@ -35,14 +34,12 @@
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
 
 ## 4. Dashboards
-- **crons**
-- **github**
-- **machines**
-- **wiki**
+- crons
+- github
+- machines
+- wiki
 
 ## 5. Sessions & Utilisation
-- **Total sessions**: 1340
-- **Total messages**: 20894
+- **Total sessions**: 1356
+- **Total messages**: 20965
 - **Telegram**: 14 sessions
-
-**Database size**: 164.2 MB
