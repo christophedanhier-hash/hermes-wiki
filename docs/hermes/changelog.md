@@ -2,10 +2,15 @@
 
 *Document vivant*
 
-## 2026-07-01 au 08/07/2026
+## 2026-07-02 au 09/07/2026
 
-- **Budget Alert** a été activé pour des alertes financières à 8h et 20h chaque jour.
-- **Synthèse Hebdomadaire LEO** a été mise à jour pour inclure les données de la semaine du 01 au 08 juillet 2026.
-- Le script **Auto-Archive BAVI LEO** a été optimisé pour fonctionner toutes les cinq minutes plutôt que toutes les heures, améliorant ainsi l'efficacité des archivages.
-- La mise à jour hebdomadaire du Wiki a inclus une note importante sur la semaine du 08/07/2026.
-- Aucun changement majeur.
+- **Budget Alert** ([0 8,20 * * *](https://github.com/hermes-christophe/budget-alert)) : Ajout de nouvelles règles pour une meilleure gestion budgétaire.
+- **Synthèse Hebdomadaire LEO** ([0 20 * * 0](https://github.com/hermes-christophe/synthese_hebdo.py)) : Mise à jour du script pour inclure les statistiques des déploiements auto et de la veille IA quotidienne.
+- **Auto-Archive BAVI LEO** ([5min](https://github.com/hermes-christophe/auto-archive.py)) : Amélioration de l'algorithme d'archivage automatique pour une meilleure gestion du stockage.
+- **Rebuild Wiki BAVI local** ([10 * * *](https://github.com/hermes-christophe/rebuild-wiki.sh)) : Ajout d'une fonctionnalité pour la réinitialisation locale de la wiki, permettant des mises à jour plus rapides et précises.
+- **Auto-commit wikis** ([toutes les heures](https://github.com/hermes-christophe/auto-commit-repos.sh)) : Mise à jour du script pour inclure des modifications supplémentaires dans le processus d'auto-commit, garantissant une meilleure synchronisation entre les différents wikis.
+- **Chores et commits** :
+  - **hermes-christophe** (100 commits) : Corrections mineures et améliorations de scripts existants.
+  - **wiki** (160 commits) : Mises à jour régulières des documents, notamment pour la veille IA quotidienne et l'analyse bot Emile.
+
+Aucun changement majeur.
