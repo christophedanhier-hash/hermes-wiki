@@ -1,27 +1,27 @@
-# Architecture Système
+## Architecture Système
 
-## 1. Infrastructure
+### 1. Infrastructure
 - **Host LEO**: i7-7700K, 22GB RAM
-- **Containers**:
-  - Debian 13
+- **Container Debian 13**  
   - Python 3.13
   - DeepSeek V4 Flash
-  - Chromebook Telegram
-  - Ollama qwen2.5:7b
+- **Services**:
+  - **Telegram Chromebook**
+  - **Ollama qwen2.5:7b**
 
-## 2. Budget API
-- **Balance**: $44.52
+### 2. Budget API
+- **Balance**: $44.11
 - **Seuils d'alerte**: $30
 - **Stop**: $10
 - **Routage**: Ollama → Gemini → DeepSeek
 
-## 3. Crons Actifs (26)
-| **Description** | **Heure de lancement** | **Script** |
-|-----------------|-----------------------|------------|
+### 3. Crons Actifs (26)
+| **Nom** | **Horaires** | **Script** |
+|---|---|---|
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
-| 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
+| ✍️ docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh |
@@ -34,13 +34,13 @@
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
 
-## 4. Dashboards
-- **crons**: Moniteur des tâches planifiées
-- **github**: Suivi des activités sur GitHub
-- **machines**: État des machines et du système
-- **wiki**: Documentation et informations générales
+### 4. Dashboards
+- **crons**
+- **github**
+- **machines**
+- **wiki**
 
-## 5. Sessions & Utilisation
-- **Total sessions**: 1372
-- **Total messages**: 21039
+### 5. Sessions & Utilisation
+- **Total sessions**: 1392
+- **Total messages**: 21425
 - **Telegram**: 14 sessions
