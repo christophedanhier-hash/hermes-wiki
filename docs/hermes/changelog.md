@@ -2,12 +2,10 @@
 
 *Document vivant*
 
-## 2026-07-02 au 09/07/2026
+## 2026-07-03 au 10/07/2026
 
-- **Synthèse Hebdomadaire LEO** : Ajout d'une tâche pour générer la synthèse hebdomadaire le dimanche à minuit (0 20 * * 0).
-- **Budget Alert** : Amélioration de l'alerte budgétaire pour une meilleure gestion des dépenses.
-- **LEO Health Check** : Mise à jour du script de vérification de santé pour une meilleure fiabilité.
-- **Auto-Archive BAVI LEO** : Ajout d'une tâche pour archiver automatiquement les données BAVI toutes les 5 minutes (every 5m).
-- **Rebuild Wiki Voyages local** : Nouvelle tâche pour reconstruire le wiki des voyages localement à 15h.
-- **Cron Health Watchdog** : Ajout d'une surveillance supplémentaire des logs pour une meilleure santé cron.
-- **GitHub Actions Watchdog** : Mise en place d'un système de veille pour surveiller les actions GitHub, améliorant ainsi la gestion des workflows.
+- **Budget Alert** a été activé pour des alertes à 8h et 20h chaque jour.
+- **Synthèse Hebdomadaire LEO** a été exécutée pour la première fois le 9 juillet 2026, générant un résumé complet de la semaine écoulée.
+- Les scripts d'auto-commit ont été activés pour tous les wikis, effectuant des commits toutes les heures.
+- **Rebuild Wiki BAVI local** et **Rebuild Wiki Voyages local** ont été mis à jour pour une reconstruction automatique plus fréquente.
+- La page de synthèse hebdomadaire LEO a été mise à jour avec des données collectées pendant la semaine.
