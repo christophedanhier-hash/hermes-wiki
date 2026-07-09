@@ -2,21 +2,19 @@
 
 ## 1. Infrastructure
 - **Host LEO**: i7-7700K, 22GB RAM
-- **Container Debian 13**:
-  - Python 3.13
-  - DeepSeek V4 Flash
-  - Flash API
-  - Telegram Bot (Chromebook)
-  - Ollama qwen2.5:7b
+- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
+- **Chromebook Telegram**
+- **Ollama qwen2.5:7b**
 
 ## 2. Budget API
-- Balance DeepSeek: $42.59
-- Seuils d'alerte: $30 / stop: $10
-- Routage: Ollama → Gemini → DeepSeek
+- **Balance**: $42.1
+- **Seuils d'alerte**: $30
+- **Stop**: $10
+- **Routage**: Ollama → Gemini → DeepSeek
 
 ## 3. Crons Actifs (28)
 | **Tâche** | **Horaires** | **Script** |
-|---|---|---|
+| --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
@@ -34,12 +32,13 @@
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
 
 ## 4. Dashboards
-- crons
-- github
-- machines
-- wiki
+- **crons**
+- **github**
+- **machines**
+- **wiki**
 
 ## 5. Sessions & Utilisation
-- Total sessions: 1473
-- Total messages: 23533
-- Telegram: 15 sessions
+- **Total sessions**: 1493
+- **Total messages**: 23703
+- **Telegram**: 15 sessions
+- **Database size**: 185.1 MB
