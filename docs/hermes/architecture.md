@@ -1,20 +1,26 @@
 # Architecture Système
 
 ## 1. Infrastructure
-Le système LEO est hébergé sur un host i7-7700K avec 22GB de RAM et exécute un conteneur Debian 13, Python 3.13, DeepSeek V4 Flash. Le Telegram Chromebook est utilisé pour les communications externes, tandis que Ollama qwen2.5:7b fournit le traitement du langage naturel.
+- **Host LEO**: i7-7700K, 22GB RAM
+- **Container**: Debian 13, Python 3.13
+- **Applications**:
+  - DeepSeek V4 Flash
+  - Telegram Chromebook
+  - Ollama qwen2.5:7b
 
 ## 2. Budget API
-- **Balance DeepSeek :** $43.5
-- **Seuils d'alerte :** $30 (alerte), $10 (arrêt)
-- **Routage :** Ollama → Gemini → DeepSeek
+- **Balance DeepSeek**: $42.8
+- **Seuils d'alerte**: $30
+- **Stop**: $10
+- **Routage**: Ollama → Gemini → DeepSeek
 
-## 3. Crons Actifs
-| **Nom du Cron** | **Horaires de lancement** | **Script** |
-|-----------------|----------------------------|------------|
+## 3. Crons Actifs (28)
+| **Tâche** | **Horodatage** | **Script** |
+| --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
-| ✍️ docs-update | `0 */4 * * *` | run-docs-update.sh |
+| 📝 docs-update | `0 */4 * * *` | run-docs-update.sh |
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh |
@@ -28,15 +34,12 @@ Le système LEO est hébergé sur un host i7-7700K avec 22GB de RAM et exécute 
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
 
 ## 4. Dashboards
-Les dashboards suivants sont mis à jour régulièrement :
-- crons
-- github
-- machines
-- wiki
+- **crons**
+- **github**
+- **machines**
+- **wiki**
 
 ## 5. Sessions & Utilisation
-- **Total de sessions :** 1424
-- **Total des messages :** 21888
-- **Sessions Telegram :** 14
-
-La taille de la base de données est de 174.3 MB.
+- **Total sessions**: 1441
+- **Total messages**: 23317
+- **Telegram**: 15 sessions

@@ -4,11 +4,10 @@
 
 ## 2026-07-02 au 09/07/2026
 
-- **Budget Alert** : Ajout d'un nouvel alerte budgétaire activé à 8h et 20h chaque jour.
-- **Unified Collector v2** : Mise à jour de l'interval de collecte pour une meilleure synchronisation des données.
-- **Synthèse Hebdomadaire LEO** : Nouvelle fonctionnalité ajoutée pour générer automatiquement la synthèse hebdomadaire le dimanche à 20h.
-- **LEO Backup quotidien → GDrive** : Optimisation du script pour une meilleure performance et stabilité.
-- **Auto-Archive BAVI LEO** : Ajout d'une fonctionnalité pour l'auto-archivage des données BAVI toutes les cinq minutes.
-- **Crons Activités** : Mise à jour de l'intervalle du cron `doc-crons-sync` pour une synchronisation plus fréquente (0 */6 * * *).
-
-Aucun changement majeur.
+- **Budget Alert** : Ajout d'un nouveau script pour envoyer des alertes budgétaires à 8h et 20h chaque jour.
+- **LEO Health Check** : Amélioration du script pour une surveillance plus précise de l'état de santé de LEO, avec des vérifications supplémentaires toutes les heures.
+- **Synthèse Hebdomadaire LEO** : Mise à jour du script pour inclure les données des dernières semaines dans la synthèse hebdomadaire.
+- **Auto-Archive BAVI LEO** : Ajout d'une fonctionnalité pour archiver automatiquement les données BAVI toutes les 5 minutes, améliorant ainsi la gestion de l'espace disque.
+- **Refresh Google Tokens** : Mise à jour du script pour une réinitialisation des tokens Google plus fréquente, tous les 50 minutes au lieu d'une heure.
+- **GitHub Actions Watchdog** : Ajout d'une nouvelle tâche pour surveiller les actions GitHub toutes les 4 minutes, améliorant la vigilance sur les éventuels problèmes de flux de travail.
+- **Cron Ownership Watchdog** : Mise à jour du script pour une surveillance plus rigoureuse des propriétaires des tâches cron, avec des vérifications supplémentaires tous les 5 minutes.
