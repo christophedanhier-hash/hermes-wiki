@@ -4,11 +4,11 @@
 
 ## 2026-07-02 au 09/07/2026
 
-- **Synthèse Hebdomadaire LEO** : Ajout du script `synthese_hebdo.py` pour générer la synthèse hebdomadaire.
-- **Budget Alert** : Amélioration de l'alerte budgétaire avec une mise à jour des critères d'évaluation.
-- **LEO Health Check** : Mise à jour du script `leo-health-check.py` pour une meilleure détection des anomalies.
-- **Auto-Archive BAVI LEO** : Ajout de la fonctionnalité d'archivage automatique tous les 5 minutes avec le script `auto-archive.py`.
-- **Cron Ownership Watchdog** : Nouveau script `cron-owner-watchdog.sh` pour surveiller l'appropriation des tâches cron.
-- **Rebuild Wiki BAVI local** : Ajout de la tâche de reconstruction du wiki local avec le script `rebuild-wiki.sh`.
-- **Commits hermes-christophe et wiki** : Plusieurs commits automatisés pour les modifications et mises à jour des documents, incluant une mise à jour hebdomadaire dans le wiki.
-- **Unified Collector v2** : Mise à jour du script `unified-collector.sh` pour une collecte unifiée améliorée.
+- **Budget Alert** : Ajout d'un nouvel alerte budgétaire activé à 8h et 20h chaque jour.
+- **Unified Collector v2** : Mise à jour de l'interval de collecte pour une meilleure synchronisation des données.
+- **Synthèse Hebdomadaire LEO** : Nouvelle fonctionnalité ajoutée pour générer automatiquement la synthèse hebdomadaire le dimanche à 20h.
+- **LEO Backup quotidien → GDrive** : Optimisation du script pour une meilleure performance et stabilité.
+- **Auto-Archive BAVI LEO** : Ajout d'une fonctionnalité pour l'auto-archivage des données BAVI toutes les cinq minutes.
+- **Crons Activités** : Mise à jour de l'intervalle du cron `doc-crons-sync` pour une synchronisation plus fréquente (0 */6 * * *).
+
+Aucun changement majeur.
