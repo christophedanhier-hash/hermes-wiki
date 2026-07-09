@@ -1,22 +1,22 @@
-## Architecture Système
+# Architecture Système
 
-### 1. Infrastructure
-Le système LEO est composé d'une infrastructure robuste et bien structurée pour assurer la stabilité et l'efficacité opérationnelle. Voici les détails de l'environnement :
+## 1. Infrastructure
+- **Host LEO**: i7-7700K, 22GB RAM
+- **Container Debian 13**:
+  - Python 3.13
+  - DeepSeek V4 Flash
+  - Flash API
+  - Telegram Bot (Chromebook)
+  - Ollama qwen2.5:7b
 
-- **Host LEO** : i7-7700K avec 22GB de RAM
-- **Container Debian 13 Python 3.13 DeepSeek V4 Flash**
-- **Chromebook Telegram**
-- **Ollama qwen2.5:7b**
+## 2. Budget API
+- Balance DeepSeek: $42.59
+- Seuils d'alerte: $30 / stop: $10
+- Routage: Ollama → Gemini → DeepSeek
 
-### 2. Budget API
-Le budget actuel pour les APIs est de $42.59, avec des seuils d'alerte à $30 et un seuil de stop à $10. Le routage des requêtes est organisé comme suit :
-- **Ollama → Gemini → DeepSeek**
-
-### 3. Crons Actifs
-Le système exécute actuellement 28 tâches planifiées (crons) pour maintenir l'efficacité et la fluidité du fonctionnement. Voici les détails de ces tâches :
-
+## 3. Crons Actifs (28)
 | **Tâche** | **Horaires** | **Script** |
-| --- | --- | --- |
+|---|---|---|
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
@@ -33,21 +33,13 @@ Le système exécute actuellement 28 tâches planifiées (crons) pour maintenir 
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
 
-### 4. Dashboards
-Le système utilise plusieurs dashboards pour surveiller et gérer les opérations en temps réel :
+## 4. Dashboards
+- crons
+- github
+- machines
+- wiki
 
-- **crons**
-- **github**
-- **machines**
-- **wiki**
-
-### 5. Sessions & Utilisation
-Les sessions et l'utilisation du système sont suivies de près pour garantir la performance optimale. Voici un aperçu des statistiques :
-
-- **Total sessions** : 1457
-- **Total messages** : 23469
-- **Telegram sessions** : 15
-
-La taille de la base de données est actuellement de 181.2 MB.
-
-Ce tableau offre une vue d'ensemble de l'architecture système, des tâches planifiées et du suivi des opérations pour assurer un fonctionnement efficace et sécurisé.
+## 5. Sessions & Utilisation
+- Total sessions: 1473
+- Total messages: 23533
+- Telegram: 15 sessions
