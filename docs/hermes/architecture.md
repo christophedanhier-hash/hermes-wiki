@@ -1,23 +1,20 @@
 ## Architecture Système
 
 ### 1. Infrastructure
-- **Host LEO**: i7-7700K, 22GB RAM
-- **Container Debian 13**  
-  - Python 3.13
-  - DeepSeek V4 Flash
-- **Services**:
-  - **Telegram Chromebook**
-  - **Ollama qwen2.5:7b**
+L'infrastructure de LEO est composée du suivant :
+- **Host**: i7-7700K avec 22GB de RAM.
+- **Container**: Debian 13, Python 3.13, DeepSeek V4 Flash.
+- **Telegram Client**: Chromebook pour la communication Telegram.
+- **Modèles Langage**: Ollama qwen2.5:7b.
 
 ### 2. Budget API
-- **Balance**: $44.11
-- **Seuils d'alerte**: $30
-- **Stop**: $10
-- **Routage**: Ollama → Gemini → DeepSeek
+Le budget actuel est de $44.11. Les seuils d'alerte sont fixés à $30, et le montant minimal pour arrêter les dépenses est de $10. Le routage des requêtes API suit l'ordre suivant : Ollama → Gemini → DeepSeek.
 
-### 3. Crons Actifs (26)
-| **Nom** | **Horaires** | **Script** |
-|---|---|---|
+### 3. Crons Actifs
+Le tableau ci-dessous présente les 26 crons actifs :
+
+| **Nom du Cron** | **Horaires d'exécution** | **Script Exécuté** |
+|-----------------|-------------------------|--------------------|
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh |
 | 📧 Email Classifier — rule-based (inbox zero) | `*/30 * * * *` | gmail_classifier.py |
@@ -35,12 +32,20 @@
 | 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
 
 ### 4. Dashboards
-- **crons**
-- **github**
-- **machines**
-- **wiki**
+Les dashboards suivants sont disponibles :
+- **crons**: Moniteur des tâches cron.
+- **github**: Suivi des activités sur GitHub.
+- **machines**: Surveillance de l'état des machines.
+- **wiki**: Gestion et mise à jour du wiki.
 
 ### 5. Sessions & Utilisation
-- **Total sessions**: 1392
-- **Total messages**: 21425
-- **Telegram**: 14 sessions
+Les statistiques d'utilisation sont les suivantes :
+- **Total sessions**: 1408
+- **Total messages**: 21489
+- **Sessions Telegram**: 14
+
+La taille de la base de données est de 172.5 MB.
+
+---
+
+Ce document fournit une vue d'ensemble de l'architecture système de LEO, des ressources utilisées et des tâches planifiées.
