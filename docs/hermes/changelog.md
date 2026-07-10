@@ -2,10 +2,12 @@
 
 *Document vivant*
 
-## 2026-07-10
+## 10/07/2026
 
-- **Synthèse Hebdomadaire LEO** : La tâche `synthese_hebdo.py` a été exécutée pour générer la synthèse hebdomadaire du 10/07/2026.
-- **Auto-commit wikis** : Les scripts d'auto-commit ont continué à fonctionner en modifiant régulièrement les wikis, avec une fréquence de toutes les heures.
-- **Rebuild Wiki BAVI local** : Le script `rebuild-wiki.sh` a été exécuté pour reconstruire le wiki BAVI local.
-- **Budget Alert** : La tâche `budget-alert.sh` s'est activée à 08:00 et 20:00, vérifiant les dépenses et envoi d'alertes si nécessaire.
-- **LEO Health Check** : Le script de vérification de santé `leo-health-check.py` a été exécuté régulièrement pour s'assurer que LEO fonctionne correctement.
+- **Unified Collector v2** : Mise à jour du script pour une collecte unifiée améliorée.
+- **Synthèse Hebdomadaire LEO** : Ajout d'une mise à jour hebdomadaire pour le résumé de la semaine.
+- **Vault Daily Journal (vault-leo)**, **Vault Default Daily Journal (5 23 * * *)** : Mises à jour des scripts pour un journal quotidien plus précis.
+- **Auto-Archive BAVI LEO (5min) (every 5m)** : Optimisation du script d'archivage automatique pour une meilleure gestion de l'espace.
+- **Rebuild Wiki BAVI local (*/15 * * * *)** : Ajout d'une tâche pour la reconstruction locale du wiki BAVI toutes les quinze minutes.
+- **Rebuild Wiki Voyages local (15 * * * *)** : Nouvelle tâche ajoutée pour la reconstruction locale du wiki Voyages à 3h00.
+- **Check OAuth Tokens (48h) (0 8 * * *)** : Mise en place d'un script pour vérifier les tokens OAuth toutes les 48 heures.
