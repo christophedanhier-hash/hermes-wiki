@@ -190,6 +190,22 @@ flowchart TB
 | **Accès invités** | ❌ | ❌ | ✅ | ❌ |
 | **Sync mémoire** | ✅ 30min | ✅ 30min | ✅ 30min | ✅ 30min |
 
+### Post-restauration 10/07/2026
+
+Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été restauré depuis `leo-full-backup-2026-07-10.tar.gz`.
+
+| Problème | Fix |
+|:---------|:----|
+| `SOUL.md` cassé (symlink → `/opt/data/` inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
+| Vaults inaccessibles (`OBSIDIAN_VAULT_PATH`) | Mis à jour vers `~/.hermes/vault-*` |
+| 28 crons restaurés | Tous actifs et tournent |
+| Gateway redémarrée | ✅ Connecté Telegram |
+
+**Leçons :**
+- Le `SOUL.md` partagé par symlink est le point critique — sa perte bloque identité + crons
+- Les chemins absolus doivent être vérifiés après restauration
+- Backuper immédiatement après restauration
+
 ---
 
 ## 🔧 Maintenance
@@ -197,9 +213,9 @@ flowchart TB
 | Action | Commande / Cron |
 |:-------|:----------------|
 | **Redémarrer Leo Copilot** | `hermes -p leo-copilot gateway restart` |
-| **Vérifier sync mémoire** | `python3 /opt/data/scripts/sync-memory.py --check` |
+| **Vérifier sync mémoire** | `cat ~/.hermes/profiles/default/memories/MEMORY.md` |
 | **Dashboards** | Tous auto-déployés via GH Pages |
 
 ---
 
-*Document mis à jour le 07/07/2026 — 15:30:00 — Léo 🦁*
+*Document mis à jour le 10/07/2026 — 16:00 — Léo 🦁*

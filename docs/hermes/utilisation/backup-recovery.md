@@ -2,6 +2,47 @@
 
 > **Mise à jour post-migration du 10/07/2026** — tous les chemins ont migré de `/opt/data/` vers `~/.hermes/`. Le backup inclut maintenant 29 chemins + hermes-christophe.
 
+## 🔴 Restauration d'urgence — 10/07/2026 12:09
+
+Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier `leo-full-backup-2026-07-10.tar.gz` (dans `~/Téléchargements/`).
+
+### Déroulé
+
+1. **Extraction** du backup dans `/tmp/leo-backup/`
+2. **Restauration** des mémoires (`memories/`), skills, profils, config, .env, crons, scripts
+3. **Correction** du symlink `SOUL.md` cassé → pointait sur `/opt/data/` qui n'existe plus
+4. **Redémarrage** des 4 gateways (default, leo-copilot, bavi-leo, emile)
+5. **Ajustement** des chemins `OBSIDIAN_VAULT_PATH` dans les 4 `.env` (→ `~/.hermes/vault-*`)
+6. **Backup de sauvegarde** immédiat : `leo-full-backup-2026-07-10_12-18.tar.gz` (93 Mo)
+
+### Problèmes résolus
+
+| Problème | Cause | Fix |
+|----------|-------|-----|
+| SOUL.md introuvable | Symlink → `/opt/data/profiles/default/SOUL.md` (inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
+| Crons bloqués | Sans SOUL.md, le cron ne chargeait pas le profil | Symlink réparé + gateway redémarrée |
+| Vaults inaccessibles | `OBSIDIAN_VAULT_PATH` → `/opt/data/vault-*` | Mis à jour vers `~/.hermes/vault-*` |
+| Profiles absents | Backup extrait sans les dossiers `profiles/` | Copiés depuis `/tmp/leo-backup/profiles/` |
+
+### État final (12:25)
+
+| Service | Statut | Modèle |
+|---------|--------|--------|
+| **Léo** (default, toi ici) | ✅ Gateway actif | DeepSeek Flash |
+| **Léo Copilote** (infra) | ✅ Gateway actif + 28 crons | DeepSeek Pro |
+| **BAVI LEO Voyages** (Sylvia) | ✅ Gateway actif | DeepSeek Flash |
+| **Émile** (pédagogique) | ✅ Gateway actif | DeepSeek Flash |
+| **n8n**  | ✅ Docker (port 5678) | — |
+| **Ollama** | ✅ Docker (port 11434) | gemma-agentic + qwen2.5:7b |
+| **Wikis publics** (5) | ✅ GitHub Pages — 10/07 10:00 | — |
+
+### Leçons
+
+- **Le symlink SOUL.md est le point de défaillance #1** — sans lui, le profil ne charge pas son identité et les crons échouent
+- **memories/ est critique** — perte = perte d'identité de l'agent
+- **Les paths doivent être absolus** — les `OBSIDIAN_VAULT_PATH` en `/opt/data/` plantent hors conteneur
+- **Faire un backup immédiat après restauration** — protège l'état restauré
+
 ## Vue d'ensemble
 
 | Destination | Format | Taille | Rétention | Fréquence |

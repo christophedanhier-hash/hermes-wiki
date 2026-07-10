@@ -4,6 +4,12 @@
 
 ## 10/07/2026
 
+- **🔴 Restauration d'urgence** — Perte du conteneur Docker LEO. Restauration complète depuis `leo-full-backup-2026-07-10.tar.gz` (cf. `backup-recovery.md`).
+  - Fix symlink SOUL.md cassé (pointait vers `/opt/data/`)
+  - Redémarrage des 4 gateways (default, leo-copilot, bavi-leo, emile)
+  - Correction des paths OBSIDIAN_VAULT_PATH dans les 4 `.env`
+  - Backup immédiat post-restauration (93 Mo)
+  - 28 crons restaurés et actifs ✅
 - **Unified Collector v2** : Mise à jour du script pour une collecte unifiée améliorée.
 - **Synthèse Hebdomadaire LEO** : Ajout d'une mise à jour hebdomadaire pour le résumé de la semaine.
 - **Vault Daily Journal (vault-leo)**, **Vault Default Daily Journal (5 23 * * *)** : Mises à jour des scripts pour un journal quotidien plus précis.
