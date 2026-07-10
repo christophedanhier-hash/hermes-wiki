@@ -160,11 +160,11 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
-<a href="https://christophedanhier-hash.github.io/leo-dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
+<a href="http://100.92.102.28:8765/dashboard?token=leo-panel-2026" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🦁</div>
     <div class="title">LEO Dashboard Unifié</div>
     <div class="desc">Budget live, sessions, crons, infra, BAVI — 4 onglets, 1 source de vérité</div>
-    <div class="url">leo-dashboard</div>
+    <div class="url">localhost:8765</div>
 </a>
 
 </div>
