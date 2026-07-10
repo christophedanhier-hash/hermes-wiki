@@ -164,7 +164,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="icon">🦁</div>
     <div class="title">LEO Dashboard Unifié</div>
     <div class="desc">Budget live, sessions, crons, infra, BAVI — 4 onglets, 1 source de vérité</div>
-    <div class="url">localhost:8765</div>
+    <div class="url">100.92.102.28:8765</div>
 </a>
 
 </div>
