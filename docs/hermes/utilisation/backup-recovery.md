@@ -1,13 +1,13 @@
-# 💾 Backup & Recovery — État actuel (04/07/2026)
+# 💾 Backup & Recovery — État actuel (10/07/2026)
 
-> **Mise à jour post-crash du 30/06/2026** — le backup a été révisé et simplifié. Plus de scripts obsolètes, plus de 17 crons, une seule archive complète, un seul cron.
+> **Mise à jour post-migration du 10/07/2026** — tous les chemins ont migré de `/opt/data/` vers `~/.hermes/`. Le backup inclut maintenant 29 chemins + hermes-christophe.
 
 ## Vue d'ensemble
 
 | Destination | Format | Taille | Rétention | Fréquence |
 |-------------|--------|--------|-----------|-----------|
-| 🖥️ Local (`/opt/data/backups/`) | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~100 MB | 7 jours | Quotidien 06:00 |
-| ☁️ Google Drive `Hermes_Christophe/Backups/` | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~100 MB | 7 jours | Quotidien 06:00 |
+| 🖥️ Local (`~/.hermes/backups/`) | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~150 MB | 7 jours | Quotidien 06:00 |
+| ☁️ Google Drive `Hermes_Christophe/Backups/` | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~150 MB | Manuel (GDrive) | Quotidien 06:00 |
 
 Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 
@@ -18,15 +18,17 @@ Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 | ⚙️ Config Hermes | `config.yaml` (gateways, providers, crons) |
 | 🔑 Tous les tokens OAuth | google_token, leo_google_token, leo_drive_token, leo_email_token, leo_sheets_token, gdrive-service-account |
 | 🔐 Credentials vault | `credentials_vault.json` (tous les .env, secrets) |
-| 📚 Skills Hermes | ~990 fichiers, 22 skills actifs |
+| 📚 Skills Hermes | ~1022 fichiers, 22 skills actifs |
 | 👤 **Tous les profils** | `profiles/default`, `profiles/leo-copilot`, `profiles/bavi-leo`, `profiles/emile` — configs, skills, memory, cron |
 | 🏛️ Vaults Obsidian | `vault-leo`, `vault-default`, `vault-emile`, `vault-bavi` |
-| 📜 Scripts personnalisés | ~123 scripts dans `scripts/` |
-| 🧠 Session DB | `state.db` (~48 MB) — historique complet des conversations |
-| 📋 Kanban | `kanban.db` |
+| 📜 Scripts personnalisés | ~106 scripts dans `scripts/` |
+| 🧠 Session DB | `state.db` (~2.6 MB) — historique complet des conversations |
+| 📋 Kanban | `kanban.db` — tâches et projets |
 | 📊 Crons & jobs | `cron/` (jobs.json + historique des runs) |
-| 🧠 Mémoires persistantes | `memories/` (USER.md, MEMORY.md) |
+| 🧠 Mémoires persistantes | `memories/` (USER.md, MEMORY.md) **— CRITIQUE** |
 | 💫 SOUL.md | Fichier d'identité LEO |
+| 📈 Métriques | `metrics/` (données dashboard KPI) |
+| 🔧 hermes-christophe | `~/Projets_Dev/hermes-christophe/` — scripts BAVI + LEO (61 fichiers) |
 
 ## Cron associé
 
@@ -42,21 +44,26 @@ Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 ```
 
 Le script :
-1. Crée une archive tar.gz de **27 chemins** critiques
-2. Sauvegarde localement dans `/opt/data/backups/`
-3. Upload sur Google Drive via OAuth (token `leo_drive_token.json`)
+1. Crée une archive tar.gz de **29 chemins** critiques + hermes-christophe
+2. Sauvegarde localement dans `~/.hermes/backups/`
+3. Upload sur Google Drive via OAuth (token `leo_google_token.json`)
 4. Nettoie les backups locaux > 7 jours
 
-## Usage manuel
+## Recovery Kit — Couche 2 ✅
 
-```bash
-# Backup immédiat
-/opt/hermes/.venv/bin/python3 /opt/data/scripts/leo-full-backup.py
+**Emplacement :** `/home/tofdan/.hermes/recovery-kit/`  
+**Statut :** ✅ Créé le 10/07/2026
 
-# Vérifier via cron
-hermes cron list | grep backup
-hermes cron run backup
-```
+| Fichier | Rôle |
+|---------|------|
+| `README.md` | Documentation du kit |
+| `rebuild.sh` | Script de reconstruction automatisé |
+| `docker-commands.md` | Commandes exactes de recréation des conteneurs |
+| `secrets.b64` | `.env` + tokens + configs (base64) |
+| `secrets-manifest.txt` | Liste des fichiers dans l'archive |
+| `checksums.sha256` | Intégrité du kit |
+
+Le kit est **statique** : aucune modification du conteneur, pas de `--privileged`.
 
 ## Nettoyage et maintenance automatiques
 
@@ -79,6 +86,17 @@ Vérifications automatiques :
 - ✅ Détection de débris (`.bak`, `.dead`, fichiers coquille)
 - ✅ Alerte espace disque
 
+## Usage manuel
+
+```bash
+# Backup immédiat
+~/.hermes/venv/bin/python3 ~/.hermes/profiles/leo-copilot/scripts/leo-full-backup.py
+
+# Vérifier via cron
+hermes cron list | grep backup
+hermes cron run backup
+```
+
 ## Procédure de restauration complète (PRA)
 
 En cas de perte totale du serveur LEO, la restauration prend **~45 minutes**.
@@ -99,15 +117,11 @@ pip install -e .
 
 ### Étape 2 — Restaurer la config (5 min)
 
-Télécharger le dernier backup depuis **Google Drive → Hermes_Christophe → Backups/** :
+Télécharger le dernier backup depuis **Google Drive → Hermes_Christophe → Backups/** puis :
 
 ```bash
-# Copier depuis Google Drive (téléchargement manuel ou via API)
-# Puis extraire dans /opt/data/
-tar xzf leo-full-backup-2026-07-04.tar.gz -C /opt/data/
-
-# Permissions
-chown -R hermes:hermes /opt/data/profiles /opt/data/state.db /opt/data/.env
+tar xzf leo-full-backup-YYYY-MM-DD.tar.gz -C /home/tofdan/.hermes/
+chown -R tofdan:tofdan /home/tofdan/.hermes/
 ```
 
 ### Étape 3 — Restaurer les accès (5 min)
@@ -115,91 +129,72 @@ chown -R hermes:hermes /opt/data/profiles /opt/data/state.db /opt/data/.env
 Le backup contient déjà tous les tokens. Vérifier :
 
 ```bash
-ls /opt/data/*.json /opt/data/.env
-# Les tokens OAuth et credentials sont inclus dans l'archive
+ls ~/.hermes/*.json ~/.hermes/.env
 ```
 
 Configurer GitHub :
 
 ```bash
-gh auth login --with-token < /opt/data/leo_token.json
-# Ou recréer le token depuis l'interface GitHub
+gh auth login --with-token < ~/.hermes/leo_token.json
 ```
 
-### Étape 4 — Restaurer skills et profils (5 min)
-
-Les profils et skills sont dans l'archive extraite à l'étape 2. Vérifier :
+### Étape 4 — Vérifier les composants critiques
 
 ```bash
-ls /opt/data/profiles/
-ls /opt/data/skills/ | wc -l
+ls ~/.hermes/profiles/       # Doit montrer: default leo-copilot bavi-leo emile
+ls ~/.hermes/vault-*/        # Doit montrer: vault-leo vault-default vault-emile vault-bavi
+ls ~/.hermes/memories/       # Doit montrer: MEMORY.md USER.md ← CRITIQUE
+ls ~/.hermes/state.db        # Sessions DB
 ```
 
 ### Étape 5 — Cloner les repos GitHub (15 min)
 
 ```bash
-cd /opt/data
-
-# Wikis actifs
-gh repo clone christophedanhier-hash/hermes-wiki
-gh repo clone christophedanhier-hash/hermes-guide
-gh repo clone christophedanhier-hash/BAVI_LEO
-gh repo clone christophedanhier-hash/BAVI_PLUS
-gh repo clone christophedanhier-hash/wiki-oca
-gh repo clone christophedanhier-hash/voyages-wiki
-gh repo clone christophedanhier-hash/emile-wiki
-
-# Drive mirror
-gh repo clone christophedanhier-hash/hermes-christophe
+cd ~/Projets_Dev
+for repo in BAVI_LEO hermes-wiki emile-wiki wiki-oca voyages-wiki hermes-christophe; do
+    git clone "https://github.com/christophedanhier-hash/$repo.git"
+done
 ```
 
-### Étape 6 — Recréer les crons (5 min)
-
-Restaurer depuis le backup — les crons sont dans l'archive à l'étape 2. Vérifier :
+### Étape 6 — Vérification (5 min)
 
 ```bash
-cat /opt/data/cron/jobs.json | python3 -c "import json,sys; j=json.load(sys.stdin); [print(f'{jb[\"name\"]:40s} {jb[\"schedule\"][\"expr\"]:15s}') for jb in j['jobs']]"
-```
-
-**Crons actifs au 04/07/2026 :**
-
-| Nom | Horaire | Script | Mode |
-|-----|---------|--------|------|
-| LEO Backup quotidien → GDrive | 0 6 * * * | `leo-full-backup.py` | no_agent |
-| LEO Maintenance quotidienne | 0 3 * * * | `leo-daily-maintenance.py` | no_agent |
-| LEO Health Check bots | */15 * * * * | `leo-health-check.py` | no_agent |
-| vault-daily-journal | 0 23 * * * | (prompt + skill obsidian) | LLM |
-| vault-default-daily-journal | 0 23 * * * | (prompt + skill obsidian) | LLM |
-
-### Étape 7 — Vérification (5 min)
-
-```bash
-# Gateways actifs ?
-hermes gateway list
-
 # Dashboards en ligne ?
-for url in hermes-wiki BAVI_LEO wiki-oca voyages-wiki emile-wiki hermes-guide; do
+for url in hermes-wiki BAVI_LEO wiki-oca voyages-wiki emile-wiki; do
   curl -s -o /dev/null -w "$url: %{http_code}\n" \
     "https://christophedanhier-hash.github.io/$url/"
 done
 ```
 
+## État GDrive (10/07/2026)
+
+| Backup | Taille | Date |
+|--------|--------|------|
+| leo-full-backup-2026-07-10.tar.gz | 181.8 MB | 10/07 04:01 |
+| leo-full-backup-2026-07-09.tar.gz | 161.4 MB | 09/07 04:02 |
+| leo-full-backup-2026-07-08.tar.gz | 148.7 MB | 08/07 04:01 |
+| leo-full-backup-2026-07-07.tar.gz | 131.8 MB | 07/07 04:01 |
+| leo-full-backup-2026-07-06.tar.gz | 120.4 MB | 06/07 04:01 |
+
 ## Points d'attention
 
-- **Permissions** — après restauration, vérifier `chown -R hermes:hermes /opt/data/`
-- **Rotation automatique** — ne pas désactiver (max 7 jours de rétention)
+- **Permissions** — après restauration, vérifier `chown -R tofdan:tofdan ~/.hermes/`
+- **Rotation automatique** — ne pas désactiver (max 7 jours de rétention locale)
 - **Test mensuel** — vérifier que les backups apparaissent dans Backups/ sur GDrive
-- **Le token GDrive (`leo_drive_token.json`) est inclus dans le backup** — il permet de restaurer et uploader les backups suivants
-- **Anciens fichiers sur GDrive** — des fichiers individuels pré-crash (`.env`, `config.yaml`, etc.) traînent encore dans Backups/ mais n'interfèrent pas avec les nouvelles archives
+- **Le token GDrive (`leo_google_token.json`) est inclus dans le backup** — il permet de restaurer et uploader les backups suivants
+- **memories/ est critique** — sans USER.md et MEMORY.md, l'agent perd son identité (cause #1 du crash 30/06)
+- **Recovery-kit** — régénérer `secrets.b64` après chaque modification du `.env`
+- **Ne JAMAIS commit le recovery-kit** — il contient les secrets en clair
 
 ## Emplacement des fichiers
 
 | Fichier | Chemin |
 |---------|--------|
-| Script de backup principal | `/opt/data/scripts/leo-full-backup.py` |
-| Script de maintenance | `/opt/data/scripts/leo-daily-maintenance.py` |
-| Backups locaux | `/opt/data/backups/` |
-| Backups GDrive | `Hermes_Christophe/Backups/` |
-| Skill hygiène | `workspace-hygiene` (skill Hermes — infrastructure) |
-| PRA complet | https://github.com/christophedanhier-hash/BAVI_LEO/blob/main/docs/wiki/agent-pro/bureau-michel/pra-leo-recovery-20260629.md |
-*Document mis à jour le 04/07/2026 — 00:00:00 — Modèles DeepSeek unifiés 🦁*
+| Script de backup principal | `~/.hermes/profiles/leo-copilot/scripts/leo-full-backup.py` |
+| Script de maintenance | `~/.hermes/profiles/leo-copilot/scripts/leo-daily-maintenance.py` |
+| Backups locaux | `~/.hermes/backups/` |
+| Backups GDrive | `Hermes_Christophe/Backups/` (ID: `1ljeXPcYa-F4CkD9L_q0DrLgxYLMiAOGR`) |
+| Recovery Kit | `~/.hermes/recovery-kit/` |
+| Skill DRP | `leo-backup-dr` (skill Hermes — infrastructure) |
+
+*Document mis à jour le 10/07/2026 — LEO 🦁*
