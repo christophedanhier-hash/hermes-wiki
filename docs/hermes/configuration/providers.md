@@ -181,4 +181,4 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 *Document mis à jour le 17/07/2026 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 18:00 (UTC+2) — modèles Ollama : seuls ceux installés sur LEO sont actifs (qwen2.5:7b), autres commentés
+> 🤖 Dernier audit : 17/07/2026 à 21:06 (UTC+2) — confirmé : qwen2.5:7b seul modèle Ollama, fallback deepseek-v4-flash→gemini-3.5-flash→qwen2.5:7b
