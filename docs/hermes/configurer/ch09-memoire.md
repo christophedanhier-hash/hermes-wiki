@@ -10,7 +10,7 @@ C'est le carnet de bord de l'assistant. Il y note tout ce qui concerne l'infrast
 
 ```markdown
 # Contenu typique
-Infrastructure: serveur Ubuntu 26.04, 457Go SSD, Docker + n8n + ollama
+Infrastructure: serveur Ubuntu 26.04, 457Go SSD, Docker (hermes-agent + ollama)
 §
 Backup: quotidien vers GDrive à 04:00, rétention 7 jours
 §

@@ -1,10 +1,12 @@
 # 🔧 n8n — Automatisation LEO
 
-## 🌐 Pourquoi n8n
+> **📦 ARCHIVE — Service retiré le 13/07/2026.** n8n Docker a été arrêté et supprimé. Les workflows (Drive→Issue, Gardien du Drive, Save Contacts) ont été migrés vers des crons Hermes no_agent. Cette page est conservée pour référence historique.
 
-[n8n](https://n8n.io) (v2.26.8, Community Edition) est notre orchestrateur de workflows auto-hébergé. Il tourne **dans un conteneur Docker** (`docker.n8n.io/n8nio/n8n:latest`) et gère les automatisations qui nécessitent des **intégrations natives** (Google Drive, GitHub).
+## 🌐 Historique
 
-> **Doctrine LEO** : Hermes gère les scripts planifiés (crons no_agent), n8n gère les workflows événementiels et les intégrations complexes. Le collecteur `collect-v2.py` interroge l'API n8n toutes les 15 min pour monitorer l'état.
+[n8n](https://n8n.io) (v2.26.8, Community Edition) était notre orchestrateur de workflows auto-hébergé. Il tournait **dans un conteneur Docker** (`docker.n8n.io/n8nio/n8n:latest`) et gérait les automatisations nécessitant des **intégrations natives** (Google Drive, GitHub).
+
+> **Doctrine LEO (obsolète)** : ~~Hermes gère les scripts planifiés (crons no_agent), n8n gère les workflows événementiels et les intégrations complexes.~~ → Depuis le 13/07/2026, tout est géré par les crons Hermes.
 
 ---
 

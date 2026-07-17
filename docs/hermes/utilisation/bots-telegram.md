@@ -122,9 +122,8 @@ flowchart TB
 
     DS_PRO["☁️ DeepSeek API<br/>Pro (deepseek-v4-pro)"]
     DS_FLASH["☁️ DeepSeek API<br/>Flash (fallback)"]
-    MEM["📁 Sync mémoire<br/>← default + bavi-leo + emile<br/>toutes les 30min"]
+    MEM["📁 Sync mémoire<br/>← default + bavi-leo + emile<br/>symlinks (instantané)"]
     DASH["📊 Dashboards<br/>GitHub Pages"]
-    N8N["🔧 n8n<br/>:5678"]
 
     GW2 --> AGENT
     AGENT --> SKILLS
@@ -132,7 +131,6 @@ flowchart TB
     AGENT -.->|fallback| DS_FLASH
     MEM -.-> AGENT
     AGENT --> DASH
-    AGENT --> N8N
 
     style COPILOT fill:#ede7f6,stroke:#5e35b1,stroke-width:3px,color:#311b92
     style GW2 fill:#e0f7fa,stroke:#00838f,color:#004d40

@@ -1,8 +1,8 @@
-# 🏛️ Architecture LEO — Dashboards, Crons & n8n
+# 🏛️ Architecture LEO — Dashboards & Crons
 
-> Document vivant — mis à jour le **04/07/2026** suite à la consolidation post-crash.
+> Document vivant — mis à jour le **17/07/2026** (audit rédactionnel).
 
-> ⚠️ **Changements 04/07/2026** : les 7 dashboards pré-crash ont été consolidés en **1 dashboard unifié** (leo-dashboard). La collecte utilise `collect-v2.py` (9 sources unifiées). Déploiement toutes les heures (`10 * * * *`) via leo-copilot. 3 workflows n8n actifs.
+> ⚠️ **Changements 13-17/07/2026** : n8n retiré (13/07). 5 dashboards GitHub Pages actifs. La collecte utilise `collect-v2.py` (8 sources, n8n retiré). Déploiement toutes les heures (`10 * * * *`) via leo-copilot.
 
 ---
 
@@ -10,11 +10,10 @@
 
 ```mermaid
 flowchart TB
-    subgraph Sources["📡 Sources de données (9)"]
+    subgraph Sources["📡 Sources de données (8)"]
         DS["DeepSeek API<br/>budget"]
         GH_API["GitHub API<br/>github"]
         OS["OS serveur LEO<br/>infra"]
-        N8N_API["n8n API<br/>localhost:5678"]
         SESS["Sessions DB<br/>sessions"]
         BAVI_M["BAVI metrics<br/>bavi"]
         CRONS_M["Crons Hermes<br/>crons"]
@@ -23,7 +22,7 @@ flowchart TB
     end
 
     subgraph Collecte["⏱️ Collecte unifiée (H:10)"]
-        COLLECT["collect-v2.py<br/>9 sources → JSON<br/>déploiement toutes les heures"]
+        COLLECT["collect-v2.py<br/>8 sources → JSON<br/>déploiement toutes les heures"]
     end
 
     subgraph Dashboard["📊 leo-dashboard (1 seul)"]
@@ -86,17 +85,17 @@ Changement clé du 04/07/2026 :
 
 ---
 
-## 4. Les Workflows n8n (3)
+## 4. Les Workflows n8n (3) — ❌ RETIRÉS
 
-n8n tourne sur `localhost:5678` (même machine que Hermes).
+> ⚠️ **n8n a été retiré le 13/07/2026.** Les 3 workflows ont été migrés vers des crons Hermes no_agent. Cette section est conservée pour référence historique.
 
-| Workflow | Rôle | Description |
-|----------|------|-------------|
-| **Drive → Issue** | Surveillance Drive | Crée une issue GitHub quand un fichier Drive est modifié |
-| **Gardien du Drive** | Protection documents | Surveille l'intégrité des documents Google Docs |
-| **Save Contacts** | Sauvegarde contacts | Sauvegarde les contacts Google vers un fichier JSON |
+n8n tournait sur `localhost:5678` (même machine que Hermes).
 
-Accès n8n : [http://localhost:5678](http://localhost:5678) (Tailscale : `100.92.102.28:5678`)
+| Workflow | Rôle | Description | Statut |
+|----------|------|-------------|--------|
+| **Drive → Issue** | Surveillance Drive | Créait une issue GitHub quand un fichier Drive était modifié | → Cron `drive-to-issue` |
+| **Gardien du Drive** | Protection documents | Surveillait l'intégrité des documents Google Docs | → Cron `gardien-drive` |
+| **Save Contacts** | Sauvegarde contacts | Sauvegardait les contacts Google vers un fichier JSON | → Cron `save-contacts` |
 
 ---
 

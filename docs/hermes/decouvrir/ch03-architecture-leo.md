@@ -23,7 +23,7 @@ Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Fl
 | Bot | Profil | Provider | Rôle | Latence | Coût |
 |:----|:-------|:---------|:-----|:-------:|:----:|
 | 🤖 @hermes_leo_bot | `default` | DeepSeek Flash | Chat quotidien | < 2s | Payant |
-| 🟪 @hermes_leo_copilot_bot | `leo-copilot` | DeepSeek V4 Pro | Code, infra, n8n | < 2s | Payant |
+| 🟪 @hermes_leo_copilot_bot | `leo-copilot` | DeepSeek V4 Pro | Code, infra | < 2s | Payant |
 | 🧭 @bavi_leo_voyages_bot | `bavi-leo` | DeepSeek Flash | Voyages camping-car | < 2s | Payant |
 
 Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills, sa propre mémoire. Mais ils partagent un fichier de configuration commun et peuvent échanger des informations.
@@ -87,9 +87,9 @@ Tous en **HTML statique** hébergés sur **GitHub Pages** — zéro backend, zé
 
 | Dashboard | URL | Contenu | Màj |
 |:----------|:----|:--------|:---:|
-| 🌍 **LEO Dashboard** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé (sessions, budget, machines, crons, GitHub, n8n, BAVI) | H:10 (collect-v2.py) |
+| 🌍 **LEO Dashboard** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé (sessions, budget, machines, crons, GitHub, BAVI) | H:10 (collect-v2.py) |
 
-La collecte unifiée utilise `collect-v2.py` : 9 sources (sessions, budget, crons, infra, n8n, github, bavi, services, vaults) → un seul dashboard Chart.js.
+La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, crons, infra, github, bavi, services, vaults) → un seul dashboard Chart.js. (n8n retiré 13/07/2026)
 
 ### Les crons (tâches planifiées)
 
@@ -98,7 +98,7 @@ La collecte unifiée utilise `collect-v2.py` : 9 sources (sessions, budget, cron
 | Vague | Horaires | Crons |
 |:------|:---------|:------|
 | **Horaire** | H:00-H:30 staggerés | machines-kpi, budget, dashboards (4), wiki-sync |
-| **15 min** | */15 | n8n healthcheck, classifieur emails |
+| **15 min** | */15 | classifieur emails, dashboard deploys |
 | **2h** | */2 | auto-commit repos, dashboard-watch |
 | **Quotidien** | 06:00, 08:00, 18:00 | backup, veille IA, drive sync |
 | **Autres** | Hebdo, 6h | credentials-check, doc-watch |

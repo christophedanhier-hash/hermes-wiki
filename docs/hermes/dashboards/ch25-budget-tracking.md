@@ -11,7 +11,7 @@ Budget LEO (post-reconstruction 04/07/2026):
   Gemini (fallback):                0 € (gratuit)
   Ollama (classification):          0 € (local)
   GitHub Pages (hébergement):       0 € (gratuit)
-  n8n (workflows):                  0 € (self-hosted)
+  n8n (workflows):                  ❌ Retiré 13/07/2026
   Coût réel constaté:              ~$19.97
 ```
 

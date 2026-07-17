@@ -3,32 +3,33 @@
 > ⚠️ **Document archivé au 07/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
 >
 > **Mise à jour 07/07/2026** : les principaux changements post-reconstruction sont :
-> - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard)
-> - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, n8n, github, bavi, services, vaults)
+> - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
+> - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
-> - **n8n** : URL `localhost:5678`, 3 workflows (Drive->Issue, Gardien du Drive, Save Contacts)
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire
+> - **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows ont été migrés vers des crons Hermes.
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 38 crons actifs (vs 22 avant reconstruction).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
 
 | Élément | Valeur |
 |---------|--------|
-| **Version Hermes** | v0.17.0 |
-| **Python** | 3.13.5 |
+| **Version Hermes** | v0.18.2 |
+| **Python** | 3.14.4 |
 | **OS Hôte** | Ubuntu 26.04 LTS |
 | **Kernel** | Linux 7.x |
 | **CPU** | Processeur Intel récent (multi-cœurs) |
 | **RAM** | Mémoire suffisante |
-| **GPU** | Aucun (Ollama sur CPU) |
+| **GPU** | NVIDIA GeForce RTX 3050 (8 Go) |
 | **Stockage** | 457 Go SSD système + 1 To HDD backups |
-| **Docker** | 3 conteneurs (hermes-agent + ollama + n8n) |
-| **Profils actifs** | 4 (default, leo-copilot, bavi-leo, emile) |
+| **Docker** | 2 conteneurs (hermes-agent + ollama) |
+| **Profils actifs** | 5 (default, leo-copilot, bavi-leo, emile, bureau-robert) |
 | **Gateways** | 4 actifs (s6 supervision) |
 | **Modèle principal** | `deepseek-v4-flash` |
 | **Fallback** | Gemini 3.5 Flash |
-| **Crons actifs** | 22 (17 no_agent) |
+| **Crons actifs** | 38 (tous consolidés dans leo-copilot) |
 | **Skills installés** | 126 |
+| **n8n** | ❌ Retiré le 13/07/2026 |
 
 > 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](https://christophedanhier-hash.github.io/leo-dashboard/).
 
@@ -120,19 +121,20 @@
 
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
-> **Dernière synchro : 06/07/2026 à 21:46**
-> **22 crons Hermes** (tous consolidés dans `leo-copilot`)
+> **Dernière synchro : 17/07/2026**
+> **38 crons Hermes** (tous consolidés dans `leo-copilot`)
 
 | Profil | Crons |
 |--------|:-----:|
-| `leo-copilot` (consolidateur) | 22 |
+| `leo-copilot` (consolidateur) | 38 |
 | `default` | 0 |
 | `bavi-leo` | 0 |
 | `emile` | 0 |
+| `bureau-robert` | 0 |
 
-**5 crons hôte** (tofdan@172.17.0.1)
+**0 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 27**
+**Total général : 38**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
 <!-- AUTO:END crons -->
@@ -173,7 +175,7 @@ Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agen
 | Métrique | Valeur |
 |:---------|:-------|
 | **Bureaux actifs** | 5 (Gérard, Robert, Sophie, Michel, Sylvie) |
-| **Analyses totales** | 5 (3 Gérard T600 + 2 Michel n8n) |
+| **Analyses totales** | 5 (3 Gérard T600 + 2 Michel infra) |
 | **Versioning** | ✅ v1 → vN (frontmatter + section Versions) |
 | **Template** | `analyse-template.md` avec `version:` + statut |
 | **Architecture** | Source unique `hermes-christophe/BAVI/` ↔ Drive (cron 18h) — plus de triplication |
@@ -238,7 +240,7 @@ flowchart TD
 ## 🔴 Règles de vie critiques
 
 ### Infra
-- **4 profils** (`default`, `leo-copilot`, `bavi-leo`, `emile`)
+- **5 profils** (`default`, `leo-copilot`, `bavi-leo`, `emile`, `bureau-robert`)
 - **NE JAMAIS** arrêter/redémarrer le gateway sans accord explicite
 
 ### Email

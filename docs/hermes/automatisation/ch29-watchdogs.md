@@ -9,21 +9,25 @@ Un watchdog = un script qui tourne régulièrement et vérifie qu'un service ré
 ```bash
 # Watchdog typique
 #!/bin/bash
-# Vérifie que n8n répond
+# Vérifie que n8n répond (exemple historique — n8n retiré 13/07/2026)
+# Remplacé par des healthchecks Hermes directs
 if ! curl -s http://localhost:5678/healthz > /dev/null; then
     echo "❌ n8n ne répond pas"
-    # Tentative de redémarrage
+    # Tentative de redémarrage (historique)
     docker restart n8n
     # Notification
     hermes memory add "n8n relancé le $(date)" --target memory
 fi
 ```
 
+> ⚠️ **Note 17/07/2026** : n8n a été retiré le 13/07/2026. Cet exemple est conservé pour montrer le pattern de watchdog. Les watchdogs actuels surveillent Hermes, Ollama, Docker et les dashboards.
+```
+
 ## Les watchdogs de LEO
 
 ```yaml
 Toutes les 30 minutes:
-  - 🩺 Auto-heal complet       → crons, Ollama, n8n, Docker, disque, tokens
+  - 🩺 Auto-heal complet       → crons, Ollama, Docker, disque, tokens
   - 📧 Classifieur Gmail       → nouveaux emails à classer
 
 | Toutes les 2 heures:
