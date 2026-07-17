@@ -104,8 +104,9 @@ Le skill `profils` documente comment organiser des instances Hermes indépendant
 |:-------|:------|:---------|:---------------|
 | `default` | Assistant principal | DeepSeek V4 Flash | `881242...` |
 | `leo-copilot` | Infrastructure | DeepSeek V4 Pro | `899720...` |
-| `bavi-leo` | Voyages | DeepSeek V4 Flash | `885780...` |
+| `bavi-leo` | Bureaux BAVI | DeepSeek V4 Flash | `885780...` |
 | `emile` | Pédagogie | DeepSeek Flash + Gemini | `890688...` |
+| `bureau-robert` | Conseil stratégique IT | DeepSeek V4 Flash | — |
 
 ### Structure d'un profil
 

@@ -2,7 +2,7 @@
 
 ## 1. Infrastructure
 - **Host LEO**: i7-7700K, 22GB RAM
-- **Container**: Debian 13, Python 3.13, DeepSeek V4 Flash
+- **Container**: Debian 13, Python 3.14, DeepSeek V4 Flash
 - **Telegram Client**: Chromebook Telegram
 - **Model AI**: Ollama qwen2.5:7b
 
@@ -10,9 +10,9 @@
 - Balance: $41.83
 - Seuils d'alerte: $30
 - Stop: $10
-- Routage: Ollama → Gemini → DeepSeek
+- Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (29)
+## 3. Crons Actifs (38)
 | **Tâche** | **Horodatage** | **Script** |
 | --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
