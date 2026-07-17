@@ -1,6 +1,8 @@
 # 📊 Dashboard n8n
 
-> *Le dashboard complet avec graphiques est disponible ici :*
+> **📦 ARCHIVE — n8n retiré le 13/07/2026.** Ce dashboard n'est plus alimenté.
+
+> *Le dashboard complet avec graphiques était disponible ici :*
 > **[🔧 Dashboard n8n — HTML Charts](https://christophedanhier-hash.github.io/leo-dashboard/)**
 
 ---

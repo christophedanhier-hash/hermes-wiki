@@ -29,11 +29,11 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 | Service | Statut | Modèle |
 |---------|--------|--------|
 | **Léo** (default, toi ici) | ✅ Gateway actif | DeepSeek Flash |
-| **Léo Copilote** (infra) | ✅ Gateway actif + 28 crons | DeepSeek Pro |
+| **Léo Copilote** (infra) | ✅ Gateway actif + 38 crons | DeepSeek Pro |
 | **BAVI LEO Voyages** (Sylvia) | ✅ Gateway actif | DeepSeek Flash |
 | **Émile** (pédagogique) | ✅ Gateway actif | DeepSeek Flash |
-| **n8n**  | ✅ Docker (port 5678) | — |
-| **Ollama** | ✅ Docker (port 11434) | gemma-agentic + qwen2.5:7b |
+| **n8n**  | ❌ Retiré (13/07/2026) | — |
+| **Ollama** | ✅ Docker (port 11434) | qwen2.5:7b |
 | **Wikis publics** (5) | ✅ GitHub Pages — 10/07 10:00 | — |
 
 ### Leçons

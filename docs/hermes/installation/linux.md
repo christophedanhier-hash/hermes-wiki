@@ -126,12 +126,11 @@ LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Debian 1
 
 ```mermaid
 graph TB
-    subgraph HOST["HOST — Debian 13 Trixie"]
+    subgraph HOST["HOST — Ubuntu 26.04 LTS"]
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
-        n8n["n8n :5678<br/>6 workflows"]
         subgraph Docker["Hermes (Docker)"]
-            GW["3 profils Gateway<br/>default · leo-copilot · bavi-leo"]
-            Crons["29 crons"]
+            GW["5 profils Gateway<br/>default · leo-copilot · bavi-leo · emile · bureau-robert"]
+            Crons["38 crons"]
         end
     end
     

@@ -46,7 +46,7 @@ Avec Hermès, vous pouvez utiliser **n'importe quel LLM** — et même les combi
 # Dans config.yaml
 model:
   default: deepseek-v4-flash    # Le quotidien, économique
-  delegation: deepseek-chat     # Sous-agents pour tâches complexes
+  delegation: deepseek-v4-pro     # Sous-agents pour tâches complexes
 fallback_providers:
   - provider: deepseek          # Fallback si le principal plante
     model: deepseek-v4-flash
@@ -110,7 +110,7 @@ Avec Hermès, vous pouvez avoir **plusieurs agents indépendants** sur la même 
 | Profil | Bot Telegram | Provider | Rôle |
 |:-------|:-------------|:---------|:-----|
 | `default` | @hermes_leo_bot | DeepSeek Flash | Chat quotidien |
-| `leo-copilot` | @hermes_leo_copilot_bot | DeepSeek V4 Pro | Code, infra, n8n |
+| `leo-copilot` | @hermes_leo_copilot_bot | DeepSeek V4 Pro | Code, infra |
 | `bavi-leo` | @bavi_leo_voyages_bot | DeepSeek Flash | Voyages camping-car |
 
 Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et pourtant, ils peuvent partager des informations via un cron `sync-memory`.

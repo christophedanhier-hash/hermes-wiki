@@ -96,7 +96,7 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 | **leo-architecture** | Architecture LEO finale : 1 profil, 1 gateway, DeepSeek + Ollama + Gemini | Setup |
 | **leo-backup-dr** | Plan de Reprise d'Activité — backup Drive + restauration ~45min | Cron daily-backup |
 | **routage-llm** | Règles de routage : DeepSeek (Telegram) vs Ollama (local) vs Gemini (fallback) | Quotidien |
-| **self-hosted-services** | Installation services auto-hébergés (n8n, etc.) — Docker/Tailscale | Maintenance |
+| **self-hosted-services** | Installation services auto-hébergés — Docker/Tailscale (n8n retiré 13/07) | Maintenance |
 | **shared-bot-deployment** | Déploiement bot Telegram secondaire (amis, famille, projet) | Setup |
 | **system-management** | Gestion centralisée machines distantes via Tailscale + SSH (multi-OS) | Maintenance |
 | **drive-github-mirror** | Miroir versionné Drive ↔ GitHub bidirectionnel | Cron drive-sync |

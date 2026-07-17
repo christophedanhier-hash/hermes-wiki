@@ -149,7 +149,7 @@ flowchart TB
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
-    MEM["📁 Sync mémoire<br/>default ↔ leo-copilot<br/>toutes les 30min"]
+    MEM["📁 Sync mémoire<br/>default ↔ leo-copilot<br/>symlinks (instantané)"]
 
     B1 --> M1
     B1 -.->|"si Pro down"| F1

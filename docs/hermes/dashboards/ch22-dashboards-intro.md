@@ -25,7 +25,7 @@ LEO a **1 dashboard unifié** en production, généré par le collecteur `collec
 | **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | collect-v2.py */15 | deploy-dashboard.py H:10 |
 
 Scripts :
-- `/opt/data/scripts/collect-v2.py` — collecteur unifié (state.db des 4 profils, n8n, infra, budget, vaults)
+- `/opt/data/scripts/collect-v2.py` — collecteur unifié (state.db des 5 profils, infra, budget, vaults)
 - `/opt/data/scripts/deploy-dashboard.py` — génère HTML + push GitHub Pages
 
 Cron ID `4d6ec4488b3c` dans le profil `leo-copilot`.
@@ -137,6 +137,8 @@ git pull origin main
 ### 🔴 Webhook budget pour n8n
 
 Si vous utilisez n8n pour remplacer un cron Hermes, n8n tourne dans Docker et n'a pas accès direct au filesystem. Créez un **webhook HTTP** sur l'hôte :
+
+> ⚠️ **Note 17/07/2026** : n8n a été retiré de LEO le 13/07/2026. Cette section est conservée à titre d'exemple pour ceux qui utilisent n8n.
 
 ```python
 # budget-webhook.py — mini serveur HTTP

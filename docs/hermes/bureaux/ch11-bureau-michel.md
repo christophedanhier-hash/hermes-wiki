@@ -50,7 +50,7 @@ HDD: 1 To (/dev/sdb2 → /mnt/data)
 | Conteneur | Image | Rôle | Port |
 |:----------|:------|:-----|:----:|
 | `hermes-agent` | nousresearch/hermes-agent | Agent IA principal | — |
-| `n8n` | n8nio/n8n | Automatisation workflows | 5678 |
+| `n8n` | ❌ Retiré (13/07/2026) | — | — |
 | `ollama` | ollama/ollama | LLM local (qwen2.5:7b) | 11434 |
 | *(code-server)* | code-server | VS Code web | 8081 |
 
@@ -178,13 +178,13 @@ Le Bureau Michel suit le budget en temps réel :
 
 Le secret de ce coût ridicule : **Ollama local pour la classification**, **DeepSeek Flash pour le quotidien**, **DeepSeek Pro seulement pour les analyses complexes**.
 
-## n8n — Workflows d'automatisation
+## n8n — Workflows d'automatisation (❌ RETIRÉ)
 
-n8n est utilisé pour les workflows qui nécessitent des webhooks ou des intégrations API :
+> ⚠️ **n8n a été retiré le 13/07/2026.** Les workflows ont été migrés vers des crons Hermes no_agent. Cette section est conservée pour référence.
 
-- **6 workflows actifs**, ~493 exécutions
-- **4 credentials** (Google, GitHub, etc.)
-- Accès via Tailscale uniquement (`100.92.102.28:5678`)
+n8n était utilisé pour les workflows qui nécessitaient des webhooks ou des intégrations API :
+
+- **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows (Drive→Issue, Gardien du Drive, Save Contacts) ont été migrés vers des crons Hermes no_agent.
 - **Base SQLite** dans un volume Docker dédié
 
 Workflow emblématique : **LEO Ping** — un endpoint `GET /webhook/ping` qui renvoie `{"response":"pong"}`. Simple, mais essentiel pour vérifier que le service tourne.
@@ -212,7 +212,7 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 |:----------|:--------:|:------------:|
 | Crons | ~30 | ~0,10 €/j |
 | Dashboards | 8 | 0 € (GitHub Pages) |
-| n8n workflows | 6 | 0 € (self-hosted) |
+| n8n workflows | ❌ Retiré | — |
 | Machines surveillées | 3 | 0 € |
 | DeepSeek API | Flash + Pro | ~1,50 €/mois |
 | **Total** | | **~1,50-5 €/mois** |

@@ -53,7 +53,7 @@ cd /opt/data/leo-tracker && git push
 | 3 gateways UP | `hermes gateway status` |
 | Crons OK | Dashboard global |
 | Dashboards OK | Vérification HTTP |
-| n8n workflows | Dashboard n8n |
+| n8n workflows | ❌ Retiré (13/07/2026) |
 
 ## 6. Rollback — Si échec
 
