@@ -1,6 +1,6 @@
 # 🏗️ Architecture de Communication — Écosystème LEO
 
-> **4 profils Hermes, 4 gateways Telegram, 1 mémoire unifiée. DeepSeek + Gemini 3.5 Flash fallback + Ollama local.**
+> **4 profils Hermes, 4 gateways Telegram, 1 mémoire unifiée. DeepSeek Pro + Flash + Gemini 3.5 Flash fallback + Ollama local.**
 
 ---
 
@@ -131,20 +131,18 @@ flowchart TB
     end
 
     subgraph EXTERNE["🌐 Services gérés"]
-        N8N["🔧 n8n (déprécié — retiré 13/07)"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
         CRONS["⏰ 38 Crons Hermes"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
-    MEM["📁 Sync mémoire<br/>avec default + bavi-leo + emile<br/>toutes les 30min"]
+    MEM["📁 Sync mémoire<br/>default ↔ leo-copilot<br/>toutes les 30min"]
 
     B1 --> M1
     B1 -.->|"si Pro down"| F1
     B1 --> SKILLS
     MEM -.-> P1
 
-    SKILLS --> N8N
     SKILLS --> DASH
     SKILLS --> CRONS
     SKILLS --> GH
@@ -156,15 +154,14 @@ flowchart TB
     style F1 fill:#fff3e0,stroke:#e65100,stroke-width:2px,stroke-dasharray:5,color:#bf360c
     style SKILLS fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
     style MEM fill:#fce4ec,stroke:#c62828,color:#b71c1c
-    style N8N fill:#e8eaf6,stroke:#3949ab,color:#1a237e
     style DASH fill:#e8eaf6,stroke:#3949ab,color:#1a237e
     style CRONS fill:#e8eaf6,stroke:#3949ab,color:#1a237e
     style GH fill:#e8eaf6,stroke:#3949ab,color:#1a237e
 ```
 
 **Particularités :**
-- **Mémoire partagée** : sync `default ↔ leo-copilot ↔ bavi-leo ↔ emile` toutes les 30min via `sync-memory.py`
-- **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + Gemini 3.5 Flash fallback ($1.50/$9.00) + Ollama local (qwen2.5:7b)
+- **Mémoire partagée** : sync `default ↔ leo-copilot` toutes les 30min via `sync-memory.py`. Les profils `bavi-leo` et `emile` ont des mémoires séparées.
+- **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + DeepSeek V4 Pro ($0.55/$2.19) + fallback Gemini 3.5 Flash + Ollama local (qwen2.5:7b)
 - **Focus** : infrastructure uniquement, sauf demande explicite de Christophe
 
 ---
@@ -286,4 +283,7 @@ flowchart TB
 
 ---
 
-*Document mis à jour le 07/07/2026 — Léo 🦁*
+*Document mis à jour le 17/07/2026 — Léo 🦁*
+
+---
+> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — 4 corrections appliquées

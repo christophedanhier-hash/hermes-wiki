@@ -181,4 +181,7 @@ Quand [condition], faire [action].
 - [Documentation Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/providers.md` pour la configuration LLM
 - Voir `exemples/LEO.md` pour l'architecture complète
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 17/07/2026 — Léo 🦁*
+
+---
+> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — aucune correction nécessaire

@@ -176,4 +176,7 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 
 - Voir la [documentation des providers Hermes](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/profiles.md` pour les profils et gateways
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 17/07/2026 — Léo 🦁*
+
+---
+> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — aucune correction nécessaire

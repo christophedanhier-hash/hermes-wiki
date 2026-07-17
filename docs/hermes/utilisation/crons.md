@@ -143,7 +143,7 @@ horaire.
 
 ### 🔍 Dashboards Watchdog — surveillance automatique
 
-Un cron `🖥️ Dashboards Watchdog (8765+9119)` (toutes les 15 min) vérifie que les deux dashboards sont en ligne :
+Un cron `🖥️ Dashboards Watchdog (8765+9119)` (toutes les 2 minutes, `*/2 * * * *`) vérifie que les deux dashboards sont en ligne :
 
 - **Dashboard LEO (8765)** — panel de pilotage, API crons, métriques
 - **Dashboard Hermes (9119)** — chat, sessions, fichiers, crons, config
@@ -212,4 +212,7 @@ confirmer que le travail a été fait.
 
 - Voir `03-utilisation/dashboards.md` pour le monitoring
 - Voir `exemples/LEO.md` pour l'architecture cron complète
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 17/07/2026 — Léo 🦁*
+
+---
+> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — 1 correction appliquée
