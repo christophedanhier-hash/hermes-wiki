@@ -175,3 +175,58 @@ Quand [condition], faire [action].
 - Voir `02-configuration/providers.md` pour la configuration LLM
 - Voir `exemples/LEO.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+
+
+<!-- 🤖 Auto-fix audit 2026-07-17 -->
+# Profils, gateways et skills
+
+## Profils
+
+Un **profil** est une instance isolée d'Hermes avec sa propre configuration, ses propres clés API, sa mémoire et ses sessions. Chaque profil devient aussi une commande séparée.
+
+```bash
+# Créer un profil → crée aussi l'alias "mon-profil"
+hermes profile create mon-profil
+
+# Utiliser le profil
+mon-profil chat           # alias complet
+hermes -p mon-profil chat # flag explicite
+```
+
+Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
+
+```
+~/.hermes/profiles/mon-profil/
+├── config.yaml     # Modèle, provider, outils
+├── .env            # Clés API, tokens
+├── SOUL.md         # Personnalité
+├── memories/       # Mémoire persistante
+├── skills/         # Skills dédiés
+├── sessions/       # Sessions du profil
+├── cron/           # Tâches planifiées (actives sur le serveur)
+└── logs/           # Logs
+```
+
+> **Note** : Le chemin `~/.hermes/profiles/` est le répertoire racine des profils. Sa création est automatique lors de la première utilisation d'Hermes. Des crons Hermes sont actifs sur le serveur — consultez `hermes cron list` pour les détails.
+
+### Règle LEO : un seul profil
+
+> *"Un seul profil, un seul gateway, tout dedans."*
+
+La tentation est grande de créer un profil par usage (un pour les conversations, un pour le batch, un de secours). **Ne faites pas ça.** Chaque profil supplémentaire ajoute de la complexité et des points de défaillance.
+
+- **Un seul profil** (`default`) — tout votre assistant vit dedans
+- **plusieurs providers** au sein du même profil (DeepSeek + Ollama + Gemini)
+- **Zéro bascule de profil** — la fiabilité avant tout
+
+| Propriété | Configuration | Description |
+|-----------|--------------|-------------|
+| **Modèle** | `model.default` | LLM principal (ex: `deepseek-v4-flash`, `qwen2.5:7b`) |
+| **Provider** | `model.provider` | Fournisseur (ex: `deepseek`, `openrouter`, `ollama`) |
+| **Gateway** | `gateways.telegram.bot_token` | Token du bot Telegram |
+| **Outils** | `hermes tools` | Toolsets activés par plateforme |
+| **Skills** | `hermes skills install <id>` | Procédures chargées automatiquement |
+
+### Commandes profils
+
+```bash
