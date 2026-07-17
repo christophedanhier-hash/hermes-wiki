@@ -145,7 +145,7 @@ flowchart TB
 
     subgraph EXTERNE["🌐 Services gérés"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 42 Crons Hermes (38 leo-copilot + 2 emile + 2 bavi-leo)"]
+        CRONS["⏰ 38 Crons Hermes (leo-copilot exclusif)"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
@@ -235,7 +235,7 @@ flowchart TB
     subgraph OUTPUT["📊 Output"]
         DASH["1 Dashboard<br/>(leo-dashboard unifié)"]
         WFL["🐍 Workflows Python"]
-        CRON["42 Crons"]
+        CRON["38 Crons"]
         ISSUES["leo-tracker<br/>GitHub Issues"]
     end
 
@@ -306,4 +306,4 @@ flowchart TB
 *Document mis à jour le 17/07/2026 — Michel (leo-copilot) 🔧*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 21:06 (UTC+2) — fallback chain corrigée, 38→42 crons (emile+bavi-leo), diagrammes Mermaid mis à jour
+> 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — 42→38 crons (emile+bavi-leo=0 confirmé), fallback chain, 5 profils OK
