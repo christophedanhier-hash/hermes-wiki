@@ -74,10 +74,12 @@ curl -fsSL https://ollama.com/install.sh | sh
 # Modèle recommandé pour l'assistant
 ollama pull qwen2.5:7b
 
-# Autres modèles
-ollama pull llama3.1:8b    # Meta Llama 3.1
-ollama pull mistral:7b     # Mistral
+# Autres modèles (non installés sur LEO — RTX 3050 8GB)
+# ollama pull llama3.1:8b    # Meta Llama 3.1
+# ollama pull mistral:7b     # Mistral
 ```
+
+> **Sur LEO** : seul `qwen2.5:7b` est installé (RTX 3050 8GB). Choisissez un modèle adapté à votre GPU.
 
 ### 3. Configurer Hermes
 
@@ -179,4 +181,4 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 *Document mis à jour le 17/07/2026 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — aucune correction nécessaire
+> 🤖 Dernier audit : 17/07/2026 à 18:00 (UTC+2) — modèles Ollama : seuls ceux installés sur LEO sont actifs (qwen2.5:7b), autres commentés
