@@ -133,7 +133,7 @@ flowchart TB
     subgraph EXTERNE["🌐 Services gérés"]
         N8N["🔧 n8n :5678"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 22 Crons Hermes"]
+        CRONS["⏰ 37 Crons Hermes"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
@@ -223,7 +223,7 @@ flowchart TB
     subgraph OUTPUT["📊 Output"]
         DASH["1 Dashboard<br/>(leo-dashboard unifié)"]
         N8N["3 Workflows n8n"]
-        CRON["22 Crons"]
+        CRON["37 Crons"]
         ISSUES["leo-tracker<br/>GitHub Issues"]
     end
 

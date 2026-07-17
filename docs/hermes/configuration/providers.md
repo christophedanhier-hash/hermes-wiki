@@ -119,7 +119,7 @@ Gemini peut servir de provider de secours si le principal est indisponible.
 # Dans config.yaml — comme fallback
 fallback_providers:
   - provider: google
-    model: gemini-2.5-flash
+    model: gemini-3.5-flash
 ```
 
 Stockez la clé dans `.env` :
@@ -167,7 +167,7 @@ providers:
 
 fallback_providers:
   - provider: google
-    model: gemini-2.5-flash
+    model: gemini-3.5-flash
 ```
 
 Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'important est qu'il fonctionne pour **vous**.
