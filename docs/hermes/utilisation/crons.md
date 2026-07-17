@@ -215,4 +215,4 @@ confirmer que le travail a été fait.
 *Document mis à jour le 17/07/2026 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — 1 correction appliquée
+> 🤖 Dernier audit : 17/07/2026 à 21:06 (UTC+2) — dashboards watchdog (8765+9119) confirmés actifs, auto-heal déprécié OK

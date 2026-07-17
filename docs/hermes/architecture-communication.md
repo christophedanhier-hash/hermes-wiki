@@ -1,6 +1,6 @@
 # 🏗️ Architecture de Communication — Écosystème LEO
 
-> **5 profils Hermes, 5 gateways Telegram, 1 mémoire unifiée. DeepSeek Pro + Flash + Gemini 3.5 Flash fallback + Ollama local (qwen2.5:7b).**
+> **5 profils Hermes, 5 gateways Telegram, 1 mémoire unifiée. Fallback : deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b.**
 
 ---
 
@@ -145,7 +145,7 @@ flowchart TB
 
     subgraph EXTERNE["🌐 Services gérés"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 38 Crons Hermes"]
+        CRONS["⏰ 42 Crons Hermes (38 leo-copilot + 2 emile + 2 bavi-leo)"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
@@ -174,7 +174,7 @@ flowchart TB
 
 **Particularités :**
 - **Mémoire partagée** : sync `default ↔ leo-copilot` toutes les 30min via `sync-memory.py`. Les profils `bavi-leo` et `emile` ont des mémoires séparées.
-- **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + DeepSeek V4 Pro ($0.55/$2.19) + fallback Gemini 3.5 Flash + Ollama local (qwen2.5:7b)
+- **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + DeepSeek V4 Pro ($0.55/$2.19) + fallback deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b
 - **Focus** : infrastructure uniquement, sauf demande explicite de Christophe
 
 ---
@@ -235,7 +235,7 @@ flowchart TB
     subgraph OUTPUT["📊 Output"]
         DASH["1 Dashboard<br/>(leo-dashboard unifié)"]
         WFL["🐍 Workflows Python"]
-        CRON["38 Crons"]
+        CRON["42 Crons"]
         ISSUES["leo-tracker<br/>GitHub Issues"]
     end
 
@@ -306,4 +306,4 @@ flowchart TB
 *Document mis à jour le 17/07/2026 — Michel (leo-copilot) 🔧*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 15:20 (UTC+2) — Ajout Robert/bureau-robert (5e profil) + n8n→workflows + corrections Mermaid
+> 🤖 Dernier audit : 17/07/2026 à 21:06 (UTC+2) — fallback chain corrigée, 38→42 crons (emile+bavi-leo), diagrammes Mermaid mis à jour

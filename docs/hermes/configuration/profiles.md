@@ -42,7 +42,7 @@ LEO utilise **5 profils Hermes**, chacun avec son propre bot Telegram et sa spé
 | `bureau-robert` | Conseil Stratégique IA | DeepSeek Pro | Séparée |
 
 - **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
-- **Tous les crons** dans `leo-copilot` exclusivement
+- **Crons** : 38 dans `leo-copilot` + 2 dans `emile` + 2 dans `bavi-leo` (total 42). ⚠️ Règle « ZÉRO hors leo-copilot » partiellement violée.
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |
@@ -185,4 +185,4 @@ Quand [condition], faire [action].
 *Document mis à jour le 17/07/2026 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 18:00 (UTC+2) — ajout bureau-robert (5e profil), mise à jour 4→5 profils
+> 🤖 Dernier audit : 17/07/2026 à 21:06 (UTC+2) — 5 profils confirmés, crons leo-copilot exclusif corrigé → 42 crons répartis (38+2+2)
