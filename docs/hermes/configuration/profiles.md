@@ -27,15 +27,22 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 └── logs/           # Logs
 ```
 
-### Règle LEO : un seul profil
+### Règle LEO : architecture multi-profils
 
-> *"Un seul profil, un seul gateway, tout dedans."*
+> *"4 profils spécialisés, 1 mémoire unifiée."*
 
-La tentation est grande de créer un profil par usage (un pour les conversations, un pour le batch, un de secours). **Ne faites pas ça.** Chaque profil supplémentaire ajoute de la complexité et des points de défaillance.
+LEO utilise 4 profils Hermes, chacun avec son propre bot Telegram et sa spécialisation :
 
-- **Un seul profil** (`default`) — tout votre assistant vit dedans
-- **plusieurs providers** au sein du même profil (DeepSeek + Ollama + Gemini)
-- **Zéro bascule de profil** — la fiabilité avant tout
+| Profil | Rôle | Modèle | Mémoire |
+|--------|------|--------|---------|
+| `default` | Dialogue quotidien | DeepSeek Flash | Partagée avec leo-copilot |
+| `leo-copilot` | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
+| `bavi-leo` | Voyages (Sylvia) | DeepSeek Flash | Séparée |
+| `emile` | Création contenu | DeepSeek Flash | Séparée |
+
+- **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
+- **Tous les crons** dans `leo-copilot` exclusivement
+- **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |
 |-----------|--------------|-------------|

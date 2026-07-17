@@ -141,18 +141,16 @@ cat ~/.hermes/cron/output/<id>/*.md
 en un coup d'œil. Ce dashboard peut lui-même être mis à jour par un cron
 horaire.
 
-### 🔍 dashboard-watch — surveillance automatique
+### 🔍 Dashboards Watchdog — surveillance automatique
 
-Un cron `dashboard-watch` (toutes les 2h) vérifie que le dashboard est à jour :
+Un cron `🖥️ Dashboards Watchdog (8765+9119)` (toutes les 15 min) vérifie que les deux dashboards sont en ligne :
 
-- **HTTP 200** — le dashboard répond
-- **Âge < 2h** — données fraîches
-- **Budget cohérent** — valeur affichée du budget ≈ `budget.json` (écart max 1$)
-- **Redeploiement auto** — si stale ou 404, le script relance le déploiement
+- **Dashboard LEO (8765)** — panel de pilotage, API crons, métriques
+- **Dashboard Hermes (9119)** — chat, sessions, fichiers, crons, config
 
-Le script est dans `scripts/dashboard-watch.py` et son état est sauvegardé dans `metrics/dashboard-watch-state.json`.
+Le script est dans `scripts/dashboards-watchdog.sh` et relance automatiquement les dashboards si nécessaire.
 
-> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot. La vérification continue via `dashboard-watch`.
+> 🚫 **Auto-Heal déprécié le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot. Le watchdog `dashboards-watchdog` vérifie la disponibilité mais ne regénère pas le contenu.
 
 ## Pièges à éviter
 
