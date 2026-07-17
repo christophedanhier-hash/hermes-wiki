@@ -1,10 +1,10 @@
 # 🏗️ Architecture de Communication — Écosystème LEO
 
-> **4 profils Hermes, 4 gateways Telegram, 1 mémoire unifiée. DeepSeek Pro + Flash + Gemini 3.5 Flash fallback + Ollama local.**
+> **5 profils Hermes, 5 gateways Telegram, 1 mémoire unifiée. DeepSeek Pro + Flash + Gemini 3.5 Flash fallback + Ollama local (qwen2.5:7b).**
 
 ---
 
-## Les 4 entités
+## Les 5 entités
 
 ```mermaid
 flowchart TD
@@ -20,7 +20,7 @@ flowchart TD
     subgraph LEO_COP["🔧 Leo Copilot — Infrastructure"]
         direction LR
         Agent2["🤖 Hermes Agent<br/>Profil: leo-copilot"]
-        DS_Pro["🧠 DeepSeek Pro<br/>Code · Infra · n8n"]
+        DS_Pro["🧠 DeepSeek Pro<br/>Code · Infra · Workflows"]
     end
 
     subgraph BAVI["🧭 BAVI LEO — Voyages"]
@@ -35,17 +35,25 @@ flowchart TD
         DS_Flash3["⚡ DeepSeek Flash<br/>Génération contenu"]
     end
 
+    subgraph ROBERT["🎯 Robert — Conseil Stratégique IA"]
+        direction LR
+        Agent5["🤖 Hermes Agent<br/>Profil: bureau-robert"]
+        SOPHIE["👩‍💼 Sophie<br/>Experte transverse<br/>DeepSeek Pro"]
+    end
+
     MEM["📁 Mémoire Partagée<br/>sync-memory.py · 30min"]
 
     User -->|"DM Telegram"| LEO_MAIN
     User -->|"@hermes_leo_copilot_bot"| LEO_COP
     User -->|"@bavi_leo_voyages_bot"| BAVI
     User -->|"@emile_creation_bot"| EMILE
+    User -->|"@bureau_robert_bot"| ROBERT
 
     LEO_MAIN -.-> MEM
     LEO_COP -.-> MEM
     BAVI -.-> MEM
     EMILE -.-> MEM
+    ROBERT -.-> MEM
 
     Agent --> DS_Flash
     Agent -.->|"délégation"| DS_Pro_Sub
@@ -55,6 +63,8 @@ flowchart TD
     Agent3 --> DS_Flash2
 
     Agent4 --> DS_Flash3
+
+    Agent5 --> SOPHIE
 
     style User fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
     style LEO_MAIN fill:#e3f2fd,stroke:#1976d2,stroke-width:3px,color:#0d47a1
@@ -70,6 +80,9 @@ flowchart TD
     style EMILE fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#bf360c
     style Agent4 fill:#ffecb3,stroke:#e65100,color:#bf360c
     style DS_Flash3 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    style ROBERT fill:#e0f2f1,stroke:#00695c,stroke-width:3px,color:#004d40
+    style Agent5 fill:#b2dfdb,stroke:#00695c,color:#004d40
+    style SOPHIE fill:#fce4ec,stroke:#c62828,color:#b71c1c
     style MEM fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
 ```
 
@@ -117,7 +130,7 @@ flowchart TB
 
 ## 2. 🔧 @hermes_leo_copilot_bot — Infrastructure
 
-Bot spécialisé **infrastructure** (n8n, serveurs, déploiements, watchdogs, dashboards). Propulsé par **DeepSeek Pro**.
+Bot spécialisé **infrastructure** (workflows Python, serveurs, déploiements, watchdogs, dashboards). Propulsé par **DeepSeek Pro**.
 
 ```mermaid
 flowchart TB
@@ -127,7 +140,7 @@ flowchart TB
         B1["📱 @hermes_leo_copilot_bot"]
         M1["🧠 DeepSeek Pro<br/>(deepseek-v4-pro)"]
         F1["⚡ Fallback DeepSeek Flash"]
-        SKILLS["📚 Skills<br/>n8n · dashboards · drive<br/>watchdogs · budget"]
+        SKILLS["📚 Skills<br/>workflows · dashboards · drive<br/>watchdogs · budget"]
     end
 
     subgraph EXTERNE["🌐 Services gérés"]
@@ -202,13 +215,15 @@ flowchart TB
         COP["@hermes_leo_copilot_bot<br/>→ Copilot"]
         VOY["@bavi_leo_voyages_bot<br/>→ Voyages"]
         EMI["@emile_creation_bot<br/>→ Émile"]
+        ROB["@bureau_robert_bot<br/>→ Robert"]
     end
 
-    subgraph HERMES["🖥️ Hermes (4 profils)"]
+    subgraph HERMES["🖥️ Hermes (5 profils)"]
         DEF["default<br/>DeepSeek Flash"]
         LCP["leo-copilot<br/>DeepSeek Pro"]
         BAV["bavi-leo<br/>DeepSeek Flash"]
         EMILE["emile<br/>DeepSeek Flash"]
+        BUR["bureau-robert<br/>DeepSeek Pro"]
     end
 
     subgraph API["☁️ API Externes"]
@@ -228,23 +243,26 @@ flowchart TB
     User --> COP
     User --> VOY
     User --> EMI
+    User --> ROB
 
     DM --> DEF
     COP --> LCP
     VOY --> BAV
     EMI --> EMILE
+    ROB --> BUR
 
     DEF --> DS
     LCP --> DS
     BAV --> DS
     EMILE --> DS
+    BUR --> DS
 
     DEF -.->|"fallback"| GEM
     DEF -.-> OLL
     LCP -.->|"fallback"| GEM
 
     LCP --> DASH
-    LCP --> N8N
+    LCP --> WFL
     LCP --> CRON
     LCP --> ISSUES
 
@@ -263,9 +281,10 @@ flowchart TB
 |:------|:---------|:-------|:-------|
 | Dialogue général, config, veille | **LEO** (DM) | DeepSeek Flash | `default` |
 | Code, API, debug, analyses complexes | Sous-agent auto | DeepSeek Pro | `default` |
-| Infrastructure (n8n, dashboards, déploiements) | → `@hermes_leo_copilot_bot` | **DeepSeek Pro** | `leo-copilot` |
+| Infrastructure (dashboards, déploiements, crons) | → `@hermes_leo_copilot_bot` | **DeepSeek Pro** | `leo-copilot` |
 | Roadbooks, voyages camping-car | → `@bavi_leo_voyages_bot` | DeepSeek Flash | `bavi-leo` |
 | Création de contenu, rédaction | → `@emile_creation_bot` | DeepSeek Flash | `emile` |
+| Conseil stratégique IA, analyses métier | → `@bureau_robert_bot` | DeepSeek Pro | `bureau-robert` |
 | Classification emails, parsing local | Ollama (LEO) | qwen2.5:7b | API directe |
 
 ---
@@ -278,12 +297,13 @@ flowchart TB
 | **@hermes_leo_copilot_bot** | Bot infrastructure | Oui | **DeepSeek Pro** | `leo-copilot` |
 | **@bavi_leo_voyages_bot** | Bot voyages | Oui | DeepSeek Flash | `bavi-leo` |
 | **@emile_creation_bot** | Bot création contenu | Oui | DeepSeek Flash | `emile` |
+| **@bureau_robert_bot** | Conseil stratégique IA | Oui | DeepSeek Pro | `bureau-robert` |
 
 **LEO n'est pas un bot Telegram. LEO est ton majordome IA.** Les bots sont des extensions spécialisées avec leurs propres profils, mémoires et accès.
 
 ---
 
-*Document mis à jour le 17/07/2026 — Léo 🦁*
+*Document mis à jour le 17/07/2026 — Michel (leo-copilot) 🔧*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 15:05 (UTC+2) — 4 corrections appliquées
+> 🤖 Dernier audit : 17/07/2026 à 15:20 (UTC+2) — Ajout Robert/bureau-robert (5e profil) + n8n→workflows + corrections Mermaid
