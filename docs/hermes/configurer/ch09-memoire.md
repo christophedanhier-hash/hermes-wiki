@@ -142,4 +142,4 @@ Session 2 (le lendemain) : "Quelle est l'IP de mon serveur ?"
 - **Ch.8** : les skills (pour les procédures réutilisables)
 - **Ch.3** : l'architecture LEO (comment s'organisent les profils)
 - **Annexe A** : glossaire (mémoire persistante)
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
