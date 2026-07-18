@@ -46,3 +46,7 @@ Patterns recherchés : `mot de passe`, `password`, `token`, `-----BEGIN`, `anyde
 ---
 
 *Document créé le 07/07/2026 — Léo 🦁*
+
+---
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2)

@@ -16,6 +16,7 @@ flowchart TB
         Copilot["🔧 @hermes_leo_copilot_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Infrastructure"]
         Voyages["🧭 @bavi_leo_voyages_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Voyages"]
         Emile["👤 @emile_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Assistant perso"]
+        Robert["🏛️ @bureau_robert_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Conseil stratégique"]
     end
 
     subgraph PROVIDERS["☁️ Providers"]
@@ -100,7 +101,7 @@ flowchart LR
 ## 2️⃣ 🔧 `@hermes_leo_copilot_bot` — Leo Copilot (Infrastructure)
 
 ||:--|:--|
-| **Rôle** | Code, infrastructure, n8n, dashboards, déploiements |
+| **Rôle** | Code, infrastructure, dashboards, déploiements |
 | **Modèle** | **DeepSeek Pro** (deepseek-v4-pro) |
 | **Provider** | DeepSeek API directe |
 | **Profil Hermes** | `leo-copilot` (isolé, dédié) |
@@ -175,18 +176,30 @@ flowchart TB
 
 ---
 
+## 5️⃣ 🏛️ `@bureau_robert_bot` — Conseil Stratégique IA
+
+||||
+|--|--|
+| **Rôle** | Conseil stratégique IT, analyses concurrentielles, recommandations |
+| **Modèle** | DeepSeek Pro (deepseek-v4-pro) |
+| **Profil Hermes** | `bureau-robert` (isolé) |
+| **Accès** | Christophe uniquement |
+| **Skills** | `bureau-robert`, analyses stratégiques |
+
+---
+
 ## 📊 Comparatif
 
-| Critère | 🦁 Leo Hermes | 🔧 Leo Copilot | 🧭 Voyages | 👤 Émile |
-|:--------|:------------:|:-----------:|:-------:|:------:|
-| **Modèle** | DeepSeek Flash | **DeepSeek Pro** | DeepSeek Flash | DeepSeek Flash |
+| Critère | 🦁 Leo Hermes | 🔧 Leo Copilot | 🧭 Voyages | 👤 Émile | 🏛️ Robert |
+|:--------|:------------:|:-----------:|:-------:|:------:|:-------:|
+| **Modèle** | DeepSeek Flash | **DeepSeek Pro** | DeepSeek Flash | DeepSeek Flash | DeepSeek Pro |
 | **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s | ⚡ < 2s |
 | **Coût** | $0.14/$0.28 /1M tokens | $ pay-as-you-go | $0.14/$0.28 /1M tokens | $0.14/$0.28 /1M tokens |
-| **Usage principal** | Chat quotidien | **Infra, code, n8n** | Voyages | Assistant perso |
-| **Profil** | `default` | `leo-copilot` | `bavi-leo` | `emile` |
-| **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek |
-| **Accès invités** | ❌ | ❌ | ✅ | ❌ |
-| **Sync mémoire** | ✅ 30min | ✅ 30min | ✅ 30min | ✅ 30min |
+|| **Usage principal** | Chat quotidien | **Infra, code** | Voyages | Assistant perso | Conseil stratégique |
+|| **Profil** | `default` | `leo-copilot` | `bavi-leo` | `emile` | `bureau-robert` |
+|| **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek | DeepSeek |
+|| **Accès invités** | ❌ | ❌ | ✅ | ❌ | ❌ |
+|| **Sync mémoire** | ✅ 30min | ✅ 30min | ✅ 30min | ✅ 30min | ✅ 30min |
 
 ### Post-restauration 10/07/2026
 
@@ -196,7 +209,7 @@ Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été resta
 |:---------|:----|
 | `SOUL.md` cassé (symlink → `/opt/data/` inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
 | Vaults inaccessibles (`OBSIDIAN_VAULT_PATH`) | Mis à jour vers `~/.hermes/vault-*` |
-| 28 crons restaurés | Tous actifs et tournent |
+|| 28 crons restaurés | Tous actifs et tournent → aujourd'hui 38 crons actifs |
 | Gateway redémarrée | ✅ Connecté Telegram |
 
 **Leçons :**
@@ -216,4 +229,8 @@ Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été resta
 
 ---
 
-*Document mis à jour le 10/07/2026 à 16:00 — Léo 🦁*
+*Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
+
+---
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — 5 bots confirmés (incluant bureau-robert), 38 crons actifs

@@ -32,11 +32,13 @@ vs
 | 🧭 **Sylvia** | Voyages — roadbooks camping-car, itinéraires | ✅ Actif |
 | 🎓 **Émile** | Pédagogie — assistant mémoire universitaire | ✅ Actif |
 | 🏛️ **Robert** | Conseil stratégique IT — architectures, recommandations | ✅ Actif |
-| 💰 **Sophie** | Pilotage financier — TCO, ROI, business cases | 📝 En reconstruction |
+| 💰 **Sophie** | Pilotage financier — TCO, ROI, business cases | 📝 En préparation |
 | 🏗️ **Gérard** | Documentation T600 — télescope automatisé | ✅ Actif |
 | 🩺 **Virginie** | Médical — consultations pluridisciplinaires | ✅ Actif |
 | 🛡️ **AO** | Assurance obligatoire — INAMI, eHealth | 📝 Structure prête |
 | 📋 **Versioning** | Gestion des versions et des releases | 📝 Structure prête |
+
+> **Note 18/07/2026** : 8 bureaux structurés, 2 en attente (AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (bavi-leo, bureau-robert, emile, leo-copilot).
 
 ## Comment fonctionne un bureau
 
@@ -100,10 +102,10 @@ Chaque bureau utilise le modèle le plus adapté à son travail :
 
 | Bureau | Modèle principal | Pourquoi |
 |:-------|:-----------------|:---------|
-| Michel | DeepSeek V4 Pro | Analyses complexes, décisions techniques |
+| Michel | DeepSeek V4 Pro (via leo-copilot) | Analyses complexes, décisions techniques |
 | Sylvia | DeepSeek V4 Flash | Création de contenu, roadbooks |
-| Robert | DeepSeek V4 Pro | Conseil stratégique, recommandations |
-| Gérard | DeepSeek V4 Pro | Documentation technique, schémas |
+| Robert | DeepSeek V4 Pro (via bureau-robert) | Conseil stratégique, recommandations |
+| Gérard | DeepSeek V4 Flash | Documentation technique, schémas |
 | Émile | DeepSeek V4 Flash + Gemini (fallback) | Longs contextes, pédagogie |
 | LEO | DeepSeek V4 Flash | Usage quotidien, polyvalent |
 
@@ -177,4 +179,8 @@ Ces métadonnées permettent au script `agent-pro-index.py` de générer automat
 - **Ch.13** : Bureau Émile — la pédagogie
 - **Ch.14** : Bureau Robert — le conseil stratégique
 - **Ch.15** : Bureau LEO et les autres bureaux
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+*Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
+
+---
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — 8 bureaux actifs, profils Hermes remplaçant CrewAI, modèles mis à jour

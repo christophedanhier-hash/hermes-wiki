@@ -175,10 +175,10 @@ subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
 ## 🦁 Global Dashboard LEO (portail unique)
 
 Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seule page :
-- 🔵 **Crons (22)** — statut, historique (collect-v2)
+- 🔵 **Crons (38)** — statut, historique (collect-v2)
 - 📊 **1 Dashboard unifié** (leo-dashboard) — remplace les 7 anciens dashboards
 - 💰 **Budget DeepSeek** — solde, jours restants
-- 🩺 **n8n** — online/offline
+- 🖥️ **Ports** — dashboards 8765+9119, code-server 7681
 - 🏛️ **BAVI LEO** — sessions, messages, tokens
 - 🖥️ **Machines (3)** — statut en ligne/hors ligne
 - 🚨 **Alertes** — dernières anomalies détectées
@@ -200,4 +200,8 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `03-utilisation/crons.md` pour le déploiement automatisé
 - Voir `03-utilisation/architecture-leo.md` pour la vue complète (schéma Mermaid, interactions, filets)
 - Voir `exemples/LEO.md` pour les dashboards en production
-*Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
+*Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
+
+---
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — dashboard unifié actif, 38 crons, n8n retiré 13/07
