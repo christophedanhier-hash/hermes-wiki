@@ -190,4 +190,4 @@ Utile pour les conférences techniques, les tutoriels ou les annonces de produit
 - **Ch.17** : Skills productivité (email, wikis)
 - **Ch.26** : Crons — tâches planifiées
 - **Annexe A** : Glossaire
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
