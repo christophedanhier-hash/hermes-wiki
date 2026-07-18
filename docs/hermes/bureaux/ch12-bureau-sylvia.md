@@ -138,4 +138,4 @@ git push origin main
 - **Ch.11** : Bureau Michel (hébergement et publication)
 - **Ch.26** : Crons de synchronisation
 - **Annexe B** : Guide démarrage rapide
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
