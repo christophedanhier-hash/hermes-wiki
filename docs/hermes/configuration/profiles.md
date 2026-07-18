@@ -182,7 +182,7 @@ Quand [condition], faire [action].
 - [Documentation Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/providers.md` pour la configuration LLM
 - Voir `exemples/LEO.md` pour l'architecture complète
-*Document mis à jour le 17/07/2026 — Léo 🦁*
+*Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
 
 ---
 > 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — 5 profils confirmés, 39 crons leo-copilot exclusif, emile/bavi-leo=0 confirmé
