@@ -238,4 +238,4 @@ done
 | Recovery Kit | `~/.hermes/recovery-kit/` |
 | Skill DRP | `leo-backup-dr` (skill Hermes — infrastructure) |
 
-*Document mis à jour le 10/07/2026 — LEO 🦁*
+*Document mis à jour le 10/07/2026 à 00:00 — LEO 🦁*
