@@ -131,7 +131,7 @@ Même avec Gemini 2.5 Flash (le moins cher des Flash récents à $0.30/$2.50), o
 
 ```mermaid
 flowchart TB
-    subgraph BOTS["🤖 4 Bots LEO"]
+    subgraph BOTS["🤖 5 Bots LEO"]
         MAIN["🦁 LEO Principal\nDeepSeek V4 Flash\nChat quotidien"]
         COPILOT["🔧 Leo Copilot\nDeepSeek V4 Pro\nInfra, code"]
         BAVI["🧭 BAVI Voyages\nDeepSeek V4 Flash\nRoadbooks"]

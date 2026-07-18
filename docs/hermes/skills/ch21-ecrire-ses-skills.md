@@ -42,7 +42,7 @@ category: infrastructure
 metadata:
   hermes:
     tags: [backup, gdrive, hermes]
-    workflows: [deploiement-n8n]
+    workflows: [deploiement-scripts]
 ---
 ```
 

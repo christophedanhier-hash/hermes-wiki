@@ -134,7 +134,7 @@ graph TB
         end
     end
     
-    Telegram["📱 Telegram"] -->|"3 bots"| GW
+    Telegram["📱 Telegram"] -->|"5 bots"| GW
     GW -->|"déploie"| GH["GitHub Pages<br/>8 dashboards"]
     GW -->|"utilise"| Google["Google APIs<br/>Drive · Gmail · Calendar · Sheets"]
     GW -->|"appelle"| Ollama

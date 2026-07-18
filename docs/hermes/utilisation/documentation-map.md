@@ -9,7 +9,7 @@
 |:-:|:-----|:-------|:------------|:------:|
 | 1 | `index.md` | Portail d'accueil, résumé écosystème | Toutes | ✅ |
 | 2 | `architecture.md` | Architecture système (serveur, conteneurs) | 3, 7 | ✅ |
-| 3 | `architecture-communication.md` | **4 bots** (LEO, Copilot, Émile, Voyages), routage, sync mémoire | 7, 13, 20 | ✅ |
+| 3 | `architecture-communication.md` | **5 bots** (LEO, Copilot, Émile, Voyages), routage, sync mémoire | 7, 13, 20 | ✅ |
 | 4 | `changelog.md` | Historique des modifications | Toutes | ✅ |
 | 5 | `etat-des-lieux.md` | Installation Hermes de Christophe (inventaire) | 14, 18, 20 | ✅ |
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
@@ -19,7 +19,7 @@
 | 10 | `installation/linux.md` | Installation Linux | — | ✅ |
 | 11 | `installation/windows.md` | Installation Windows | — | ✅ |
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
-| 13 | `utilisation/bots-telegram.md` | **4 bots**, tokens, architecture | 3, 7, 14 | ✅ |
+| 13 | `utilisation/bots-telegram.md` | **5 bots**, tokens, architecture | 3, 7, 14 | ✅ |
 | 14 | `utilisation/architecture-leo.md` | Dashboard unifié, collect-v2, crons, n8n, vaults, routage LLM | 7, 15, 16, 19, 21 | ✅ |
 | 15 | `utilisation/crons.md` | Tâches planifiées, collect-v2, déploiement horaire | 14, 16, 21 | ✅ |
 | 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 9 sources, vaults | 14, 15, 19 | ✅ |
@@ -59,7 +59,7 @@ architecture-communication.md (3)
   → etat-des-lieux.md (5)        ← Inventaire
 
 bots-telegram.md (13)
-  → architecture-communication.md (3)  ← Cohérence 4 bots
+  → architecture-communication.md (3)  ← Cohérence 5 bots
   → exemples/LEO.md (7)               ← Routage
 
 configuration/providers.md (9)
@@ -98,7 +98,7 @@ Quand tu changes... | Pages à vérifier
 ## 📌 Pages critiques (toujours vérifier en premier)
 
 1. **`architecture.md`** — Vue macro, budget, crons
-2. **`architecture-communication.md`** — Vision globale, routage, 4 bots
+2. **`architecture-communication.md`** — Vision globale, routage, 5 bots
 3. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, n8n
 4. **`utilisation/dashboards.md`** — leo-dashboard, 9 sources
 5. **`etat-des-lieux.md`** — Inventaire complet
