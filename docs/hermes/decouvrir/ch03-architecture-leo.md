@@ -25,6 +25,8 @@ Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Fl
 | 🤖 @hermes_leo_bot | `default` | DeepSeek Flash | Chat quotidien | < 2s | Payant |
 | 🟪 @hermes_leo_copilot_bot | `leo-copilot` | DeepSeek V4 Pro | Code, infra | < 2s | Payant |
 | 🧭 @bavi_leo_voyages_bot | `bavi-leo` | DeepSeek Flash | Voyages camping-car | < 2s | Payant |
+| 🎓 @Bureau_ia_emilie_bot | `emile` | Gemini 3.5 Flash | Pédagogie, mémoire | < 2s | Gratuit |
+| 🏛️ @bureau_robert_bot | `bureau-robert` | DeepSeek Pro | Conseil IT stratégique | < 2s | Payant |
 
 Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills, sa propre mémoire. Mais ils partagent un fichier de configuration commun et peuvent échanger des informations.
 

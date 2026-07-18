@@ -1,6 +1,6 @@
 # Multi-bots : pourquoi 3 bots valent mieux qu'un
 
-LEO ne tourne pas avec un seul bot Telegram, mais avec **cinq bots spécialisés** (et bientôt quatre). Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
+LEO ne tourne pas avec un seul bot Telegram, mais avec **cinq bots spécialisés**. Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
 
 ## Pourquoi plusieurs bots ?
 
@@ -23,7 +23,7 @@ Un seul bot                                                 5 bots spécialisés
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **LEO** (default) : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **Léo Copilote** (leo-copilot) : l'ingénieur infrastructure — crons, dashboards, n8n, budget, système (root sudo)
+- **Léo Copilote** (leo-copilot) : l'ingénieur infrastructure — crons, dashboards, scripts Python (ex-n8n), budget, système (root sudo)
 - **Sylvia** (bavi-leo) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
 
 ### 2. Modèles adaptés à chaque usage
@@ -33,7 +33,7 @@ Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 | LEO | DeepSeek V4 Flash | ~0,05 €/j | Quotidien, polyvalent |
 | Léo Copilote | DeepSeek V4 Pro | ~0,10 €/tâche | Analyses complexes, infra |
 | Sylvia | DeepSeek V4 Flash | ~0,03 €/j | Roadbooks, voyages |
-| Fallback | Gemini 2.5 Flash | Gratuit (1M tokens) | Si DeepSeek indisponible |
+| Fallback | Gemini 3.5 Flash | Gratuit (1M tokens) | Si DeepSeek indisponible |
 
 ### 3. Isolation des tokens et permissions
 

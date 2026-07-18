@@ -21,8 +21,8 @@
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
 | 13 | `utilisation/bots-telegram.md` | **5 bots**, tokens, architecture | 3, 7, 14 | ✅ |
 | 14 | `utilisation/architecture-leo.md` | Dashboard unifié, collect-v2, crons, 🐍 workflows Python, vaults, routage LLM | 7, 15, 16, 19, 21 | ✅ |
-| 15 | `utilisation/crons.md` | **44 crons** (38 leo-copilot + 2 emile + 2 bavi-leo + 6 hôte), collect-v2 | 14, 16, 21 | ✅ |
-| 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 9 sources, vaults | 14, 15, 19 | ✅ |
+| 15 | `utilisation/crons.md` | **38 crons** (leo-copilot exclusif) + 6 crons hôte, collect-v2 | 14, 16, 21 | ✅ |
+| 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 8 sources (n8n retiré 13/07/2026), vaults | 14, 15, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
 | 18 | `utilisation/skills-catalogue.md` | Catalogue des skills BAVI LEO & Hermes | 5, 20 | ✅ |
 | 19 | `services/n8n.md` | ⚠️ **OBSOLÈTE** — n8n déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ⚠️ |
@@ -91,11 +91,11 @@ Quand tu changes... | Pages à vérifier
 
 1. **`architecture-communication.md`** — Vision globale, routage, 5 bots
 2. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, workflows Python
-3. **`utilisation/dashboards.md`** — leo-dashboard, 9 sources
+3. **`utilisation/dashboards.md`** — leo-dashboard, 8 sources (n8n retiré 13/07/2026)
 4. **`etat-des-lieux.md`** — Inventaire complet
 5. **`changelog.md`** — Historique des modifs
 6. **Cette carte** 🗺️
-7. **`utilisation/crons.md`** — 44 crons, planification
+7. **`utilisation/crons.md`** — 38 crons, planification
 
 ---
 

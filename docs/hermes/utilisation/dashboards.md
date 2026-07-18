@@ -18,7 +18,7 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 > ⚠️ **Mise à jour du 04/07/2026** : Les 7 dashboards pré-crash (LEO KPI, BAVI LEO, Machines, Crons, GitHub, n8n, Global) sont OBSOLÈTES et figés au 30/06/2026. NE PLUS les consulter.
 
-LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (9 sources) :
+LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (8 sources — n8n retiré 13/07) :
 
 | Dashboard | Contenu | URL | Collecte | Déploiement |
 |-----------|---------|-----|----------|-------------|

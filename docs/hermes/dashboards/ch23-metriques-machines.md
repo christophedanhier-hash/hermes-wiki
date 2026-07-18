@@ -49,7 +49,7 @@ nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv
 ```bash
 # Vérifier que tout tourne
 docker ps
-# → hermes-agent, n8n, ollama : tous UP
+# → hermes-agent, ollama : tous UP
 ```
 
 ## Dashboard machines sur LEO
@@ -77,7 +77,7 @@ Seuils d'alerte:
   CPU > 90%:     🟡 Vérifier crons en parallèle
 ```
 
-L'auto-heal détecte ces seuils toutes les 30 minutes.
+Le health-check détecte ces seuils via le déploiement horaire unifié (`collect-v2.py`).
 
 ## 1 machine — le serveur LEO
 

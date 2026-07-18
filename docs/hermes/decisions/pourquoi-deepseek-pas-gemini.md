@@ -136,6 +136,7 @@ flowchart TB
         COPILOT["🔧 Leo Copilot\nDeepSeek V4 Pro\nInfra, code"]
         BAVI["🧭 BAVI Voyages\nDeepSeek V4 Flash\nRoadbooks"]
         EMILE["🎓 Émile\nDeepSeek V4 Flash\nAssistant pédagogique"]
+        ROBERT["🏛️ Robert\nDeepSeek V4 Pro\nConseil stratégique"]
     end
 
     subgraph BACKUP["⚡ Fallback"]
@@ -147,8 +148,8 @@ flowchart TB
         DS_FLASH["DeepSeek V4 Flash\nCollecte, dashboards"]
     end
 
-    MAIN & BAVI --> DS_FLASH
-    COPILOT --> DS_PRO
+    MAIN & BAVI & EMILE --> DS_FLASH
+    COPILOT & ROBERT --> DS_PRO
     DS_PRO & DS_FLASH -.->|si KO| GEMINI
 ```
 
@@ -181,7 +182,7 @@ Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexe
 
 | Usage | Modèle | Pourquoi |
 |:---|:---|:---|
-| Crons quotidiens (22 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
+| Crons quotidiens (38 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
 | Bots Telegram (dialogue) | DeepSeek V4 Flash | Latence faible, volume élevé |
 | Classification emails | DeepSeek V4 Flash | 0.18 USD/M output |
 | Debug & analyses complexes | DeepSeek V4 Pro | Raisonnement profond |

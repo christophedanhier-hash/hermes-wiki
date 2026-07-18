@@ -11,7 +11,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 1. **Extraction** du backup dans `/tmp/leo-backup/`
 2. **Restauration** des mémoires (`memories/`), skills, profils, config, .env, crons, scripts
 3. **Correction** du symlink `SOUL.md` cassé → pointait sur `/opt/data/` qui n'existe plus
-4. **Redémarrage** des 4 gateways (default, leo-copilot, bavi-leo, emile)
+4. **Redémarrage** des 5 gateways (default, leo-copilot, bavi-leo, emile, bureau-robert)
 5. **Ajustement** des chemins `OBSIDIAN_VAULT_PATH` dans les 4 `.env` (→ `~/.hermes/vault-*`)
 6. **Backup de sauvegarde** immédiat : `leo-full-backup-2026-07-10_12-18.tar.gz` (93 Mo)
 

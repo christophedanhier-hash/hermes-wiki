@@ -14,7 +14,7 @@ Les crons quotidiens sont les tâches lourdes qui s'exécutent une fois par jour
   Script: /opt/data/scripts/hermes-backup.py
 
 07:30 — Veille IA (Phase 1)
-  Action: Collecte 11 sources RSS
+  Action: Collecte 17 sources RSS
   Coût: 0 € (no_agent)
 
 08:00 — Veille IA (Phase 2)
