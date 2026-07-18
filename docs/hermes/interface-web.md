@@ -155,7 +155,7 @@ Configuration des plateformes de messagerie connectées.
 
 | Plateforme | Statut LEO |
 |------------|:----------:|
-| **Telegram** | ✅ Connecté (4 bots : default, leo-copilot, bavi-leo, emile) |
+| **Telegram** | ✅ Connecté (4 bots : default, leo-copilot, emile, bavi-leo, bureau-robert) |
 | **CLI** | ✅ Connecté |
 | **Discord** | ❌ Non configuré |
 | **Slack** | ❌ Non configuré |

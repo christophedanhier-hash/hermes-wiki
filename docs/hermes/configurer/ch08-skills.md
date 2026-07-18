@@ -67,7 +67,7 @@ skills/
 - `plan` : planifier des tâches complexes
 
 **Skills customs** (écrits par vous ou la communauté) :
-- `bureau-michel` : infrastructure n8n et déploiement
+- `bureau-michel` : infrastructure et déploiement
 - `voyages-wiki` : publication de roadbooks
 - `gmail-inbox-zero` : classification automatique des emails
 

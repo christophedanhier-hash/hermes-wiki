@@ -31,7 +31,7 @@ LEO a 2 disques :
 
 ```bash
 free -h
-# → 22.94 Go total, ~2 Go pour Hermes, ~500 Mo pour n8n
+# → 22.94 Go total, ~2 Go pour Hermes, ~0 Mo (n8n retiré 13/07/2026)
 ```
 
 Si la RAM utilisée dépasse 85%, les conteneurs Docker risquent l'OOM kill.

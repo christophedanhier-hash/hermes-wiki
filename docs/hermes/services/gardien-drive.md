@@ -1,4 +1,6 @@
-# 🧠 Gardien du Drive — Workflow n8n
+# 🧠 Gardien du Drive — Script Python (ex-n8n)
+
+> **📦 ARCHIVE — Service retiré le 13/07/2026.** Le workflow n8n a été migré en script Python (cron leo-copilot).
 
 > Classification auto Google Drive via Ollama qwen2.5:7b local. **Coût : 0 €.**
 > Tout ce qui doit être jeté → `100 - Corbeille` (gestion manuelle).

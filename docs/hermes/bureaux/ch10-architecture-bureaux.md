@@ -27,7 +27,7 @@ vs
 
 | Bureau | Rôle | Statut |
 |:-------|:-----|:------:|
-| 🔧 **Michel** | Infrastructure — crons, dashboards, n8n, budget | ✅ Actif |
+| 🔧 **Michel** | Infrastructure — crons, dashboards, scripts Python, budget | ✅ Actif |
 | 🤖 **LEO** | Hub central — analyses, dossiers personnels | ✅ Actif |
 | 🧭 **Sylvia** | Voyages — roadbooks camping-car, itinéraires | ✅ Actif |
 | 🎓 **Émile** | Pédagogie — assistant mémoire universitaire | ✅ Actif |

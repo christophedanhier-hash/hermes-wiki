@@ -29,7 +29,7 @@ flowchart TB
         DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>https://christophedanhier-hash.github.io/leo-dashboard/"]
     end
 
-    subgraph n8n["🤖 Workflows n8n (3)"]
+    subgraph scripts["🐍 Scripts Python (ex-n8n)"]
         DRIVE_ISSUE["Drive → Issue<br/>Surveillance Drive"]
         GARDIEN["Gardien du Drive<br/>Protection documents"]
         SAVE_CONTACTS["Save Contacts<br/>Sauvegarde contacts"]
@@ -44,7 +44,7 @@ flowchart TB
 
     Sources --> COLLECT
     COLLECT --> DASH
-    DASH -->|monitoring| n8n
+    DASH -->|monitoring| scripts
     Vaults -->|monitoring dashboard| DASH
 ```
 
@@ -56,7 +56,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 
 | Dashboard | URL | Contenu | Généré par | Fréquence |
 |-----------|-----|---------|-----------|-----------|
-| **🌍 leo-dashboard** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, budget, machines, crons, GitHub, n8n, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement leo-copilot) |
+| **🌍 leo-dashboard** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement leo-copilot) |
 
 **Collecteur unifié** : `collect-v2.py` agrège 9 sources de données :
 1. Sessions — nombre de sessions et messages

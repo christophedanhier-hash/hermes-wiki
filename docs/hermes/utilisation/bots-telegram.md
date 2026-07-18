@@ -1,6 +1,6 @@
 # 🤖 Bots Telegram — Écosystème LEO
 
-> **4 bots, 4 missions, 1 mémoire partagée** — chaque bot a un modèle, un profil Hermes et un rôle dédié.
+> **5 bots, 5 missions, 1 mémoire partagée** — chaque bot a un modèle, un profil Hermes et un rôle dédié.
 
 ---
 
@@ -33,7 +33,7 @@ flowchart TB
     end
 
     User -->|"chat quotidien"| LeoFlash
-    User -->|"code, infra, n8n"| Copilot
+    User -->|"code, infra, scripts"| Copilot
     User -->|"roadbooks, voyages"| Voyages
     User -->|"assistant perso"| Emile
 
@@ -117,7 +117,7 @@ flowchart TB
         direction TB
         GW2["🌐 Gateway<br/>@hermes_leo_copilot_bot"]
         AGENT["🤖 Agent Hermes<br/>Leo Copilot"]
-        SKILLS["📚 Skills<br/>n8n, dashboards,<br/>drive, watchdogs"]
+        SKILLS["📚 Skills<br/>scripts, dashboards,<br/>drive, watchdogs"]
     end
 
     DS_PRO["☁️ DeepSeek API<br/>Pro (deepseek-v4-pro)"]

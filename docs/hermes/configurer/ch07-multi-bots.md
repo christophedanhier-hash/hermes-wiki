@@ -1,6 +1,6 @@
 # Multi-bots : pourquoi 3 bots valent mieux qu'un
 
-LEO ne tourne pas avec un seul bot Telegram, mais avec **trois bots spécialisés** (et bientôt quatre). Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
+LEO ne tourne pas avec un seul bot Telegram, mais avec **cinq bots spécialisés** (et bientôt quatre). Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
 
 ## Pourquoi plusieurs bots ?
 
@@ -9,7 +9,7 @@ Un seul bot peut tout faire. Alors pourquoi en créer plusieurs ?
 ### 1. Séparation des responsabilités
 
 ``` 
-Un seul bot                                                 3 bots spécialisés
+Un seul bot                                                 5 bots spécialisés
 ┌─────────────────────┐           ┌──────────┐ ┌──────────┐ ┌──────────┐
 │ 🦁 LEO              │           │ 🦁 LEO   │ │ 🔧       │ │ 🧭       │
 │                     │           │ Central  │ │ Copilote │ │ Sylvia   │
@@ -88,7 +88,7 @@ Tu es Léo Copilote, l'ingénieur infrastructure de l'écosystème LEO.
 Tu gères :
 - 14 crons automatisés
 - 8 dashboards temps réel
-- 6 workflows n8n
+- scripts Python (ex-n8n, workflows migrés le 13/07/2026)
 - Les gateways Hermes
 - Le budget DeepSeek
 

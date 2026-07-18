@@ -18,7 +18,7 @@ Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Fl
                                     └──→ Gemini (fallback automatique)
 ```
 
-### Les 3 bots Telegram
+### Les 5 bots Telegram
 
 | Bot | Profil | Provider | Rôle | Latence | Coût |
 |:----|:-------|:---------|:-----|:-------:|:----:|
@@ -172,7 +172,7 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 ## 📝 À retenir
 
-- LEO = 1 serveur principal + 3 bots Telegram + 1 dashboard unifié + collecte horaire unique + 126 skills
+- LEO = 1 serveur principal + 5 bots Telegram + 1 dashboard unifié + collecte horaire unique + 126 skills
 - Tout tourne sur Hermes Agent dans un conteneur Docker supervisé par s6
 - Le secret : une organisation stricte (profils, bureaux, skills) qui permet à l'agent de gérer la complexité
 - Les erreurs du passé ont forgé les règles du présent
