@@ -165,4 +165,4 @@ body { font-family: sans-serif; max-width: 800px; margin: auto; }
 - **Ch.10** : Architecture des bureaux (schémas Mermaid)
 - **Ch.22** : Dashboards (intégration de graphiques)
 - **Annexe A** : Glossaire
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
