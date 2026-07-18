@@ -22,14 +22,37 @@
 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh |
 | 📖 doc-watch-auto | `0 */6 * * *` | doc-watch-auto.sh |
 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh |
-| 📊 Unified Collector v2 | `*/15 * * * *` |  |
+| 📊 Unified Collector v2 | `*/15 * * * *` | collect-v2.py |
 | 🚀 Deploy Unified Dashboard | `10 * * * *` | deploy-dashboard.sh |
 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert.sh |
 | 🛡️ LEO Health Check (script) | `2,17,32,47 * * * *` | leo-health-check.py |
-| 📒 vault-daily-journal (vault-leo) | `0 23 * * *` |  |
-| 📒 vault-default-daily-journal | `5 23 * * *` |  |
+| 📒 Journaux Quotidiens | `0 23 * * *` | vault-daily-journal |
 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py |
-| 💾 LEO Backup quotidien → GDrive (script) | `0 6 * * *` |
+| 💾 LEO Backup quotidien → GDrive | `0 6 * * *` | leo-backup.sh |
+| 🔄 Gateway Auto-Restart | toutes les heures | gateway-restart |
+| 📡 Machine KPI Collector | `*/15 * * * *` | machine-kpi.py |
+| 📝 Audit rédactionnel unifié | quotidien | audit-redactionnel.sh |
+| 🛡️ Watchdog BAVI-LEO | `*/5 * * * *` | watchdog-bavi.sh |
+| 🖥️ Dashboards Watchdog | `*/2 * * * *` | dashboards-watchdog.sh |
+| 🔄 Rebuild Wiki BAVI/Voyages | quotidien | rebuild-wiki.sh |
+| 💾 Recovery State Export GDrive | horaire | recovery-export.sh |
+| 📋 doc-crons-sync | quotidien | doc-crons-sync.sh |
+| 📦 Auto-Archive BAVI LEO | `*/5 * * * *` | auto-archive.py |
+| 🔍 Audit Infra | quotidien | audit-infra.sh |
+| 🩺 Cron Watchdog v2 | continu | cron-watchdog-v2 |
+| Gardien du Drive | continu | gardien-drive.sh |
+| Drive → Issue GitHub | sur détection | drive-to-issue.py |
+| Collecte Viessmann | `*/30 * * * *` | viessmann-collect.py |
+| 📊 Agrégation Énergie horaire | `5 * * * *` | energy-aggregate.py |
+| ⚡ HomeWizard P1 | continu | homewizard-p1.py |
+| 📷 Surveillance caméras | continu | camera-surveillance.py |
+| 📧 Check Gmail (important) | `*/30 * * * *` | gmail-check.sh |
+| 🩺 GitHub Actions Watchdog | `*/10 * * * *` | github-actions-watchdog.sh |
+| 🔄 Refresh Google Tokens | `*/50 * * * *` | refresh-tokens.sh |
+| 💾 Save Contacts | quotidien | save-contacts.sh |
+| 📦 Cron Log Archiver | horaire | log-archiver.sh |
+| 📊 Synthèse Hebdomadaire LEO | hebdo | synthese-hebdo.sh |
+| 🔄 Auto-commit wikis | horaire | auto-commit-wikis.sh |
 
 ## 4. Dashboards
 - crons
@@ -38,6 +61,11 @@
 - wiki
 
 ## 5. Sessions & Utilisation
-- Total sessions: 1525
-- Total messages: 23951
-- Telegram: 15 sessions
+- Total sessions: >1500
+- Total messages: >24000
+- Telegram: 5 bots actifs
+- Dashboard LEO: port 8765 (panel) + 9119 (Hermes dashboard)
+
+---
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — 38 crons, 5 bots, 5 profils, dashboards 8765+9119

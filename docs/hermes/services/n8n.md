@@ -81,3 +81,7 @@ Accès : [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/
 ---
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+---
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — archivé, n8n retiré 13/07/2026

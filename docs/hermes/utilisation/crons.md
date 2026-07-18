@@ -212,7 +212,8 @@ confirmer que le travail a été fait.
 
 - Voir `03-utilisation/dashboards.md` pour le monitoring
 - Voir `exemples/LEO.md` pour l'architecture cron complète
-*Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
+*Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — dashboards watchdog (8765+9119) actifs, n8n déprécié confirmé, 44 services
+
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — dashboards watchdog actifs, n8n retiré, 38 crons
