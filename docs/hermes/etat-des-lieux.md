@@ -314,4 +314,4 @@ Tester le résultat avant de livrer :
 **Problème :** Crons qui utilisaient le mauvais Python, scripts introuvables, identité Git manquante, push qui échoue.
 
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
-*Document mis à jour le 07/07/2026 — Léo 🦁*
+*Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
