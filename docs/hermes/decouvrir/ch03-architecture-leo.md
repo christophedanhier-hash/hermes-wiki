@@ -180,4 +180,4 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 ---
 
 **[Chapitre suivant → Installation rapide](ch04-installation-rapide.md)**
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
