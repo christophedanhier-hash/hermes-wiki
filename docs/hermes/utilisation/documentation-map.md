@@ -108,4 +108,4 @@ Quand tu changes... | Pages à vérifier
 
 ---
 
-*Document mis à jour le 07/07/2026 — 02:45 — Léo 🦁*
+*Document mis à jour le 07/07/2026 à 02:45 — Léo 🦁*
