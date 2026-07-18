@@ -126,4 +126,4 @@ L'adresse `host.docker.internal` permet à WSL de communiquer avec les services 
 - [Installer WSL](https://learn.microsoft.com/fr-fr/windows/wsl/install)
 - [Windows Terminal](https://github.com/microsoft/terminal)
 - [Ollama pour Windows](https://ollama.com/download)
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
