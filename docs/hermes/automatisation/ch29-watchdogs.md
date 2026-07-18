@@ -93,4 +93,4 @@ Règles:
   - Label "auto-heal" si corrigé automatiquement
   - Pas de spam : pas de notification pour les succès
 ```
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
