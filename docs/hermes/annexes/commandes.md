@@ -318,4 +318,4 @@ Exemples :
 every 2h       → Toutes les 2 heures (langage naturel)
 every monday 9am → Tous les lundis à 9h
 ```
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
