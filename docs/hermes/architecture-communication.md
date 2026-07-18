@@ -303,7 +303,7 @@ flowchart TB
 
 ---
 
-*Document mis à jour le 17/07/2026 — Michel (leo-copilot) 🔧*
+*Document mis à jour le 17/07/2026 à 00:00 — Michel (leo-copilot) 🔧*
 
 ---
 > 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — 42→39 crons (emile+bavi-leo=0 confirmé), fallback chain, 5 profils OK
