@@ -216,4 +216,4 @@ Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été resta
 
 ---
 
-*Document mis à jour le 10/07/2026 — 16:00 — Léo 🦁*
+*Document mis à jour le 10/07/2026 à 16:00 — Léo 🦁*
