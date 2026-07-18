@@ -178,7 +178,7 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 
 - Voir la [documentation des providers Hermes](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/profiles.md` pour les profils et gateways
-*Document mis à jour le 17/07/2026 — Léo 🦁*
+*Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
 
 ---
 > 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — confirmé : qwen2.5:7b seul modèle Ollama, fallback deepseek-v4-flash→gemini-3.5-flash→qwen2.5:7b, n8n déprécié
