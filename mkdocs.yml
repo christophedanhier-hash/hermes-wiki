@@ -64,8 +64,11 @@ nav:
       - 🏛️ Architecture LEO: hermes/utilisation/architecture-leo.md
       - 🌐 Interface Web: hermes/interface-web.md
       - 💾 Backup & Recovery: hermes/utilisation/backup-recovery.md
+      - 🔗 n8n — Automatisation: hermes/services/n8n.md
+      - 🎵 Spotify: hermes/services/spotify.md
       - 🤖 Bots Telegram: hermes/utilisation/bots-telegram.md
       - 📚 Catalogue des Skills: hermes/utilisation/skills-catalogue.md
+      - 💰 DeepSeek vs Gemini: hermes/decisions/pourquoi-deepseek-pas-gemini.md
       - 📋 Changelog: hermes/changelog.md
       - 🛠️ Dépannage: hermes/aller-plus-loin/troubleshooting.md
       - 🛡️ Sécurité: hermes/utilisation/securite.md
@@ -74,11 +77,6 @@ nav:
 
   - 🗺️ Carte Documentaire: hermes/utilisation/documentation-map.md
 
-  - 🔧 Services LEO:
-    - 🔗 n8n — Automatisation: hermes/services/n8n.md
-    - 📊 Dashboard LEO: https://christophedanhier-hash.github.io/leo-dashboard/
-    - 📇 Annuaire Contacts: https://docs.google.com/spreadsheets/d/1MD_gvazC1WbzVBvSwV2QvojKIv69yqlPZSsyIjBC3j4/edit
-    - 🎵 Spotify: hermes/services/spotify.md
-
-  - 📐 Décisions d'Architecture:
-    - 💰 DeepSeek vs Gemini: hermes/decisions/pourquoi-deepseek-pas-gemini.md
+  - 🔗 Liens externes:
+      - 📊 Dashboard LEO: https://christophedanhier-hash.github.io/leo-dashboard/
+      - 📇 Annuaire Contacts: https://docs.google.com/spreadsheets/d/1MD_gvazC1WbzVBvSwV2QvojKIv69yqlPZSsyIjBC3j4/edit
