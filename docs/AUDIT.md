@@ -1,18 +1,26 @@
-# 📝 Journal d'Audit — Wiki LEO
+# 📝 AUDIT — hermes-wiki
 
-> Dernier audit : 2026-07-18 06:10 (UTC+2)
-> Modèle : DeepSeek V4 Flash + grep patterns
-> 157 fichiers scannés · 33 corrections automatiques
+> Dernier audit : 18/07/2026 à 07:55 (UTC+2)
 
-## Dernier audit (2026-07-18 06:10)
+## Résultat
 
-- **157 fichiers** scannés (hermes-wiki + BAVI_LEO)
-- **187 anomalies** détectées par grep (129 outdated, 35 wrong, 23 check)
-- **33 corrections** appliquées automatiquement :
-  - Compteurs de profils : 3/4 → 5 (ajout bureau-robert)
-  - Compteurs de crons : 30 → 38
-  - Références n8n : ajout bannières dépréciation ou remplacement par scripts Python
-  - gemma-agentic : remplacé par qwen2.5:7b (jamais installé)
-  - Dashboard : 4 → 9 onglets
-- **21 pages** modifiées
-- Fichiers dans `archives/` non modifiés (documentation historique)
+| Pages auditées | Anomalies | Corrigées |
+|:--------------:|:---------:|:---------:|
+| 14 critiques + audits délégués en cours | 12 | 12 (100%) |
+
+## Anomalies corrigées
+
+- ✅ **bots-telegram.md** : +bureau-robert (5e bot), -n8n, 28→38 crons
+- ✅ **architecture.md** : 14→38 crons, stats sessions arrondies
+- ✅ **profiles.md** : 39→38 crons, +bureau-robert=0
+- ✅ **dashboards.md** : 22→38 crons, -n8n, +ports
+- ✅ **crons.md** : 44→38 services
+- ✅ **ch10-architecture-bureaux.md** : Pro via profils, CrewAI→Hermes
+- ✅ **securite.md, n8n.md** : footers ajoutés
+
+## Vérité terrain (18/07/2026)
+
+- 5 profils, 5 bots Telegram
+- 38 crons (leo-copilot exclusif)
+- Dashboards : 8765 (panel) + 9119 (Hermes)
+- n8n : retiré le 13/07/2026
