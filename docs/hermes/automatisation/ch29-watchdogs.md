@@ -27,8 +27,8 @@ fi
 
 ```yaml
 Toutes les 30 minutes:
-  - 🩺 Auto-heal complet       → crons, Ollama, Docker, disque, tokens
   - 📧 Classifieur Gmail       → nouveaux emails à classer
+  - ⚠️ Auto-heal : supprimé le 04/07/2026 — remplacé par collect-v2.py horaire
 
 | Toutes les 2 heures:
 |  - 📊 Dashboard Watch         → vérifie que le dashboard unifié répond
@@ -50,8 +50,7 @@ Tous les jours:
 Vérifications (via dashboard-watch):
   ✅ Dashboard unifié: HTTP 200 ?
   ✅ Ollama:       qwen2.5:7b responsive ?
-  ✅ n8n:          healthz 200 ?
-  ✅ Docker:       3/3 conteneurs UP ?
+  ✅ Docker:       2/2 conteneurs UP (n8n retiré 13/07) ?
   ✅ Disque:       < 80% utilisé ?
   ✅ Token LEO:    Google API OK ?
   ❌ Token Christophe: invalid_grant (à ré-autoriser manuellement)
@@ -67,7 +66,7 @@ En cas d'échec:
 Le Dashboard Watch vérifie que le dashboard unifié est en ligne et à jour :
 
 ```bash
-for dashboard in leo-kpi machines crons github n8n bavi-leo global; do
+for dashboard in leo-kpi machines crons github bavi-leo global; do
     code=$(curl -s -o /dev/null -w "%{http_code}" \
         "https://user.github.io/dashboard-${dashboard}/")
     if [ "$code" != "200" ]; then

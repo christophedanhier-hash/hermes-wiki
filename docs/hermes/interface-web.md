@@ -24,7 +24,7 @@ http://100.92.102.28:9119
 
 La barre latérale gauche est organisée en sections :
 
-- **Profil actif** : sélecteur de profil en haut (`default`, `leo-copilot`, `bavi-leo`, `emile`)
+- **Profil actif** : sélecteur de profil en haut (`default`, `leo-copilot`, `bavi-leo`, `emile`, `bureau-robert`)
 - **Navigation principale** : toutes les sections listées ci-dessous
 - **Plugins** : extensions installées (Kanban, Achievements)
 - **System** : statut du gateway, boutons Restart/Update, thème, langue

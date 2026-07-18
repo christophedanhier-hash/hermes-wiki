@@ -15,7 +15,7 @@ flowchart TB
         LeoFlash["🦁 @hermes_leo_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Chat quotidien"]
         Copilot["🔧 @hermes_leo_copilot_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Infrastructure"]
         Voyages["🧭 @bavi_leo_voyages_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Voyages"]
-        Emile["👤 @emile_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Assistant perso"]
+        Emile["👤 @Bureau_ia_emilie_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Assistant perso"]
         Robert["🏛️ @bureau_robert_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Conseil stratégique"]
     end
 

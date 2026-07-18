@@ -58,16 +58,15 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 |-----------|-----|---------|-----------|-----------|
 | **🌍 leo-dashboard** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement leo-copilot) |
 
-**Collecteur unifié** : `collect-v2.py` agrège 9 sources de données :
+**Collecteur unifié** : `collect-v2.py` agrège 8 sources de données (n8n retiré 13/07/2026) :
 1. Sessions — nombre de sessions et messages
-2. Budget — solde DeepSeek (~$19.97)
+2. Budget — solde DeepSeek (~$19.97 de coût cumulé, $41.83 de solde)
 3. Crons — statut des tâches planifiées
 4. Infra — CPU/RAM/disque du serveur LEO
-5. n8n — workflows et exécutions
-6. GitHub — activité des repos
-7. BAVI — métriques bureaux
-8. Services — statut des services (Ollama, Docker, etc.)
-9. Vaults — monitoring des 4 vaults Obsidian
+5. GitHub — activité des repos
+6. BAVI — métriques bureaux
+7. Services — statut des services (Ollama, Docker, etc.)
+8. Vaults — monitoring des 4 vaults Obsidian
 
 ---
 

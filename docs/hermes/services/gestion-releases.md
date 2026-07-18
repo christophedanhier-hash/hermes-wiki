@@ -44,13 +44,13 @@ cd /opt/data/leo-tracker && git push
 
 - **Quand** : nuit (2h-4h) ou demande explicite
 - **Action** : `uv pip install --upgrade hermes-agent`
-- **Redémarrage** : gateways default + leo-copilot + bavi-leo
+- **Redémarrage** : gateways default + leo-copilot + bavi-leo + emile + bureau-robert
 
 ## 5. Vérification — Checklist post-déploiement
 
 | Point | Check |
 |:---|:---|
-| 3 gateways UP | `hermes gateway status` |
+| 5 gateways UP | `hermes gateway status` |
 | Crons OK | Dashboard global |
 | Dashboards OK | Vérification HTTP |
 | n8n workflows | ❌ Retiré (13/07/2026) |

@@ -12,8 +12,8 @@
 | **Gateway default** | 🟢 UP | PID 26649, uptime depuis 13 juin |
 | **Gateway leo-copilot** | 🟢 UP | PID 489486, uptime depuis 23 juin |
 | **Gateway bavi-leo** | 🟢 UP | PID 325210, uptime depuis 23 juin |
-| **Crons leo-copilot** | 🟡 1/1 (erreur connue: Drive Watch — déjà corrigé) | |
-| **Crons default** | 🟢 29/29 | |
+| **Crons leo-copilot** | 🟢 38/38 (tous consolidés dans leo-copilot, 0 ailleurs) | |
+| **Crons default** | 🟢 0/0 (crons exclusivement dans leo-copilot) | |
 | **Skills custom** | 🟢 1 skill agent (hermes-agent) | Aucun impact |
 | **send_message tool** | ✅ Présent (78 KB) | Utilisé dans 2 skills bundle (non critiques) |
 | **Tokens OAuth** | ✅ Google token valide | |

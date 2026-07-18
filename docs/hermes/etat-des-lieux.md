@@ -24,7 +24,7 @@
 | **Stockage** | 457 Go SSD système + 1 To HDD backups |
 | **Docker** | 2 conteneurs (hermes-agent + ollama) |
 | **Profils actifs** | 5 (default, leo-copilot, bavi-leo, emile, bureau-robert) |
-| **Gateways** | 4 actifs (s6 supervision) |
+| **Gateways** | 5 actifs (s6 supervision) |
 | **Modèle principal** | `deepseek-v4-flash` |
 | **Fallback** | Gemini 3.5 Flash |
 | **Crons actifs** | 38 (tous consolidés dans leo-copilot) |

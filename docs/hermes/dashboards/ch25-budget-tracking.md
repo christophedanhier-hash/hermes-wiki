@@ -1,6 +1,6 @@
 # Budget et tracking DeepSeek
 
-LEO coûte environ **$19.97 (coût réel constaté)**. Voici comment suivre et maîtriser ce budget.
+LEO coûte environ **$19.97 de coût cumulé** (solde actuel DeepSeek : $41.83). Voici comment suivre et maîtriser ce budget.
 
 ## Le coût réel de LEO
 
@@ -59,7 +59,7 @@ Seuils d'alerte:
 | Provider | Coût IN (1M tokens) | Coût OUT (1M tokens) | Autonomie ($60) |
 |:---------|:-------------------:|:--------------------:|:---------------:|
 | DeepSeek Flash | $0.14 | $0.28 | >6 ans |
-| DeepSeek Pro | $1.50 | $5.00 | ~2 mois |
+| DeepSeek Pro | $0.435 | $0.87 | ~5 mois |
 | Gemini Flash | **0 €** | **0 €** | ∞ (quotas gratuits) |
 | Ollama | **0 €** | **0 €** | ∞ (local) |
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
