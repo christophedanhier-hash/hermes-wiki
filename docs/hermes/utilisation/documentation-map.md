@@ -25,11 +25,13 @@
 | 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 8 sources (n8n retiré 13/07/2026), vaults | 14, 15, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
 | 18 | `utilisation/skills-catalogue.md` | Catalogue des skills BAVI LEO & Hermes | 5, 20 | ✅ |
-| 19 | `services/n8n.md` | ⚠️ **OBSOLÈTE** — n8n déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ⚠️ |
+| 19 | ~~`services/n8n.md`~~ | **ARCHIVÉ** — n8n déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ❌ |
 | 20 | `services/spotify.md` | Contrôle musical Spotify | — | ✅ |
 | 21 | `utilisation/securite.md` | Sécurité — bonnes pratiques documentaires, données sensibles | Toutes | ✅ |
 | 22 | `utilisation/documentation-map.md` | **Cette carte** — référentiel de cohérence | Toutes | ✅ |
-| — | `services/gardien-drive.md` | ⚠️ **OBSOLÈTE** — workflow n8n déprécié, sync via scripts Python | 19 | ⚠️ |
+| — | ~~`services/gardien-drive.md`~~ | **ARCHIVÉ** — workflow n8n déprécié, sync via scripts Python | 19 | ❌ |
+| — | ~~`etat-des-lieux.md`~~ | **ARCHIVÉ** — inventaire pré-crash, obsolète | — | ❌ |
+| — | ~~`services/n8n.md`~~ | **ARCHIVÉ** — voir ci-dessus | — | ❌ |
 | — | `bureaux/ch14-bureau-robert.md` | Robert — conseiller stratégique IA (Solidaris) | 3, 13, 8 | ✅ |
 | — | `audit-documents-a-reviser.md` | Suivi des corrections post-audit | Toutes | ✅ |
 | — | `hermes/index.md` | Présentation Hermes Agent, philosophie LEO | 9, 12 | ✅ |
@@ -55,7 +57,6 @@ Quand tu modifies **cette page** → vérifie aussi celles-ci :
 architecture-communication.md (3)
   → bots-telegram.md (13)        ← Architecture bots, routage 5 profils
   → architecture-leo.md (14)     ← Routage LLM, collect-v2
-  → etat-des-lieux.md (5)        ← Inventaire
 
 bots-telegram.md (13)
   → architecture-communication.md (3)  ← Cohérence 5 bots
@@ -81,21 +82,20 @@ Quand tu changes... | Pages à vérifier
 **Nouveau cron** | 14, 15, 16
 **Nouveau dashboard / collecteur** | 14, 16
 **Modification collect-v2.py** | 14, 15, 16
-**Nouveau skill** | 5, 18
-**Modif config serveur** | 2, 5
+**Nouveau skill** | 18
+**Modif config serveur** | 2
 **Ajout/suppression vault** | 14, 16
 **Déploiement horaire** | 14, 15
-**Changement structure profils** | 3, 5, 8, 13, 14
+**Changement structure profils** | 3, 8, 13, 14
 
 ## 📌 Pages critiques (toujours vérifier en premier)
 
 1. **`architecture-communication.md`** — Vision globale, routage, 5 bots
 2. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, workflows Python
 3. **`utilisation/dashboards.md`** — leo-dashboard, 8 sources (n8n retiré 13/07/2026)
-4. **`etat-des-lieux.md`** — Inventaire complet
-5. **`changelog.md`** — Historique des modifs
+4. **`changelog.md`** — Historique des modifs
+5. **`utilisation/crons.md`** — 38 crons, planification
 6. **Cette carte** 🗺️
-7. **`utilisation/crons.md`** — 38 crons, planification
 
 ---
 
