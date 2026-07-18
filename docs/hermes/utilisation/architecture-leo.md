@@ -66,7 +66,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 5. GitHub — activité des repos
 6. BAVI — métriques bureaux
 7. Services — statut des services (Ollama, Docker, etc.)
-8. Vaults — monitoring des 4 vaults Obsidian
+8. Vaults — monitoring des 5 vaults Obsidian
 
 ---
 
@@ -106,8 +106,9 @@ n8n tournait sur `localhost:5678` (même machine que Hermes).
 | **default** | Vault par défaut Hermes | ✅ Dashboard monitoring |
 | **emile** | Vault pédagogie Émile | ✅ Dashboard monitoring |
 | **bavi** | Vault bureaux BAVI | ✅ Dashboard monitoring |
+| **bureau-robert** | Vault conseil stratégique IA | ✅ Dashboard monitoring |
 
-Les 4 vaults sont surveillés via le dashboard unifié.
+Les 5 vaults sont surveillés via le dashboard unifié.
 
 ---
 
