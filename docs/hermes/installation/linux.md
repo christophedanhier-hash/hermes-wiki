@@ -202,4 +202,4 @@ services:
 - [Documentation officielle](https://hermes-agent.nousresearch.com/docs)
 - [GitHub](https://github.com/NousResearch/hermes-agent)
 - [Docker Hub](https://hub.docker.com/r/nousresearch/hermes-agent)
-*Document mis à jour le 04/07/2026 — 22:48:00 — Léo 🦁*
+*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
