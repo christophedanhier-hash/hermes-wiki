@@ -216,4 +216,4 @@ confirmer que le travail a été fait.
 
 ---
 
-> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — dashboards watchdog actifs, n8n retiré, 38 crons
+> 🤖 Dernier audit : 19/07/2026 à 06:10 (UTC+2)
