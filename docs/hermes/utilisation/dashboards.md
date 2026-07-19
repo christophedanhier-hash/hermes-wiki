@@ -204,4 +204,4 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ---
 
-> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — dashboard unifié actif, 38 crons, n8n retiré 13/07
+> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — dashboard unifié actif, 39 crons, n8n retiré 13/07

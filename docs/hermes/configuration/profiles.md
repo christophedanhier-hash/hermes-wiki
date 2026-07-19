@@ -185,4 +185,4 @@ Quand [condition], faire [action].
 *Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — 5 profils confirmés, 38 crons leo-copilot exclusif, emile/bavi-leo/default/bureau-robert=0
+> 🤖 Dernier audit : 19/07/2026 à 06:10 (UTC+2)

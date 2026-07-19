@@ -7,7 +7,7 @@
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
 > - **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows ont été migrés vers des crons Hermes.
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 38 crons actifs (vs 22 avant reconstruction).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 39 crons actifs (vs 22 avant reconstruction).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
@@ -122,7 +122,7 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **38 crons Hermes** (tous consolidés dans `leo-copilot`)
+> **39 crons Hermes** (tous consolidés dans `leo-copilot`)
 
 | Profil | Crons |
 |--------|:-----:|
