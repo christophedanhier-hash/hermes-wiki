@@ -21,7 +21,7 @@
 | URL locale | http://localhost:5678 *(service supprimé)* |
 | URL Tailscale | http://100.92.102.28:5678 *(service supprimé)* |
 | Email | leodanhieria@gmail.com *(non utilisé)* |
-| Password | `/opt/data/.n8n_pass` *(fichier supprimé)* |
+| Password | `~/Projets_Dev/.n8n_pass` *(fichier supprimé)* |
 | Version | 2.26.8 *(retiré)* |
 | Mode | Docker (conteneur supprimé) |
 
@@ -59,6 +59,6 @@ n8n étant retiré le 13/07/2026, les métriques associées ne sont plus collect
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 
 

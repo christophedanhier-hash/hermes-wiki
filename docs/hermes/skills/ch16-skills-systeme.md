@@ -178,7 +178,7 @@ Le skill `cron` documente la planification de tâches.
 hermes cron create \
   --name "Vérification disque" \
   --schedule "0 8 * * *" \
-  --script /opt/data/scripts/check-disk.sh \
+  --script ~/.hermes/profiles/leo-copilot/scripts/check-disk.sh \
   --no-agent
 ```
 
@@ -221,5 +221,5 @@ hermes cron run <id>    # Exécution immédiate
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

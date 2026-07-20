@@ -39,7 +39,7 @@ Le skill `excalidraw` permet de créer des diagrammes et schémas au style "tabl
 
 ```bash
 # Générer un schéma Excalidraw
-python3 /opt/data/scripts/upload.py mon-schema.excalidraw
+python3 ~/.hermes/profiles/leo-copilot/scripts/upload.py mon-schema.excalidraw
 ```
 
 ### Exemple : architecture simple
@@ -167,5 +167,5 @@ body { font-family: sans-serif; max-width: 800px; margin: auto; }
 - **Annexe A** : Glossaire
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

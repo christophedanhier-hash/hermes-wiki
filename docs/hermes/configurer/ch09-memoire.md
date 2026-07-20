@@ -68,16 +68,16 @@ Dans l'écosystème LEO, les profils peuvent **partager la même mémoire** via 
 
 ```bash
 # Créer un lien symbolique pour partager la mémoire
-ln -s /opt/data/memories/MEMORY.md /opt/data/profiles/leo-copilot/memories/MEMORY.md
-ln -s /opt/data/memories/USER.md /opt/data/profiles/leo-copilot/memories/USER.md
+ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/leo-copilot/memories/MEMORY.md
+ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/leo-copilot/memories/USER.md
 ```
 
 Avantage : quand un bot apprend quelque chose, l'autre le sait aussi immédiatement.
 
 ```
-LEO (default) écrit ──→ /opt/data/memories/MEMORY.md
+LEO (default) écrit ──→ ~/.hermes/memories/MEMORY.md
                               ↕ symlink
-Léo Copilote lit ──→ /opt/data/profiles/leo-copilot/memories/MEMORY.md
+Léo Copilote lit ──→ ~/.hermes/profiles/leo-copilot/memories/MEMORY.md
                               (même fichier !)
 ```
 
@@ -144,5 +144,5 @@ Session 2 (le lendemain) : "Quelle est l'IP de mon serveur ?"
 - **Annexe A** : glossaire (mémoire persistante)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

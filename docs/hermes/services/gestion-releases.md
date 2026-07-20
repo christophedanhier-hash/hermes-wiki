@@ -33,11 +33,11 @@ Analyse du changelog GitHub pour extraire :
 
 ```bash
 # Export profil complet
-hermes -p leo-copilot profile export > /opt/data/backups/hermes-leo-copilot-$(date +%Y%m%d).tar.gz
+hermes -p leo-copilot profile export > ~/.hermes/backups/hermes-leo-copilot-$(date +%Y%m%d).tar.gz
 
 # Git snapshot
-cd /opt/data/hermes-wiki && git push
-cd /opt/data/leo-tracker && git push
+cd ~/Projets_Dev/hermes-wiki && git push
+cd ~/Projets_Dev/leo-tracker && git push
 ```
 
 ## 4. Déploiement — Fenêtre de maintenance
@@ -72,5 +72,5 @@ uv pip install hermes-agent==VERSION_PRÉCÉDENTE
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

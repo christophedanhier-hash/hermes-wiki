@@ -129,8 +129,8 @@ Les profils peuvent partager des informations de plusieurs façons :
 
 \`\`\`bash
 # Les deux profils pointent vers les mêmes fichiers
-ln -s /opt/data/memories/MEMORY.md /opt/data/profiles/leo-copilot/memories/MEMORY.md
-ln -s /opt/data/memories/USER.md /opt/data/profiles/leo-copilot/memories/USER.md
+ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/leo-copilot/memories/MEMORY.md
+ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/leo-copilot/memories/USER.md
 \`\`\`
 
 Quand un bot met à jour sa mémoire, l'autre voit les changements automatiquement.
@@ -151,16 +151,16 @@ Si le fichier racine n'est pas synchronisé avec le profil, **TUI et Telegram ch
 
 ```bash
 # 1 fichier source de vérité
-rm -f /opt/data/SOUL.md
-ln -s /opt/data/profiles/<profil>/SOUL.md /opt/data/SOUL.md
+rm -f ~/Projets_Dev/SOUL.md
+ln -s ~/.hermes/profiles/<profil>/SOUL.md ~/Projets_Dev/SOUL.md
 ```
 
 Pour les profils qui partagent la même identité (ex: default + leo-copilot sont tous deux LEO) : **un seul SOUL.md unifié** avec un tableau des rôles, et les deux profils symlinkent vers le même fichier :
 
 ```bash
 # Les 3 chemins pointent vers le même inode
-ln -sf /opt/data/profiles/default/SOUL.md /opt/data/SOUL.md
-ln -sf /opt/data/profiles/default/SOUL.md /opt/data/profiles/leo-copilot/SOUL.md
+ln -sf ~/.hermes/profiles/default/SOUL.md ~/Projets_Dev/SOUL.md
+ln -sf ~/.hermes/profiles/default/SOUL.md ~/.hermes/profiles/leo-copilot/SOUL.md
 ```
 
 Structure du SOUL.md unifié :
@@ -178,7 +178,7 @@ Structure du SOUL.md unifié :
 
 **Vérification :**
 ```bash
-stat -L -c "%n → inode %i" /opt/data/SOUL.md /opt/data/profiles/*/SOUL.md
+stat -L -c "%n → inode %i" ~/Projets_Dev/SOUL.md ~/.hermes/profiles/*/SOUL.md
 # Tous doivent montrer le MÊME inode
 ```
 
@@ -217,5 +217,5 @@ delegation:
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 
