@@ -1,31 +1,29 @@
-# 📝 AUDIT — hermes-wiki
+# 📋 AUDIT — Journal des corrections
 
-> Dernier audit : 19/07/2026 à 06:25 (UTC+2) — correction 24 anomalies (38→39 crons)
+> Dernier audit : 20/07/2026 à 06:13 (UTC+2) — 20 anomalies corrigées (28 patches)
 
-## Résultat
+## 20/07/2026 — Audit massif (regex + DeepSeek V4 Flash)
 
-| Pages auditées | Anomalies | Corrigées auto |
-|:--------------:|:---------:|:--------------:|
-| 56 fichiers | 24 🟡 | 24 auto-fix |
+### 🔴 Erreurs factuelles corrigées (8)
+- 3× journaux quotidiens : 36/37 crons → 39
+- Rapport audit Michel : 38 crons → 39, 4 profils → 5, 4 gateways → 5
+- BAVI pour les nuls : 4 profils → 5
+- Prompts NotebookLM : 4 bots → 5
+- Guide Hermes ch01 : deepseek-chat → deepseek-v4-pro
+- État des lieux : 38 crons → 39
 
-## 🟡 Modérées corrigées (24/24)
+### 🟠 Obsolescences corrigées (12)
+- 5× gemini-2.5-flash → gemini-3.5-flash (providers, multi-bots, install rapide, skills système)
+- 6× n8n référencé comme actif/Docker → marqué retiré 13/07 (dashboards, skills catalogue, dashboards-intro)
+- 1× skills.md : n8n service marqué retiré
 
-### Correction massive 38→39 crons (24 occurrences)
-- ✅ **architecture.md** : footer audit
-- ✅ **etat-des-lieux.md** : 2 occurrences + footer
-- ✅ **configuration/profiles.md** : footer audit
-- ✅ **utilisation/crons.md** : footer audit
-- ✅ **utilisation/bots-telegram.md** : 2 occurrences
-- ✅ **utilisation/dashboards.md** : 1 occurrence
-- ✅ **utilisation/backup-recovery.md** : 1 occurrence
-- ✅ **utilisation/documentation-map.md** : 2 occurrences
-- ✅ **decisions/pourquoi-deepseek-pas-gemini.md** : 2 occurrences
-- ✅ **installation/linux.md** : 1 occurrence (diagramme Mermaid)
-
-## Pas d'anomalies critiques
-
-Les fichiers n8n (`dashboards/n8n.md`, `services/n8n.md`) sont correctement marqués **📦 ARCHIVE — retiré le 13/07/2026**. Les références n8n dans les fichiers actifs (`configurer/ch07-multi-bots.md`, `dashboards/ch22-dashboards-intro.md`) utilisent la mention « ex-n8n » ou « n8n retiré 13/07/2026 » — conforme.
+### 📊 Stats
+- **171 fichiers audités** (2 wikis)
+- **47 fichiers avec patterns suspects** (regex pre-scan)
+- **20 anomalies** (8 wrong + 12 outdated)
+- **28 patches** appliqués
+- **124 fichiers sans anomalie** (72% conformes)
 
 ---
 
-> 🤖 Dernier audit : 19/07/2026 à 06:25 (UTC+2)
+*Journal maintenu automatiquement par le cron d'audit rédactionnel.*

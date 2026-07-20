@@ -20,7 +20,7 @@ Il couvre :
 ### Exemple : configurer un nouveau provider
 
 ```bash
-hermes config set model.default gemini-2.5-flash
+hermes config set model.default gemini-3.5-flash
 hermes config set model.provider gemini
 # Ajouter la clé API dans .env
 echo "GEMINI_API_KEY=*** >>

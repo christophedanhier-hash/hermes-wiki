@@ -27,7 +27,7 @@
 | **Gateways** | 5 actifs (s6 supervision) |
 | **Modèle principal** | `deepseek-v4-flash` |
 | **Fallback** | Gemini 3.5 Flash |
-| **Crons actifs** | 38 (tous consolidés dans leo-copilot) |
+| **Crons actifs** | 39 (tous consolidés dans leo-copilot) |
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
 

@@ -103,7 +103,7 @@ Exemple de configuration pour un profil spécialisé infra :
 model:
   default: deepseek-v4-pro        # Modèle puissant pour l'infra
   provider: deepseek
-fallback_providers: '[{"provider": "gemini", "model": "gemini-2.5-flash"}]'
+fallback_providers: '[{"provider": "gemini", "model": "gemini-3.5-flash"}]'
 display:
   language: fr
 timezone: Europe/Brussels
