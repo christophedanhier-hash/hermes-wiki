@@ -72,7 +72,7 @@ for dashboard in leo-kpi machines crons github bavi-leo global; do
     if [ "$code" != "200" ]; then
         echo "❌ ${dashboard}: HTTP ${code}"
         # Redéploiement automatique
-        python3 "/opt/data/scripts/deploy-${dashboard}.py"
+        python3 ~/.hermes/profiles/leo-copilot/scripts/deploy-dashboard.py
     else
         echo "✅ ${dashboard}: HTTP 200"
     fi

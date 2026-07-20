@@ -95,7 +95,7 @@ La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, cron
 
 ### Les crons (tâches planifiées)
 
-> 13 sur 14 sont en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
+> **39 crons** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
 
 | Vague | Horaires | Crons |
 |:------|:---------|:------|

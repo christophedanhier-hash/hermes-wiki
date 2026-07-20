@@ -162,8 +162,8 @@ hermes memory add "Christophe préfère les réponses concises" --target user
 
 ```bash
 # Créer un lien symbolique pour partager
-ln -s /opt/data/memories/MEMORY.md /opt/data/profiles/leo-copilot/memories/MEMORY.md
-ln -s /opt/data/memories/USER.md /opt/data/profiles/leo-copilot/memories/USER.md
+ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/leo-copilot/memories/MEMORY.md
+ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/leo-copilot/memories/USER.md
 ```
 
 Ainsi, quand un profil apprend quelque chose, les autres en bénéficient immédiatement.
