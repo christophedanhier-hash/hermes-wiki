@@ -5,7 +5,7 @@
 ## 10/07/2026
 
 - **🔴 Restauration d'urgence** — Perte du conteneur Docker LEO. Restauration complète depuis `leo-full-backup-2026-07-10.tar.gz` (cf. `backup-recovery.md`).
-  - Fix symlink SOUL.md cassé (pointait vers `/opt/data/`)
+  - Fix symlink SOUL.md cassé (pointait vers `~/Projets_Dev/`)
   - Redémarrage des 5 gateways (default, leo-copilot, bureau-robert, bavi-leo, emile)
   - Correction des paths OBSIDIAN_VAULT_PATH dans les 5 `.env`
   - Backup immédiat post-restauration (93 Mo)
@@ -18,5 +18,5 @@
 - **Rebuild Wiki Voyages local (15 * * * *)** : Nouvelle tâche ajoutée pour la reconstruction locale du wiki Voyages à 3h00.
 - **Check OAuth Tokens (48h) (0 8 * * *)** : Mise en place d'un script pour vérifier les tokens OAuth toutes les 48 heures.
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

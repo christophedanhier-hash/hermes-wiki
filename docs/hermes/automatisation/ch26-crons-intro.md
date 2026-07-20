@@ -192,7 +192,7 @@ plutôt que `python3`.
 ### 🔴 Cross-device move
 
 Dans un script cron, ne pas utiliser `Path.rename()` entre `/tmp/` et
-`/opt/data/` — ces répertoires sont souvent sur des filesystems différents.
+`~/Projets_Dev/` — ces répertoires sont souvent sur des filesystems différents.
 Utilisez `shutil.move()`.
 
 ```python
@@ -216,5 +216,5 @@ confirmer que le travail a été fait.
 - Voir `exemples/LEO.md` pour l'architecture cron complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

@@ -89,19 +89,19 @@ Le skill `arxiv` permet de chercher des articles scientifiques sur Arxiv.
 ### Recherche par mot-clé
 
 ```bash
-python3 /opt/data/scripts/search_arxiv.py --query "hermes agent LLM" --max 5
+python3 ~/.hermes/profiles/leo-copilot/scripts/search_arxiv.py --query "hermes agent LLM" --max 5
 ```
 
 ### Recherche par auteur
 
 ```bash
-python3 /opt/data/scripts/search_arxiv.py --author "danhier" --max 10
+python3 ~/.hermes/profiles/leo-copilot/scripts/search_arxiv.py --author "danhier" --max 10
 ```
 
 ### Recherche par catégorie
 
 ```bash
-python3 /opt/data/scripts/search_arxiv.py --category cs.AI --sort date --max 20
+python3 ~/.hermes/profiles/leo-copilot/scripts/search_arxiv.py --category cs.AI --sort date --max 20
 ```
 
 ### Format des résultats
@@ -140,10 +140,10 @@ Le skill `llm-wiki` crée une base de connaissance interrogeable à partir de fi
 
 ```bash
 # Indexer le wiki
-python3 /opt/data/scripts/index_wiki.py /opt/data/BAVI_LEO/docs/
+python3 ~/.hermes/profiles/leo-copilot/scripts/index_wiki.py ~/Projets_Dev/BAVI_LEO/docs/
 
 # Interroger
-python3 /opt/data/scripts/query_wiki.py "Comment configurer un gateway ?"
+python3 ~/.hermes/profiles/leo-copilot/scripts/query_wiki.py "Comment configurer un gateway ?"
 ```
 
 Utile pour que Hermes puisse chercher dans sa propre documentation sans avoir tout en contexte.
@@ -154,10 +154,10 @@ Le skill `polymarket` interroge les marchés de prédiction Polymarket (blockcha
 
 ```bash
 # Derniers marchés
-python3 /opt/data/scripts/polymarket.py --trending
+python3 ~/.hermes/profiles/leo-copilot/scripts/polymarket.py --trending
 
 # Prix d'un marché spécifique
-python3 /opt/data/scripts/polymarket.py --slug "will-agi-exist-by-2030"
+python3 ~/.hermes/profiles/leo-copilot/scripts/polymarket.py --slug "will-agi-exist-by-2030"
 ```
 
 ## YouTube : analyser des vidéos
@@ -166,7 +166,7 @@ Le skill `youtube-content` extrait et analyse les transcripts de vidéos YouTube
 
 ```bash
 # Extraire le transcript
-python3 /opt/data/scripts/fetch_transcript.py https://youtu.be/VIDEO_ID
+python3 ~/.hermes/profiles/leo-copilot/scripts/fetch_transcript.py https://youtu.be/VIDEO_ID
 
 # Analyser le contenu
 # → Résumé, points clés, transcript complet
@@ -192,5 +192,5 @@ Utile pour les conférences techniques, les tutoriels ou les annonces de produit
 - **Annexe A** : Glossaire
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

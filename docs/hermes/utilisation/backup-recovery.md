@@ -1,6 +1,6 @@
 # 💾 Backup & Recovery — État actuel (10/07/2026)
 
-> **Mise à jour post-migration du 10/07/2026** — tous les chemins ont migré de `/opt/data/` vers `~/.hermes/`. Le backup inclut maintenant 29 chemins + hermes-christophe.
+> **Mise à jour post-migration du 10/07/2026** — tous les chemins ont migré de `~/Projets_Dev/` vers `~/.hermes/`. Le backup inclut maintenant 29 chemins + hermes-christophe.
 
 ## 🔴 Restauration d'urgence — 10/07/2026 12:09
 
@@ -10,7 +10,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 
 1. **Extraction** du backup dans `/tmp/leo-backup/`
 2. **Restauration** des mémoires (`memories/`), skills, profils, config, .env, crons, scripts
-3. **Correction** du symlink `SOUL.md` cassé → pointait sur `/opt/data/` qui n'existe plus
+3. **Correction** du symlink `SOUL.md` cassé → pointait sur `~/Projets_Dev/` qui n'existe plus
 4. **Redémarrage** des 5 gateways (default, leo-copilot, bavi-leo, emile, bureau-robert)
 5. **Ajustement** des chemins `OBSIDIAN_VAULT_PATH` dans les 4 `.env` (→ `~/.hermes/vault-*`)
 6. **Backup de sauvegarde** immédiat : `leo-full-backup-2026-07-10_12-18.tar.gz` (93 Mo)
@@ -19,9 +19,9 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 
 | Problème | Cause | Fix |
 |----------|-------|-----|
-| SOUL.md introuvable | Symlink → `/opt/data/profiles/default/SOUL.md` (inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
+| SOUL.md introuvable | Symlink → `~/.hermes/profiles/default/SOUL.md` (inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
 | Crons bloqués | Sans SOUL.md, le cron ne chargeait pas le profil | Symlink réparé + gateway redémarrée |
-| Vaults inaccessibles | `OBSIDIAN_VAULT_PATH` → `/opt/data/vault-*` | Mis à jour vers `~/.hermes/vault-*` |
+| Vaults inaccessibles | `OBSIDIAN_VAULT_PATH` → `~/Projets_Dev/vault-*` | Mis à jour vers `~/.hermes/vault-*` |
 | Profiles absents | Backup extrait sans les dossiers `profiles/` | Copiés depuis `/tmp/leo-backup/profiles/` |
 
 ### État final (12:25)
@@ -40,7 +40,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 
 - **Le symlink SOUL.md est le point de défaillance #1** — sans lui, le profil ne charge pas son identité et les crons échouent
 - **memories/ est critique** — perte = perte d'identité de l'agent
-- **Les paths doivent être absolus** — les `OBSIDIAN_VAULT_PATH` en `/opt/data/` plantent hors conteneur
+- **Les paths doivent être absolus** — les `OBSIDIAN_VAULT_PATH` en `~/Projets_Dev/` plantent hors conteneur
 - **Faire un backup immédiat après restauration** — protège l'état restauré
 
 ## Vue d'ensemble
@@ -60,7 +60,7 @@ Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 | 🔑 Tous les tokens OAuth | google_token, leo_google_token, leo_drive_token, leo_email_token, leo_sheets_token, gdrive-service-account |
 | 🔐 Credentials vault | `credentials_vault.json` (tous les .env, secrets) |
 | 📚 Skills Hermes | ~1022 fichiers, 22 skills actifs |
-| 👤 **Tous les profils** | `profiles/default`, `profiles/leo-copilot`, `profiles/bavi-leo`, `profiles/emile` — configs, skills, memory, cron |
+| 👤 **Tous les profils** | `profiles/default`, `profiles/leo-copilot`, `profiles/bavi-leo`, `profiles/emile`, `profiles/bureau-robert` — configs, skills, memory, cron |
 | 🏛️ Vaults Obsidian | `vault-leo`, `vault-default`, `vault-emile`, `vault-bavi` |
 | 📜 Scripts personnalisés | ~106 scripts dans `scripts/` |
 | 🧠 Session DB | `state.db` (~2.6 MB) — historique complet des conversations |
@@ -240,5 +240,5 @@ done
 
 *Document mis à jour le 10/07/2026 à 00:00 — LEO 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

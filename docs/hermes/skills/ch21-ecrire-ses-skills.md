@@ -135,7 +135,7 @@ Basés sur l'expérience réelle de LEO :
 | 6 | Labels Gmail : ne pas réappliquer | Une seule classification par email |
 | 7 | Migration Hermes → rebuild Docker | Script `rebuild.sh` dans recovery-kit |
 | 8 | Tokens .env corrompus par le redact | Écrire via base64 |
-| 9 | sshpass → `/opt/data/bin/` pas `/tmp/` | Binaire dédié |
+| 9 | sshpass → `~/Projets_Dev/bin/` pas `/tmp/` | Binaire dédié |
 | 10 | Config v30 → migration nécessaire | `hermes config migrate` |
 
 ## Où stocker ses skills
@@ -149,7 +149,7 @@ Basés sur l'expérience réelle de LEO :
 ### Skills partagés entre profils
 
 ```bash
-/opt/data/skills/<categorie>/<nom>/SKILL.md
+~/Projets_Dev/skills/<categorie>/<nom>/SKILL.md
 ```
 
 ### Skills synchronisés
@@ -209,5 +209,5 @@ flowchart LR
 - **Annexe B** : Guide démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

@@ -128,7 +128,7 @@ if tok:
 **Solution :** après avoir pushé depuis `/tmp/`, faites un `git pull` dans le repo local :
 
 ```bash
-cd /opt/data/n8n-dashboard
+cd ~/Projets_Dev/n8n-dashboard
 git pull origin main
 ```
 
@@ -192,7 +192,7 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ```bash
 # Le cron
-🌍 Global Dashboard — H:05 → /opt/data/scripts/deploy_leo_global.py (no_agent)
+🌍 Global Dashboard — H:05 → ~/.hermes/profiles/leo-copilot/scripts/deploy_leo_global.py (no_agent)
 ```
 
 - **Usage LLM** — requêtes/jour, tokens consommés, coût estimé
@@ -207,5 +207,5 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `exemples/LEO.md` pour les dashboards en production
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

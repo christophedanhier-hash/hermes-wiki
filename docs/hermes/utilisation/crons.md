@@ -168,7 +168,7 @@ aux credentials GitHub. Deux solutions :
 **Solution 1 — Chemin absolu vers gh :**
 ```python
 import subprocess, os
-gh_path = "/opt/data/home/.local/bin/gh"
+gh_path = "~/Projets_Dev/home/.local/bin/gh"
 tok = os.environ.get("GH_TOKEN")
 if not tok:
     tok = subprocess.run([gh_path, "auth", "token"],
@@ -190,7 +190,7 @@ plutôt que `python3`.
 ### 🔴 Cross-device move
 
 Dans un script cron, ne pas utiliser `Path.rename()` entre `/tmp/` et
-`/opt/data/` — ces répertoires sont souvent sur des filesystems différents.
+`~/Projets_Dev/` — ces répertoires sont souvent sur des filesystems différents.
 Utilisez `shutil.move()`.
 
 ```python
@@ -216,5 +216,5 @@ confirmer que le travail a été fait.
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

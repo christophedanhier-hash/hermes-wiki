@@ -207,7 +207,7 @@ Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été resta
 
 | Problème | Fix |
 |:---------|:----|
-| `SOUL.md` cassé (symlink → `/opt/data/` inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
+| `SOUL.md` cassé (symlink → `~/Projets_Dev/` inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
 | Vaults inaccessibles (`OBSIDIAN_VAULT_PATH`) | Mis à jour vers `~/.hermes/vault-*` |
 || 28 crons restaurés | Maintenant 39 crons actifs (croissance depuis la restauration) |
 | Gateway redémarrée | ✅ Connecté Telegram |
@@ -233,6 +233,6 @@ Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été resta
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 
 

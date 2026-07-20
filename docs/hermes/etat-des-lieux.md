@@ -273,7 +273,7 @@ flowchart TD
 
 ### Conventions scripts
 
-- Tous les exécutables dans `/opt/data/scripts/`
+- Tous les exécutables dans `~/.hermes/profiles/leo-copilot/scripts/`
 - Pattern wrapper shell → `/opt/hermes/.venv/bin/python3 <script.py>`
 - Crons no_agent = wrapper shell impératif (pas de .py direct)
 
@@ -316,5 +316,5 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
 

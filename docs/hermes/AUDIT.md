@@ -1,3 +1,19 @@
+## 📋 Audit rédactionnel — 20/07/2026
+
+**Modèle :** regex pre-scan (clé API redacted)
+**Fichiers audités :** 55 (hermes-wiki)
+**Anomalies :** 71
+**Corrigées :** 18 fichiers patchés
+
+| Catégorie | Nb | Statut | Détail |
+|-----------|----|--------|--------|
+| `/opt/data/` → `~/Projets_Dev/` | 54 corrigés | ✅ corrigé | 18 fichiers patchés |
+| n8n encore mentionné comme actif | 3 fichiers | ⚠️ outdated | Conservé comme référence historique |
+| Liste profils sans bureau-robert | 1 | ✅ corrigé | backup-recovery.md |
+| deepseek-chat → deepseek-v4-flash | 0 | ✅ ok | Plus aucune occurrence |
+
+**Fichiers modifiés :** ch26-crons-intro, ch12-bureau-sylvia, changelog, ch07-multi-bots, ch09-memoire, ch22-dashboards-intro, etat-des-lieux, gestion-releases, n8n, pre-migration-v017, ch16-skills-systeme, ch19-skills-creatifs, ch20-skills-recherche, ch21-ecrire-ses-skills, backup-recovery, bots-telegram, crons, dashboards
+
 ## 🤖 Audit DeepSeek — 17/07/2026 à 18:00
 
 | Page | Section | Statut | Correction |

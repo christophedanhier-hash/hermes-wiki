@@ -52,8 +52,8 @@
 ## 4. Plan de migration
 
 ```
-1. BACKUP: tar czf /opt/data/backups/hermes-pre-v017-$(date +%Y%m%d).tar.gz \\
-     /opt/data/profiles/ /opt/data/leo_google_token.json /opt/data/.env
+1. BACKUP: tar czf ~/.hermes/backups/hermes-pre-v017-$(date +%Y%m%d).tar.gz \\
+     ~/.hermes/profiles/ ~/Projets_Dev/leo_google_token.json ~/Projets_Dev/.env
      
 2. PAUSE CRONS: hermes cron pause <critiques>
 
@@ -86,4 +86,4 @@
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
