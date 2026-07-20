@@ -5,7 +5,7 @@ Hermes Agent peut utiliser plusieurs fournisseurs de modèles de langage (LLM). 
 ## Principe
 
 ```
-Un seul profil = plusieurs providers disponibles
+Plusieurs profils (ex: leo-copilot, default, etc.), chacun avec plusieurs providers disponibles
        │
        ├── Provider principal → Conversations, tâches complexes
        ├── Provider local → Tâches simples, gratuit, privé
@@ -181,4 +181,7 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 *Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — confirmé : qwen2.5:7b seul modèle Ollama, fallback deepseek-v4-flash→gemini-3.5-flash→qwen2.5:7b, n8n déprécié
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+
+

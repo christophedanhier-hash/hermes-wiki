@@ -65,7 +65,7 @@ Le dashboard **leo-dashboard** (unifié) affiche en temps réel les métriques m
 ```
 
 Collecte : toutes les heures (cron no_agent, 0€).
-Technologie : script bash → JSON → Chart.js → GitHub Pages.
+Technologie : Dashboard Hermes (port 9119) ou Panel (port 8765) avec collecte via script bash.
 
 ## Alerte automatique
 
@@ -79,7 +79,7 @@ Seuils d'alerte:
 
 Le health-check détecte ces seuils via le déploiement horaire unifié (`collect-v2.py`).
 
-## 1 machine — le serveur LEO
+## Les machines surveillées
 
 | Machine | OS | RAM | Stockage | Rôle |
 |:--------|:---|:---:|:--------:|:-----|
@@ -97,9 +97,12 @@ htop
 watch -n 5 df -h /opt/data
 
 # Logs mémoire Docker
-docker stats --no-stream
+docker stats --no-streamo-stream
 
 # Température GPU
 nvidia-smi
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

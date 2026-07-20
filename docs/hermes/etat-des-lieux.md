@@ -25,7 +25,7 @@
 | **Docker** | 2 conteneurs (hermes-agent + ollama) |
 | **Profils actifs** | 5 (default, leo-copilot, bavi-leo, emile, bureau-robert) |
 | **Gateways** | 5 actifs (s6 supervision) |
-| **Modèle principal** | `deepseek-v4-flash` |
+| **Modèle principal** | `multiproviders (deepseek, openai, gemini, grok, anthropic)` |
 | **Fallback** | Gemini 3.5 Flash |
 | **Crons actifs** | 39 (tous consolidés dans leo-copilot) |
 | **Skills installés** | 126 |
@@ -315,3 +315,6 @@ Tester le résultat avant de livrer :
 
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+

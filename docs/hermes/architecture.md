@@ -4,7 +4,7 @@
 - **Host LEO**: i7-7700K, 22GB RAM
 - **Container**: Debian 13, Python 3.14, DeepSeek V4 Flash
 - **Telegram Client**: Chromebook Telegram
-- **Model AI**: DeepSeek V4 Flash/Pro, Ollama qwen2.5:7b, Gemini 3.5 Flash (fallback)
+- **Model AI**: DeepSeek, Ollama qwen2.5:7b, Gemini, OpenAI, Grok, Anthropic (fallback: Ollama)
 
 ## 2. Budget API
 - Balance: $41.83 (solde actuel) — Coût total : ~$19.97
@@ -12,7 +12,7 @@
 - Stop: $10
 - Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (39)
+## 3. Crons Actifs (39) (table incomplete)
 | **Tâche** | **Horodatage** | **Script** |
 | --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |
@@ -68,4 +68,5 @@
 
 ---
 
-> 🤖 Dernier audit : 19/07/2026 à 06:10 (UTC+2)
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

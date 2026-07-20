@@ -28,7 +28,7 @@ Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Fl
 | 🎓 @Bureau_ia_emilie_bot | `emile` | Gemini 3.5 Flash | Pédagogie, mémoire | < 2s | Gratuit |
 | 🏛️ @bureau_robert_bot | `bureau-robert` | DeepSeek Pro | Conseil IT stratégique | < 2s | Payant |
 
-Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills, sa propre mémoire. Mais ils partagent un fichier de configuration commun et peuvent échanger des informations.
+Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills. Les profils default et leo-copilot partagent une mémoire unifiée. Mais ils partagent un fichier de configuration commun et peuvent échanger des informations.
 
 ## La hiérarchie des providers
 
@@ -183,3 +183,6 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 **[Chapitre suivant → Installation rapide](ch04-installation-rapide.md)**
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

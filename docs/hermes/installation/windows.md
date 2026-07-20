@@ -128,3 +128,6 @@ Les principes sont identiques, seuls changent :
 - [Ollama pour Windows](https://ollama.com/download)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

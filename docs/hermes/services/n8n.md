@@ -12,60 +12,35 @@
 
 ## 🏗️ Architecture
 
-```mermaid
-graph TD
-    N8N["n8n :5678<br/>API REST"] --> DRIVE["🟢 Drive → Issue<br/>Google Drive → GitHub"]
-    N8N --> GARDIEN["🟢 Gardien du Drive<br/>Ollama · classement auto"]
-    N8N --> SAVE["🟢 💾 Save Contacts<br/>GitHub backup"]
-```
+*(Architecture obsolète : n8n a été retiré le 13/07/2026)*
 
 ### Accès
 
-| Info | Valeur |
+| Info | Valeur (obsolète) |
 |:-----|:-------|
-| URL locale | http://localhost:5678 |
-| URL Tailscale | http://100.92.102.28:5678 |
-| Email | leodanhieria@gmail.com |
-| Password | `/opt/data/.n8n_pass` |
-| Version | 2.26.8 |
-| Mode | Docker (`docker.n8n.io/n8nio/n8n:latest`) |
+| URL locale | http://localhost:5678 *(service supprimé)* |
+| URL Tailscale | http://100.92.102.28:5678 *(service supprimé)* |
+| Email | leodanhieria@gmail.com *(non utilisé)* |
+| Password | `/opt/data/.n8n_pass` *(fichier supprimé)* |
+| Version | 2.26.8 *(retiré)* |
+| Mode | Docker (conteneur supprimé) |
 
 > **Note** : Le collecteur `collect-v2.py` utilise `localhost:5678` (corrigé le 04/07/2026, était `100.92.102.28:5678`).
 
 ---
 
-## ⚡ Workflows Actifs (3)
+## ⚡ Workflows (historique)
 
-### 1. 🟢 🔗 Drive → Issue GitHub
-- **ID** : `KPoilIuXhkw0pjGU`
-- **Déclencheur** : Webhook POST
-- **Fonction** : Crée automatiquement une issue dans `leo-tracker` quand un fichier est modifié sur Google Drive
-- **Architecture** : Webhook → Code → HTTP GitHub API
-
-### 2. 🟢 🧠 Gardien du Drive
-- **ID** : `aRNg1FQMfptLu9Wt`
-- **Déclencheur** : Planifié
-- **Fonction** : Surveillance et classement automatique des fichiers Drive via Ollama
-
-### 3. 🟢 💾 Save Contacts to GitHub
-- **ID** : `G73KASTP4EyUneMX`
-- **Déclencheur** : Planifié
-- **Fonction** : Sauvegarde des contacts Google vers GitHub
+Les workflows suivants ont été migrés vers des crons Hermes no_agent le 13/07/2026 :
+- Drive → Issue GitHub (ID : `KPoilIuXhkw0pjGU`)
+- Gardien du Drive (ID : `aRNg1FQMfptLu9Wt`)
+- Save Contacts to GitHub (ID : `G73KASTP4EyUneMX`)
 
 ---
 
-## 📊 Monitoring
+## 📊 Monitoring (obsolète)
 
-Le statut n8n est intégré au **leo-dashboard** (source `n8n` dans `collect-v2.py`) :
-
-| Métrique | Source |
-|:---------|:-------|
-| 🟢/🔴 En ligne | Healthcheck `/healthz` |
-| Nombre de workflows | API REST `/rest/workflows` |
-| Statut par workflow | API REST `/rest/executions` |
-| Exécutions 7j | API REST `/rest/executions?limit=500` |
-
-Accès : [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) → onglet ⚙️ Infra → section n8n
+n8n étant retiré le 13/07/2026, les métriques associées ne sont plus collectées. La section n8n a été supprimée du leo-dashboard.
 
 ---
 
@@ -84,4 +59,6 @@ Accès : [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/
 
 ---
 
-> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — archivé, n8n retiré 13/07/2026
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+
+

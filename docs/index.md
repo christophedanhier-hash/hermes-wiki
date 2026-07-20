@@ -108,7 +108,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 <div class="sub">Assistant IA autonome · Planification · Monitoring · Bureaux Virtuels</div>
 <div class="badges">
     <span class="badge">✅ Gateway Actif</span>
-    <span class="badge">🤖 DeepSeek v4 Flash</span>
+    <span class="badge">🤖 DeepSeek (API)</span>
     <span class="badge">🏠 Ollama qwen2.5:7b</span>
     <span class="badge">⚡ Gemini fallback</span>
     <span class="badge">📱 Telegram</span>
@@ -173,3 +173,6 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 > 🕐 **Dernière mise en ligne : 20/07/2026 09:01**  
 > *Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com) · 🦁 LEO*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

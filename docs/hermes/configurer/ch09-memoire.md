@@ -143,3 +143,6 @@ Session 2 (le lendemain) : "Quelle est l'IP de mon serveur ?"
 - **Ch.3** : l'architecture LEO (comment s'organisent les profils)
 - **Annexe A** : glossaire (mémoire persistante)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

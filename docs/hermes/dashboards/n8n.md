@@ -11,11 +11,14 @@
 
 | Métrique | Valeur |
 |----------|-------:|
-| Version n8n | 2.26.8 |
-| Workflows actifs | 1/2 |
-| Exécutions totales | 0 |
-| Credential Gmail | ✅ |
+| Version n8n | Retiré |
+| Workflows actifs | 0/0 |
+| Exécutions totales | N/A |
+| Credential Gmail | ❌ |
 
 ---
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

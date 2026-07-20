@@ -93,3 +93,6 @@ Règles:
   - Pas de spam : pas de notification pour les succès
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+

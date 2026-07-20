@@ -60,6 +60,12 @@ Seuils d'alerte:
 |:---------|:-------------------:|:--------------------:|:---------------:|
 | DeepSeek Flash | $0.14 | $0.28 | >6 ans |
 | DeepSeek Pro | $0.435 | $0.87 | ~5 mois |
+| OpenAI GPT-4o | - | - | - |
+| Grok | - | - | - |
+| Anthropic Claude | - | - | - |
 | Gemini Flash | **0 €** | **0 €** | ∞ (quotas gratuits) |
 | Ollama | **0 €** | **0 €** | ∞ (local) |
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+

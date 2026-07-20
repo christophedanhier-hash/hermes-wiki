@@ -38,7 +38,7 @@ vs
 | 🛡️ **AO** | Assurance obligatoire — INAMI, eHealth | 📝 Structure prête |
 | 📋 **Versioning** | Gestion des versions et des releases | 📝 Structure prête |
 
-> **Note 18/07/2026** : 8 bureaux structurés, 2 en attente (AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (bavi-leo, bureau-robert, emile, leo-copilot).
+> **Note 18/07/2026** : 8 bureaux structurés, 2 en attente (AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (bavi-leo, bureau-robert, emile, leo-copilot, default).
 
 ## Comment fonctionne un bureau
 
@@ -59,7 +59,7 @@ BAVI/AGENT-PRO/
 
 ### 2. Des experts spécialisés
 
-Chaque bureau peut faire appel à des sous-experts (agents CrewAI). Par exemple, le Bureau Michel a 8 experts :
+Chaque bureau peut faire appel à des sous-experts (profils Hermes dédiés). Par exemple, le Bureau Michel a 8 experts :
 
 ```
 Bureau Michel
@@ -183,4 +183,6 @@ Ces métadonnées permettent au script `agent-pro-index.py` de générer automat
 
 ---
 
-> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — 8 bureaux actifs, profils Hermes remplaçant CrewAI, modèles mis à jour
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+
+

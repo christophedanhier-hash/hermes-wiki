@@ -22,18 +22,22 @@ Un seul bot                                                 5 bots spécialisés
 ```
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
-- **LEO** (default) : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **Léo Copilote** (leo-copilot) : l'ingénieur infrastructure — crons, dashboards, scripts Python (ex-n8n), budget, système (root sudo)
-- **Sylvia** (bavi-leo) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
+- **default** : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
+- **leo-copilot** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (39 actifs)
+- **bureau-robert** : [description à définir]
+- **bavi-leo** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
+- **emile** : [description à définir]
 
 ### 2. Modèles adaptés à chaque usage
 
 | Bot | Modèle principal | Coût | Usage typique |
 |:----|:-----------------|:----:|:--------------|
-| LEO | DeepSeek V4 Flash | ~0,05 €/j | Quotidien, polyvalent |
-| Léo Copilote | DeepSeek V4 Pro | ~0,10 €/tâche | Analyses complexes, infra |
-| Sylvia | DeepSeek V4 Flash | ~0,03 €/j | Roadbooks, voyages |
-| Fallback | Gemini 3.5 Flash | Gratuit (1M tokens) | Si DeepSeek indisponible |
+| default | qwen2.5:7b (Ollama) | Local gratuit | Quotidien, polyvalent |
+| leo-copilot | qwen2.5:7b (Ollama) | Local gratuit | Analyses complexes, infra |
+| bavi-leo | qwen2.5:7b (Ollama) | Local gratuit | Roadbooks, voyages |
+| bureau-robert | qwen2.5:7b (Ollama) | Local gratuit | Bureau, [rôle] |
+| emile | qwen2.5:7b (Ollama) | Local gratuit | [rôle] |
+| (fallback) | Providers: deepseek, openai, gemini, grok, anthropic | Payant selon quota | Si Ollama indisponible |
 
 ### 3. Isolation des tokens et permissions
 
@@ -41,16 +45,24 @@ Chaque bot a son propre token Telegram. Si un token est compromis ou rate-limity
 
 ```
 default.env
-├── TELEGRAM_BOT_TOKEN=881242...  ← Léo (vous)
-├── TELEGRAM_ALLOWED_USERS=8718957859
+├── TELEGRAM_BOT_TOKEN=...  ← default
+├── TELEGRAM_ALLOWED_USERS=...
 
 leo-copilot.env
-├── TELEGRAM_BOT_TOKEN=899720...  ← Léo Copilote
-├── TELEGRAM_ALLOWED_USERS=8718957859
+├── TELEGRAM_BOT_TOKEN=...  ← leo-copilot
+├── TELEGRAM_ALLOWED_USERS=...
 
 bavi-leo.env
-├── TELEGRAM_BOT_TOKEN=885780...  ← Sylvia
-├── TELEGRAM_ALLOWED_USERS=8718957859,8822960747
+├── TELEGRAM_BOT_TOKEN=...  ← bavi-leo (Sylvia)
+├── TELEGRAM_ALLOWED_USERS=...
+
+bureau-robert.env
+├── TELEGRAM_BOT_TOKEN=...  ← bureau-robert
+├── TELEGRAM_ALLOWED_USERS=...
+
+emile.env
+├── TELEGRAM_BOT_TOKEN=...  ← emile
+├── TELEGRAM_ALLOWED_USERS=...
 ```
 
 ## Architecture des profils
@@ -204,3 +216,6 @@ delegation:
 | `emile` | Émile 🎓 | DeepSeek V4 Flash | Assistant pédagogique mémoire |
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+
