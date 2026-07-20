@@ -239,3 +239,6 @@ done
 | Skill DRP | `leo-backup-dr` (skill Hermes — infrastructure) |
 
 *Document mis à jour le 10/07/2026 à 00:00 — LEO 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

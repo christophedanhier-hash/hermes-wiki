@@ -166,3 +166,6 @@ body { font-family: sans-serif; max-width: 800px; margin: auto; }
 - **Ch.22** : Dashboards (intégration de graphiques)
 - **Annexe A** : Glossaire
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

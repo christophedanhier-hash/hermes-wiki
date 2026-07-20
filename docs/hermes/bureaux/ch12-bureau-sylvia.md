@@ -139,3 +139,6 @@ git push origin main
 - **Ch.26** : Crons de synchronisation
 - **Annexe B** : Guide démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

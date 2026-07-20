@@ -40,7 +40,7 @@ Terminal de conversation interactif avec l'agent.
 | Élément | Description |
 |---------|-------------|
 | **Zone de saisie** | Terminal input — tapez vos messages |
-| **Modèle actif** | Affiche le modèle utilisé (ex: `deepseek-v4-flash`) |
+| **Modèle actif** | Affiche le modèle utilisé (ex: `qwen2.5:7b` (ou indiquer que le modèle par défaut peut varier)) |
 | **Outils** | Liste des tool calls effectués pendant la session |
 | **Copy last response** | Bouton pour copier la dernière réponse |
 
@@ -78,7 +78,7 @@ Configuration et sélection des modèles LLM.
 | Fonctionnalité | Description |
 |----------------|-------------|
 | **Liste des modèles** | Modèles disponibles par provider |
-| **Provider** | DeepSeek, Ollama, Google/Gemini |
+| **Provider** | DeepSeek, Ollama, Google/Gemini, OpenAI, Grok, Anthropic |
 | **Sélection** | Choix du modèle par défaut pour le profil actif |
 
 Permet de basculer entre modèles sans toucher au fichier de config.
@@ -266,3 +266,6 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 ---
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

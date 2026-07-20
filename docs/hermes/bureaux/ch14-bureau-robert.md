@@ -94,3 +94,6 @@ Sophie (financier):
 - **Ch.11** : Bureau Michel (implémente les recommandations)
 - **Ch.15** : Bureau Sophie (pilotage financier)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

@@ -35,11 +35,11 @@ LEO utilise **5 profils Hermes**, chacun avec son propre bot Telegram et sa spé
 
 | Profil | Rôle | Modèle | Mémoire |
 |--------|------|--------|---------|
-| `default` | Dialogue quotidien | DeepSeek Flash | Partagée avec leo-copilot |
-| `leo-copilot` | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
-| `bavi-leo` | Voyages (Sylvia) | DeepSeek Flash | Séparée |
-| `emile` | Création contenu | DeepSeek Flash | Séparée |
-| `bureau-robert` | Conseil Stratégique IA | DeepSeek Pro | Séparée |
+| `default` | Dialogue quotidien | DeepSeek / Ollama (qwen2.5:7b) / autres | Partagée avec leo-copilot |
+| `leo-copilot` | Infrastructure & crons | DeepSeek / Ollama / autres | Partagée avec default |
+| `bavi-leo` | Voyages (Sylvia) | DeepSeek / Ollama / autres | Séparée |
+| `emile` | Création contenu | DeepSeek / Ollama / autres | Séparée |
+| `bureau-robert` | Conseil Stratégique IA | DeepSeek / Ollama / autres | Séparée |
 
 - **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
 - **Crons** : 39 dans `leo-copilot` exclusivement. Règle « ZÉRO hors leo-copilot » respectée (emile=0, bavi-leo=0, default=0, bureau-robert=0).
@@ -183,3 +183,6 @@ Quand [condition], faire [action].
 - Voir `02-configuration/providers.md` pour la configuration LLM
 - Voir `exemples/LEO.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

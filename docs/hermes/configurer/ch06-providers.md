@@ -106,7 +106,7 @@ curl http://localhost:11434/api/tags
 
 ## Google Gemini (fallback)
 
-Gemini peut servir de provider de secours si le principal est indisponible.
+Gemini est un provider disponible (principal ou fallback selon configuration).
 
 ### 1. Obtenir une clé
 
@@ -177,3 +177,6 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 - Voir la [documentation des providers Hermes](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/profiles.md` pour les profils et gateways
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

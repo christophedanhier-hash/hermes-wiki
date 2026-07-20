@@ -1,6 +1,6 @@
 # 🏗️ Architecture de Communication — Écosystème LEO
 
-> **5 profils Hermes, 5 gateways Telegram, 1 mémoire unifiée. Fallback : deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b.**
+> **5 profils Hermes, 5 gateways Telegram, Mémoire unifiée entre default et leo-copilot. Providers : deepseek, openai, gemini, grok, anthropic. Modèle local : qwen2.5:7b.**
 
 ---
 
@@ -76,7 +76,7 @@ flowchart TD
     style DS_Pro fill:#fce4ec,stroke:#c62828,color:#b71c1c
     style BAVI fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#1b5e20
     style Agent3 fill:#c8e6c9,stroke:#388e3c,color:#1b5e20
-    style DS_Flash2 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
+    style DS_Flash2]\n    endll:#e8f5e9,stroke:#2e7d32,color:#1b5e20
     style EMILE fill:#fff3e0,stroke:#e65100,stroke-width:3px,color:#bf360c
     style Agent4 fill:#ffecb3,stroke:#e65100,color:#bf360c
     style DS_Flash3 fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
@@ -306,4 +306,7 @@ flowchart TB
 *Document mis à jour le 17/07/2026 à 00:00 — Michel (leo-copilot) 🔧*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 22:30 (UTC+2) — 42→39 crons (emile+bavi-leo=0 confirmé), fallback chain, 5 profils OK
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+
+

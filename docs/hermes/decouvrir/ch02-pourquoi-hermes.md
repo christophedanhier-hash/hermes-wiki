@@ -137,3 +137,6 @@ Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et p
 ---
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

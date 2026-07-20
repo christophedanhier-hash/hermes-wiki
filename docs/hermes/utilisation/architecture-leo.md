@@ -2,7 +2,7 @@
 
 > Document vivant — mis à jour le **17/07/2026** (audit rédactionnel).
 
-> ⚠️ **Changements 13-17/07/2026** : n8n retiré (13/07). 5 dashboards GitHub Pages actifs. La collecte utilise `collect-v2.py` (8 sources, n8n retiré). Déploiement toutes les heures (`10 * * * *`) via leo-copilot.
+> ⚠️ **Changements 13-17/07/2026** : n8n retiré (13/07). 1 dashboard GitHub Pages actif. La collecte utilise `collect-v2.py` (8 sources, n8n retiré). Déploiement toutes les heures (`10 * * * *`) via leo-copilot.
 
 ---
 
@@ -29,7 +29,7 @@ flowchart TB
         DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>https://christophedanhier-hash.github.io/leo-dashboard/"]
     end
 
-    subgraph scripts["🐍 Scripts Python (ex-n8n)"]
+    subgraph crons["⏱️ Crons LEO (39 gérés par leo-copilot)"]
         DRIVE_ISSUE["Drive → Issue<br/>Surveillance Drive"]
         GARDIEN["Gardien du Drive<br/>Protection documents"]
         SAVE_CONTACTS["Save Contacts<br/>Sauvegarde contacts"]
@@ -66,13 +66,13 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 5. GitHub — activité des repos
 6. BAVI — métriques bureaux
 7. Services — statut des services (Ollama, Docker, etc.)
-8. Vaults — monitoring des 5 vaults Obsidian
+8. Vaults — monitoring des 4 vaults Obsidian
 
 ---
 
 ## 3. Déploiement
 
-Le déploiement du dashboard est assuré par un cron unique :
+Le déploiement du dashboard fait partie d'un ensemble de 39 crons gérés par leo-copilot. Le cron spécifique pour le dashboard est :
 
 ```
 10 * * * *  →  collect-v2.py (via leo-copilot, no_agent)
@@ -80,7 +80,7 @@ Le déploiement du dashboard est assuré par un cron unique :
 
 Changement clé du 04/07/2026 :
 - **Avant** : 7 crons séparés (un par dashboard) + Auto-Fix Daemon
-- **Après** : 1 cron unique `collect-v2.py` (déploiement toutes les heures)
+- **Après** : 1 cron unique `collect-v2.py` pour le dashboard, parmi 39 crons gérés par leo-copilot.
 
 ---
 
@@ -137,3 +137,6 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 
 > **Document mis à jour le 04/07/2026** — reflet des changements post-crash.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:17 (UTC+2)
+

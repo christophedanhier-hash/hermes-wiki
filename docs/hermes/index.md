@@ -60,3 +60,6 @@ Ce guide est en licence libre — libre à vous de le partager, l'adapter et l'e
 ---
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

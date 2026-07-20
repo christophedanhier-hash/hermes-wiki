@@ -92,7 +92,7 @@ hermes cron create \
 
 ### 🔴 Pas de JavaScript si le navigateur flashe
 
-Sur certains appareils (Chromebook, mobile), Chart.js en mode responsive peut causer un rafraîchissement en boucle. Solution : **remplacer Chart.js par un tableau CSS statique**.
+Sur certains appareils (Chromebook, mobile), Chart.js en mode responsive peut causer un rafraîchissement en boucle. Solution : Utiliser un canvas avec des dimensions fixes ou désactiver le responsive via `options.responsive: false` dans Chart.js.remplacer Chart.js par un tableau CSS statique**.
 
 ```css
 /* Au lieu d'un graphique JS : tableau statique */
@@ -206,3 +206,6 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `03-utilisation/architecture-leo.md` pour la vue complète (schéma Mermaid, interactions, filets)
 - Voir `exemples/LEO.md` pour les dashboards en production
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+

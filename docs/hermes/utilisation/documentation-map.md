@@ -15,7 +15,7 @@
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
 | 7 | ~~`exemples/LEO.md`~~ | **SUPPRIMÉ** — remplacé par guide v3+ (archives) | — | ❌ |
 | 8 | `configuration/profiles.md` | **5 profils**, gateways, skills, mémoire | 20 | ✅ |
-| 9 | `configuration/providers.md` | Providers LLM (DeepSeek V4 Flash/Pro, Gemini fallback, Ollama) | 7, 14 | ✅ |
+| 9 | `configuration/providers.md` | Providers LLM (deepseek, openai, gemini, grok, anthropic) | 7, 14 | ✅ |
 | 10 | `installation/linux.md` | Installation Linux | — | ✅ |
 | 11 | `installation/windows.md` | Installation Windows | — | ✅ |
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
@@ -102,4 +102,6 @@ Quand tu changes... | Pages à vérifier
 *Document mis à jour le 17/07/2026 — Michel (leo-copilot) 🔧*
 
 ---
-> 🤖 Dernier audit : 17/07/2026 à 22:45 (UTC+2) — n8n→obsolète, 4→5 bots, exemples/LEO.md retiré, ajout bureau-robert
+
+> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+

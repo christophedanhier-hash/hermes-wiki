@@ -6,7 +6,7 @@
 - **Python 3.11+**
 - **Curl**
 - Un compte GitHub
-- (Optionnel) Un GPU GPU pour exécuter des LLM locaux
+- (Optionnel) Un GPU pour exécuter des LLM locaux
 
 ## 2. Installer Hermes Agent (méthode officielle)
 
@@ -113,7 +113,7 @@ hermes status
 
 | Problème | Solution |
 |----------|----------|
-| `ModuleNotFoundError: No module named '...'` | Vérifier que le venv est activé |
+| ... (tableau complet)No module named '...'` | Vérifier que le venv est activé |
 | `pip` introuvable | `sudo apt install python3-pip` |
 | Erreur de permission | Utiliser un utilisateur normal (pas root) |
 | Port déjà utilisé | Modifier le port dans `config.yaml` |
@@ -123,3 +123,6 @@ hermes status
 - [Documentation officielle Hermes](https://hermes-agent.nousresearch.com/docs)
 - [GitHub Hermes Agent](https://github.com/NousResearch/hermes-agent)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+

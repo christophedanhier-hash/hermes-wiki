@@ -233,4 +233,6 @@ Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été resta
 
 ---
 
-> 🤖 Dernier audit : 18/07/2026 à 12:00 (UTC+2) — 5 bots confirmés (incluant bureau-robert), 39 crons actifs
+> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+
+
