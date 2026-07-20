@@ -46,18 +46,18 @@ Wiki en ligne 🌐
 # drive-sync.sh
 
 # 1. Scanne les dossiers Drive partagés
-python3 /opt/data/scripts/drive-sync.py --scan
+python3 ~/Projets_Dev/hermes-christophe/scripts/drive-sync.py --scan
 
 # 2. Détecte les nouveaux fichiers
-python3 /opt/data/scripts/drive-sync.py --diff
+python3 ~/Projets_Dev/hermes-christophe/scripts/drive-sync.py --diff
 
 # 3. Convertit les .docx en .md
-python3 /opt/data/scripts/drive-sync.py --convert
+python3 ~/Projets_Dev/hermes-christophe/scripts/drive-sync.py --convert
 
 # 4. Commit + push
-cd /opt/data/BAVI_LEO && git add -A && git commit -m "sync Drive $(date +%Y-%m-%d)" && git push
-cd /opt/data/voyages-wiki && git add -A && git commit -m "sync Drive $(date +%Y-%m-%d)" && git push
-cd /opt/data/emile-wiki && git add -A && git commit -m "sync Drive $(date +%Y-%m-%d)" && git push
+cd ~/Projets_Dev/BAVI_LEO && git add -A && git commit -m "sync Drive $(date +%Y-%m-%d)" && git push
+cd ~/Projets_Dev/voyages-wiki && git add -A && git commit -m "sync Drive $(date +%Y-%m-%d)" && git push
+cd ~/Projets_Dev/emile-wiki && git add -A && git commit -m "sync Drive $(date +%Y-%m-%d)" && git push
 ```
 
 ## Wikis synchronisés

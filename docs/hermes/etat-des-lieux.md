@@ -126,7 +126,7 @@
 
 | Profil | Crons |
 |--------|:-----:|
-| `leo-copilot` (consolidateur) | 38 |
+| `leo-copilot` (consolidateur) | 39 |
 | `default` | 0 |
 | `bavi-leo` | 0 |
 | `emile` | 0 |
@@ -134,7 +134,7 @@
 
 **0 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 38**
+**Total général : 39**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
 <!-- AUTO:END crons -->

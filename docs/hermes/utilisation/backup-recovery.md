@@ -182,7 +182,7 @@ gh auth login --with-token < ~/.hermes/leo_token.json
 ### Étape 4 — Vérifier les composants critiques
 
 ```bash
-ls ~/.hermes/profiles/       # Doit montrer: default leo-copilot bavi-leo emile
+ls ~/.hermes/profiles/       # Doit montrer: default leo-copilot bavi-leo emile bureau-robert
 ls ~/.hermes/vault-*/        # Doit montrer: vault-leo vault-default vault-emile vault-bavi
 ls ~/.hermes/memories/       # Doit montrer: MEMORY.md USER.md ← CRITIQUE
 ls ~/.hermes/state.db        # Sessions DB

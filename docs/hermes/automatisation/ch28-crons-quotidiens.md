@@ -11,7 +11,7 @@ Les crons quotidiens sont les tâches lourdes qui s'exécutent une fois par jour
   Action: Archive tous les profils + config → Google Drive
   Rétention: 7 jours
   Coût: 0 € (no_agent)
-  Script: /opt/data/scripts/hermes-backup.py
+  Script: ~/.hermes/profiles/leo-copilot/scripts/leo-full-backup.py
 
 07:30 — Veille IA (Phase 1)
   Action: Collecte 17 sources RSS
@@ -43,6 +43,7 @@ Ce qui est sauvegardé:
   - profiles/leo-copilot/   → config, crons, mémoire, skills
   - profiles/bavi-leo/      → config, mémoire, roadbooks
   - profiles/emile/         → config, SOUL, .env
+  - profiles/bureau-robert/   → config, mémoire, skills
   - memories/               → MEMORY.md, USER.md (partagés)
   - scripts/                → tous les scripts customs
   - sessions/               → historique des conversations
@@ -51,7 +52,7 @@ Ce qui est sauvegardé:
   - credentials_vault.json  → coffre-fort des credentials
 
 Destination:
-  - Local: /opt/data/backups/
+  - Local: ~/.hermes/backups/
   - Cloud: Google Drive (Hermes_Christophe/backups/)
   
 Rétention: 7 jours

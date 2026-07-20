@@ -170,7 +170,7 @@ aux credentials GitHub. Deux solutions :
 **Solution 1 — Chemin absolu vers gh :**
 ```python
 import subprocess, os
-gh_path = "/opt/data/home/.local/bin/gh"
+gh_path = "$(which gh 2>/dev/null || echo "/usr/bin/gh")"
 tok = os.environ.get("GH_TOKEN")
 if not tok:
     tok = subprocess.run([gh_path, "auth", "token"],
