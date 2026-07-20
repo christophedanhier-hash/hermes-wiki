@@ -108,7 +108,7 @@ Pas de clé API, pas de compte, tout tourne chez vous.
 export GEMINI_API_KEY=votre_clé_ici
 
 # Configuration
-hermes config set model.default gemini-2.5-flash
+hermes config set model.default gemini-3.5-flash
 ```
 
 ## Vérification de l'installation
