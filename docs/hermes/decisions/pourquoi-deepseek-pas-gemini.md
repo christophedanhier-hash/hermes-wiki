@@ -143,7 +143,7 @@ flowchart TB
         GEMINI["Gemini 3.5 Flash\nSecours si DeepSeek down"]
     end
 
-    subgraph CRONS["⏰ 38 Crons"]
+    subgraph CRONS["⏰ 41 crons"]
         DS_PRO["DeepSeek V4 Pro\nAnalyses, backups"]
         DS_FLASH["DeepSeek V4 Flash\nCollecte, dashboards"]
     end
