@@ -141,7 +141,6 @@ flowchart TB
     style DS_FLASH fill:#fff3e0,stroke:#e65100,stroke-dasharray:5,color:#bf360c
     style MEM fill:#fce4ec,stroke:#c62828,color:#b71c1c
     style DASH fill:#e8eaf6,stroke:#3949ab,color:#1a237e
-    style N8N fill:#e8eaf6,stroke:#3949ab,color:#1a237e
 ```
 
 ### Pourquoi DeepSeek Pro et Gemini 3.5 Flash en fallback ?

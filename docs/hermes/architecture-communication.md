@@ -1,6 +1,6 @@
 # 🏗️ Architecture de Communication — Écosystème LEO
 
-> **5 profils Hermes, 5 gateways Telegram, Mémoire unifiée entre default et leo-copilot. Providers : deepseek, openai, gemini, grok, anthropic. Modèle local : qwen2.5:7b.**
+> **5 profils Hermes, 5 gateways Telegram, Mémoire unifiée entre default et leo-copilot. Provider principal : DeepSeek (v4-flash/v4-pro). Fallback : gemini-3.5-flash → qwen2.5:7b (Ollama local).**
 
 ---
 

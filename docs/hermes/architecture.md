@@ -4,7 +4,7 @@
 - **Host LEO**: i7-7700K, 22GB RAM
 - **Container**: Debian 13, Python 3.14, DeepSeek V4 Flash
 - **Telegram Client**: Chromebook Telegram
-- **Model AI**: DeepSeek, Ollama qwen2.5:7b, Gemini, OpenAI, Grok, Anthropic (fallback: Ollama)
+|- **Model AI**: DeepSeek (v4-flash/v4-pro), fallback gemini-3.5-flash → qwen2.5:7b (Ollama local)
 
 ## 2. Budget API
 - Balance: $41.83 (solde actuel) — Coût total : ~$19.97

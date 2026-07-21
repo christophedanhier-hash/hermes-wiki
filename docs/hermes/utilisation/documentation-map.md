@@ -21,7 +21,7 @@
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
 | 13 | `utilisation/bots-telegram.md` | **5 bots**, tokens, architecture | 3, 7, 14 | ✅ |
 | 14 | `utilisation/architecture-leo.md` | Dashboard unifié, collect-v2, crons, 🐍 workflows Python, vaults, routage LLM | 7, 15, 16, 19, 21 | ✅ |
-| 15 | `utilisation/crons.md` | **39 crons** (leo-copilot exclusif) + 6 crons hôte, collect-v2 | 14, 16, 21 | ✅ |
+| 15 | `utilisation/crons.md` | **41 crons** (39 actifs, leo-copilot exclusif) + 6 crons hôte, collect-v2 | 14, 16, 21 | ✅ |
 | 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 8 sources (n8n retiré 13/07/2026), vaults | 14, 15, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
 | 18 | `utilisation/skills-catalogue.md` | Catalogue des skills BAVI LEO & Hermes | 5, 20 | ✅ |
