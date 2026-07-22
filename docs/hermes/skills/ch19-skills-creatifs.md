@@ -31,7 +31,7 @@ python3 -c "import pyfiglet; print(pyfiglet.figlet_format('LEO', font='slant'))"
 python3 -c "import pyfiglet; print(pyfiglet.figlet_format('SYSTEM OK', font='bubble'))"
 ```
 
-## Excalidraw : des schémas main-levée
+## Excalidraw : des schémas à main levée
 
 Le skill `excalidraw` permet de créer des diagrammes et schémas au style "tableau blanc".
 
@@ -129,7 +129,7 @@ class Introduction(Scene):
 
 ## Design de pages web
 
-Le skill `sketch` crée des maquettes HTML/COS rapidement pour visualiser une interface avant de la coder.
+Le skill `sketch` crée des maquettes HTML/CSS rapidement pour visualiser une interface avant de la coder.
 
 ```html
 <!DOCTYPE html>
@@ -154,7 +154,7 @@ body { font-family: sans-serif; max-width: 800px; margin: auto; }
 | Besoin | Skill | Format |
 |:-------|:------|:-------|
 | Bannière / logo | `ascii-art` | Texte |
-| Schéma rapide | `excalidraw` | JSON SVG |
+| Schéma rapide | `excalidraw` | JSON (.excalidraw) ou SVG |
 | Diagramme technique | Mermaid | Markdown |
 | Animation / vidéo | `manim-video` | MP4 / GIF |
 | Maquette web | `sketch` | HTML |

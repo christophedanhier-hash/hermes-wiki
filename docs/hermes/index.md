@@ -28,7 +28,7 @@ LEO a été construit pour être :
 ## Structure du guide
 
 ```
-📖 README.md               → Ce fichier — introduction et philosophie
+📖 index.md               → Ce fichier — introduction et philosophie
 📁 01-installation/
    ├── linux.md            → Installation sur Debian/Ubuntu
    └── windows.md          → Installation sur Windows (WSL)

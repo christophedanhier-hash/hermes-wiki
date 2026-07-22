@@ -10,7 +10,7 @@ C'est le carnet de bord de l'assistant. Il y note tout ce qui concerne l'infrast
 
 ```markdown
 # Contenu typique
-Infrastructure: serveur Ubuntu 26.04, 457Go SSD, Docker (hermes-agent + ollama)
+Infrastructure: serveur Linux 7.0.0-27-generic, 457Go SSD, Docker (hermes-agent + ollama)
 §
 Backup: quotidien vers GDrive à 04:00, rétention 7 jours
 §
@@ -92,7 +92,7 @@ Wikis: BAVI_LEO=portail, hermes-christophe=source, les2→sync+push
 §
 hermes binaire: /opt/hermes/.venv/bin/hermes (pas sur PATH)
 §
-CRASH+RECONSTRUCTION 30/06: sessions vidé→5 bots crash. 
+CRASH+RECONSTRUCTION 30/06: sessions vidées → 5 bots crashésés. 
 Backup GDrive 73.7MB téléchargé + extrait. 4 gateways relancés.
 §
 Émile 🎓: emidanhier@gmail.com, @Bureau_ia_emilie_bot
@@ -113,7 +113,7 @@ La mémoire traverse les sessions. Si vous dites "souviens-toi que mon serveur e
 
 ```
 Session 1 : "Mon serveur est à Bruxelles"
-  → Hermes écrit dans USER.md : "Serveur situé à Bruxelles (Eвропа/Brussels)"
+  → Hermes écrit dans USER.md : "Serveur situé à Bruxelles (Europe/Brussels)"
 
 Session 2 (le lendemain) : "Quelle est l'IP de mon serveur ?"
   → Hermes lit USER.md : "Serveur situé à Bruxelles..."

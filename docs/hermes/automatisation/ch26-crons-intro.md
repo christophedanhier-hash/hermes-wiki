@@ -62,9 +62,9 @@ Quand plusieurs crons tournent à la même fréquence, décalez les minutes pour
 éviter l'embouteillage :
 
 ```
-H:00 → machines-kpi   (collecte métriques)
-H:05 → budget-check   (solde API)
-H:10 → dashboard-KPI  (génération HTML)
+H:00 → machines-kpi (collecte métriques)
+H:05 → budget-check (solde API)
+H:10 → dashboard-KPI (génération HTML)
 H:15 → dashboard-machines
 H:20 → monitoring-crons
 ```
@@ -148,7 +148,7 @@ Un cron `dashboard-watch` (toutes les 2h) vérifie que le dashboard est à jour 
 - **HTTP 200** — le dashboard répond
 - **Âge < 2h** — données fraîches
 - **Budget cohérent** — valeur affichée du budget ≈ `budget.json` (écart max 1$)
-- **Redeploiement auto** — si stale ou 404, le script relance le déploiement
+- **Redéploiement auto** — si stale ou 404, le script relance le déploiement
 
 Le script est dans `scripts/dashboard-watch.py` et son état est sauvegardé dans `metrics/dashboard-watch-state.json`.
 

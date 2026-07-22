@@ -44,7 +44,7 @@ Environ **126 skills** répartis en **22 catégories** :
 ```
 skills/
 ├── infrastructure/     ← Docker, Nginx, Cloudflare, backup
-│   └── bureau-michel/SKILL.md
+│   └── bureau-robert/SKILL.md
 ├── github/             ← PRs, issues, code review, auth
 ├── creative/           ← ASCII art, design, vidéo, musique
 ├── data-science/       ← Jupyter, analyse de données
@@ -135,11 +135,11 @@ Les scripts dans `scripts/` peuvent être appelés directement par le skill.
 
 ## Skills et profils : la source de vérité
 
-Dans l'écosystème LEO, le profil `default` (LEO) est la **source de vérité** des skills. Les autres profils (Léo Copilote, Sylvia, Émile) reçoivent les skills par **synchronisation automatique** toutes les 30 minutes.
+Dans l'écosystème LEO, le profil `default` (LEO) est la **source de vérité** des skills. Les autres profils (Léo Copilote, Bavi Léo, Émile) reçoivent les skills par **synchronisation automatique** toutes les 30 minutes.
 
 ```
 default (source) ──sync 30min──→ leo-copilot
-                ──sync 30min──→ bavi-leo (Sylvia)
+                ──sync 30min──→ bavi-leo (Bavi Léo)
                 ──sync 30min──→ emile
 ```
 

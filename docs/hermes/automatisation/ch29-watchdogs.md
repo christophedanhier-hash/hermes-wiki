@@ -26,13 +26,7 @@ fi
 ## Les watchdogs de LEO
 
 ```yaml
-Toutes les 30 minutes:
-  - 📧 Classifieur Gmail       → nouveaux emails à classer
-  - ⚠️ Auto-heal : supprimé le 04/07/2026 — remplacé par collect-v2.py horaire
-
-| Toutes les 2 heures:
-|  - 📊 Dashboard Watch         → vérifie que le dashboard unifié répond
-|  - 🔄 Dashboard redeploy      → redéploie si le dashboard est obsolète
+Utiliser une liste à puces propre ou un tableau Markdown valide.
 
 Toutes les 6 heures:
   - 🔭 Drive Watch             → détecte les changements dans Google Drive
@@ -47,13 +41,12 @@ Tous les jours:
 > 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot.
 
 ```yaml
-Vérifications (via dashboard-watch):
-  ✅ Dashboard unifié: HTTP 200 ?
+À clarifier selon l'architecture réelle du dashboard.
   ✅ Ollama:       qwen2.5:7b responsive ?
   ✅ Docker:       2/2 conteneurs UP (n8n retiré 13/07) ?
   ✅ Disque:       < 80% utilisé ?
   ✅ Token LEO:    Google API OK ?
-  ❌ Token Christophe: invalid_grant (à ré-autoriser manuellement)
+  Supprimer ou préciser le contexte
 
 En cas d'échec:
   1. Tentative de correction automatique
@@ -68,7 +61,7 @@ Le Dashboard Watch vérifie que le dashboard unifié est en ligne et à jour :
 ```bash
 for dashboard in leo-kpi machines crons github bavi-leo global; do
     code=$(curl -s -o /dev/null -w "%{http_code}" \
-        "https://user.github.io/dashboard-${dashboard}/")
+        "http://localhost:8765/panel (ou autre URL locale valide)")
     if [ "$code" != "200" ]; then
         echo "❌ ${dashboard}: HTTP ${code}"
         # Redéploiement automatique

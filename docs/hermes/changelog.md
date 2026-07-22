@@ -9,7 +9,7 @@
   - Redémarrage des 5 gateways (default, leo-copilot, bureau-robert, bavi-leo, emile)
   - Correction des paths OBSIDIAN_VAULT_PATH dans les 5 `.env`
   - Backup immédiat post-restauration (93 Mo)
-  - 39 crons restaurés et actifs ✅
+  - 41 crons restaurés et actifs ✅
 - **Unified Collector v2** : Mise à jour du script pour une collecte unifiée améliorée.
 - **Synthèse Hebdomadaire LEO** : Ajout d'une mise à jour hebdomadaire pour le résumé de la semaine.
 - **Vault Daily Journal (vault-leo)**, **Vault Default Daily Journal (5 23 * * *)** : Mises à jour des scripts pour un journal quotidien plus précis.

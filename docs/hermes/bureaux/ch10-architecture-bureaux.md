@@ -38,7 +38,7 @@ vs
 | 🛡️ **AO** | Assurance obligatoire — INAMI, eHealth | 📝 Structure prête |
 | 📋 **Versioning** | Gestion des versions et des releases | 📝 Structure prête |
 
-> **Note 18/07/2026** : 8 bureaux structurés, 2 en attente (AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (bavi-leo, bureau-robert, emile, leo-copilot, default).
+> **Note 18/07/2026** : 7 bureaux structurés, 3 en attente (Sophie, AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (bavi-leo, bureau-robert, emile, leo-copilot, default).
 
 ## Comment fonctionne un bureau
 

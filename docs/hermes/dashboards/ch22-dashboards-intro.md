@@ -92,14 +92,13 @@ hermes cron create \
 
 ### 🔴 Pas de JavaScript si le navigateur flashe
 
-Sur certains appareils (Chromebook, mobile), Chart.js en mode responsive peut causer un rafraîchissement en boucle. Solution : Utiliser un canvas avec des dimensions fixes ou désactiver le responsive via `options.responsive: false` dans Chart.js.remplacer Chart.js par un tableau CSS statique**.
+Sur certains appareils (Chromebook, mobile), Chart.js en mode responsive peut causer un rafraîchissement en boucle. Solution : Utiliser un canvas avec des dimensions fixes ou désactiver le responsive via `options.responsive: false` dans Chart.js. Remplacer Chart.js par un tableau CSS statique.
 
 ```css
 /* Au lieu d'un graphique JS : tableau statique */
 .hist-table td.ok-cell { color: #22c55e; }
 .hist-table td.err-cell { color: #ef4444; }
 ```
-
 ### 🔴 Gérer l'identité Git
 
 Dans l'environnement minimal d'un cron, `git commit` échoue si l'identité n'est pas configurée :
@@ -175,12 +174,12 @@ subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
 ## 🦁 Global Dashboard LEO (portail unique)
 
 Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seule page :
-- 🔵 **Crons (24)** — statut, historique, erreurs
+- 🔵 **Crons (41)** — statut, historique, erreurs
 - 📊 **Dashboards (7)** — HTTP, âge, budget
 - 💰 **Budget DeepSeek** — solde, jours restants
-- 🩺 **n8n** — online/offline
+- ~~🩺 **n8n** — online/offline~~ (retiré le 13/07/2026)
 - 🏛️ **BAVI LEO** — sessions, messages, tokens
-- 🖥️ **Machines (3)** — statut en ligne/hors ligne
+- 🖥️ **Machines** (nombre à vérifier) — statut en ligne/hors ligne
 - 🚨 **Alertes** — dernières anomalies détectées
 - 🔗 **Liens rapides** — accès aux 7 dashboards détaillés
 

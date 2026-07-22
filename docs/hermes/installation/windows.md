@@ -102,7 +102,7 @@ docker run -d ^
 
 ## 🔧 Exemple : LEO (serveur de production)
 
-LEO tourne sur un serveur Ubuntu 24.04 conteneurisé via Docker Compose.  
+LEO tourne sur un serveur Linux 7.0.0-27-generic conteneurisé via Docker Compose.  
 → Voir [l'exemple LEO sur Linux](./linux.md)
 
 Les principes sont identiques, seuls changent :

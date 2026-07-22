@@ -40,7 +40,7 @@ Si la RAM utilisée dépasse 85%, les conteneurs Docker risquent l'OOM kill.
 
 ```bash
 nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv
-# → Aucun (CPU), 8 Go VRAM
+# → Aucun (CPU), pas de GPU dédié
 # → Utilisé par Ollama pour la classification
 ```
 
@@ -83,7 +83,7 @@ Le health-check détecte ces seuils via le déploiement horaire unifié (`collec
 
 | Machine | OS | RAM | Stockage | Rôle |
 |:--------|:---|:---:|:--------:|:-----|
-| **LEO** 🖥️ | Ubuntu 26.04 | 23 Go | 457 Go | Serveur principal |
+| **LEO** 🖥️ | Linux 7.0.0-27-generic | 23 Go | 457 Go | Serveur principal |
 | **Yoga** 💻 | Windows 11 | 16 Go | 512 Go | Machine perso |
 | **Penguin** 🐧 | Debian 13 | 6 Go | 128 Go | VS Code + Kilo Code |
 
@@ -97,12 +97,12 @@ htop
 watch -n 5 df -h /opt/data
 
 # Logs mémoire Docker
-docker stats --no-streamo-stream
+docker stats --no-stream
 
 # Température GPU
 nvidia-smi
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 20 juillet 2026 à 09:14 (UTC+2)
 

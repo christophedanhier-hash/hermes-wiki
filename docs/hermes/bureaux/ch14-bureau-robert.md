@@ -59,7 +59,7 @@ Pour les sujets complexes, plusieurs experts travaillent en parallèle :
 
 ## Exemple réel : remplacer DeepSeek Flash par du local
 
-Le Bureau Robert a produit une **analyse comparative de 5 modèles open-source** pour remplacer DeepSeek Flash par un LLM local :
+Le Bureau Robert a produit une **analyse comparative de 4 modèles open-source** pour remplacer DeepSeek Flash par un LLM local :
 
 | Modèle | VRAM Q8 | Qualité estimée | Vitesse |
 |:-------|:-------:|:---------------:|:-------:|

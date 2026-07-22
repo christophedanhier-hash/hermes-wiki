@@ -15,7 +15,7 @@
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
 | 7 | ~~`exemples/LEO.md`~~ | **SUPPRIMÉ** — remplacé par guide v3+ (archives) | — | ❌ |
 | 8 | `configuration/profiles.md` | **5 profils**, gateways, skills, mémoire | 20 | ✅ |
-| 9 | `configuration/providers.md` | Providers LLM (deepseek, openai, gemini, grok, anthropic) | 7, 14 | ✅ |
+| 9 | `configuration/providers.md` | Providers LLM (deepseek, google, ollama) | 7, 14 | ✅ |
 | 10 | `installation/linux.md` | Installation Linux | — | ✅ |
 | 11 | `installation/windows.md` | Installation Windows | — | ✅ |
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
@@ -94,7 +94,7 @@ Quand tu changes... | Pages à vérifier
 2. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, workflows Python
 3. **`utilisation/dashboards.md`** — leo-dashboard, 8 sources (n8n retiré 13/07/2026)
 4. **`changelog.md`** — Historique des modifs
-5. **`utilisation/crons.md`** — 39 crons, planification
+5. **`utilisation/crons.md`** — 41 crons (39 actifs), planification
 6. **Cette carte** 🗺️
 
 ---

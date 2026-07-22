@@ -1,4 +1,4 @@
-# Bureau Sylvia : les voyages
+# Service Voyage (profil bavi-leo) : les voyages
 
 Le Bureau Sylvia est le spécialiste des **roadbooks camping-car**. Accessible via le bot Telegram [@bavi_leo_voyages_bot](https://t.me/bavi_leo_voyages_bot), il produit des itinéraires complets avec cartes interactives, budgets et conseils pratiques.
 

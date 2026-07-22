@@ -6,7 +6,7 @@
 
 ## Le constat
 
-LEO a **cinq profils** qui tournent 24/7 avec **39 crons, 5 bots Telegram**. Chaque message, chaque analyse de cron, chaque classification d'email passe par une API.
+LEO a **cinq profils** qui tournent 24/7 avec **41 crons, 5 bots Telegram**. Chaque message, chaque analyse de cron, chaque classification d'email passe par une API.
 
 À ce volume, **le prix au million de tokens est le facteur décisif** — et DeepSeek est **10 à 20 fois moins cher** que Gemini.
 
@@ -143,7 +143,7 @@ flowchart TB
         GEMINI["Gemini 3.5 Flash\nSecours si DeepSeek down"]
     end
 
-    subgraph CRONS["⏰ 41 crons"]
+    subgraph CRONS["⏰ 41 crons"] (c'est cohérent, mais le texte doit être corrigé)
         DS_PRO["DeepSeek V4 Pro\nAnalyses, backups"]
         DS_FLASH["DeepSeek V4 Flash\nCollecte, dashboards"]
     end
@@ -172,7 +172,7 @@ En test (22-23/06/2026), Leo Copilot a utilisé Gemini 2.5 Flash puis 2.5 Pro :
 
 > **DeepSeek gagne sur le prix (10-20× moins cher). Gemini gagne sur l'écosystème (docs, modèles, capacités).**
 
-Pour LEO, qui fait **du volume** (39 crons, bots Telegram, classification d'emails), le prix est le critère n°1. DeepSeek est imbattable.
+Pour LEO, qui fait **du volume** (41 crons, bots Telegram, classification d'emails), le prix est le critère n°1. DeepSeek est imbattable.
 
 Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexes**, Gemini est supérieur — et c'est pour ça qu'il reste configuré en fallback.
 
@@ -182,7 +182,7 @@ Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexe
 
 | Usage | Modèle | Pourquoi |
 |:---|:---|:---|
-| Crons quotidiens (38 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
+| Crons quotidiens (41 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
 | Bots Telegram (dialogue) | DeepSeek V4 Flash | Latence faible, volume élevé |
 | Classification emails | DeepSeek V4 Flash | 0.18 USD/M output |
 | Debug & analyses complexes | DeepSeek V4 Pro | Raisonnement profond |
@@ -196,7 +196,7 @@ Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexe
 
 Le marché évolue vite. Ce qui est vrai en juillet 2026 peut changer :
 
-- **DeepSeek V4** : prix actuels $0.435/$0.87 (Pro) et $0.14/$0.28 (Flash). Cache contextuel : $0.0036/$0.0028.
+- **DeepSeek V4** : prix actuels $0.435/$0.87 (Pro) et $0.14/$0.28 (Flash). Cache contextuel : $0.003625 (Pro) / $0.0028 (Flash).
 - **Gemini 3.5** : baisse probable à l'arrivée de Gemini 4 en prod.
 - **Gemini 3.1 Pro** : disponible en preview, $2.00/$12.00 (≤200k).
 
