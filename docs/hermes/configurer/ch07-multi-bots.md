@@ -1,4 +1,4 @@
-# Multi-bots : pourquoi 3 bots valent mieux qu'un
+# Multi-bots : pourquoi 5 bots valent mieux qu'un
 
 LEO ne tourne pas avec un seul bot Telegram, mais avec **cinq bots spécialisés**. Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
 

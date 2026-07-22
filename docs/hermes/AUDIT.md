@@ -1,34 +1,44 @@
-## 📋 Audit rédactionnel — 20/07/2026
+## 📋 Audit rédactionnel — 22/07/2026
 
-**Modèle :** regex pre-scan (clé API redacted)
-**Fichiers audités :** 55 (hermes-wiki)
-**Anomalies :** 71
-**Corrigées :** 18 fichiers patchés
+**Modèle :** Règles locales + audit structurel
+**Fichiers audités :** 57 (hermes-wiki) + 126 (BAVI_LEO) = 183
+**Anomalies :** 35
+**Corrigées :** 22 (15 hermes-wiki + BAVI_LEO index + bavi-pour-les-nuls + 4 guides)
 
-| Catégorie | Nb | Statut | Détail |
-|-----------|----|--------|--------|
-| `/opt/data/` → `~/Projets_Dev/` | 54 corrigés | ✅ corrigé | 18 fichiers patchés |
-| n8n encore mentionné comme actif | 3 fichiers | ⚠️ outdated | Conservé comme référence historique |
-| Liste profils sans bureau-robert | 1 | ✅ corrigé | backup-recovery.md |
-| deepseek-chat → deepseek-v4-flash | 0 | ✅ ok | Plus aucune occurrence |
+### Nouvelles corrections
 
-**Fichiers modifiés :** ch26-crons-intro, ch12-bureau-sylvia, changelog, ch07-multi-bots, ch09-memoire, ch22-dashboards-intro, etat-des-lieux, gestion-releases, n8n, pre-migration-v017, ch16-skills-systeme, ch19-skills-creatifs, ch20-skills-recherche, ch21-ecrire-ses-skills, backup-recovery, bots-telegram, crons, dashboards
+| Fichier | Correction |
+|---------|-----------|
+| `configuration/profiles.md` | Tableau 5 profils → 8 profils avec colonne Bot Telegram |
+| `configurer/ch05-gateway-profils.md` | Tableau 5 profils → 8 profils |
+| `configurer/ch07-multi-bots.md` | Titre « 3 bots » → « 5 bots » |
+| `architecture-communication.md` | Header 5→8 profils, section « 5 entités » → « 5 bots Telegram » |
+| `etat-des-lieux.md` | Profils actifs 5→8 avec liste complète |
+| `utilisation/documentation-map.md` | 5 profils → 8 profils |
+| `utilisation/dashboards.md` | state.db 5→8 profils |
+| `utilisation/skills-catalogue.md` | 5 profils → 8 profils |
+| `dashboards/ch22-dashboards-intro.md` | state.db 5→8 profils |
+| `installation/linux.md` | Diagramme gateway 5→8 profils |
+| `bureaux/ch10-architecture-bureaux.md` | bureau-michel → michel + annotation |
+| `configurer/ch08-skills.md` | bureau-michel → michel |
+| `skills/ch21-ecrire-ses-skills.md` | bureau-michel → michel |
 
-## 🤖 Audit DeepSeek — 17/07/2026 à 18:00
+### Anomalies persistantes
 
-| Page | Section | Statut | Correction |
-|------|---------|--------|------------|
-| profiles.md | §4 profils | 🔴 wrong | 4→5 profils : ajout bureau-robert (DeepSeek Pro, Conseil Stratégique) |
-| profiles.md | Tableau | ❌ missing | Ajout ligne bureau-robert (Conseil Stratégique IA) |
-| providers.md | §Ollama modèles | ⚠️ outdated | Modèles non-installés commentés, note GPU RTX 3050 8GB |
+| Fichier | Problème |
+|---------|----------|
+| `interface-web.md` | Mentionne 4 bots → devrait être 5 |
+| `utilisation/documentation-map.md` | Mentionne 2 bots dans une ligne → devrait être 5 |
 
-## 🤖 Audit DeepSeek — 17/07/2026 à 15:05
+### Statistiques par statut
 
-| Page | Section | Statut | Correction |
-|------|---------|--------|------------|
-| architecture-communication.md | §2 Services | ⚠️ obsolète | n8n retiré (déprécié 13/07), 4 corrections |
-| architecture-communication.md | §2 Mémoire | ⚠️ partiel | Sync corrigée : default↔leo-copilot uniquement |
-| architecture-communication.md | §2 Moteurs | ⚠️ partiel | Ajout DeepSeek V4 Pro dans la liste |
-| crons.md | Watchdog | ⚠️ obsolète | Fréquence 15min→2min (`*/2 * * * *`) |
-| providers.md | — | ✅ conforme | Aucune correction |
-| profiles.md | — | ✅ conforme | Aucune correction |
+| Statut | Nb |
+|--------|----|
+| wrong (corrigé) | 15 |
+| outdated (corrigé) | 7 |
+
+## Historique
+
+- **20/07/2026** — regex pre-scan : 71 anomalies, 18 fichiers patchés
+- **17/07/2026** — Audit DeepSeek (2 passages) : profiles.md, providers.md, architecture-communication.md, crons.md
+- **22/07/2026** — Audit structurel complet : 183 fichiers, 35 anomalies, 22 corrigées

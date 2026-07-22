@@ -48,7 +48,7 @@ Chaque bureau a son propre dossier dans `AGENT-PRO` :
 
 ```bash
 BAVI/AGENT-PRO/
-├── bureau-michel/        ← 🔧 Infrastructure
+├── bureau-michel/        ← 🔧 Infrastructure *(renommé → `michel`)*
 │   ├── index.md          ← Tableau de bord généré automatiquement
 │   ├── analyse-*.md      ← Analyses produites
 │   └── archive/          ← Anciennes analyses

@@ -14,7 +14,7 @@
 | 5 | ~~`etat-des-lieux.md`~~ | **ARCHIVÉ** — inventaire pré-crash, obsolète | 14, 18, 20 | ❌ |
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
 | 7 | ~~`exemples/LEO.md`~~ | **SUPPRIMÉ** — remplacé par guide v3+ (archives) | — | ❌ |
-| 8 | `configuration/profiles.md` | **5 profils**, gateways, skills, mémoire | 20 | ✅ |
+| 8 | `configuration/profiles.md` | **8 profils**, gateways, skills, mémoire | 20 | ✅ |
 | 9 | `configuration/providers.md` | Providers LLM (deepseek, google, ollama) | 7, 14 | ✅ |
 | 10 | `installation/linux.md` | Installation Linux | — | ✅ |
 | 11 | `installation/windows.md` | Installation Windows | — | ✅ |

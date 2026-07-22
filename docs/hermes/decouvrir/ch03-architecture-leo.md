@@ -11,7 +11,7 @@ LEO n'est pas un simple script lancé sur un Raspberry Pi. C'est un écosystème
 ```
 Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Flash (dialogue)
                                     │
-                                    ├──→ @hermes_leo_copilot_bot → DeepSeek V4 Pro (code/infra)
+                                    ├──→ Profil michel → DeepSeek V4 Pro (code/infra)
                                     │
                                     ├──→ Ollama API locale (batch, gratuit)
                                     │
@@ -23,12 +23,12 @@ Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Fl
 | Bot | Profil | Provider | Rôle | Latence | Coût |
 |:----|:-------|:---------|:-----|:-------:|:----:|
 | 🤖 @hermes_leo_bot | `default` | DeepSeek Flash | Chat quotidien | < 2s | Payant |
-| 🟪 @hermes_leo_copilot_bot | `leo-copilot` | DeepSeek V4 Pro | Code, infra | < 2s | Payant |
-| 🧭 @bavi_leo_voyages_bot | `bavi-leo` | DeepSeek Flash | Voyages camping-car | < 2s | Payant |
-| 🎓 @Bureau_ia_emilie_bot | `emile` | Gemini 3.5 Flash | Pédagogie, mémoire | < 2s | Gratuit |
-| 🏛️ @bureau_robert_bot | `bureau-robert` | DeepSeek Pro | Conseil IT stratégique | < 2s | Payant |
+| 🟪 @hermes_leo_copilot_bot | `michel` | DeepSeek V4 Pro | Code, infra | < 2s | Payant |
+| 🧭 @bavi_leo_voyages_bot | `sylvia` | DeepSeek Flash | Voyages camping-car | < 2s | Payant |
+| 🎓 @Bureau_ia_emilie_bot | `emile` | DeepSeek Flash | Pédagogie, mémoire | < 2s | Payant |
+| 🏛️ @bureau_robert_bot | `robert` | DeepSeek Pro | Conseil IT stratégique | < 2s | Payant |
 
-Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills. Les profils default et leo-copilot partagent une mémoire unifiée. Mais ils partagent un fichier de configuration commun et peuvent échanger des informations.
+Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills. Les profils default et michel partagent une mémoire unifiée.
 
 ## La hiérarchie des providers
 
@@ -37,9 +37,9 @@ L'un des atouts d'Hermès est de pouvoir utiliser **plusieurs LLMs** et de chois
 | Ordre | Provider | Coût | Quand |
 |:-----:|:---------|:----:|:------|
 | 🥇 | **DeepSeek Flash** | Payant | Réponse Telegram, conversation, raisonnement |
-| 🥈 | **DeepSeek V4 Pro** (leo-copilot) | Payant | Code, infra, debug système |
+| 🥈 | **DeepSeek V4 Pro** (profil michel) | Payant | Code, infra, debug système |
 | 🥉 | **Ollama** (qwen2.5:7b, local) | **Gratuit** 🏠 | Traitement batch, tâches privées |
-| 4e | **Gemini** (fallback) | **Gratuit** ☁️ | Secours si DeepSeek indisponible |
+| 4e | **Gemini 3.5 Flash** (fallback) | **Gratuit** ☁️ | Secours si DeepSeek indisponible |
 
 **Le principe économique :** 95% des tâches planifiées (crons) tournent en `no_agent` = 0 token LLM consommé. Les 5% restants utilisent d'abord Ollama (gratuit), puis DeepSeek seulement si nécessaire.
 
@@ -70,9 +70,10 @@ Tout tourne dans un **conteneur Docker** supervisé par **s6** :
 Docker Container
 ├── hermes-gateway (s6 supervisé)
 │   ├── default (profil principal)
-│   ├── leo-copilot (infra)
-│   ├── bavi-leo (voyages)
-│   └── emile (pédagogie)
+│   ├── michel (infrastructure)
+│   ├── sylvia (voyages)
+│   ├── emile (pédagogie)
+│   └── robert (conseil stratégique)
 ├── s6-log (gestion des logs)
 │   └── rotation automatique
 ├── cron scheduler (Hermes natif)
@@ -176,6 +177,7 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 - LEO = 1 serveur principal + 5 bots Telegram + 1 dashboard unifié + collecte horaire unique + 126 skills
 - Tout tourne sur Hermes Agent dans un conteneur Docker supervisé par s6
+- Les 5 profils : default (dialogue), michel (infra), sylvia (voyages), emile (pédagogie), robert (conseil)
 - Le secret : une organisation stricte (profils, bureaux, skills) qui permet à l'agent de gérer la complexité
 - Les erreurs du passé ont forgé les règles du présent
 
