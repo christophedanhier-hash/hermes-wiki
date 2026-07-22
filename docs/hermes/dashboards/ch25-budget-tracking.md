@@ -38,7 +38,7 @@ coûts = {
 ```markdown
 | Métrique              | Valeur          |
 |:---------------------|:----------------|
-| Solde réel           | ~$19.97         |
+| Coût réel constaté   | ~$19.97         |
 | Dépense totale       | ~$19.97         |
 | Moyenne quotidienne  | variable        |
 | Coût 14 jours        | ~$19.97         |

@@ -12,7 +12,7 @@
 - Stop: $10
 - Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (39) (table incomplete)
+## 3. Crons Actifs (41) (table incomplete)
 | **Tâche** | **Horodatage** | **Script** |
 | --- | --- | --- |
 | 🔍 Veille IA quotidienne | `0 7 * * *` | send_veille_smtp.py |

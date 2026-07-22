@@ -48,7 +48,7 @@ LEO utilise **5 profils Hermes**, chacun avec son propre bot Telegram et sa spé
 | Propriété | Configuration | Description |
 |-----------|--------------|-------------|
 | **Modèle** | `model.default` | LLM principal (ex: `deepseek-v4-flash`) |
-| **Provider** | `model.provider` | Fournisseur (ex: `deepseek`, `openrouter`) |
+| **Provider** | `model.provider` | Fournisseur (ex: `deepseek`, `custom:google`, `custom:ollama`) |
 | **Gateway** | `gateways.telegram.bot_token` | Token du bot Telegram |
 | **Outils** | `hermes tools` | Toolsets activés par plateforme |
 | **Skills** | `hermes skills install <id>` | Procédures chargées automatiquement |

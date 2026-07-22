@@ -90,7 +90,7 @@ hermes gateway start
 # Docker Engine
 curl -fsSL https://get.docker.com | sh
 sudo usermod -aG docker $USER
-# Déconnectez-vous / reconnectez-vous
+# déconnexion/reconnexion
 ```
 
 ### 2. Lancer Hermes
@@ -120,7 +120,7 @@ docker exec -it hermes hermes setup
 
 ## 🔧 Exemple : LEO (serveur de production)
 
-LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Debian 13 Trixie** en conteneur Docker, accessible 24/7. Le serveur est équipé d'un processeur moderne avec mémoire suffisante pour l'inférence IA locale.
+LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Linux** en conteneur Docker, accessible 24/7. Le serveur est équipé d'un processeur moderne avec mémoire suffisante pour l'inférence IA locale.
 
 ### Architecture
 
@@ -130,7 +130,7 @@ graph TB
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
         subgraph Docker["Hermes (Docker)"]
             GW["5 profils Gateway<br/>default · leo-copilot · bavi-leo · emile · bureau-robert"]
-            Crons["39 crons"]
+            Crons["41 crons"]
         end
     end
     
@@ -138,7 +138,7 @@ graph TB
     GW -->|"déploie"| GH["GitHub Pages<br/>8 dashboards"]
     GW -->|"utilise"| Google["Google APIs<br/>Drive · Gmail · Calendar · Sheets"]
     GW -->|"appelle"| Ollama
-    GW -->|"surveille"| n8n
+    null
 ```
 
 ### docker-compose.yml

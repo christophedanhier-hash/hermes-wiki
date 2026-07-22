@@ -36,7 +36,7 @@ Le skill `ai-tech-watch` est le plus sophistiqué des skills de veille. Chaque m
 - MIT News (AI)
 - Stanford AI (HAI)
 - Papers With Code
-- Arxiv (AI)
+- arXiv (AI)
 ```
 
 ### Format du rapport
@@ -82,9 +82,9 @@ Nombre d'articles analysés: 15-30
 Temps de traitement: ~2 minutes
 ```
 
-## Arxiv : la recherche académique
+## arXiv : la recherche académique
 
-Le skill `arxiv` permet de chercher des articles scientifiques sur Arxiv.
+Le skill `arxiv` permet de chercher des articles scientifiques sur arXiv.
 
 ### Recherche par mot-clé
 
@@ -179,7 +179,7 @@ Utile pour les conférences techniques, les tutoriels ou les annonces de produit
 | Skill | Usage | Fréquence | Coût |
 |:------|:------|:---------:|:----:|
 | **AI Tech Watch** | Veille IA quotidienne | Quotidien | ~0,05 €/j |
-| **Arxiv** | Recherche académique | À la demande | 0€ |
+| **arXiv** | Recherche académique | À la demande | 0€ |
 | **BlogWatcher** | Surveillance blogs | Continue | 0€ |
 | **LLM Wiki** | Base de connaissance | Continue | 0€ |
 | **Polymarket** | Marchés prédiction | À la demande | 0€ |

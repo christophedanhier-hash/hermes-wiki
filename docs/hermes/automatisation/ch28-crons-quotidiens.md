@@ -30,7 +30,7 @@ Les crons quotidiens sont les tâches lourdes qui s'exécutent une fois par jour
   Action: Miroir bidirectionnel Google Drive ↔ GitHub
   Coût: 0 € (no_agent)
 
-H:10 — Deploy Unified Dashboard (toutes les heures)
+10 * * * * — Deploy Unified Dashboard (toutes les heures à la minute 10)
   Action: collect-v2.py → 9 sources unifiées → leo-dashboard
   Coût: 0 € (no_agent)
 ```
@@ -92,11 +92,11 @@ Wikis synchronisés:
 
 ```yaml
 # Format: minute heure jour mois jour_semaine
-0 4 * * *   → Tous les jours à 04:00
-0 7 * * *   → Tous les jours à 07:00
+0 6 * * *   → Tous les jours à 06:00
+30 7 * * * → Tous les jours à 07:30
+0 8 * * *   → Tous les jours à 08:00
 0 9 * * *   → Tous les jours à 09:00
 0 18 * * *  → Tous les jours à 18:00
-0 23 * * *  → Tous les jours à 23:00
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 

@@ -150,7 +150,7 @@ Un cron `🖥️ Dashboards Watchdog (8765+9119)` (toutes les 2 minutes, `*/2 * 
 
 Le script est dans `scripts/dashboards-watchdog.sh` et relance automatiquement les dashboards si nécessaire.
 
-> 🚫 **Auto-Heal déprécié le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot. Le watchdog `dashboards-watchdog` vérifie la disponibilité mais ne regénère pas le contenu.
+> 🚫 **Auto-Heal déprécié le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot. Le watchdog `dashboards-watchdog` vérifie la disponibilité mais ne régénère pas le contenu.
 
 ## Pièges à éviter
 
