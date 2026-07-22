@@ -191,8 +191,8 @@ flowchart TB
 | Critère | 🦁 Leo Hermes | 🔧 Leo Copilot | 🧭 Voyages | 👤 Émile | 🏛️ Robert |
 |:--------|:------------:|:-----------:|:-------:|:------:|:-------:|
 | **Modèle** | DeepSeek Flash | **DeepSeek Pro** | DeepSeek Flash | DeepSeek Flash | DeepSeek Pro |
-| **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s | ⚡ < 2s |
-| **Coût** | $0.14/$0.28 /1M tokens | $ pay-as-you-go | $0.14/$0.28 /1M tokens | $0.14/$0.28 /1M tokens |
+| **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s | ⚡ < 2s | ⚡ < 3s |
+| **Coût** | $0.14/$0.28 /1M tokens | $ pay-as-you-go | $0.14/$0.28 /1M tokens | $0.14/$0.28 /1M tokens | $ pay-as-you-go |
 || **Usage principal** | Chat quotidien | **Infra, code** | Voyages | Assistant perso | Conseil stratégique |
 || **Profil** | `default` | `leo-copilot` | `bavi-leo` | `emile` | `bureau-robert` |
 || **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek | DeepSeek |
