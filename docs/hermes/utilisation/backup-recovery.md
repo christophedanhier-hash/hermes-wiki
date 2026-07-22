@@ -29,7 +29,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 | Service | Statut | Modèle |
 |---------|--------|--------|
 | **Léo** (default, toi ici) | ✅ Gateway actif | DeepSeek Flash |
-| **Léo Copilote** (infra) | ✅ Gateway actif + 39 crons | DeepSeek Pro |
+| **Léo Copilote** (infra) | ✅ Gateway actif + 41 crons (39 actifs) | DeepSeek Pro |
 | **BAVI LEO Voyages** (Sylvia) | ✅ Gateway actif | DeepSeek Flash |
 | **Émile** (pédagogique) | ✅ Gateway actif | DeepSeek Flash |
 | **n8n**  | ❌ Retiré (13/07/2026) | — |
@@ -240,5 +240,5 @@ done
 
 *Document mis à jour le 10/07/2026 à 00:00 — LEO 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 

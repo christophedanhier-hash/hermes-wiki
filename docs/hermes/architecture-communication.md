@@ -145,7 +145,7 @@ flowchart TB
 
     subgraph EXTERNE["🌐 Services gérés"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 39 Crons Hermes (leo-copilot exclusif)"]
+        CRONS["⏰ 41 Crons Hermes (leo-copilot exclusif)"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
@@ -235,7 +235,7 @@ flowchart TB
     subgraph OUTPUT["📊 Output"]
         DASH["1 Dashboard<br/>(leo-dashboard unifié)"]
         WFL["🐍 Workflows Python"]
-        CRON["39 Crons"]
+        CRON["41 Crons"]
         ISSUES["leo-tracker<br/>GitHub Issues"]
     end
 
@@ -307,6 +307,6 @@ flowchart TB
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 
 

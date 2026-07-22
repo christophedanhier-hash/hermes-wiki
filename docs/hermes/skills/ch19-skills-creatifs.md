@@ -144,7 +144,7 @@ body { font-family: sans-serif; max-width: 800px; margin: auto; }
 <body>
 <div class="header"><h1>Dashboard LEO</h1></div>
 <div class="card">Sessions: 431</div>
-<div class="card">Budget: $60.31</div>
+<div class="card">Budget: ~$19.97</div>
 </body>
 </html>
 ```
@@ -167,5 +167,5 @@ body { font-family: sans-serif; max-width: 800px; margin: auto; }
 - **Annexe A** : Glossaire
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 

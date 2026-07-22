@@ -93,10 +93,10 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 | **dashboard-deployment** | Déploiement dashboards HTML sur GitHub Pages avec collecte horaire 0$ | Crons LEO |
 | **dashboard-kpi** | Système dashboard KPI Hermes : SQLite → JSON → HTML (Chart.js) | Cron leo-dashboard |
 | **machine-metrics** | Dashboard 3 machines (LEO, Yoga, Penguin) : CPU/RAM/DISK | Cron leo-dashboard |
-| **leo-architecture** | Architecture LEO finale : 1 profil, 1 gateway, DeepSeek + Ollama + Gemini | Setup |
+| **leo-architecture** | Architecture LEO finale : 5 profils, 1+ gateways, DeepSeek + Ollama + Gemini | Setup |
 | **leo-backup-dr** | Plan de Reprise d'Activité — backup Drive + restauration ~45min | Cron daily-backup |
 | **routage-llm** | Règles de routage : DeepSeek (Telegram) vs Ollama (local) vs Gemini (fallback) | Quotidien |
-| **self-hosted-services** | Installation services auto-hébergés — Docker/Tailscale (n8n retiré 13/07retiré 13/07) | Maintenance |
+| **self-hosted-services** | Installation services auto-hébergés — Docker/Tailscale (n8n retiré 13/07/2026) | Maintenance |
 | **shared-bot-deployment** | Déploiement bot Telegram secondaire (amis, famille, projet) | Setup |
 | **system-management** | Gestion centralisée machines distantes via Tailscale + SSH (multi-OS) | Maintenance |
 | **drive-github-mirror** | Miroir versionné Drive ↔ GitHub bidirectionnel | Cron drive-sync |
@@ -244,8 +244,8 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 
 | Métrique | Valeur |
 |----------|:------:|
-| **Total skills** | **103** |
-| **Catégories** | 16 |
+| **Total skills** | **126** |
+| **Catégories** | 22 |
 | **Lignes totales estimées** | ~21 000+ |
 | **Lignes moyennes par skill** | ~200 |
 | **Plus gros skill** | research-paper-writing (2 377 l.) |
@@ -293,5 +293,5 @@ hermes skills list
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

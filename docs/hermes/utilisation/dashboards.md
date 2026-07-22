@@ -175,7 +175,7 @@ subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
 ## 🦁 Global Dashboard LEO (portail unique)
 
 Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seule page :
-- 🔵 **Crons (38)** — statut, historique (collect-v2)
+- 🔵 **Crons (41, 39 actifs)** — statut, historique (collect-v2)
 - 📊 **1 Dashboard unifié** (leo-dashboard) — remplace les 7 anciens dashboards
 - 💰 **Budget DeepSeek** — solde, jours restants
 - 🖥️ **Ports** — dashboards 8765+9119, code-server 7681
@@ -204,6 +204,6 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ---
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 
 

@@ -63,7 +63,7 @@ Taille moyenne: ~40-70 MB
 
 ```yaml
 Processus:
-  1. Collecte RSS (15 sources, ~50 articles)
+  - **Collecte RSS (17 sources, ~50 articles)**
   2. DeepSeek V4 Flash analyse chaque article
   3. Sélection des 15 plus pertinents
   4. Rédaction du rapport formaté
@@ -100,5 +100,5 @@ Wikis synchronisés:
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

@@ -11,7 +11,7 @@
 | 2 | `architecture.md` | Architecture système (serveur, conteneurs) | 3, 7 | ✅ |
 | 3 | `architecture-communication.md` | **5 bots** (LEO, Copilot, Émile, Voyages, Robert), routage, sync mémoire | 7, 13, 20 | ✅ |
 | 4 | `changelog.md` | Historique des modifications | Toutes | ✅ |
-| 5 | `etat-des-lieux.md` | Installation Hermes de Christophe (inventaire) | 14, 18, 20 | ✅ |
+| 5 | ~~`etat-des-lieux.md`~~ | **ARCHIVÉ** — inventaire pré-crash, obsolète | 14, 18, 20 | ❌ |
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
 | 7 | ~~`exemples/LEO.md`~~ | **SUPPRIMÉ** — remplacé par guide v3+ (archives) | — | ❌ |
 | 8 | `configuration/profiles.md` | **5 profils**, gateways, skills, mémoire | 20 | ✅ |
@@ -103,5 +103,5 @@ Quand tu changes... | Pages à vérifier
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

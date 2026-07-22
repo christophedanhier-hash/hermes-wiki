@@ -59,6 +59,6 @@ n8n étant retiré le 13/07/2026, les métriques associées ne sont plus collect
 
 ---
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 
 

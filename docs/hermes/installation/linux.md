@@ -135,7 +135,7 @@ graph TB
     end
     
     Telegram["📱 Telegram"] -->|"5 bots"| GW
-    GW -->|"déploie"| GH["GitHub Pages<br/>8 dashboards"]
+    GW -->|"déploie"| GH["GitHub Pages<br/>1 dashboard unifié"]
     GW -->|"utilise"| Google["Google APIs<br/>Drive · Gmail · Calendar · Sheets"]
     GW -->|"appelle"| Ollama
     null
@@ -204,5 +204,5 @@ services:
 - [Docker Hub](https://hub.docker.com/r/nousresearch/hermes-agent)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

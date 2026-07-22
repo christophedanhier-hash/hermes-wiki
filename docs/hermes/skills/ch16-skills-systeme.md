@@ -106,7 +106,7 @@ Le skill `profils` documente comment organiser des instances Hermes indépendant
 | `leo-copilot` | Infrastructure | DeepSeek V4 Pro | `899720...` |
 | `bavi-leo` | Bureaux BAVI | DeepSeek V4 Flash | `885780...` |
 | `emile` | Pédagogie | DeepSeek Flash + Gemini | `890688...` |
-| `bureau-robert` | Conseil stratégique IT | DeepSeek V4 Flash | — |
+| `bureau-robert` | Conseil stratégique IT | DeepSeek V4 Pro | — |
 
 ### Structure d'un profil
 
@@ -221,5 +221,5 @@ hermes cron run <id>    # Exécution immédiate
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 

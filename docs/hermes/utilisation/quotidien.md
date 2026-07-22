@@ -124,10 +124,10 @@ LEO vérifie, supprime ce qui est obsolète, et confirme.
 
 ## Pour aller plus loin
 
-- Voir `03-utilisation/crons.md` pour les tâches planifiées
-- Voir `03-utilisation/dashboards.md` pour le monitoring
-- Voir `exemples/LEO.md` pour l'architecture complète
+- Voir `utilisation/crons.md` pour les tâches planifiées
+- Voir `utilisation/dashboards.md` pour le monitoring
+- Voir `utilisation/architecture-leo.md` ou `architecture-communication.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 juillet 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 juillet 2026 à 09:00 (UTC+2)
 

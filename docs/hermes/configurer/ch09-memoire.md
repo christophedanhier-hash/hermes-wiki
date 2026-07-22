@@ -14,7 +14,7 @@ Infrastructure: serveur Linux 7.0.0-27-generic, 457Go SSD, Docker (hermes-agent 
 §
 Backup: quotidien vers GDrive à 04:00, rétention 7 jours
 §
-Budget DeepSeek: $60.31 restant, ~$0.03/jour
+Budget DeepSeek: $19.97 restant, ~$0.03/jour
 §
 WiFi camping: "Camping Le Brasilia" — mot de passe en vault
 ```
@@ -144,5 +144,5 @@ Session 2 (le lendemain) : "Quelle est l'IP de mon serveur ?"
 - **Annexe A** : glossaire (mémoire persistante)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 

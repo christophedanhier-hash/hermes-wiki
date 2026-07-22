@@ -7,7 +7,7 @@
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
 > - **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows ont été migrés vers des crons Hermes.
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 39 crons actifs (vs 22 avant reconstruction).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 41 crons (39 actifs, 2 en pause).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
@@ -27,7 +27,7 @@
 | **Gateways** | 5 actifs (s6 supervision) |
 | **Modèle principal** | `deepseek-v4-flash` (provider DeepSeek) |
 | **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b (Ollama local) |
-| **Crons actifs** | 39 (tous consolidés dans leo-copilot) |
+| **Crons actifs** | 41 (39 actifs, 2 en pause — tous consolidés dans leo-copilot) |
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
 
@@ -122,11 +122,11 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **39 crons Hermes** (tous consolidés dans `leo-copilot`)
+> **39 crons Hermes** (tous consolidés dans `leo-copilot`) → **41 jobs (39 actifs, 2 en pause)**
 
 | Profil | Crons |
 |--------|:-----:|
-| `leo-copilot` (consolidateur) | 39 |
+| `leo-copilot` (consolidateur) | 41 |
 | `default` | 0 |
 | `bavi-leo` | 0 |
 | `emile` | 0 |
@@ -134,7 +134,7 @@
 
 **0 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 39**
+**Total général : 41 jobs (39 actifs, 2 en pause)**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
 <!-- AUTO:END crons -->
@@ -316,5 +316,5 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 

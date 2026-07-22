@@ -29,7 +29,7 @@ flowchart TB
         DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>https://christophedanhier-hash.github.io/leo-dashboard/"]
     end
 
-    subgraph crons["⏱️ Crons LEO (39 gérés par leo-copilot)"]
+    subgraph crons["⏱️ Crons LEO (41 gérés par leo-copilot)"]
         DRIVE_ISSUE["Drive → Issue<br/>Surveillance Drive"]
         GARDIEN["Gardien du Drive<br/>Protection documents"]
         SAVE_CONTACTS["Save Contacts<br/>Sauvegarde contacts"]
@@ -72,7 +72,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 
 ## 3. Déploiement
 
-Le déploiement du dashboard fait partie d'un ensemble de 39 crons gérés par leo-copilot. Le cron spécifique pour le dashboard est :
+Le déploiement du dashboard fait partie d'un ensemble de 41 crons gérés par leo-copilot. Le cron spécifique pour le dashboard est :
 
 ```
 10 * * * *  →  collect-v2.py (via leo-copilot, no_agent)
@@ -98,7 +98,7 @@ n8n tournait sur `localhost:5678` (même machine que Hermes).
 
 ---
 
-## 5. Vaults Obsidian (4)
+## 5. Vaults Obsidian (5)
 
 | Vault | Usage | Monitoring |
 |-------|-------|------------|
@@ -126,10 +126,10 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 
 | Métrique | Valeur |
 |----------|--------|
-| Workflows n8n | **3** ✅ |
+| **Workflows n8n** | ❌ Retiré (13/07/2026) |
 | Dashboards | **1** (unifié) |
 | Sources de collecte | **9** |
-| Vaults Obsidian | **4** |
+| Vaults Obsidian | **5** |
 | Budget DeepSeek | **~$19.97** |
 | Déploiement | Toutes les heures via leo-copilot |
 
@@ -138,5 +138,5 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 > **Document mis à jour le 04/07/2026** — reflet des changements post-crash.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:17 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 
