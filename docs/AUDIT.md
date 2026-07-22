@@ -1,14 +1,17 @@
 # 📋 Journal d'Audit Rédactionnel — hermes-wiki
 
-Dernier passage d'audit automatique : **20/07/2026**
+Dernier passage d'audit automatique : **22/07/2026**
 
 ## Résumé du passage
 
-- **Total fichiers analysés** : 171
-- **Anomalies sur ce wiki** : 19
-- **Statut global du wiki** : ⚠️ À réviser
+- **Total fichiers analysés** : 183 (63 hermes-wiki + 120 BAVI_LEO)
+- **Méthode** : Statique (API DeepSeek indisponible — clé expirée sk-f90...5fc0)
+- **Nouvelles anomalies détectées** : 0 (audit IA non réalisé)
+- **Anomalies connues non résolues** : 17
+- **Auto-fix appliqués** : 2 patches manuels sur bots-telegram.md
+- **Statut global du wiki** : ⚠️ 17 anomalies non résolues
 
-## Anomalies détectées
+## Anomalies connues (issues précédentes non résolues)
 
 | Page | Section | Gravité | Ce que dit la doc | Réalité | Action entreprise |
 |------|---------|---------|-------------------|---------|-------------------|
