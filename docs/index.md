@@ -171,7 +171,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 ---
 
-> 🕐 **Dernière mise en ligne : 22/07/2026 01:00**  
+> 🕐 **Dernière mise en ligne : 22/07/2026 02:00**  
 > *Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com) · 🦁 LEO*
 
 > 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
