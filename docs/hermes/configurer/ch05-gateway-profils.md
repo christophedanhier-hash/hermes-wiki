@@ -29,17 +29,20 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 
 ### Règle LEO : architecture multi-profils
 
-> *"5 profils spécialisés, 1 mémoire unifiée."*
+> *"8 profils spécialisés, 5 bots Telegram, 1 mémoire unifiée."*
 
-LEO utilise **5 profils Hermes**, chacun avec son propre bot Telegram et sa spécialisation :
+LEO utilise **8 profils Hermes** dont **5 avec bot Telegram**, chacun avec sa spécialisation :
 
-| Profil | Rôle | Modèle | Mémoire |
-|--------|------|--------|---------|
-| `default` | Dialogue quotidien | DeepSeek / Ollama (qwen2.5:7b) / autres | Partagée avec leo-copilot |
-| `leo-copilot` | Infrastructure & crons | DeepSeek / Ollama / autres | Partagée avec default |
-| `bavi-leo` | Voyages (Sylvia) | DeepSeek / Ollama / autres | Séparée |
-| `emile` | Création contenu | DeepSeek Flash + Gemini (fallback) | Séparée |
-| `bureau-robert` | Conseil Stratégique IA | DeepSeek / Ollama / autres | Séparée |
+| Profil | Bot Telegram | Rôle | Modèle | Mémoire |
+|--------|:-----------:|------|--------|---------|
+| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Partagée avec leo-copilot |
+| `leo-copilot` | ❌ | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
+| `michel` | ✅ | Chef infrastructure (alias leo-copilot TUI) | DeepSeek Pro | Séparée |
+| `bavi-leo` | ❌ | BAVI Voyages (Sylvia) | DeepSeek Flash | Séparée |
+| `emile` | ✅ | Création contenu | DeepSeek Flash | Séparée |
+| `bureau-robert` | ❌ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
+| `robert` | ✅ | Conseil Stratégique IA (alias Telegram) | DeepSeek Pro | Séparée |
+| `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 
 - **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
 - **Crons** : 41 dans `leo-copilot` (39 actifs, 2 en pause). Règle « ZÉRO hors leo-copilot » respectée (emile=0, bavi-leo=0, default=0, bureau-robert=0).

@@ -184,7 +184,7 @@ Règles d'or:
 
 | Skill | Fichier | Lignes |
 |:------|:--------|:------:|
-| `bureau-michel` | `SKILL.md` | 106 |
+| `michel` | `SKILL.md` | 106 | *(anciennement `bureau-michel`)*
 | `gmail-inbox-zero` | `references/classifier-script.md` | ~200 |
 | `voyages-wiki` | `SKILL.md` | ~150 |
 | `deployment` | Procédures Nginx, Docker | ~80 |

@@ -1,6 +1,6 @@
 # 🤖 Bots Telegram — Écosystème LEO
 
-> **5 bots, 5 missions, 1 mémoire partagée** — chaque bot a un modèle, un profil Hermes et un rôle dédié.
+> **5 bots, 5 missions, mémoire unifiée default↔michel** — chaque bot a un profil Hermes et un rôle dédié.
 
 ---
 
@@ -13,9 +13,9 @@ flowchart TB
     subgraph BOTS["🤖 Bots Telegram"]
         direction LR
         LeoFlash["🦁 @hermes_leo_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Chat quotidien"]
-        Copilot["🔧 @hermes_leo_copilot_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Infrastructure"]
-        Voyages["🧭 @bavi_leo_voyages_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Voyages"]
-        Emile["👤 @Bureau_ia_emilie_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Assistant perso"]
+        Michel["🔧 @hermes_leo_copilot_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Infrastructure"]
+        Sylvia["🧭 @bavi_leo_voyages_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Voyages"]
+        Emile["👤 @Bureau_ia_emilie_bot<br/>━━━━━━━━━━<br/>DeepSeek Flash<br/>Assistant pédagogique"]
         Robert["🏛️ @bureau_robert_bot<br/>━━━━━━━━━━<br/>DeepSeek Pro<br/>Conseil stratégique"]
     end
 
@@ -25,38 +25,36 @@ flowchart TB
         OL["Ollama local<br/>qwen2.5:7b"]
     end
 
-    subgraph MEMORY["📁 Mémoire partagée"]
+    subgraph MEMORY["📁 Mémoire"]
         SYNC["sync-memory.py<br/>toutes les 30min"]
         M1["MEMORY.md<br/>default"]
-        M2["MEMORY.md<br/>leo-copilot"]
-        M3["MEMORY.md<br/>bureau-robert"]
+        M2["MEMORY.md<br/>michel"]
     end
 
     User -->|"chat quotidien"| LeoFlash
-    User -->|"code, infra, scripts"| Copilot
-    User -->|"roadbooks, voyages"| Voyages
+    User -->|"code, infra, scripts"| Michel
+    User -->|"roadbooks, voyages"| Sylvia
     User -->|"assistant perso"| Emile
+    User -->|"conseil stratégique"| Robert
 
     LeoFlash --> DS
-    Copilot --> DS
+    Michel --> DS
     LeoFlash -.->|fallback| GF
     LeoFlash -.->|fallback| OL
-    Voyages --> DS
+    Sylvia --> DS
     Emile --> DS
+    Robert --> DS
 
     SYNC --> M1
     SYNC --> M2
-    SYNC --> M3
-    SYNC --> M4
     M1 <-.->|"réplication"| M2
-    M2 <-.->|"réplication"| M3
-    M3 <-.->|"réplication"| M4
 
     style User fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
     style LeoFlash fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
-    style Copilot fill:#ede7f6,stroke:#5e35b1,color:#311b92
-    style Voyages fill:#e8f5e9,stroke:#388e3c,color:#1b5e20
+    style Michel fill:#ede7f6,stroke:#5e35b1,color:#311b92
+    style Sylvia fill:#e8f5e9,stroke:#388e3c,color:#1b5e20
     style Emile fill:#fff8e1,stroke:#f57f17,color:#e65100
+    style Robert fill:#fce4ec,stroke:#c62828,color:#b71c1c
     style DS fill:#fff3e0,stroke:#e65100,color:#bf360c
     style GF fill:#e0f2f1,stroke:#00695c,color:#004d40
     style OL fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
@@ -74,8 +72,8 @@ flowchart TB
 | **Provider** | DeepSeek API directe |
 | **Profil Hermes** | `default` |
 | **Latence** | ⚡ < 2s |
-| **Coût** | DeepSeek V4 Flash: $0.14/1M input, $0.28/1M output — suivi dashboard budget |
-| **Fallback** | Gemini 3.5 Flash + Ollama local qwen2.5:7b comme fallback |
+| **Coût** | DeepSeek V4 Flash: $0.14/1M input, $0.28/1M output |
+| **Fallback** | Gemini 3.5 Flash → Ollama local qwen2.5:7b |
 
 ### Flux de communication
 
@@ -97,141 +95,74 @@ flowchart LR
 
 ---
 
-## 2️⃣ 🔧 `@hermes_leo_copilot_bot` — Leo Copilot (Infrastructure)
+## 2️⃣ 🔧 `@hermes_leo_copilot_bot` — Michel (Infrastructure)
+
+> Ce bot correspond au profil **`michel`** (ex-leo-copilot, renommé juillet 2026).
 
 | | |
 |:---|:---|
-| **Rôle** | Code, infrastructure, dashboards, déploiements |
+| **Rôle** | Code, infrastructure, dashboards, déploiements, audits |
 | **Modèle** | **DeepSeek Pro** (deepseek-v4-pro) |
 | **Provider** | DeepSeek API directe |
-| **Profil Hermes** | `leo-copilot` (isolé, dédié) |
+| **Profil Hermes** | `michel` (isolé, mémoire unifiée avec `default`) |
 | **Latence** | ⚡ < 3s |
-| **Coût** | $ pay-as-you-go — suivi dashboard budget |
-| **Fallback** | DeepSeek Flash si Pro indisponible |
-| **Sync mémoire** | Cron `sync-memory` toutes les 30min — partage mémoire entre profils default et leo-copilot |
-
-### Architecture technique
-
-```mermaid
-flowchart TB
-    subgraph COPILOT["🔧 Profil leo-copilot"]
-        direction TB
-        GW2["🌐 Gateway<br/>@hermes_leo_copilot_bot"]
-        AGENT["🤖 Agent Hermes<br/>Leo Copilot"]
-        SKILLS["📚 Skills<br/>scripts, dashboards,<br/>drive, watchdogs"]
-    end
-
-    DS_PRO["☁️ DeepSeek API<br/>Pro (deepseek-v4-pro)"]
-    DS_FLASH["☁️ DeepSeek API<br/>Flash (fallback)"]
-    MEM["📁 Sync mémoire<br/>← default + bavi-leo + emile<br/>symlinks (instantané)"]
-    DASH["📊 Dashboards<br/>GitHub Pages"]
-
-    GW2 --> AGENT
-    AGENT --> SKILLS
-    AGENT --> DS_PRO
-    AGENT -.->|fallback| DS_FLASH
-    MEM -.-> AGENT
-    AGENT --> DASH
-
-    style COPILOT fill:#ede7f6,stroke:#5e35b1,stroke-width:3px,color:#311b92
-    style GW2 fill:#e0f7fa,stroke:#00838f,color:#004d40
-    style AGENT fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
-    style SKILLS fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
-    style DS_PRO fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
-    style DS_FLASH fill:#fff3e0,stroke:#e65100,stroke-dasharray:5,color:#bf360c
-    style MEM fill:#fce4ec,stroke:#c62828,color:#b71c1c
-    style DASH fill:#e8eaf6,stroke:#3949ab,color:#1a237e
-```
-
-### Pourquoi DeepSeek Pro et Gemini 3.5 Flash en fallback ?
-
-- **Qualité de réflexion supérieure** pour les tâches d'infrastructure complexes (DeepSeek V4 Pro)
-- **Mémoire partagée** avec les autres profils via `sync-memory.py`
-- **Gemini 3.5 Flash** utilisé comme fallback si DeepSeek Pro est indisponible
-- **Ollama local qwen2.5:7b** comme dernière ligne de repli
+| **Coût** | $ pay-as-you-go |
+| **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b |
+| **Crons** | 41 jobs (39 actifs, 2 en pause) |
 
 ---
 
-## 3️⃣ 🧭 `@bavi_leo_voyages_bot` — Voyages
+## 3️⃣ 🧭 `@bavi_leo_voyages_bot` — Sylvia (Voyages)
+
+> Ce bot correspond au profil **`sylvia`** (ex-bavi-leo).
 
 | | |
 |---|---|
-| **Rôle** |
+| **Rôle** | Roadbooks, itinéraires, organisation voyages camping-car |
 | **Modèle** | DeepSeek Flash (deepseek-v4-flash) |
-| **Profil Hermes** | `bavi-leo` (isolé) |
-| **Accès** | Christophe + invités (accès limité aux skills voyage) |
-| **Skills** | `bureau-sylvie`, `voyages-wiki`, `maps` |
+| **Profil Hermes** | `sylvia` (isolé) |
+| **Accès** | Christophe uniquement |
 | **Wiki** | [🧭 Voyages](https://christophedanhier-hash.github.io/voyages-wiki/) |
 
 ---
 
-## 4️⃣ 👤 `@emile_bot` — Assistant personnel
+## 4️⃣ 👤 `@Bureau_ia_emilie_bot` — Émile (Pédagogie)
 
 | | |
 |---|---|
-| **Rôle** |
+| **Rôle** | Assistant pédagogique pour mémoire de fin d'études |
 | **Modèle** | DeepSeek Flash (deepseek-v4-flash) |
 | **Profil Hermes** | `emile` (isolé) |
+| **Accès** | Christophe uniquement |
 
 ---
 
-## 5️⃣ 🏛️ `@bureau_robert_bot` — Conseil Stratégique IA
+## 5️⃣ 🏛️ `@bureau_robert_bot` — Robert (Conseil Stratégique)
+
+> Ce bot correspond au profil **`robert`** (ex-bureau-robert).
 
 | | |
 |---|---|
-| **Rôle** |
+| **Rôle** | Conseil stratégique IT, audits, analyses |
 | **Modèle** | DeepSeek Pro (deepseek-v4-pro) |
-| **Profil Hermes** | `bureau-robert` (isolé) |
+| **Profil Hermes** | `robert` (isolé) |
 | **Accès** | Christophe uniquement |
-| **Skills** | `bureau-robert`, analyses stratégiques |
 
 ---
 
 ## 📊 Comparatif
 
-| Critère | 🦁 Leo Hermes | 🔧 Leo Copilot | 🧭 Voyages | 👤 Émile | 🏛️ Robert |
+| Critère | 🦁 Leo Hermes | 🔧 Michel | 🧭 Sylvia | 👤 Émile | 🏛️ Robert |
 |:--------|:------------:|:-----------:|:-------:|:------:|:-------:|
 | **Modèle** | DeepSeek Flash | **DeepSeek Pro** | DeepSeek Flash | DeepSeek Flash | DeepSeek Pro |
 | **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s | ⚡ < 2s | ⚡ < 3s |
-| **Coût** | $0.14/$0.28 /1M tokens | $ pay-as-you-go | $0.14/$0.28 /1M tokens | $0.14/$0.28 /1M tokens | $ pay-as-you-go |
-| **Usage principal** | Chat quotidien | **Infra, code** | Voyages | Assistant perso | Conseil stratégique |
-| **Profil** | `default` | `leo-copilot` | `bavi-leo` | `emile` | `bureau-robert` |
+| **Profil** | `default` | `michel` | `sylvia` | `emile` | `robert` |
 | **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek | DeepSeek |
-| **Accès invités** | ❌ | ❌ | ✅ | ❌ | ❌ |
-| **Sync mémoire** | ✅ 30min | ✅ 30min | ✅ 30min | ✅ 30min | ✅ 30min |
+| **Mémoire** | Unifiée (default+michel) | Unifiée (default+michel) | Séparée | Séparée | Séparée |
+| **Crons** | 0 | **41 (39 actifs)** | 0 | 0 | 0 |
 
-### Post-restauration 10/07/2026
-
-Suite à la perte du conteneur Docker LEO, le profil `leo-copilot` a été restauré depuis `leo-full-backup-2026-07-10.tar.gz`.
-
-| Problème | Fix |
-|:---------|:----|
-| `SOUL.md` cassé (symlink → `~/Projets_Dev/` inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
-| Vaults inaccessibles (`OBSIDIAN_VAULT_PATH`) | Mis à jour vers `~/.hermes/vault-*` |
-| 28 crons restaurés | Maintenant 41 crons (39 actifs, croissance depuis la restauration) |
-| Gateway redémarrée | ✅ Connecté Telegram |
-
-**Leçons :**
-- Le `SOUL.md` partagé par symlink est le point critique — sa perte bloque identité + crons
-- Les chemins absolus doivent être vérifiés après restauration
-- Backuper immédiatement après restauration
+> **Note** : Les profils `leo-copilot`, `bavi-leo`, `bureau-robert` ont été renommés respectivement en `michel`, `sylvia`, `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés.
 
 ---
 
-## 🔧 Maintenance
-
-| Action | Commande / Cron |
-|:-------|:----------------|
-| **Redémarrer Leo Copilot** | `hermes -p leo-copilot gateway restart` |
-| **Vérifier sync mémoire** | `cat ~/.hermes/profiles/default/memories/MEMORY.md` |
-| **Dashboards** | Tous auto-déployés via GH Pages |
-
----
-
-*Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
-
----
-
-> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
-
-
+> 🤖 Dernier audit : 22/07/2026 à 13:45 (UTC+2)

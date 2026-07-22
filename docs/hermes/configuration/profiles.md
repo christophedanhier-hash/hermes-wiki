@@ -29,20 +29,22 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 
 ### Règle LEO : architecture multi-profils
 
-> *"5 profils spécialisés, 1 mémoire unifiée."*
+> *"5 profils spécialisés, 5 bots Telegram, 1 mémoire unifiée."*
 
-LEO utilise **5 profils Hermes**, chacun avec son propre bot Telegram et sa spécialisation :
+LEO utilise **5 profils Hermes** tous avec bot Telegram :
 
-| Profil | Rôle | Modèle | Mémoire |
-|--------|------|--------|---------|
-| `default` | Dialogue quotidien | DeepSeek Flash | Partagée avec leo-copilot |
-| `leo-copilot` | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
-| `bavi-leo` | Voyages (Sylvia) | DeepSeek Flash | Séparée |
-| `emile` | Création contenu | DeepSeek Flash | Séparée |
-| `bureau-robert` | Conseil Stratégique IA | DeepSeek Pro | Séparée |
+| Profil | Bot Telegram | Rôle | Modèle | Mémoire |
+|--------|:-----------:|------|--------|---------|
+| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Unifiée (default+michel) |
+| `michel` | ✅ | Infrastructure & crons (ex-leo-copilot) | DeepSeek Pro | Unifiée (default+michel) |
+| `emile` | ✅ | Assistant pédagogique mémoire | DeepSeek Flash | Séparée |
+| `robert` | ✅ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
+| `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 
-- **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
-- **Crons** : 41 dans `leo-copilot` (39 actifs, 2 en pause). Règle « ZÉRO hors leo-copilot » respectée (emile=0, bavi-leo=0, default=0, bureau-robert=0).
+> **Note historique** : Les profils `leo-copilot`, `bavi-leo` et `bureau-robert` ont été renommés/absorbés. `leo-copilot` → `michel`, `bavi-leo` → `sylvia`, `bureau-robert` → `robert`. Voir [migration des profils](../changelog.md).
+
+- **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau)
+- **Crons** : 41 dans `michel` (39 actifs, 2 en pause). Règle « ZÉRO hors michel » respectée.
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |

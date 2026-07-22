@@ -129,7 +129,7 @@ graph TB
     subgraph HOST["HOST — Ubuntu 26.04 LTS"]
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
         subgraph Docker["Hermes (Docker)"]
-            GW["5 profils Gateway<br/>default · leo-copilot · bavi-leo · emile · bureau-robert"]
+            GW["8 profils Gateway<br/>default · leo-copilot · michel · bavi-leo · emile · bureau-robert · robert · sylvia"]
             Crons["41 crons"]
         end
     end

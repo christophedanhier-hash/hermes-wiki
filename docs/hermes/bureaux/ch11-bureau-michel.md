@@ -1,6 +1,6 @@
 # Bureau Michel : l'infrastructure
 
-Le Bureau Michel est le bureau technique de LEO. Porté par **Léo Copilote** (profil `leo-copilot`), il gère tout ce qui touche au fonctionnement de l'infrastructure : crons, dashboards, scripts Python (ex-n8n), Google APIs, Git, budget, serveur, sécurité.
+Le Bureau Michel est le bureau technique de LEO. Porté par **Michel** (profil `michel`, ex-`leo-copilot`), il gère tout ce qui touche au fonctionnement de l'infrastructure : crons, dashboards, scripts Python (ex-n8n), Google APIs, Git, budget, serveur, sécurité.
 
 C'est le padron de la machine — il a accès root complet (`sudo` sans restriction).
 

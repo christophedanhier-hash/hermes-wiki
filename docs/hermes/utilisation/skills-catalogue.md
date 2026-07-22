@@ -103,7 +103,7 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 | **dashboard-deployment** | Déploiement dashboards HTML sur GitHub Pages avec collecte horaire 0$ | Crons LEO |
 | **dashboard-kpi** | Système dashboard KPI Hermes : SQLite → JSON → HTML (Chart.js) | Cron leo-dashboard |
 | **machine-metrics** | Dashboard 3 machines (LEO, Yoga, Penguin) : CPU/RAM/DISK | Cron leo-dashboard |
-| **leo-architecture** | Architecture LEO finale : 5 profils, 1+ gateways, DeepSeek + Ollama + Gemini | Setup |
+| **leo-architecture** | Architecture LEO finale : 8 profils (dont 5 bots Telegram), 1+ gateways, DeepSeek + Ollama + Gemini | Setup |
 | **leo-backup-dr** | Plan de Reprise d'Activité — backup Drive + restauration ~45min | Cron daily-backup |
 | **routage-llm** | Règles de routage : DeepSeek (Telegram) vs Ollama (local) vs Gemini (fallback) | Quotidien |
 | **self-hosted-services** | Installation services auto-hébergés — Docker/Tailscale (n8n retiré 13/07/2026) | Maintenance |
