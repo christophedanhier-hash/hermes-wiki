@@ -29,8 +29,7 @@ flowchart TB
         SYNC["sync-memory.py<br/>toutes les 30min"]
         M1["MEMORY.md<br/>default"]
         M2["MEMORY.md<br/>leo-copilot"]
-        M3["MEMORY.md<br/>bavi-leo"]
-        M4["MEMORY.md<br/>emile"]
+        M3["MEMORY.md<br/>bureau-robert"]
     end
 
     User -->|"chat quotidien"| LeoFlash
@@ -108,7 +107,7 @@ flowchart LR
 | **Latence** | ⚡ < 3s |
 | **Coût** | $ pay-as-you-go — suivi dashboard budget |
 | **Fallback** | DeepSeek Flash si Pro indisponible |
-| **Sync mémoire** | Cron `sync-memory` toutes les 30min — partage mémoire entre profils |
+| **Sync mémoire** | Cron `sync-memory` toutes les 30min — partage mémoire entre profils default et leo-copilot |
 
 ### Architecture technique
 
