@@ -82,9 +82,9 @@ Utilisateur ──→ tofdan.be ──→ Cloudflare ──→ Tunnel ──→ 
 | **Yoga** | Windows 11 | — | CPU, RAM (via SSH) |
 | **Penguin** | Debian 13 | 6.3 Go | CPU, RAM, VS Code + Kilo Code |
 
-## Les 39 crons
+## Les 41 crons
 
-Les crons sont le cœur de l'automatisation. **39 tâches planifiées** tournent 24/7, toutes consolidées dans le profil `leo-copilot` :
+Les crons sont le cœur de l'automatisation. **41 tâches planifiées** (39 actifs, 2 en pause) tournent 24/7, toutes consolidées dans le profil `leo-copilot` :
 
 ### Crons horaires (métriques + dashboard)
 
@@ -150,7 +150,7 @@ cron-metrics:
   script: collect-metrics.sh
 ```
 
-Sur 39 crons, la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
+Sur 41 crons, la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
 
 ## Le dashboard unifié
 
@@ -195,10 +195,10 @@ Le système ne se contente pas de tourner — il se surveille :
 
 ```yaml
 Auto-heal (toutes les 30-60 min):
-  ✅ Crons: 19/19 OK
+  ✅ Crons: 41 jobs (39 actifs, 2 en pause)
   ✅ Ollama: UP (qwen2.5:7b responsive)
-  ✅ n8n: UP (healthz 200)
-  ✅ Docker: 3/3 conteneurs up
+  ✅ n8n: ❌ Retiré 13/07/2026
+  ✅ Docker: 2/2 conteneurs up (hermes-agent + ollama)
   ✅ Disque: 21% utilisé (345 Go libre)
   ✅ Token LEO Google: OK
   ❌ Token Christophe: à ré-autoriser
@@ -210,7 +210,7 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 
 | Composant | Quantité | Coût mensuel |
 |:----------|:--------:|:------------:|
-| Crons | 39 | ~0,10 €/j |
+| Crons | 41 (39 actifs) | ~0,10 €/j |
 | Dashboards | 1 (unifié) | 0 € (GitHub Pages) |
 | n8n workflows | ❌ Retiré | — |
 | Machines surveillées | 3 | 0 € |
@@ -224,5 +224,5 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:16 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

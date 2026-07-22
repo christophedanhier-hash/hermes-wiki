@@ -222,10 +222,10 @@ Informations système et diagnostics.
 | Métrique | Valeur (LEO) |
 |----------|--------------|
 | **Version Hermes** | v0.18.0 |
-| **Python** | 3.13.5 |
+| **Python** | 3.14.4 |
 | **OS** | Ubuntu 26.04 LTS |
 | **Gateway** | Running |
-| **Profils actifs** | 4 (default, leo-copilot, emile, bavi-leo) |
+| **Profils actifs** | 5 (default, leo-copilot, emile, bavi-leo, bureau-robert) |
 
 ---
 
@@ -267,5 +267,5 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

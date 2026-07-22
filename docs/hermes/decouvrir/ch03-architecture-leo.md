@@ -164,7 +164,7 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 | Métrique | Valeur |
 |:---------|:-------|
-| Crons actifs | **Déploiement horaire unifié** (collect-v2.py) |
+| Crons actifs | **41 (39 actifs, 2 en pause)** |
 | Skills installés | **126** |
 | Dashboards | **1** (unifié — leo-dashboard) |
 | Wikis | **5** (98 pages total) |
@@ -184,5 +184,5 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 **[Chapitre suivant → Installation rapide](ch04-installation-rapide.md)**
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

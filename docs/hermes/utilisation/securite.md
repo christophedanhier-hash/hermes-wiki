@@ -49,6 +49,6 @@ Patterns recherchés : `mot de passe`, `password`, `token`, `-----BEGIN`, `anyde
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 
 

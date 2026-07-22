@@ -42,7 +42,7 @@
 | 🩺 Cron Watchdog v2 | continu | cron-watchdog-v2 |
 | Gardien du Drive | continu | gardien-drive.sh |
 | Drive → Issue GitHub | sur détection | drive-to-issue.py |
-| Collecte Viessmann | `*/30 * * * *` | viessmann-collect.py |
+| Collecte Viessmann | `*/5 * * * *` | viessmann-collect.py |
 | 📊 Agrégation Énergie horaire | `5 * * * *` | energy-aggregate.py |
 | ⚡ HomeWizard P1 | continu | homewizard-p1.py |
 | 📷 Surveillance caméras | continu | camera-surveillance.py |
@@ -68,5 +68,5 @@
 
 ---
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

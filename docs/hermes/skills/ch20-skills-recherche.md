@@ -21,7 +21,7 @@ Le skill `ai-tech-watch` est le plus sophistiqué des skills de veille. Chaque m
 ### Sources surveillées
 
 ```yaml
-# 15 sources RSS
+# 17 sources RSS
 - The Verge (AI)
 - TechCrunch (AI)
 - Ars Technica (AI)
@@ -192,5 +192,5 @@ Utile pour les conférences techniques, les tutoriels ou les annonces de produit
 - **Annexe A** : Glossaire
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 

@@ -22,13 +22,13 @@ Bureau Émile = votre directeur de mémoire IA
 flowchart TB
     E[👩‍🎓 Émile] -->|chat| BOT["🤖 Bot @Bureau_ia_emilie_bot"]
     E -->|lit| WIKI["📖 Wiki Mémoire"]
-    BOT -->|primaire| DS["🧠 qwen2.5:7b (Ollama local)"]
+    BOT -->|primaire| DS["🧠 DeepSeek V4 Flash"]
     BOT -->|fallback >128K| GM["🌐 Gemini 3.5 Flash"]
     BOT -->|charge contexte| WIKI
     WIKI --> GH["🌍 GitHub Pages"]
 ```
 
-- **Modèle principal** : qwen2.5:7b (Ollama local) (contexte 128K tokens)
+- **Modèle principal** : DeepSeek V4 Flash (contexte 128K tokens)
 - **Fallback** : Gemini 3.5 Flash (contexte 1M tokens — gratuit)
 - **Bot Telegram** : [@Bureau_ia_emilie_bot](https://t.me/Bureau_ia_emilie_bot)
 - **Wiki** : [emile-wiki](https://christophedanhier-hash.github.io/emile-wiki/)
@@ -102,7 +102,7 @@ Le Bureau Émile est inspiré du Bureau Sylvia (voyages) — même pattern, adap
 | **Livrable** | Roadbook | Mémoire |
 | **Wiki** | `voyages-wiki` | `emile-wiki` |
 | **Sync** | Drive → GitHub (docs voyages) | Drive → GitHub (brouillons) |
-| **Modèle** | qwen2.5:7b (Ollama local) | DeepSeek Flash + Gemini fallback |
+| **Modèle** | DeepSeek V4 Flash | DeepSeek Flash + Gemini fallback |
 | **Création** | 03/06/2026 | 25/06/2026 |
 
 ## Voir aussi
@@ -112,5 +112,5 @@ Le Bureau Émile est inspiré du Bureau Sylvia (voyages) — même pattern, adap
 - **Ch.9** : Mémoire persistante
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

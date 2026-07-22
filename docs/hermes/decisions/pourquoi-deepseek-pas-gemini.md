@@ -143,7 +143,7 @@ flowchart TB
         GEMINI["Gemini 3.5 Flash\nSecours si DeepSeek down"]
     end
 
-    subgraph CRONS["⏰ 41 crons"] (c'est cohérent, mais le texte doit être corrigé)
+    subgraph CRONS["⏰ 41 crons"]
         DS_PRO["DeepSeek V4 Pro\nAnalyses, backups"]
         DS_FLASH["DeepSeek V4 Flash\nCollecte, dashboards"]
     end
@@ -206,5 +206,5 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 *Document mis à jour le 07/07/2026 à 02:38 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

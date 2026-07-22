@@ -23,21 +23,21 @@ Un seul bot                                                 5 bots spécialisés
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **default** : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **leo-copilot** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (39 actifs)
-- **bureau-robert** : [description à définir]
+- **leo-copilot** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (41 jobs, 39 actifs)
+- **bureau-robert** : le consultant stratégique — analyses IT, recommandations
 - **bavi-leo** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
-- **emile** : [description à définir]
+- **emile** : l'assistant pédagogique — mémoire, création de contenu
 
 ### 2. Modèles adaptés à chaque usage
 
 | Bot | Modèle principal | Coût | Usage typique |
 |:----|:-----------------|:----:|:--------------|
-| default | qwen2.5:7b (Ollama) | Local gratuit | Quotidien, polyvalent |
-| leo-copilot | qwen2.5:7b (Ollama) | Local gratuit | Analyses complexes, infra |
-| bavi-leo | qwen2.5:7b (Ollama) | Local gratuit | Roadbooks, voyages |
-| bureau-robert | qwen2.5:7b (Ollama) | Local gratuit | Bureau, [rôle] |
-| emile | qwen2.5:7b (Ollama) | Local gratuit | [rôle] |
-| (fallback) | Providers: deepseek, openai, gemini, grok, anthropic | Payant selon quota | Si Ollama indisponible |
+| default | DeepSeek V4 Flash | Payant (faible) | Quotidien, polyvalent |
+| leo-copilot | DeepSeek V4 Pro | Payant (faible) | Analyses complexes, infra |
+| bavi-leo | DeepSeek V4 Flash | Payant (faible) | Roadbooks, voyages |
+| bureau-robert | DeepSeek V4 Pro | Payant (faible) | Conseil stratégique IA |
+| emile | DeepSeek V4 Flash | Payant (faible) | Pédagogie, mémoire |
+| (fallback) | Gemini 3.5 Flash + Ollama qwen2.5:7b | Gratuit | Si DeepSeek indisponible |
 
 ### 3. Isolation des tokens et permissions
 
@@ -98,8 +98,8 @@ C'est le cœur de la personnalité du bot. Il définit qui il est, ce qu'il fait
 Tu es Léo Copilote, l'ingénieur infrastructure de l'écosystème LEO.
 
 Tu gères :
-- 14 crons automatisés
-- 8 dashboards temps réel
+- 41 crons automatisés (39 actifs, 2 en pause)
+- 1 dashboard unifié
 - scripts Python (ex-n8n, workflows migrés le 13/07/2026)
 - Les gateways Hermes
 - Le budget DeepSeek
@@ -214,8 +214,9 @@ delegation:
 | `leo-copilot` | Léo Copilote 🦁 | DeepSeek V4 Pro | Infrastructure — crons, système, budget |
 | `bavi-leo` | Sylvia 🚐 | DeepSeek V4 Flash | Roadbooks camping-car, voyages |
 | `emile` | Émile 🎓 | DeepSeek V4 Flash | Assistant pédagogique mémoire |
+| `bureau-robert` | Robert 🏛️ | DeepSeek V4 Pro | Conseil stratégique IA |
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 07:26 (UTC+2)
 

@@ -101,7 +101,7 @@ Les crons Hermes ne sont pas de simples tâches shell. Chaque cron peut être :
 - **Un prompt LLM** — l'agent réfléchit et agit
 - **Un script + un prompt** — collecte des données puis analyse
 
-LEO a **41 crons actifs** dont XX en no_agent (0$ de consommation LLM pour les tâches répétitives).
+LEO a **41 crons actifs** dont la quasi-totalité en no_agent (0$ de consommation LLM pour les tâches répétitives).
 
 #### 5. 🗂️ Profils et gateways parallèles
 
@@ -112,8 +112,8 @@ Avec Hermès, vous pouvez avoir **plusieurs agents indépendants** sur la même 
 | `default` | @hermes_leo_bot | DeepSeek Flash | Chat quotidien |
 | `leo-copilot` | @hermes_leo_copilot_bot | deepseek-v4-pro | Code, infra |
 | `bavi-leo` | @bavi_leo_voyages_bot | DeepSeek Flash | Voyages camping-car |
-| `bureau-robert` | @bureau_robert_bot | DeepSeek Flash | Bureau & productivité |
-| `emile` | @emile_agent_bot | DeepSeek Flash | Assistante personnelle |
+| `bureau-robert` | @bureau_robert_bot | DeepSeek V4 Pro | Conseil stratégique IT |
+| `emile` | @emile_agent_bot | DeepSeek V4 Flash | Assistant pédagogique |
 
 Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et pourtant, ils peuvent partager des informations via un cron `sync-memory`.
 
@@ -140,5 +140,5 @@ Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et p
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20 July 2026 à 09:14 (UTC+2)
+> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
 

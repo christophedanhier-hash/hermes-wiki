@@ -206,5 +206,5 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `exemples/LEO.md` pour les dashboards en production
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 20/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
 
