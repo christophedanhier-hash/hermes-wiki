@@ -1,7 +1,7 @@
 # 📚 Catalogue des Skills — BAVI LEO & Hermes
 
-> **Document généré le** : 19/06/2026
-> **Source** : Audit complet des 103 skills installés
+> **Document généré le** : 22/07/2026 (audit rédactionnel)
+> **Source** : Audit complet des 136 skills installés (au 22/07/2026)
 > **Usage** : Ce document liste et décrit tous les skills disponibles dans l'écosystème LEO.
 
 ---
@@ -47,7 +47,7 @@ Les **Bureaux Agentiques Virtuels** sont le cœur métier de LEO. Chaque bureau 
 | **Quand l'utiliser** | Documentation du télescope T600 (Observatoire Centre Ardenne) |
 | **Wiki** | [wiki-oca/t600](https://christophedanhier-hash.github.io/wiki-oca/t600/) |
 
-### 5. 🧭 bureau-sylvie
+### 5. 🧭 bureau-sylvia
 | | |
 |---|---|
 | **Version** | v2.5 |
@@ -65,6 +65,16 @@ Les **Bureaux Agentiques Virtuels** sont le cœur métier de LEO. Chaque bureau 
 | **Domaine** | INAMI, BCSS, eHealth, MyCareNet, Intermutualité |
 | **Modes** | Sous-agent de Robert OU skill autonome |
 | **Quand l'utiliser** | Analyse IT avec impact métier Assurance Obligatoire |
+
+### 7. 🏥 bureau-virginie
+| | |
+|---|---|
+| **Version** | v1.0 |
+| **Type** | Orchestrateur Médical |
+| **Domaine** | Panel médical, diagnostic, coordination de spécialistes |
+| **Sous-experts** | Généraliste, Spécialistes (cardiologue, neurologue, etc.) |
+| **Parallélisation** | Analyses spécialistes en parallèle, synthèse Virginie |
+| **Quand l'utiliser** | Problèmes médicaux complexes, second avis, orientation |
 
 ---
 
