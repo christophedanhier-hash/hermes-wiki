@@ -3,7 +3,7 @@
 > **📦 ARCHIVE — n8n retiré le 13/07/2026.** Ce dashboard n'est plus alimenté.
 
 > *Le dashboard complet avec graphiques était disponible ici :*
-> **[🔧 Dashboard n8n — HTML Charts](https://christophedanhier-hash.github.io/leo-dashboard/)**
+> **[🔧 Dashboard n8n — HTML Charts](http://localhost:8765/dashboard)**
 
 ---
 
@@ -20,5 +20,5 @@
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 juillet 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

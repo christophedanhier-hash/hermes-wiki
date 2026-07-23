@@ -108,7 +108,7 @@ flowchart LR
 | **Latence** | ⚡ < 3s |
 | **Coût** | $ pay-as-you-go |
 | **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b |
-| **Crons** | 41 jobs (39 actifs, 2 en pause) |
+| **Crons** | 41 jobs (tous actifs) |
 
 ---
 
@@ -159,10 +159,10 @@ flowchart LR
 | **Profil** | `default` | `michel` | `sylvia` | `emile` | `robert` |
 | **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek | DeepSeek |
 | **Mémoire** | Unifiée (default+michel) | Unifiée (default+michel) | Séparée | Séparée | Séparée |
-| **Crons** | 0 | **41 (39 actifs)** | 0 | 0 | 0 |
+| **Crons** | 0 | **41 (tous actifs)** | 0 | 0 | 0 |
 
 > **Note** : Les profils `leo-copilot`, `bavi-leo`, `bureau-robert` ont été renommés respectivement en `michel`, `sylvia`, `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés.
 
 ---
 
-> 🤖 Dernier audit : 22/07/2026 à 13:45 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)

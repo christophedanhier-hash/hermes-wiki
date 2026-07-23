@@ -206,5 +206,5 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 *Document mis à jour le 07/07/2026 à 02:38 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

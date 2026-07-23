@@ -71,7 +71,7 @@
 
 - **[Ch.8 — Skills : le super-pouvoir d'Hermès](02-configurer/ch08-skills.md)**
   - Qu'est-ce qu'un skill ?
-  - Les 126 skills de LEO : classification et navigation
+  - Les 28 skills de LEO : classification et navigation
   - Installer, charger, et utiliser des skills
   - Skills système vs skills utilisateur
 

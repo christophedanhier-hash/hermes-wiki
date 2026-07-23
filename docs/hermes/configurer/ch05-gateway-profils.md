@@ -29,9 +29,9 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 
 ### Règle LEO : architecture multi-profils
 
-> *"8 profils spécialisés, 5 bots Telegram, 1 mémoire unifiée."*
+> *"5 profils spécialisés, 5 bots Telegram, 1 mémoire unifiée."*
 
-LEO utilise **8 profils Hermes** dont **5 avec bot Telegram**, chacun avec sa spécialisation :
+LEO utilise **5 profils Hermes** dont **5 avec bot Telegram**, chacun avec sa spécialisation :
 
 | Profil | Bot Telegram | Rôle | Modèle | Mémoire |
 |--------|:-----------:|------|--------|---------|
@@ -45,7 +45,7 @@ LEO utilise **8 profils Hermes** dont **5 avec bot Telegram**, chacun avec sa sp
 | `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 
 - **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
-- **Crons** : 41 dans `leo-copilot` (39 actifs, 2 en pause). Règle « ZÉRO hors leo-copilot » respectée (emile=0, bavi-leo=0, default=0, bureau-robert=0).
+- **Crons** : 41 dans `leo-copilot` (tous actifs). Règle « ZÉRO hors leo-copilot » respectée (emile=0, bavi-leo=0, default=0, bureau-robert=0).
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |
@@ -187,5 +187,5 @@ Quand [condition], faire [action].
 - Voir `exemples/LEO.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

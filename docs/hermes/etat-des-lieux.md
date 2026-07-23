@@ -7,7 +7,7 @@
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
 > - **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows ont été migrés vers des crons Hermes.
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 41 crons (39 actifs, 2 en pause).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 41 crons (tous actifs).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
@@ -27,11 +27,11 @@
 | **Gateways** | 5 actifs (s6 supervision) |
 | **Modèle principal** | `deepseek-v4-flash` (provider DeepSeek) |
 | **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b (Ollama local) |
-| **Crons actifs** | 41 (39 actifs, 2 en pause — tous consolidés dans leo-copilot) |
+| **Crons actifs** | 41 (tous actifs — tous consolidés dans leo-copilot) |
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
 
-> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](https://christophedanhier-hash.github.io/leo-dashboard/).
+> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](http://localhost:8765/dashboard).
 
 ## 🏠 Provider local (Ollama)
 
@@ -122,7 +122,7 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **39 crons Hermes** (tous consolidés dans `leo-copilot`) → **41 jobs (39 actifs, 2 en pause)**
+> **39 crons Hermes** (tous consolidés dans `leo-copilot`) → **41 jobs (tous actifs)**
 
 | Profil | Crons |
 |--------|:-----:|
@@ -134,7 +134,7 @@
 
 **0 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 41 jobs (39 actifs, 2 en pause)**
+**Total général : 41 jobs (tous actifs)**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
 <!-- AUTO:END crons -->
@@ -316,5 +316,5 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

@@ -118,5 +118,5 @@ C'est le secret le mieux gardé d'Hermès. Un **skill**, c'est un mode d'emploi 
 **[Chapitre suivant → Pourquoi Hermès ?](ch02-pourquoi-hermes.md)**
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

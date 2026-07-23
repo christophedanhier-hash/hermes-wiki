@@ -22,10 +22,10 @@ LEO a **1 dashboard unifié** en production, généré par le collecteur `collec
 
 | Dashboard | Contenu | URL | Collecte | Déploiement |
 |-----------|---------|-----|----------|-------------|
-| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | collect-v2.py */15 | deploy-dashboard.sh H:10 |
+| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](http://localhost:8765/dashboard) | collect-v2.py */15 | deploy-dashboard.sh H:10 |
 
 Scripts :
-- `~/.hermes/profiles/leo-copilot/scripts/collect-v2.py` — collecteur unifié (state.db des 8 profils, infra, budget, vaults)
+- `~/.hermes/profiles/leo-copilot/scripts/collect-v2.py` — collecteur unifié (state.db des 5 profils, infra, budget, vaults)
 - `~/.hermes/profiles/leo-copilot/scripts/deploy-dashboard.sh` — génère HTML + push GitHub Pages
 
 Cron ID `4d6ec4488b3c` dans le profil `leo-copilot`.
@@ -175,7 +175,7 @@ subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
 ## 🦁 Global Dashboard LEO (portail unique)
 
 Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seule page :
-- 🔵 **Crons (41, 39 actifs)** — statut, historique (collect-v2)
+- 🔵 **Crons (41, tous actifs)** — statut, historique (collect-v2)
 - 📊 **1 Dashboard unifié** (leo-dashboard) — remplace les 7 anciens dashboards
 - 💰 **Budget DeepSeek** — solde, jours restants
 - 🖥️ **Ports** — dashboards 8765+9119, code-server 7681
@@ -204,6 +204,6 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ---
 
-> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 
 

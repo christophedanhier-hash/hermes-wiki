@@ -26,7 +26,7 @@ flowchart TB
     end
 
     subgraph Dashboard["📊 leo-dashboard (1 seul)"]
-        DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>https://christophedanhier-hash.github.io/leo-dashboard/"]
+        DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>http://localhost:8765/dashboard"]
     end
 
     subgraph crons["⏱️ Crons LEO (41 gérés par leo-copilot)"]
@@ -56,7 +56,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 
 | Dashboard | URL | Contenu | Généré par | Fréquence |
 |-----------|-----|---------|-----------|-----------|
-| **🌍 leo-dashboard** | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement leo-copilot) |
+| **🌍 leo-dashboard** | [leo-dashboard](http://localhost:8765/dashboard) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement leo-copilot) |
 
 **Collecteur unifié** : `collect-v2.py` agrège 8 sources de données (n8n retiré 13/07/2026) :
 1. Sessions — nombre de sessions et messages
@@ -138,5 +138,5 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 > **Document mis à jour le 04/07/2026** — reflet des changements post-crash.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

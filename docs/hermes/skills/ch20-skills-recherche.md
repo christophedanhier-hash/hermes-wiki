@@ -192,5 +192,5 @@ Utile pour les conférences techniques, les tutoriels ou les annonces de produit
 - **Annexe A** : Glossaire
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

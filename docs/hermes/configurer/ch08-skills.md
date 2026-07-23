@@ -39,7 +39,7 @@ category: infrastructure
 
 ## L'écosystème de skills LEO
 
-Environ **126 skills** répartis en **22 catégories** :
+Environ **28 skills** répartis en **22 catégories** :
 
 ```
 skills/
@@ -187,5 +187,5 @@ curator:
 | **Pitfalls** | Pièges documentés pour éviter les erreurs |
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 
