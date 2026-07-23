@@ -22,10 +22,10 @@ LEO a **1 dashboard unifié** en production, généré par le collecteur `collec
 
 | Dashboard | Contenu | URL | Collecte | Déploiement |
 |-----------|---------|-----|----------|-------------|
-| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](https://christophedanhier-hash.github.io/leo-dashboard/) | collect-v2.py */15 | deploy-dashboard.py H:10 |
+| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](http://localhost:8765/dashboard) | collect-v2.py */15 | deploy-dashboard.py H:10 |
 
 Scripts :
-- `~/Projets_Dev/leo-dashboard/collect-v2.py` — collecteur unifié (state.db des 8 profils, infra, budget, vaults)
+- `~/Projets_Dev/leo-dashboard/collect-v2.py` — collecteur unifié (state.db des 5 profils, infra, budget, vaults)
 - `~/Projets_Dev/leo-dashboard/deploy-dashboard.py` — génère HTML + push GitHub Pages
 
 Cron ID `4d6ec4488b3c` dans le profil `leo-copilot`.
@@ -206,5 +206,5 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `exemples/LEO.md` pour les dashboards en production
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22/07/2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

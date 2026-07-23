@@ -12,7 +12,7 @@
 - Stop: $10
 - Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (41 configurés, 39 actifs, 2 en pause)
+## 3. Crons Actifs (41 configurés, tous actifs)
 
 | # | **Tâche** | **Horodatage** | **Script réel** | **Statut** |
 |---:|---|:---:|---|:---:|
@@ -72,5 +72,5 @@
 
 ---
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

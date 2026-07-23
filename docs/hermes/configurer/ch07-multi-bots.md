@@ -23,7 +23,7 @@ Un seul bot                                                 5 bots spécialisés
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **default** : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **leo-copilot** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (41 jobs, 39 actifs)
+- **leo-copilot** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (41 jobs, tous actifs)
 - **bureau-robert** : le consultant stratégique — analyses IT, recommandations
 - **bavi-leo** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
 - **emile** : l'assistant pédagogique — mémoire, création de contenu
@@ -98,7 +98,7 @@ C'est le cœur de la personnalité du bot. Il définit qui il est, ce qu'il fait
 Tu es Léo Copilote, l'ingénieur infrastructure de l'écosystème LEO.
 
 Tu gères :
-- 41 crons automatisés (39 actifs, 2 en pause)
+- 41 crons automatisés (tous actifs)
 - 1 dashboard unifié
 - scripts Python (ex-n8n, workflows migrés le 13/07/2026)
 - Les gateways Hermes
@@ -218,5 +218,5 @@ delegation:
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22/07/2026 à 07:26 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

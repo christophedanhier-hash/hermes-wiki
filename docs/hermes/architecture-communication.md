@@ -1,6 +1,6 @@
 # 🏗️ Architecture de Communication — Écosystème LEO
 
-> **8 profils Hermes, 5 gateways Telegram, Mémoire unifiée entre default et leo-copilot. Provider principal : DeepSeek (v4-flash/v4-pro). Fallback : gemini-3.5-flash → qwen2.5:7b (Ollama local).**
+> **5 profils Hermes, 5 gateways Telegram, Mémoire unifiée entre default et leo-copilot. Provider principal : DeepSeek (v4-flash/v4-pro). Fallback : gemini-3.5-flash → qwen2.5:7b (Ollama local).**
 
 ---
 
@@ -218,7 +218,7 @@ flowchart TB
         ROB["@bureau_robert_bot<br/>→ Robert"]
     end
 
-    subgraph HERMES["🖥️ Hermes (8 profils)"]
+    subgraph HERMES["🖥️ Hermes (5 profils)"]
         DEF["default<br/>DeepSeek Flash"]
         LCP["leo-copilot<br/>DeepSeek Pro"]
         BAV["bavi-leo<br/>DeepSeek Flash"]
@@ -307,6 +307,6 @@ flowchart TB
 
 ---
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 
 

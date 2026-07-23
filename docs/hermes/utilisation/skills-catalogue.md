@@ -1,8 +1,8 @@
 # 📚 Catalogue des Skills — BAVI LEO & Hermes
 
-> **Document généré le** : 22/07/2026 (audit rédactionnel)
-> **Source** : Audit complet des 136 skills installés (au 22/07/2026)
-> **Usage** : Ce document liste et décrit tous les skills disponibles dans l'écosystème LEO.
+> **Document généré le** : 23/07/2026 (audit rédactionnel)
+> **Source** : Audit des skills installés dans le profil michel
+> **Usage** : Ce document liste et décrit les skills disponibles dans l'écosystème LEO.
 
 ---
 
@@ -103,7 +103,7 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 | **dashboard-deployment** | Déploiement dashboards HTML sur GitHub Pages avec collecte horaire 0$ | Crons LEO |
 | **dashboard-kpi** | Système dashboard KPI Hermes : SQLite → JSON → HTML (Chart.js) | Cron leo-dashboard |
 | **machine-metrics** | Dashboard 3 machines (LEO, Yoga, Penguin) : CPU/RAM/DISK | Cron leo-dashboard |
-| **leo-architecture** | Architecture LEO finale : 8 profils (dont 5 bots Telegram), 1+ gateways, DeepSeek + Ollama + Gemini | Setup |
+| **leo-architecture** | Architecture LEO finale : 5 profils (dont 5 bots Telegram), 1+ gateways, DeepSeek + Ollama + Gemini | Setup |
 | **leo-backup-dr** | Plan de Reprise d'Activité — backup Drive + restauration ~45min | Cron daily-backup |
 | **routage-llm** | Règles de routage : DeepSeek (Telegram) vs Ollama (local) vs Gemini (fallback) | Quotidien |
 | **self-hosted-services** | Installation services auto-hébergés — Docker/Tailscale (n8n retiré 13/07/2026) | Maintenance |
@@ -303,5 +303,5 @@ hermes skills list
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 

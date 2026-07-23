@@ -90,13 +90,14 @@ Tous en **HTML statique** hébergés sur **GitHub Pages** — zéro backend, zé
 
 | Dashboard | URL | Contenu | Màj |
 |:----------|:----|:--------|:---:|
-| 🌍 **LEO Dashboard** | [lien](https://christophedanhier-hash.github.io/leo-dashboard/) | Portail agrégé (sessions, budget, machines, crons, GitHub, BAVI) | H:10 (collect-v2.py) |
+| 🖥️ **Panel LEO** | `http://localhost:8765` (local) | Pilotage, API crons, métriques | Horaire (collect-v2.py) |
+| 🤖 **Dashboard Hermes** | `http://localhost:9119` (local) | Chat, sessions, fichiers, crons, config | Temps réel |
 
-La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, crons, infra, github, bavi, services, vaults) → un seul dashboard Chart.js. (n8n retiré 13/07/2026)
+La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, crons, infra, github, bavi, services, vaults) → panel local. (n8n retiré 13/07/2026)
 
 ### Les crons (tâches planifiées)
 
-> **41 crons (39 actifs)** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
+> **41 crons (tous actifs)** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
 
 | Vague | Horaires | Crons |
 |:------|:---------|:------|
@@ -106,17 +107,14 @@ La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, cron
 | **Quotidien** | 06:00, 08:00, 18:00 | backup, veille IA, drive sync |
 | **Autres** | Hebdo, 6h | credentials-check, doc-watch |
 
-### Les 5 wikis MkDocs
+### Les wikis MkDocs
 
-Chaque domaine a son propre wiki, hébergé sur GitHub Pages :
+Chaque domaine a son propre wiki, hébergé localement (pas de déploiement GitHub Pages public) :
 
-| Wiki | Pages | Contenu |
+| Wiki | Pages approx. | Contenu |
 |:-----|:-----:|:--------|
-| 🌐 **BAVI LEO** (portail central) | 40 | Portail + documentation bureaux |
-| 📚 **Hermès Wiki** | 31 | Docs techniques Hermes |
-| 🧭 **Voyages Wiki** | 7 | Roadbooks camping-car |
-| 🔧 **Wiki OCA** | 10 | Documentation T600 |
-| 🎓 **Emile Wiki** | 10 | Pédagogie et études |
+| 🌐 **BAVI LEO** (portail central) | 40+ | Portail + documentation bureaux |
+| 📚 **Hermès Wiki** | 35+ | Docs techniques Hermes |
 
 ### Les 10 bureaux BAVI
 
@@ -165,17 +163,17 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 | Métrique | Valeur |
 |:---------|:-------|
-| Crons actifs | **41 (39 actifs, 2 en pause)** |
-| Skills installés | **126** |
-| Dashboards | **1** (unifié — leo-dashboard) |
-| Wikis | **5** (98 pages total) |
-| Repos GitHub | **20** |
-| Consommation DeepSeek | **~$19.97 coût réel constaté** |
+| Crons actifs | **41 (tous actifs)** |
+| Skills installés | **28** |
+| Dashboards | **2** (panel local 8765 + Hermes 9119) |
+| Wikis | **2** (hermes-wiki + BAVI_LEO, servis localement) |
+| Repos GitHub | **20+** |
+| Consommation DeepSeek | **variable** (~$20 constaté) |
 | Machine hôte | **1** (serveur LEO) |
 
 ## 📝 À retenir
 
-- LEO = 1 serveur principal + 5 bots Telegram + 1 dashboard unifié + collecte horaire unique + 126 skills
+- LEO = 1 serveur principal + 5 bots Telegram + 1 dashboard unifié + collecte horaire unique + 28 skills
 - Tout tourne sur Hermes Agent dans un conteneur Docker supervisé par s6
 - Les 5 profils : default (dialogue), michel (infra), sylvia (voyages), emile (pédagogie), robert (conseil)
 - Le secret : une organisation stricte (profils, bureaux, skills) qui permet à l'agent de gérer la complexité
@@ -186,5 +184,5 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 **[Chapitre suivant → Installation rapide](ch04-installation-rapide.md)**
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 22 July 2026 à 09:00 (UTC+2)
+> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
 
