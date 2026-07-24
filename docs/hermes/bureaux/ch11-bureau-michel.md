@@ -82,7 +82,7 @@ Utilisateur ──→ tofdan.be ──→ Cloudflare ──→ Tunnel ──→ 
 | **Yoga** | Windows 11 | — | CPU, RAM (via SSH) |
 | **Penguin** | Debian 13 | 6.3 Go | CPU, RAM, VS Code + Kilo Code |
 
-## Les 41 crons
+## Les 42 crons (39 actifs)
 
 Les crons sont le cœur de l'automatisation. **41 tâches planifiées** (tous actifs) tournent 24/7, toutes consolidées dans le profil `leo-copilot` :
 
@@ -150,7 +150,7 @@ cron-metrics:
   script: collect-metrics.sh
 ```
 
-Sur 41 crons, la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
+Sur 42 crons (39 actifs), la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
 
 ## Le dashboard unifié
 
@@ -212,7 +212,7 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 |:----------|:--------:|:------------:|
 | Crons | 41 (tous actifs) | ~0,10 €/j |
 | Dashboards | 1 (unifié) | 0 € (GitHub Pages) |
-| n8n workflows | ❌ Retiré | — |
+| n8n workflow (retiré 13/07/2026)s | ❌ Retiré | — |
 | Machines surveillées | 3 | 0 € |
 | DeepSeek API | Flash + Pro | ~1,50 €/mois |
 | **Total** | | **~1,50-5 €/mois** |
@@ -224,5 +224,5 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
+> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
 

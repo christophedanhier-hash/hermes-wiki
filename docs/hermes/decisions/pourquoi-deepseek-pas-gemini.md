@@ -6,7 +6,7 @@
 
 ## Le constat
 
-LEO a **cinq profils** qui tournent 24/7 avec **41 crons, 5 bots Telegram**. Chaque message, chaque analyse de cron, chaque classification d'email passe par une API.
+LEO a **cinq profils** qui tournent 24/7 avec **42 crons (39 actifs), 5 bots Telegram**. Chaque message, chaque analyse de cron, chaque classification d'email passe par une API.
 
 À ce volume, **le prix au million de tokens est le facteur décisif** — et DeepSeek est **10 à 20 fois moins cher** que Gemini.
 
@@ -143,7 +143,7 @@ flowchart TB
         GEMINI["Gemini 3.5 Flash\nSecours si DeepSeek down"]
     end
 
-    subgraph CRONS["⏰ 41 crons"]
+    subgraph CRONS["⏰ 42 crons (39 actifs)"]
         DS_PRO["DeepSeek V4 Pro\nAnalyses, backups"]
         DS_FLASH["DeepSeek V4 Flash\nCollecte, dashboards"]
     end
@@ -172,7 +172,7 @@ En test (22-23/06/2026), Leo Copilot a utilisé Gemini 2.5 Flash puis 2.5 Pro :
 
 > **DeepSeek gagne sur le prix (10-20× moins cher). Gemini gagne sur l'écosystème (docs, modèles, capacités).**
 
-Pour LEO, qui fait **du volume** (41 crons, bots Telegram, classification d'emails), le prix est le critère n°1. DeepSeek est imbattable.
+Pour LEO, qui fait **du volume** (42 crons (39 actifs), bots Telegram, classification d'emails), le prix est le critère n°1. DeepSeek est imbattable.
 
 Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexes**, Gemini est supérieur — et c'est pour ça qu'il reste configuré en fallback.
 
@@ -206,5 +206,5 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 *Document mis à jour le 07/07/2026 à 02:38 — Léo 🦁*
 
-> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
+> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
 

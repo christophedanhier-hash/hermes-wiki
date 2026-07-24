@@ -204,12 +204,12 @@
   - Dashboard Watch : vérification automatique du contenu
   - Auto-Heal : détection et correction des erreurs
   - Code-server watchdog
-  - Le double filet : Hermes + n8n
+  - Le double filet : Hermes + n8n (retiré 13/07/2026)
 
 - **[Ch.30 — Drive ↔ GitHub Sync](06-automatisation/ch30-drive-sync.md)**
   - Synchronisation bidirectionnelle Drive ↔ GitHub
   - Résolution de conflits
-  - Le Drive Guardian dans n8n
+  - Le Drive Guardian dans n8n (retiré 13/07/2026)
 
 ---
 

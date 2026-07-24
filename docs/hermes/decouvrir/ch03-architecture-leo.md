@@ -97,7 +97,7 @@ La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, cron
 
 ### Les crons (tâches planifiées)
 
-> **41 crons (tous actifs)** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
+> **42 crons (39 actifs) (tous actifs)** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
 
 | Vague | Horaires | Crons |
 |:------|:---------|:------|
@@ -184,5 +184,5 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 **[Chapitre suivant → Installation rapide](ch04-installation-rapide.md)**
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
+> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
 
