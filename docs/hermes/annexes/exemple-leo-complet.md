@@ -30,7 +30,7 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 
 ```yaml
 H:10 — collect-v2.py (9 sources unifiées)
-  - sessions, budget, crons, infra, n8n, github, bavi, services, vaults
+  - sessions, budget, crons, infra, github (n8n retiré 13/07/2026), bavi, services, vaults
   - Déploiement toutes les heures via leo-copilot
   Coût: 0 € (no_agent)
 ```
@@ -50,9 +50,9 @@ H:10 — collect-v2.py (9 sources unifiées)
 | `check-hermes-update` | 09:00 | 🔧 Script | **0$** | Vérification nouvelle version Hermes |
 | `dashboard-watch` | */2h | 🔧 Script | **0$** | Vérification leo-dashboard |
 
-### Workflows n8n (3)
+### Workflows n8n (retirés 13/07/2026)
 
-| Workflow n8n | Rôle |
+| Workflow n8n (retirés 13/07/2026) | Rôle |
 |-------------|------|
 | Drive → Issue | Surveillance Drive → issue GitHub |
 | Gardien du Drive | Protection documents Google Docs |

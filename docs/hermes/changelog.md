@@ -9,7 +9,7 @@
   - Redémarrage des 5 gateways (default, leo-copilot, bureau-robert, bavi-leo, emile)
   - Correction des paths OBSIDIAN_VAULT_PATH dans les 5 `.env`
   - Backup immédiat post-restauration (93 Mo)
-  - 41 crons restaurés et actifs ✅
+  - 42 crons (39 actifs) restaurés et actifs ✅
 - **Unified Collector v2** : Mise à jour du script pour une collecte unifiée améliorée.
 - **Synthèse Hebdomadaire LEO** : Ajout d'une mise à jour hebdomadaire pour le résumé de la semaine.
 - **Vault Daily Journal (vault-leo)**, **Vault Default Daily Journal (5 23 * * *)** : Mises à jour des scripts pour un journal quotidien plus précis.
@@ -18,5 +18,5 @@
 - **Rebuild Wiki Voyages local (15 * * * *)** : Nouvelle tâche ajoutée pour la reconstruction locale du wiki Voyages à 3h00.
 - **Check OAuth Tokens (48h) (0 8 * * *)** : Mise en place d'un script pour vérifier les tokens OAuth toutes les 48 heures.
 
-> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
+> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
 

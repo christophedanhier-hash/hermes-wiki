@@ -52,7 +52,7 @@
 
 **Multi-profil** — Possibilité d'avoir plusieurs configurations Hermes isolées (profils) sur la même machine, chacune avec son propre gateway, skills et mémoire.
 
-**n8n** — Plateforme d'automatisation low-code. Utilisée par LEO en complément des crons Hermes pour les tâches critiques (retry natif).
+**n8n** — Plateforme d'automatisation low-code (retiré 13/07/2026). Utilisée par LEO en complément des crons Hermes pour les tâches critiques (retry natif).
 
 **no_agent** — Mode de cron où le script s'exécute directement **sans** LLM. Zéro token consommé, idéal pour les tâches répétitives.
 
@@ -86,7 +86,7 @@
 
 **Wiki** — Site de documentation statique généré par MkDocs. LEO a 5 wikis pour différents domaines.
 
-**Workflow n8n** — Séquence d'étapes automatisées dans n8n. Utilisé pour les tâches critiques avec retry automatique.
+**Workflow n8n** — Séquence d'étapes automatisées dans n8n (retiré 13/07/2026). Utilisé pour les tâches critiques avec retry automatique.
 
 ---
 

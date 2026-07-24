@@ -160,19 +160,19 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 <div class="portail-grid">
 
-<a href="http://100.92.102.28:8765/dashboard?token=leo-panel-2026" class="portail-card" target="_blank" rel="noreferrer noopener">
+<a href="http://100.92.102.28:8765 (panel) + 9119 (Hermes dashboard)/dashboard?token=leo-panel-2026" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🦁</div>
     <div class="title">LEO Dashboard Unifié</div>
     <div class="desc">Budget live, sessions, crons, infra, BAVI — 4 onglets, 1 source de vérité</div>
-    <div class="url">100.92.102.28:8765</div>
+    <div class="url">100.92.102.28:8765 (panel) + 9119 (Hermes dashboard)</div>
 </a>
 
 </div>
 
 ---
 
-> 🕐 **Dernière mise en ligne : 24/07/2026 07:00**  
+> 🕐 **Dernière mise en ligne : 24/07/2026 08:00**  
 > *Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com) · 🦁 LEO*
 
-> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
+> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
 

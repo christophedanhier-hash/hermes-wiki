@@ -155,7 +155,7 @@ Configuration des plateformes de messagerie connectées.
 
 | Plateforme | Statut LEO |
 |------------|:----------:|
-| **Telegram** | ✅ Connecté (4 bots : default, leo-copilot, emile, bavi-leo, bureau-robert) |
+| **Telegram** | ✅ Connecté (5 bots : default, leo-copilot, emile, bavi-leo, bureau-robert) |
 | **CLI** | ✅ Connecté |
 | **Discord** | ❌ Non configuré |
 | **Slack** | ❌ Non configuré |
@@ -267,5 +267,5 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 23/07/2026 à 05:00 (UTC+2)
+> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
 
