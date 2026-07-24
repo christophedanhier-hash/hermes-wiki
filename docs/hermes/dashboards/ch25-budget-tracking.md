@@ -1,4 +1,4 @@
-# Budget et tracking DeepSeek
+Mettre à jour le titre pour refléter les changements récents.
 
 LEO coûte environ **$19.97 de coût cumulé** (solde actuel DeepSeek : $41.83). Voici comment suivre et maîtriser ce budget.
 
@@ -67,5 +67,4 @@ Seuils d'alerte:
 | Ollama | **0 €** | **0 €** | ∞ (local) |
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:05 (UTC+2)

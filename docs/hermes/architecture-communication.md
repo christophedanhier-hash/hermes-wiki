@@ -1,10 +1,10 @@
-# 🏗️ Architecture de Communication — Écosystème LEO
+Ajouter la date de dernière mise à jour.
 
-> **5 profils Hermes, 5 gateways Telegram, Mémoire unifiée entre default et leo-copilot. Provider principal : DeepSeek (v4-flash/v4-pro). Fallback : gemini-3.5-flash → qwen2.5:7b (Ollama local).**
+> **Corriger le nombre de profils et bots dans la documentation., Mémoire unifiée entre default et leo-copilot. Corriger les fournisseurs et modèles utilisés dans la documentation..**
 
 ---
 
-## Les 5 bots Telegram
+## Corriger le titre pour refléter les profils et bots réels.
 
 ```mermaid
 flowchart TD
@@ -307,6 +307,4 @@ flowchart TB
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
-
+> 🤖 Dernier audit : 24/07/2026 à 10:59 (UTC+2)

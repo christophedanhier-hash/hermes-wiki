@@ -53,7 +53,7 @@ cd ~/Projets_Dev/leo-tracker && git push
 | 5 gateways UP | `hermes gateway status` |
 | Crons OK | Dashboard global |
 | Dashboards OK | Vérification HTTP |
-| n8n workflow (retiré 13/07/2026)s | ❌ Retiré (13/07/2026) |
+| Supprimer la mention du n8n dans le document.s | ❌ Retiré (13/07/2026) |
 
 ## 6. Rollback — Si échec
 
@@ -72,5 +72,4 @@ uv pip install hermes-agent==VERSION_PRÉCÉDENTE
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:04 (UTC+2)

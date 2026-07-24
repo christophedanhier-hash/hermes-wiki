@@ -129,5 +129,4 @@ Les principes sont identiques, seuls changent :
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 10:58 (UTC+2)

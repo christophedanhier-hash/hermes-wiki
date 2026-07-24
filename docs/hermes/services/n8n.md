@@ -1,4 +1,4 @@
-# 🔧 n8n — Automatisation LEO
+Corriger le titre pour refléter l'état actuel de n8n.
 
 > **📦 ARCHIVE — Service retiré le 13/07/2026.** n8n (retiré 13/07/2026) a été arrêté et supprimé. Les workflows (Drive→Issue, Gardien du Drive, Save Contacts) ont été migrés vers des crons Hermes no_agent. Cette page est conservée pour référence historique.
 
@@ -59,6 +59,4 @@ n8n étant retiré le 13/07/2026, les métriques associées ne sont plus collect
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
-
+> 🤖 Dernier audit : 24/07/2026 à 11:04 (UTC+2)

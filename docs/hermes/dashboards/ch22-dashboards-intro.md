@@ -16,7 +16,7 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-> ⚠️ **Mise à jour du 04/07/2026** : Les 7 dashboards pré-crash (LEO KPI, BAVI LEO, Machines, Crons, GitHub, n8n, Global) sont OBSOLÈTES et figés au 30/06/2026. NE PLUS les consulter.
+Corriger la documentation pour refléter l'existence d'un seul dashboard unifié et les détails associés.
 
 LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (8 sources — n8n retiré 13/07/2026) :
 
@@ -206,5 +206,4 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `exemples/LEO.md` pour les dashboards en production
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:05 (UTC+2)

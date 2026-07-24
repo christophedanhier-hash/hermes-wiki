@@ -6,7 +6,7 @@
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
-> - **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows ont été migrés vers des crons Hermes.
+> - **n8n** : ❌ Retiré le 13/07/2026.
 > - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 42 crons (39 actifs) (tous actifs).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
@@ -20,13 +20,14 @@
 | **Kernel** | Linux 7.x |
 | **CPU** | Processeur Intel récent (multi-cœurs) |
 | **RAM** | Mémoire suffisante |
-| **GPU** | NVIDIA GeForce RTX 3050 (8 Go) |
+| **GPU** | Pas de GPU dédié |
 | **Stockage** | 457 Go SSD système + 1 To HDD backups |
-| **Docker** | 2 conteneurs (hermes-agent + ollama) |
-| **Profils actifs** | 8 (default, leo-copilot, michel, bavi-leo, emile, bureau-robert, robert, sylvia) |
+| **Docker** | Non utilisé pour n8n, host services |
+| **Profils actifs** | 5 (default, emile, michel, robert, sylvia) |
+| **Bots actifs** | 5 (tous avec bot Telegram) |
 | **Gateways** | 5 actifs (s6 supervision) |
-| **Modèle principal** | `deepseek-v4-flash` (provider DeepSeek) |
-| **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b (Ollama local) |
+| **Modèle principal** | qwen2.5:7b |
+| **Fallback** | deepseek/deepseek-v4-flash, custom:google/gemini-3.5-flash, custom:ollama/qwen2.5:7b |
 | **Crons actifs** | 41 (tous actifs — tous consolidés dans leo-copilot) |
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
@@ -316,5 +317,4 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 10:59 (UTC+2)

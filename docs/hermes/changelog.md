@@ -18,5 +18,4 @@
 - **Rebuild Wiki Voyages local (15 * * * *)** : Nouvelle tâche ajoutée pour la reconstruction locale du wiki Voyages à 3h00.
 - **Check OAuth Tokens (48h) (0 8 * * *)** : Mise en place d'un script pour vérifier les tokens OAuth toutes les 48 heures.
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:16 (UTC+2)

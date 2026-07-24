@@ -40,25 +40,7 @@ hermes -p mon-profil gateway run
 
 Le skill `gateway` dans `hermes-agent` gère la connexion aux plateformes de messagerie.
 
-### Telegram (le plus courant)
-
-```yaml
-# Dans le .env du profil
-TELEGRAM_BOT_TOKEN=*** 
-TELEGRAM_ALLOWED_USERS=8718957859
-```
-
-```bash
-# Démarrer le gateway
-hermes gateway run
-
-# Avec un profil spécifique
-hermes -p leo-copilot gateway run
-
-# Remplacer un gateway existant
-hermes gateway run --replace
-```
-
+Ajoutez des sections pour d'autres plateformes de messagerie si elles sont utilisées.
 ### Architecture du gateway
 
 Quand vous lancez `hermes gateway run`, Hermes :
@@ -221,5 +203,4 @@ hermes cron run <id>    # Exécution immédiate
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:06 (UTC+2)

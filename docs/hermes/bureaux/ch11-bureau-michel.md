@@ -1,6 +1,6 @@
 # Bureau Michel : l'infrastructure
 
-Le Bureau Michel est le bureau technique de LEO. Porté par **Michel** (profil `michel`, ex-`leo-copilot`), il gère tout ce qui touche au fonctionnement de l'infrastructure : crons, dashboards, scripts Python (ex-n8n), Google APIs, Git, budget, serveur, sécurité.
+Le Bureau Michel est le bureau technique de LEO. Il gère tout ce qui touche au fonctionnement de l'infrastructure : crons, dashboards, scripts Python, Google APIs, Git, budget, serveur, sécurité.
 
 C'est le padron de la machine — il a accès root complet (`sudo` sans restriction).
 
@@ -47,9 +47,7 @@ HDD: 1 To (/dev/sdb2 → /mnt/data)
 
 ### Conteneurs Docker
 
-| Conteneur | Image | Rôle | Port |
-|:----------|:------|:-----|:----:|
-| `hermes-agent` | nousresearch/hermes-agent | Agent IA principal | — |
+Le document doit être mis à jour pour inclure les conteneurs Docker actuels et leurs rôles et ports.arch/hermes-agent | Agent IA principal | — |
 | `n8n` | ❌ Retiré (13/07/2026) | — | — |
 | `ollama` | ollama/ollama | LLM local (qwen2.5:7b) | 11434 |
 | *(code-server)* | code-server | VS Code web | 8081 |
@@ -82,9 +80,9 @@ Utilisateur ──→ tofdan.be ──→ Cloudflare ──→ Tunnel ──→ 
 | **Yoga** | Windows 11 | — | CPU, RAM (via SSH) |
 | **Penguin** | Debian 13 | 6.3 Go | CPU, RAM, VS Code + Kilo Code |
 
-## Les 42 crons (39 actifs)
+## Les 43 crons (tous actifs)
 
-Les crons sont le cœur de l'automatisation. **41 tâches planifiées** (tous actifs) tournent 24/7, toutes consolidées dans le profil `leo-copilot` :
+Les crons sont le cœur de l'automatisation. **43 tâches planifiées** tournent 24/7, toutes consolidées dans le profil `michel` :
 
 ### Crons horaires (métriques + dashboard)
 
@@ -224,5 +222,4 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:10 (UTC+2)
