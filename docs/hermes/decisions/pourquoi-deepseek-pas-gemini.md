@@ -1,4 +1,4 @@
-# 🦁 Pourquoi LEO utilise DeepSeek plutôt que Gemini
+Le titre devrait être mis à jour pour refléter la réalité des profils utilisés.
 
 > Analyse comparative — Juillet 2026. Le choix est financier, pas technique.
 
@@ -206,5 +206,4 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 *Document mis à jour le 07/07/2026 à 02:38 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 10:59 (UTC+2)

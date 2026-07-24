@@ -8,15 +8,7 @@ LEO n'est pas un simple script lancé sur un Raspberry Pi. C'est un écosystème
 
 ## Vue d'ensemble
 
-```
-Telegram ──→ Gateway Hermes ──→ Profil default ──→ DeepSeek Flash (dialogue)
-                                    │
-                                    ├──→ Profil michel → DeepSeek V4 Pro (code/infra)
-                                    │
-                                    ├──→ Ollama API locale (batch, gratuit)
-                                    │
-                                    └──→ Gemini (fallback automatique)
-```
+Le diagramme doit être mis à jour pour inclure tous les profils et bots.
 
 ### Les 5 bots Telegram
 
@@ -34,11 +26,7 @@ Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres s
 
 L'un des atouts d'Hermès est de pouvoir utiliser **plusieurs LLMs** et de choisir le meilleur pour chaque tâche :
 
-| Ordre | Provider | Coût | Quand |
-|:-----:|:---------|:----:|:------|
-| 🥇 | **DeepSeek Flash** | Payant | Réponse Telegram, conversation, raisonnement |
-| 🥈 | **DeepSeek V4 Pro** (profil michel) | Payant | Code, infra, debug système |
-| 🥉 | **Ollama** (qwen2.5:7b, local) | **Gratuit** 🏠 | Traitement batch, tâches privées |
+Le tableau doit être mis à jour pour inclure tous les fournisseurs et le fallback.ivées |
 | 4e | **Gemini 3.5 Flash** (fallback) | **Gratuit** ☁️ | Secours si DeepSeek indisponible |
 
 **Le principe économique :** 95% des tâches planifiées (crons) tournent en `no_agent` = 0 token LLM consommé. Les 5% restants utilisent d'abord Ollama (gratuit), puis DeepSeek seulement si nécessaire.
@@ -184,5 +172,4 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 **[Chapitre suivant → Installation rapide](ch04-installation-rapide.md)**
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:03 (UTC+2)

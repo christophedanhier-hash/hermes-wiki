@@ -1,8 +1,8 @@
-# 🏛️ Architecture LEO — Dashboards & Crons
+Ajouter '(Post-crash reconstruction)' dans le titre.
 
 > Document vivant — mis à jour le **17/07/2026** (audit rédactionnel).
 
-> ⚠️ **Changements 13-17/07/2026** : n8n retiré (13/07). 1 dashboard GitHub Pages actif. La collecte utilise `collect-v2.py` (8 sources, n8n retiré). Déploiement toutes les heures (`10 * * * *`) via leo-copilot.
+> ⚠️ **Changements 13-17/07/2026** : n8n retiré (13/07). 1 dashboard GitHub Pages actif. Corriger le document pour indiquer que Docker n'est plus utilisé pour n8n et mettre à jour la technologie utilisée.
 
 ---
 
@@ -138,5 +138,4 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 > **Document mis à jour le 04/07/2026** — reflet des changements post-crash.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:14 (UTC+2)

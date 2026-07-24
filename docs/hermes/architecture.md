@@ -1,18 +1,25 @@
 # Architecture Système
 
 ## 1. Infrastructure
-- **Host LEO**: i7-7700K, 22GB RAM
-- **Container**: Debian 13, Python 3.14, DeepSeek V4 Flash
-- **Telegram Client**: Chromebook Telegram
-|- **Model AI**: DeepSeek (v4-flash/v4-pro), fallback gemini-3.5-flash → qwen2.5:7b (Ollama local)
+- **Host LEO**: Intel i7-7700K, 22GB RAM, 20% disque, pas de GPU
+- **Telegram**: DM @tofdan (pas de bot dédié)
+- **Modèles** : DeepSeek (Flash/Pro), fallback gemini-3.5-flash → qwen2.5:7b (Ollama local)
 
 ## 2. Budget API
-- Balance: $41.83 (solde actuel) — Coût total : ~$19.97
+- Coût total : ~$19.97
+- Seuil d'alerte : $30, Stop : $10
+- Routage : DeepSeek → Gemini → Ollama
 - Seuils d'alerte: $30
 - Stop: $10
 - Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (41 configurés, tous actifs)
+## 3. Crons Actifs (43 configurés, tous actifs)
+## 4. Dashboards
+- leo-dashboard unifié : Port 8765 (panel) + 9119 (Hermes dashboard)
+## 5. Bureaux
+- 10 bureaux BAVI : Michel (infra), Gérard (T600), Robert (战略), Sophie (financier), Sylvia (voyages), Émile (pédagogie), Léo (analyse), Virginie (médical), AO (assurance), Connaissance
+## 6. Crons actuels
+Voir : [Crons quotidiens](automatisation/ch28-crons-quotidiens.md) | [Watchdogs](automatisation/ch29-watchdogs.md) | [Drive/GitHub](automatisation/ch30-drive-github-sync.md)
 
 | # | **Tâche** | **Horodatage** | **Script réel** | **Statut** |
 |---:|---|:---:|---|:---:|
@@ -58,19 +65,10 @@
 | 40 | 🕐 Audit Qualité Crons (journalier) | `0 7 * * *` | cron-quality-audit.py | ✅ |
 | 41 | 📞 Point contact LEO (4×/jour) | `0 8,11,14,17 * * *` | cron job agent | ✅ |
 
-## 4. Dashboards
-- crons
-- github
-- machines
-- wiki
-
-## 5. Sessions & Utilisation
-- Total sessions: >1500
-- Total messages: >24000
-- Telegram: 5 bots actifs
-- Dashboard LEO: port 8765 (panel) + 9119 (Hermes dashboard)
+## 7. Sessions & Utilisation
+- Dashboard : 1 unifié (leo-dashboard)
+- Bureaux : Michel (infra), Gérard (T600), Robert (战略), Sylvia (voyages), Émile (pédagogie), Léo (analyse), Virginie (médical), AO (assurance)
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:30 (UTC+2)

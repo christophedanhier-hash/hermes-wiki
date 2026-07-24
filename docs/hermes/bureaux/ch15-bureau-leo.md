@@ -1,4 +1,4 @@
-# Bureau LEO et les autres bureaux
+Le titre ne reflète pas le contenu actuel de la réalité. Il devrait être mis à jour pour inclure les informations sur les profils et bots.
 
 Le Bureau LEO est le **hub central** de l'écosystème — votre point d'entrée unique pour tout ce qui ne rentre pas dans les bureaux spécialisés. Et il y a quelques autres bureaux plus discrets mais tout aussi utiles.
 
@@ -137,5 +137,4 @@ flowchart TD
 - **Ch.14** : Bureau Robert (conseil stratégique)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:09 (UTC+2)

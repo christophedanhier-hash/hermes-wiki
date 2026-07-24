@@ -1,4 +1,4 @@
-# Multi-bots : pourquoi 5 bots valent mieux qu'un
+Le titre devrait être mis à jour pour refléter les noms réels des bots utilisés.
 
 LEO ne tourne pas avec un seul bot Telegram, mais avec **cinq bots spécialisés**. Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
 
@@ -9,16 +9,7 @@ Un seul bot peut tout faire. Alors pourquoi en créer plusieurs ?
 ### 1. Séparation des responsabilités
 
 ``` 
-Un seul bot                                                 5 bots spécialisés
-┌─────────────────────┐           ┌──────────┐ ┌──────────┐ ┌──────────┐
-│ 🦁 LEO              │           │ 🦁 LEO   │ │ 🔧       │ │ 🧭       │
-│                     │           │ Central  │ │ Copilote │ │ Sylvia   │
-│ • Analyses          │           │          │ │          │ │          │
-│ • Emails            │    →      │ Hub      │ │ Infra    │ │ Voyages  │
-│ • Infra             │           │ général  │ │ Système  │ │ Roadbooks│
-│ • Voyages           │           └──────────┘ └──────────┘ └──────────┘
-│ • Mémoire           │
-└─────────────────────┘
+Le diagramme doit être mis à jour pour refléter les noms réels des bots utilisés.
 ```
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
@@ -30,12 +21,7 @@ Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 
 ### 2. Modèles adaptés à chaque usage
 
-| Bot | Modèle principal | Coût | Usage typique |
-|:----|:-----------------|:----:|:--------------|
-| default | DeepSeek V4 Flash | Payant (faible) | Quotidien, polyvalent |
-| leo-copilot | DeepSeek V4 Pro | Payant (faible) | Analyses complexes, infra |
-| bavi-leo | DeepSeek V4 Flash | Payant (faible) | Roadbooks, voyages |
-| bureau-robert | DeepSeek V4 Pro | Payant (faible) | Conseil stratégique IA |
+Les modèles utilisés doivent être mis à jour pour refléter les noms réels des fournisseurs et des modèles. Conseil stratégique IA |
 | emile | DeepSeek V4 Flash | Payant (faible) | Pédagogie, mémoire |
 | (fallback) | Gemini 3.5 Flash + Ollama qwen2.5:7b | Gratuit | Si DeepSeek indisponible |
 
@@ -218,5 +204,4 @@ delegation:
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:19 (UTC+2)

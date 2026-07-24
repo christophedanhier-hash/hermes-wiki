@@ -1,6 +1,6 @@
 # 🗺️ Carte Documentaire — Wiki Hermes LEO
 
-> **Usage** : quand une modification système impacte la documentation, cette carte indique **quelles pages** doivent être mises à jour.
+La règle doit être mise à jour pour refléter les modifications récentes. Par exemple: > **Règle** : toute modification de la plateforme LEO → mettre à jour cette carte ET les pages impactées dans le même mouvement, y compris l'ajout des nouveaux profils et bots.
 > **Règle** : toute modification de la plateforme LEO → mettre à jour cette carte ET les pages impactées dans le même mouvement.
 
 ## 📄 Pages du wiki
@@ -103,5 +103,4 @@ Quand tu changes... | Pages à vérifier
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:16 (UTC+2)

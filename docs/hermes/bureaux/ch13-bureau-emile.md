@@ -1,4 +1,4 @@
-# Bureau Émile : la pédagogie
+Le titre ne reflète pas les informations sur les profils/bots. Il devrait être mis à jour pour inclure ces détails.
 
 Le Bureau Émile est un assistant pédagogique dédié à l'accompagnement d'Émilie pour son **mémoire de fin d'études en sciences de l'éducation**. C'est le plus jeune bureau de LEO, créé le 25 juin 2026.
 
@@ -112,5 +112,4 @@ Le Bureau Émile est inspiré du Bureau Sylvia (voyages) — même pattern, adap
 - **Ch.9** : Mémoire persistante
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:08 (UTC+2)

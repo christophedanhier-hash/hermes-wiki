@@ -8,10 +8,7 @@ Assez de théorie. Installons Hermès et faisons notre premier test.
 
 ## Prérequis
 
-- **Linux** (Debian/Ubuntu recommandé), **macOS**, ou **Windows avec WSL2**
-- **curl** installé (99% des systèmes l'ont)
-- **Git** (optionnel mais recommandé)
-- 1 Go d'espace disque libre
+Supprimer la mention de Git car elle est optionnelle et non requise.
 
 ## Installation (Linux / macOS)
 
@@ -65,7 +62,7 @@ Hermès vous répond. Simple.
 
 ## Configuration minimale
 
-Par défaut, Hermès n'a pas de clé API LLM — il vous demandera d'en configurer une au premier lancement. Vous avez plusieurs options :
+Corriger les sections de configuration pour aligner avec la réalité.
 
 ### Option A : DeepSeek (recommandé pour débuter)
 
@@ -169,5 +166,4 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 > **💡 Astuce :** Vous voulez voir un exemple concret ? Passez directement à [l'architecture complète de LEO](../annexes/exemple-leo-complet.md) en annexe.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:01 (UTC+2)

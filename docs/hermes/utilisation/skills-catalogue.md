@@ -1,8 +1,6 @@
 # 📚 Catalogue des Skills — BAVI LEO & Hermes
 
-> **Document généré le** : 23/07/2026 (audit rédactionnel)
-> **Source** : Audit des skills installés dans le profil michel
-> **Usage** : Ce document liste et décrit les skills disponibles dans l'écosystème LEO.
+Update the generation date to a recent or current date.
 
 ---
 
@@ -303,5 +301,4 @@ hermes skills list
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:15 (UTC+2)

@@ -30,7 +30,7 @@ LEO a 2 disques :
 ### RAM
 
 ```bash
-free -h
+Ajouter les informations sur le nombre de profils et bots.
 # → 22.94 Go total, ~2 Go pour Hermes, ~0 Mo (n8n retiré 13/07/2026)
 ```
 
@@ -48,7 +48,7 @@ nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv
 
 ```bash
 # Vérifier que tout tourne
-docker ps
+Corriger l'information sur le service Docker.
 # → hermes-agent, ollama : tous UP
 ```
 
@@ -104,5 +104,4 @@ nvidia-smi
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:06 (UTC+2)

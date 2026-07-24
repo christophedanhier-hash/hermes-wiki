@@ -9,7 +9,7 @@ Un seul profil = plusieurs providers disponibles
        │
        ├── Provider principal → Conversations, tâches complexes
        ├── Provider local → Tâches simples, gratuit, privé
-       └── Provider fallback → Sécurité si le principal plante
+       └── Corriger la documentation pour aligner avec la réalité des profils et bots.
 ```
 
 ## DeepSeek (recommandé pour le provider principal)
@@ -178,5 +178,4 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 - Voir `02-configuration/profiles.md` pour les profils et gateways
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:17 (UTC+2)

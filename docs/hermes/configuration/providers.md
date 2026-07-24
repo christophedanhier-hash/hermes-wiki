@@ -5,11 +5,7 @@ Hermes Agent peut utiliser plusieurs fournisseurs de modèles de langage (LLM). 
 ## Principe
 
 ```
-Plusieurs profils (ex: leo-copilot, default, etc.), chacun avec plusieurs providers disponibles
-       │
-       ├── Provider principal → Conversations, tâches complexes
-       ├── Provider local → Tâches simples, gratuit, privé
-       └── Provider fallback → Sécurité si le principal plante
+Ajouter la section sur les providers locaux et fallback basés sur les informations fournies.
 ```
 
 ## DeepSeek (recommandé pour le provider principal)
@@ -182,6 +178,4 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
-
+> 🤖 Dernier audit : 24/07/2026 à 11:00 (UTC+2)

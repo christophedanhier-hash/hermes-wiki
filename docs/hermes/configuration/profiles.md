@@ -36,15 +36,14 @@ LEO utilise **5 profils Hermes** tous avec bot Telegram :
 | Profil | Bot Telegram | Rôle | Modèle | Mémoire |
 |--------|:-----------:|------|--------|---------|
 | `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Unifiée (default+michel) |
-| `michel` | ✅ | Infrastructure & crons (ex-leo-copilot) | DeepSeek Pro | Unifiée (default+michel) |
-| `emile` | ✅ | Assistant pédagogique mémoire | DeepSeek Flash | Séparée |
+| `michel` | ✅ | Infrastructure & crons | DeepSeek Pro | Unifiée (default+michel) |
 | `robert` | ✅ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
 | `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
+| `emile` | ✅ | Assistant pédagogique mémoire | DeepSeek Flash | Séparée |
 
-> **Note historique** : Les profils `leo-copilot`, `bavi-leo` et `bureau-robert` ont été renommés/absorbés. `leo-copilot` → `michel`, `bavi-leo` → `sylvia`, `bureau-robert` → `robert`. Voir [migration des profils](../changelog.md).
-
+> **Note historique** : Les profils `leo-copilot` → `michel`, `bavi-leo` → `sylvia`, `bureau-robert` → `robert` ont été renommés pour simplifier. Les anciens noms persistent dans les archives.
 - **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau)
-- **Crons** : 41 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée.
+- **Crons** : 43 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée.
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |
@@ -188,5 +187,4 @@ Quand [condition], faire [action].
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:00 (UTC+2)

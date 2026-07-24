@@ -4,7 +4,7 @@ Les watchdogs sont des scripts qui surveillent en continu l'état des services e
 
 ## Principe
 
-Un watchdog = un script qui tourne régulièrement et vérifie qu'un service répond.
+Mettre à jour l'explication pour refléter la réalité actuelle.
 
 ```bash
 # Watchdog typique
@@ -56,7 +56,7 @@ En cas d'échec:
 
 ## Dashboard Watch
 
-Le Dashboard Watch vérifie que le dashboard unifié est en ligne et à jour :
+Mettre à jour la description pour refléter les ports réels et les services surveillés.
 
 ```bash
 for dashboard in leo-kpi machines crons github bavi-leo global; do
@@ -87,5 +87,4 @@ Règles:
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:11 (UTC+2)

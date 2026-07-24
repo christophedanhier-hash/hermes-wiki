@@ -216,5 +216,4 @@ confirmer que le travail a été fait.
 - Voir `exemples/LEO.md` pour l'architecture cron complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 07:57 (UTC+2)
-
+> 🤖 Dernier audit : 24/07/2026 à 11:11 (UTC+2)
