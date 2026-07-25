@@ -1,18 +1,16 @@
-Le titre ne reflète plus la réalité car l'application n8n a été retirée.
+# 📦 n8n — Dashboard archivé
 
-Le message d'archive doit être mis à jour car l'application a été retirée.
+> **📦 ARCHIVE — n8n retiré le 13/07/2026.** Le dashboard n8n n'est plus maintenu. Les workflows (Drive→Issue, Gardien du Drive, Save Contacts) ont été migrés vers des crons Hermes no_agent.
 
 > *Le dashboard complet avec graphiques était disponible ici :*
 > **[🔧 Dashboard n8n — HTML Charts](http://localhost:8765/dashboard)**
 
 ---
 
-La date de dernière mise à jour doit être actualisée.
-
-Les métriques doivent être mises à jour en fonction de la réalité.
+Le dashboard n8n a été supprimé du collecteur `collect-v2.py` et n'est plus déployé. Les métriques n8n ne sont plus collectées.
 
 ---
 
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+*Document mis à jour le 25/07/2026 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:05 (UTC+2)
+> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)

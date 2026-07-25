@@ -24,7 +24,7 @@ http://100.92.102.28:9119
 
 La barre latérale gauche est organisée en sections :
 
-- **Profil actif** : sélecteur de profil en haut (`default`, `leo-copilot`, `bavi-leo`, `emile`, `bureau-robert`)
+- **Profil actif** : sélecteur de profil en haut (`default`, `emile`, `michel`, `robert`, `sylvia`)
 - **Navigation principale** : toutes les sections listées ci-dessous
 - **Plugins** : extensions installées (Kanban, Achievements)
 - **System** : statut du gateway, boutons Restart/Update, thème, langue
@@ -155,7 +155,7 @@ Configuration des plateformes de messagerie connectées.
 
 | Plateforme | Statut LEO |
 |------------|:----------:|
-| **Telegram** | ✅ Connecté (5 bots : default, leo-copilot, emile, bavi-leo, bureau-robert) |
+| **Telegram** | ✅ Connecté (5 bots : default, emile, michel, robert, sylvia) |
 | **CLI** | ✅ Connecté |
 | **Discord** | ❌ Non configuré |
 | **Slack** | ❌ Non configuré |
@@ -187,9 +187,10 @@ Gestion des profils Hermes.
 | Profil | Modèle | Usage |
 |--------|--------|-------|
 | **default** | deepseek-v4-flash | Hub central — conversations, analyses, documentation |
-| **leo-copilot** | deepseek-v4-pro | Infrastructure — crons, déploiements, maintenance |
-| **bavi-leo** | deepseek-v4-flash | Bot voyages Telegram (Sylvia) |
+| **michel** | deepseek-v4-pro | Infrastructure — crons, déploiements, maintenance |
+| **sylvia** | deepseek-v4-flash | Bot voyages Telegram |
 | **emile** | deepseek-v4-flash | Assistant pédagogique |
+| **robert** | deepseek-v4-pro | Conseil Stratégique IA |
 
 Chaque profil a sa propre configuration : modèle, provider, skills, plugins, crons, gateway Telegram.
 
@@ -225,7 +226,7 @@ Informations système et diagnostics.
 | **Python** | 3.14.4 |
 | **OS** | Ubuntu 26.04 LTS |
 | **Gateway** | Running |
-| **Profils actifs** | 5 (default, leo-copilot, emile, bavi-leo, bureau-robert) |
+| **Profils actifs** | 5 (default, emile, michel, robert, sylvia) |
 
 ---
 
@@ -267,4 +268,4 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:11 (UTC+2)
+> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)

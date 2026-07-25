@@ -178,4 +178,4 @@ Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 11:00 (UTC+2)
+> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
