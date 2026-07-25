@@ -5,9 +5,9 @@
 > **Mise à jour 07/07/2026** : les principaux changements post-reconstruction sont :
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
-> - **Déploiement** : toutes les heures (`10 * * * *`) via leo-copilot
+> - **Déploiement** : toutes les heures (`10 * * * *`) via michel
 > - **n8n** : ❌ Retiré le 13/07/2026.
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 42 crons (39 actifs) (tous actifs).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 44 crons (tous actifs).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
