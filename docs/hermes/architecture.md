@@ -13,7 +13,7 @@
 - Stop: $10
 - Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (43 configurés, tous actifs)
+## 3. Crons Actifs (44 configurés, tous actifs)
 ## 4. Dashboards
 - leo-dashboard unifié : Port 8765 (panel) + 9119 (Hermes dashboard)
 ## 5. Bureaux
@@ -71,4 +71,4 @@ Voir : [Crons quotidiens](automatisation/ch28-crons-quotidiens.md) | [Watchdogs]
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 11:30 (UTC+2)
+> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)

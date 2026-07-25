@@ -26,13 +26,13 @@
 | **Profils actifs** | 5 (default, emile, michel, robert, sylvia) |
 | **Bots actifs** | 5 (tous avec bot Telegram) |
 | **Gateways** | 5 actifs (s6 supervision) |
-| **Modèle principal** | qwen2.5:7b |
+| **Modèle principal** | deepseek-v4-flash |
 | **Fallback** | deepseek/deepseek-v4-flash, custom:google/gemini-3.5-flash, custom:ollama/qwen2.5:7b |
-| **Crons actifs** | 41 (tous actifs — tous consolidés dans leo-copilot) |
+| **Crons actifs** | 44 (tous actifs — tous consolidés dans michel) |
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
 
-> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](http://localhost:8765 (panel) + 9119 (Hermes dashboard)/dashboard).
+> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](http://localhost:8765 (panel) et http://localhost:9119 (Hermes dashboard)).
 
 ## 🏠 Provider local (Ollama)
 
@@ -123,19 +123,19 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **42 crons (39 actifs) Hermes** (tous consolidés dans `leo-copilot`) → **41 jobs (tous actifs)**
+> **44 crons Hermes** (tous consolidés dans `michel`) → **44 jobs (tous actifs)**
 
 | Profil | Crons |
 |--------|:-----:|
-| `leo-copilot` (consolidateur) | 41 |
+| `michel` (consolidateur) | 44 |
 | `default` | 0 |
-| `bavi-leo` | 0 |
+| `sylvia` | 0 |
 | `emile` | 0 |
-| `bureau-robert` | 0 |
+| `robert` | 0 |
 
 **0 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 41 jobs (tous actifs)**
+**Total général : 44 jobs (tous actifs)**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
 <!-- AUTO:END crons -->
@@ -241,7 +241,7 @@ flowchart TD
 ## 🔴 Règles de vie critiques
 
 ### Infra
-- **5 profils** (`default`, `leo-copilot`, `bavi-leo`, `emile`, `bureau-robert`)
+- **5 profils** (`default`, `emile`, `michel`, `robert`, `sylvia`)
 - **NE JAMAIS** arrêter/redémarrer le gateway sans accord explicite
 
 ### Email
@@ -274,7 +274,7 @@ flowchart TD
 
 ### Conventions scripts
 
-- Tous les exécutables dans `~/.hermes/profiles/leo-copilot/scripts/`
+- Tous les exécutables dans `~/.hermes/profiles/michel/scripts/`
 - Pattern wrapper shell → `/opt/hermes/.venv/bin/python3 <script.py>`
 - Crons no_agent = wrapper shell impératif (pas de .py direct)
 
@@ -317,4 +317,4 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 10:59 (UTC+2)
+> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)

@@ -29,7 +29,7 @@ flowchart TB
         DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>http://localhost:8765/dashboard"]
     end
 
-    subgraph crons["⏱️ Crons LEO (41 gérés par leo-copilot)"]
+    subgraph crons["⏱️ Crons LEO (44 gérés par michel)"]
         DRIVE_ISSUE["Drive → Issue<br/>Surveillance Drive"]
         GARDIEN["Gardien du Drive<br/>Protection documents"]
         SAVE_CONTACTS["Save Contacts<br/>Sauvegarde contacts"]
@@ -56,7 +56,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 
 | Dashboard | URL | Contenu | Généré par | Fréquence |
 |-----------|-----|---------|-----------|-----------|
-| **🌍 leo-dashboard** | [leo-dashboard](http://localhost:8765/dashboard) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement leo-copilot) |
+| **🌍 leo-dashboard** | [leo-dashboard](http://localhost:8765/dashboard) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults | `collect-v2.py` | H:10 (déploiement michel) |
 
 **Collecteur unifié** : `collect-v2.py` agrège 8 sources de données (n8n retiré 13/07/2026) :
 1. Sessions — nombre de sessions et messages
@@ -72,7 +72,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 
 ## 3. Déploiement
 
-Le déploiement du dashboard fait partie d'un ensemble de 42 crons (39 actifs) gérés par leo-copilot. Le cron spécifique pour le dashboard est :
+Le déploiement du dashboard fait partie d'un ensemble de 44 crons gérés par michel. Le cron spécifique pour le dashboard est :
 
 ```
 10 * * * *  →  collect-v2.py (via leo-copilot, no_agent)
@@ -80,7 +80,7 @@ Le déploiement du dashboard fait partie d'un ensemble de 42 crons (39 actifs) g
 
 Changement clé du 04/07/2026 :
 - **Avant** : 7 crons séparés (un par dashboard) + Auto-Fix Daemon
-- **Après** : 1 cron unique `collect-v2.py` pour le dashboard, parmi 42 crons (39 actifs) gérés par leo-copilot.
+- **Après** : 1 cron unique `collect-v2.py` pour le dashboard, parmi 44 crons gérés par michel.
 
 ---
 
@@ -131,11 +131,11 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 | Sources de collecte | **9** |
 | Vaults Obsidian | **5** |
 | Budget DeepSeek | **~$19.97** |
-| Déploiement | Toutes les heures via leo-copilot |
+| Déploiement | Toutes les heures via michel |
 
 ---
 
 > **Document mis à jour le 04/07/2026** — reflet des changements post-crash.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:14 (UTC+2)
+> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
