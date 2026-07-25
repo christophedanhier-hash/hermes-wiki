@@ -26,7 +26,6 @@ Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres s
 
 L'un des atouts d'Hermès est de pouvoir utiliser **plusieurs LLMs** et de choisir le meilleur pour chaque tâche :
 
-Le tableau doit être mis à jour pour inclure tous les fournisseurs et le fallback.ivées |
 | 4e | **Gemini 3.5 Flash** (fallback) | **Gratuit** ☁️ | Secours si DeepSeek indisponible |
 
 **Le principe économique :** 95% des tâches planifiées (crons) tournent en `no_agent` = 0 token LLM consommé. Les 5% restants utilisent d'abord Ollama (gratuit), puis DeepSeek seulement si nécessaire.
@@ -85,7 +84,7 @@ La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, cron
 
 ### Les crons (tâches planifiées)
 
-> **42 crons (39 actifs) (tous actifs)** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
+> **44 crons (tous actifs)** — quasi tous en `no_agent` = **0$ par mois** de consommation LLM pour les tâches répétitives.
 
 | Vague | Horaires | Crons |
 |:------|:---------|:------|
@@ -151,7 +150,7 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 | Métrique | Valeur |
 |:---------|:-------|
-| Crons actifs | **41 (tous actifs)** |
+| Crons actifs | **44 (tous actifs)** |
 | Skills installés | **28** |
 | Dashboards | **2** (panel local 8765 + Hermes 9119) |
 | Wikis | **2** (hermes-wiki + BAVI_LEO, servis localement) |
