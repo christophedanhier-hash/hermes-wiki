@@ -10,7 +10,7 @@ La règle doit être mise à jour pour refléter les modifications récentes. Pa
 | 1 | `index.md` | Portail d'accueil, résumé écosystème | Toutes | ✅ |
 | 2 | `architecture.md` | Architecture système (serveur, conteneurs) | 3, 7 | ✅ |
 | 3 | `architecture-communication.md` | **5 bots** (LEO, Copilot, Émile, Voyages, Robert), routage, sync mémoire | 7, 13, 20 | ✅ |
-| 4 | `changelog.md` | Historique des modifications | Toutes | ✅ |
+| 4 | ~~`changelog.md`~~ | ~~Historique des modifications~~ | ~~Toutes~~ | ~~✅~~ ❌ Supprimé |
 | 5 | ~~`etat-des-lieux.md`~~ | **ARCHIVÉ** — inventaire pré-crash, obsolète | 14, 18, 20 | ❌ |
 | 6 | `interface-web.md` | Interface web Hermes | — | ✅ |
 | 7 | ~~`exemples/LEO.md`~~ | **SUPPRIMÉ** — remplacé par guide v3+ (archives) | — | ❌ |
@@ -93,7 +93,7 @@ Quand tu changes... | Pages à vérifier
 1. **`architecture-communication.md`** — Vision globale, routage, 5 bots
 2. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, workflows Python
 3. **`utilisation/dashboards.md`** — leo-dashboard, 8 sources (n8n retiré 13/07/2026)
-4. **`changelog.md`** — Historique des modifs
+4. **~~`changelog.md`~~** — ~~Historique des modifs~~ ❌ Supprimé
 5. **`utilisation/crons.md`** — 46 crons (tous actifs) (tous actifs), planification
 6. **Cette carte** 🗺️
 
