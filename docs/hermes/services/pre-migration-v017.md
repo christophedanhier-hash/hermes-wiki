@@ -10,10 +10,10 @@
 |:---|:---|:---|
 | **Version** | v0.16.0 (2026.6.5) | 1 commit behind upstream |
 | **Gateway default** | 🟢 UP | PID 26649, uptime depuis 13 juin |
-| **Gateway leo-copilot** | 🟢 UP | PID 489486, uptime depuis 23 juin |
-| **Gateway bavi-leo** | 🟢 UP | PID 325210, uptime depuis 23 juin |
-| **Crons leo-copilot** | 🟢 41/41 (tous actifs) | |
-| **Crons default** | 🟢 0/0 (crons exclusivement dans leo-copilot) | |
+| **Gateway michel** | 🟢 UP | PID 489486, uptime depuis 23 juin |
+| **Gateway sylvia** | 🟢 UP | PID 325210, uptime depuis 23 juin |
+| **Crons michel** | 🟢 41/41 (tous actifs) | |
+| **Crons default** | 🟢 0/0 (crons exclusivement dans michel) | |
 | **Skills custom** | 🟢 1 skill agent (hermes-agent) | Aucun impact |
 | **send_message tool** | ✅ Présent (78 KB) | Utilisé dans 2 skills bundle (non critiques) |
 | **Tokens OAuth** | ✅ Google token valide | |
@@ -60,7 +60,7 @@
 3. UPDATE: uv pip install --upgrade hermes-agent
 
 4. RESTART GATEWAYS (un par un):
-   default → vérifier → leo-copilot → vérifier → bavi-leo
+   default → vérifier → michel → vérifier → sylvia
 
 5. VÉRIFIER: ping Telegram, 1 cron test, dashboard OK
 
@@ -86,4 +86,4 @@
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:03 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

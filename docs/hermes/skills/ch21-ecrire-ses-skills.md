@@ -161,8 +161,8 @@ Le profil `default` (source de vérité) synchronise ses skills vers les autres 
 curator:
   enabled: true
   sync_to:
-    - leo-copilot
-    - bavi-leo
+    - michel
+    - sylvia
     - emile
 ```
 
@@ -209,4 +209,4 @@ flowchart LR
 - **Annexe B** : Guide démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:08 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

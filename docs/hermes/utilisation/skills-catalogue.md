@@ -8,7 +8,7 @@ Update the generation date to a recent or current date.
 
 Les **Bureaux Agentiques Virtuels** sont le cœur métier de LEO. Chaque bureau est un agent spécialisé avec son propre rôle, ses sous-experts, et son workflow standardisé en 7 phases.
 
-### 1. 🏗️ bavi-leo
+### 1. 🏗️ sylvia
 | | |
 |---|---|
 | **Version** | v1.4 |
@@ -109,7 +109,7 @@ Gestion des serveurs, déploiements, sync Drive, routage LLM et sauvegardes.
 | **system-management** | Gestion centralisée machines distantes via Tailscale + SSH (multi-OS) | Maintenance |
 | **drive-github-mirror** | Miroir versionné Drive ↔ GitHub bidirectionnel | Cron drive-sync |
 | **gdrive-source-of-truth** | Workflow Drive source de vérité → GitHub → Wikis → retour calculs vers Drive | Cron drive-sync |
-| **bavi-leo-bot-deployment** | Déploiement d'un bureau BAVI LEO comme bot Telegram autonome | Setup |
+| **sylvia-bot-deployment** | Déploiement d'un bureau BAVI LEO comme bot Telegram autonome | Setup |
 
 ---
 
@@ -301,4 +301,4 @@ hermes skills list
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:15 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

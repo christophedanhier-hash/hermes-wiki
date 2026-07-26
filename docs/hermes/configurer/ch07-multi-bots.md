@@ -14,9 +14,9 @@ Le diagramme doit être mis à jour pour refléter les noms réels des bots util
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **default** : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **leo-copilot** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (41 jobs, tous actifs)
-- **bureau-robert** : le consultant stratégique — analyses IT, recommandations
-- **bavi-leo** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
+- **michel** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (41 jobs, tous actifs)
+- **robert** : le consultant stratégique — analyses IT, recommandations
+- **sylvia** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
 - **emile** : l'assistant pédagogique — mémoire, création de contenu
 
 ### 2. Modèles adaptés à chaque usage
@@ -34,16 +34,16 @@ default.env
 ├── TELEGRAM_BOT_TOKEN=...  ← default
 ├── TELEGRAM_ALLOWED_USERS=...
 
-leo-copilot.env
-├── TELEGRAM_BOT_TOKEN=...  ← leo-copilot
+michel.env
+├── TELEGRAM_BOT_TOKEN=...  ← michel
 ├── TELEGRAM_ALLOWED_USERS=...
 
-bavi-leo.env
-├── TELEGRAM_BOT_TOKEN=...  ← bavi-leo (Sylvia)
+sylvia.env
+├── TELEGRAM_BOT_TOKEN=...  ← sylvia (Sylvia)
 ├── TELEGRAM_ALLOWED_USERS=...
 
 bureau-robert.env
-├── TELEGRAM_BOT_TOKEN=...  ← bureau-robert
+├── TELEGRAM_BOT_TOKEN=...  ← robert
 ├── TELEGRAM_ALLOWED_USERS=...
 
 emile.env
@@ -56,15 +56,15 @@ emile.env
 ### Créer un profil
 
 ```bash
-hermes profile create leo-copilot
+hermes profile create michel
 ```
 
-Cette commande crée un dossier `~/.hermes/profiles/leo-copilot/` avec un `config.yaml` vierge et prépare l'alias `leo-copilot` (vous pourrez utiliser `leo-copilot chat` directement).
+Cette commande crée un dossier `~/.hermes/profiles/michel/` avec un `config.yaml` vierge et prépare l'alias `michel` (vous pourrez utiliser `michel chat` directement).
 
 ### Structure d'un profil
 
 ```bash
-~/.hermes/profiles/leo-copilot/
+~/.hermes/profiles/michel/
 ├── config.yaml        # Modèle, provider, outils, permissions
 ├── .env               # Token Telegram, clés API (gardé secret)
 ├── SOUL.md            # Personnalité, règles, contexte permanent
@@ -84,7 +84,7 @@ C'est le cœur de la personnalité du bot. Il définit qui il est, ce qu'il fait
 Tu es Léo Copilote, l'ingénieur infrastructure de l'écosystème LEO.
 
 Tu gères :
-- 42 crons (39 actifs) automatisés (tous actifs)
+- 46 crons (tous actifs) automatisés (tous actifs)
 - 1 dashboard unifié
 - scripts Python (ex-n8n, workflows migrés le 13/07/2026)
 - Les gateways Hermes
@@ -115,8 +115,8 @@ Les profils peuvent partager des informations de plusieurs façons :
 
 \`\`\`bash
 # Les deux profils pointent vers les mêmes fichiers
-ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/leo-copilot/memories/MEMORY.md
-ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/leo-copilot/memories/USER.md
+ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/michel/memories/MEMORY.md
+ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/michel/memories/USER.md
 \`\`\`
 
 Quand un bot met à jour sa mémoire, l'autre voit les changements automatiquement.
@@ -141,12 +141,12 @@ rm -f ~/Projets_Dev/SOUL.md
 ln -s ~/.hermes/profiles/<profil>/SOUL.md ~/Projets_Dev/SOUL.md
 ```
 
-Pour les profils qui partagent la même identité (ex: default + leo-copilot sont tous deux LEO) : **un seul SOUL.md unifié** avec un tableau des rôles, et les deux profils symlinkent vers le même fichier :
+Pour les profils qui partagent la même identité (ex: default + michel sont tous deux LEO) : **un seul SOUL.md unifié** avec un tableau des rôles, et les deux profils symlinkent vers le même fichier :
 
 ```bash
 # Les 3 chemins pointent vers le même inode
 ln -sf ~/.hermes/profiles/default/SOUL.md ~/Projets_Dev/SOUL.md
-ln -sf ~/.hermes/profiles/default/SOUL.md ~/.hermes/profiles/leo-copilot/SOUL.md
+ln -sf ~/.hermes/profiles/default/SOUL.md ~/.hermes/profiles/michel/SOUL.md
 ```
 
 Structure du SOUL.md unifié :
@@ -156,10 +156,10 @@ Structure du SOUL.md unifié :
 | Profil | Moteur | Rôle |
 |--------|--------|------|
 | **\`default\`** | DeepSeek Flash | Dialogue — échange, ne touche pas à l'infrastructure |
-| **\`leo-copilot\`** | DeepSeek Pro | Infra — crons, dashboard, scripts, déploiements |
+| **\`michel\`** | DeepSeek Pro | Infra — crons, dashboard, scripts, déploiements |
 
 - Si tu es \`default\` → interface de dialogue
-- Si tu es \`leo-copilot\` → chef d'infrastructure
+- Si tu es \`michel\` → chef d'infrastructure
 ```
 
 **Vérification :**
@@ -176,7 +176,7 @@ Le profil principal (source de vérité) synchronise ses skills vers les autres 
 
 ```bash
 # Sync automatique intégrée à Hermes (curator)
-# Le profil default = source → pousse vers leo-copilot, bavi-leo, emile
+# Le profil default = source → pousse vers michel, sylvia, emile
 ```
 
 ### 3. Délégation de tâches
@@ -197,11 +197,11 @@ delegation:
 | Profil | Bot Telegram | Modèle | Rôle | 
 |:-------|:-------------|:-------|:-----|
 | `default` | LEO 🦁 | DeepSeek V4 Flash | Hub central — analyses, emails, docs |
-| `leo-copilot` | Léo Copilote 🦁 | DeepSeek V4 Pro | Infrastructure — crons, système, budget |
-| `bavi-leo` | Sylvia 🚐 | DeepSeek V4 Flash | Roadbooks camping-car, voyages |
+| `michel` | Léo Copilote 🦁 | DeepSeek V4 Pro | Infrastructure — crons, système, budget |
+| `sylvia` | Sylvia 🚐 | DeepSeek V4 Flash | Roadbooks camping-car, voyages |
 | `emile` | Émile 🎓 | DeepSeek V4 Flash | Assistant pédagogique mémoire |
-| `bureau-robert` | Robert 🏛️ | DeepSeek V4 Pro | Conseil stratégique IA |
+| `robert` | Robert 🏛️ | DeepSeek V4 Pro | Conseil stratégique IA |
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:19 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

@@ -35,17 +35,17 @@ LEO utilise **5 profils Hermes** dont **5 avec bot Telegram**, chacun avec sa sp
 
 | Profil | Bot Telegram | Rôle | Modèle | Mémoire |
 |--------|:-----------:|------|--------|---------|
-| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Partagée avec leo-copilot |
-| `leo-copilot` | ❌ | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
-| `michel` | ✅ | Chef infrastructure (alias leo-copilot TUI) | DeepSeek Pro | Séparée |
-| `bavi-leo` | ❌ | BAVI Voyages (Sylvia) | DeepSeek Flash | Séparée |
+| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Partagée avec michel |
+| `michel` | ❌ | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
+| `michel` | ✅ | Chef infrastructure (alias michel TUI) | DeepSeek Pro | Séparée |
+| `sylvia` | ❌ | BAVI Voyages (Sylvia) | DeepSeek Flash | Séparée |
 | `emile` | ✅ | Création contenu | DeepSeek Flash | Séparée |
-| `bureau-robert` | ❌ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
+| `robert` | ❌ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
 | `robert` | ✅ | Conseil Stratégique IA (alias Telegram) | DeepSeek Pro | Séparée |
 | `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 
-- **Mémoire unifiée** entre `default` et `leo-copilot` (deux profils, un cerveau)
-- **Crons** : 41 dans `leo-copilot` (tous actifs). Règle « ZÉRO hors leo-copilot » respectée (emile=0, bavi-leo=0, default=0, bureau-robert=0).
+- **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau)
+- **Crons** : 46 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée (emile=0, sylvia=0, default=0, robert=0).
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |
@@ -187,4 +187,4 @@ Quand [condition], faire [action].
 - Voir `exemples/LEO.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:17 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

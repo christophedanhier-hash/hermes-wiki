@@ -129,8 +129,8 @@ graph TB
     subgraph HOST["HOST — Ubuntu 26.04 LTS"]
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
         subgraph Docker["Hermes (Docker)"]
-            GW["5 profils Gateway<br/>default · leo-copilot · michel · bavi-leo · emile · bureau-robert · robert · sylvia"]
-            Crons["42 crons (39 actifs)"]
+            GW["5 profils Gateway<br/>default · michel · michel · sylvia · emile · robert · sylvia"]
+            Crons["46 crons (tous actifs)"]
         end
     end
     
@@ -204,4 +204,4 @@ services:
 - [Docker Hub](https://hub.docker.com/r/nousresearch/hermes-agent)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 10:58 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

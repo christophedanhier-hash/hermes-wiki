@@ -268,4 +268,4 @@ Système de badges et réalisations. Débloque des succès en fonction de l'util
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

@@ -7,7 +7,7 @@
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via michel
 > - **n8n** : ❌ Retiré le 13/07/2026.
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 44 crons (tous actifs).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 46 crons (tous actifs).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
@@ -74,7 +74,7 @@
 - `claude-code`, `codex`, `hermes-agent`, `hermes-gateway`, `hermes-profiles-gateways`, `hermes-workspace`, `opencode`
 
 ### BAVI LEO
-- `assurance-obligatoire`, `bavi-leo-governance`, `bureau-gerard`, `bureau-michel`, `bureau-robert`, `bureau-sophie`, `bureau-sylvie`, `bureau-versioning`
+- `assurance-obligatoire`, `sylvia-governance`, `bureau-gerard`, `bureau-michel`, `bureau-robert`, `bureau-sophie`, `bureau-sylvie`, `bureau-versioning`
 
 ### Creative
 - `architecture-diagram`, `ascii-art`, `ascii-video`, `baoyu-infographic`, `claude-design`, `comfyui`, `design-md`, `excalidraw`, `humanizer`, `manim-video`, `p5js`, `popular-web-designs`, `pretext`, `sketch`, `songwriting-and-ai-music`, `touchdesigner-mcp`
@@ -92,7 +92,7 @@
 - `codebase-inspection`, `github-auth`, `github-code-review`, `github-issues`, `github-pr-workflow`, `github-repo-management`
 
 ### Infrastructure
-- `bavi-leo-bot-deployment`, `dashboard-deployment`, `dashboard-kpi`, `deepseek-pro`, `drive-github-mirror`, `gdrive-source-of-truth`, `leo-architecture`, `leo-backup-dr`, `machine-metrics`, `remote-server-ssh`, `routage-llm`, `self-hosted-services`, `shared-bot-deployment`, `system-management`
+- `sylvia-bot-deployment`, `dashboard-deployment`, `dashboard-kpi`, `deepseek-pro`, `drive-github-mirror`, `gdrive-source-of-truth`, `leo-architecture`, `leo-backup-dr`, `machine-metrics`, `remote-server-ssh`, `routage-llm`, `self-hosted-services`, `shared-bot-deployment`, `system-management`
 
 ### Media
 - `gif-search`, `heartmula`, `songsee`, `youtube-content`
@@ -123,7 +123,7 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **44 crons Hermes** (tous consolidés dans `michel`) → **44 jobs (tous actifs)**
+> **46 crons Hermes** (tous consolidés dans `michel`) → **46 jobs (tous actifs)**
 
 | Profil | Crons |
 |--------|:-----:|
@@ -317,4 +317,4 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

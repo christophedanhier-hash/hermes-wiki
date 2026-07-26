@@ -31,7 +31,7 @@ LEO communique uniquement par **Telegram** (pas d'autre canal). L'email est util
 ```yaml
 H:10 — collect-v2.py (9 sources unifiées)
   - sessions, budget, crons, infra, github (n8n retiré 13/07/2026), bavi, services, vaults
-  - Déploiement toutes les heures via leo-copilot
+  - Déploiement toutes les heures via michel
   Coût: 0 € (no_agent)
 ```
 
@@ -159,3 +159,5 @@ LEO a vécu la perte d'accès Telegram lors d'un basculement de profil. Leçon a
 
 LEO est taillé sur mesure pour Christophe. Votre assistant aura ses propres besoins, règles et personnalité. Prenez ce qui vous est utile, adaptez le reste.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

@@ -138,8 +138,8 @@ Les scripts dans `scripts/` peuvent être appelés directement par le skill.
 Dans l'écosystème LEO, le profil `default` (LEO) est la **source de vérité** des skills. Les autres profils (Léo Copilote, Bavi Léo, Émile) reçoivent les skills par **synchronisation automatique** toutes les 30 minutes.
 
 ```
-default (source) ──sync 30min──→ leo-copilot
-                ──sync 30min──→ bavi-leo (Bavi Léo)
+default (source) ──sync 30min──→ michel
+                ──sync 30min──→ sylvia (Bavi Léo)
                 ──sync 30min──→ emile
 ```
 
@@ -187,4 +187,4 @@ curator:
 | **Pitfalls** | Pièges documentés pour éviter les erreurs |
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:17 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

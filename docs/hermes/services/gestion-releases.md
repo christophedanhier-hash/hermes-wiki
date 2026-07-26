@@ -27,13 +27,13 @@ Analyse du changelog GitHub pour extraire :
 - **Breaking changes** ⚠️
 - **Nouvelles features** ✨
 - **Bugs fixés** 🐛
-- **Impact sur nos profils** (leo-copilot, default, bavi-leo)
+- **Impact sur nos profils** (michel, default, sylvia)
 
 ## 3. Backup — Obligatoire avant déploiement
 
 ```bash
 # Export profil complet
-hermes -p leo-copilot profile export > ~/.hermes/backups/hermes-leo-copilot-$(date +%Y%m%d).tar.gz
+hermes -p michel profile export > ~/.hermes/backups/hermes-michel-$(date +%Y%m%d).tar.gz
 
 # Git snapshot
 cd ~/Projets_Dev/hermes-wiki && git push
@@ -44,7 +44,7 @@ cd ~/Projets_Dev/leo-tracker && git push
 
 - **Quand** : nuit (2h-4h) ou demande explicite
 - **Action** : `uv pip install --upgrade hermes-agent`
-- **Redémarrage** : gateways default + leo-copilot + bavi-leo + emile + bureau-robert
+- **Redémarrage** : gateways default + michel + sylvia + emile + robert
 
 ## 5. Vérification — Checklist post-déploiement
 
@@ -72,4 +72,4 @@ uv pip install hermes-agent==VERSION_PRÉCÉDENTE
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:04 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

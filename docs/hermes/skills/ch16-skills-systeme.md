@@ -70,10 +70,10 @@ Chaque profil peut avoir son propre gateway avec son propre token Telegram :
 hermes gateway run
 
 # Terminal 2 : Léo Copilote
-hermes -p leo-copilot gateway run
+hermes -p michel gateway run
 
 # Terminal 3 : Sylvia
-hermes -p bavi-leo gateway run
+hermes -p sylvia gateway run
 ```
 
 ## Profils : l'isolation par design
@@ -85,8 +85,8 @@ Le skill `profils` documente comment organiser des instances Hermes indépendant
 | Profil | Usage | Provider | Token Telegram |
 |:-------|:------|:---------|:---------------|
 | `default` | Assistant principal | DeepSeek V4 Flash | `881242...` |
-| `leo-copilot` | Infrastructure | DeepSeek V4 Pro | `899720...` |
-| `bavi-leo` | Bureaux BAVI | DeepSeek V4 Flash | `885780...` |
+| `michel` | Infrastructure | DeepSeek V4 Pro | `899720...` |
+| `sylvia` | Bureaux BAVI | DeepSeek V4 Flash | `885780...` |
 | `emile` | Pédagogie | DeepSeek Flash + Gemini | `890688...` |
 | `bureau-robert` | Conseil stratégique IT | DeepSeek V4 Pro | — |
 
@@ -111,8 +111,8 @@ Les skills peuvent être synchronisés d'un profil source vers d'autres profils 
 # Dans le profil source (default)
 skills:
   sync_to:
-    - leo-copilot
-    - bavi-leo
+    - michel
+    - sylvia
     - emile
 ```
 
@@ -144,8 +144,8 @@ hermes memory add "Christophe préfère les réponses concises" --target user
 
 ```bash
 # Créer un lien symbolique pour partager
-ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/leo-copilot/memories/MEMORY.md
-ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/leo-copilot/memories/USER.md
+ln -s ~/.hermes/memories/MEMORY.md ~/.hermes/profiles/michel/memories/MEMORY.md
+ln -s ~/.hermes/memories/USER.md ~/.hermes/profiles/michel/memories/USER.md
 ```
 
 Ainsi, quand un profil apprend quelque chose, les autres en bénéficient immédiatement.
@@ -160,7 +160,7 @@ Le skill `cron` documente la planification de tâches.
 hermes cron create \
   --name "Vérification disque" \
   --schedule "0 8 * * *" \
-  --script ~/.hermes/profiles/leo-copilot/scripts/check-disk.sh \
+  --script ~/.hermes/profiles/michel/scripts/check-disk.sh \
   --no-agent
 ```
 
@@ -203,4 +203,4 @@ hermes cron run <id>    # Exécution immédiate
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:06 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

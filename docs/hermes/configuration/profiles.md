@@ -41,7 +41,7 @@ LEO utilise **5 profils Hermes** tous avec bot Telegram :
 | `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 | `emile` | ✅ | Assistant pédagogique mémoire | DeepSeek Flash | Séparée |
 
-> **Note historique** : Les profils `leo-copilot` → `michel`, `bavi-leo` → `sylvia`, `bureau-robert` → `robert` ont été renommés pour simplifier. Les anciens noms persistent dans les archives.
+> **Note historique** : Les profils `michel` → `michel`, `sylvia` → `sylvia`, `bureau-robert` → `robert` ont été renommés pour simplifier. Les anciens noms persistent dans les archives.
 - **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau)
 - **Crons** : 44 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée.
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
@@ -187,4 +187,4 @@ Quand [condition], faire [action].
 
 ---
 
-> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

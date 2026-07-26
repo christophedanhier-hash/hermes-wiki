@@ -166,4 +166,4 @@ curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 > **💡 Astuce :** Vous voulez voir un exemple concret ? Passez directement à [l'architecture complète de LEO](../annexes/exemple-leo-complet.md) en annexe.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:01 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

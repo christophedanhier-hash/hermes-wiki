@@ -38,7 +38,7 @@
 Le script `doc-security-scan.py` peut être exécuté pour scanner tout le wiki à la recherche de patterns sensibles :
 
 ```bash
-python3 ~/.hermes/profiles/leo-copilot/scripts/doc-security-scan.py
+python3 ~/.hermes/profiles/michel/scripts/doc-security-scan.py
 ```
 
 Patterns recherchés : `mot de passe`, `password`, `token`, `-----BEGIN`, `anydesk`, `teamviewer`, `192.168\.`, r`[0-9]{3,4}\.[0-9]{3,4}\.[0-9]{4}` (GSM), etc.
@@ -49,4 +49,4 @@ Patterns recherchés : `mot de passe`, `password`, `token`, `-----BEGIN`, `anyde
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 11:15 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

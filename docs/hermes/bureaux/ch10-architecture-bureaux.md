@@ -38,7 +38,7 @@ vs
 | 🛡️ **AO** | Assurance obligatoire — INAMI, eHealth | 📝 Structure prête |
 | 📋 **Versioning** | Gestion des versions et des releases | 📝 Structure prête |
 
-> **Note 18/07/2026** : 7 bureaux structurés, 3 en attente (Sophie, AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (bavi-leo, bureau-robert, emile, leo-copilot, default).
+> **Note 18/07/2026** : 7 bureaux structurés, 3 en attente (Sophie, AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (sylvia, bureau-robert, emile, michel, default).
 
 ## Comment fonctionne un bureau
 
@@ -102,7 +102,7 @@ Chaque bureau utilise le modèle le plus adapté à son travail :
 
 | Bureau | Modèle principal | Pourquoi |
 |:-------|:-----------------|:---------|
-| Michel | DeepSeek V4 Pro (via leo-copilot) | Analyses complexes, décisions techniques |
+| Michel | DeepSeek V4 Pro (via michel) | Analyses complexes, décisions techniques |
 | Sylvia | DeepSeek V4 Flash | Création de contenu, roadbooks |
 | Robert | DeepSeek V4 Pro (via bureau-robert) | Conseil stratégique, recommandations |
 | Gérard | DeepSeek V4 Flash | Documentation technique, schémas |
@@ -183,4 +183,4 @@ Ces métadonnées permettent au script `agent-pro-index.py` de générer automat
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 11:09 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

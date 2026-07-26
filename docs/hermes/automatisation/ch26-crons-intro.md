@@ -152,7 +152,7 @@ Un cron `dashboard-watch` (toutes les 2h) vérifie que le dashboard est à jour 
 
 Le script est dans `scripts/dashboard-watch.py` et son état est sauvegardé dans `metrics/dashboard-watch-state.json`.
 
-> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot. La vérification continue via `dashboard-watch`.
+> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et michel. La vérification continue via `dashboard-watch`.
 
 ## Pièges à éviter
 
@@ -216,4 +216,4 @@ confirmer que le travail a été fait.
 - Voir `exemples/LEO.md` pour l'architecture cron complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:11 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
