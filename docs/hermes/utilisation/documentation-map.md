@@ -17,7 +17,7 @@ La règle doit être mise à jour pour refléter les modifications récentes. Pa
 | 8 | `configuration/profiles.md` | **5 profils**, gateways, skills, mémoire | 20 | ✅ |
 | 9 | `configuration/providers.md` | Providers LLM (deepseek, google, ollama) | 7, 14 | ✅ |
 | 10 | `installation/linux.md` | Installation Linux | — | ✅ |
-| 11 | `installation/windows.md` | Installation Windows | — | ✅ |
+| 11 | ~~`installation/windows.md`~~ | ~~Installation Windows~~ | ~~—~~ | ❌ Supprimé |
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
 | 13 | `utilisation/bots-telegram.md` | **5 bots**, tokens, architecture | 3, 7, 14 | ✅ |
 | 14 | `utilisation/architecture-leo.md` | Dashboard unifié, collect-v2, crons, 🐍 workflows Python, vaults, routage LLM | 7, 15, 16, 19, 21 | ✅ |
