@@ -24,7 +24,7 @@ La règle doit être mise à jour pour refléter les modifications récentes. Pa
 | 15 | `utilisation/crons.md` | **46 crons (tous actifs)** (tous actifs, michel exclusif), collect-v2 | 14, 16, 21 | ✅ |
 | 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 8 sources (n8n retiré 13/07/2026), vaults | 14, 15, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
-| 18 | `utilisation/skills-catalogue.md` | Catalogue des skills BAVI LEO & Hermes | 5, 20 | ✅ |
+| 18 | ~~`utilisation/skills-catalogue.md`~~ | ~~Catalogue des skills BAVI LEO & Hermes~~ | ~~5, 20~~ | ❌ Supprimé |
 | 19 | ~~`services/n8n.md`~~ | **ARCHIVÉ** — n8n déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ❌ |
 | 20 | `services/spotify.md` | Contrôle musical Spotify | — | ✅ |
 | 21 | `utilisation/securite.md` | Sécurité — bonnes pratiques documentaires, données sensibles | Toutes | ✅ |
