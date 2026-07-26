@@ -59,7 +59,6 @@ nav:
       - ⚙️ Configuration — Providers LLM: hermes/configuration/providers.md
       - ⚙️ Configuration — Profils: hermes/configuration/profiles.md
       - 📋 Usage quotidien: hermes/utilisation/quotidien.md
-      - ⏰ Crons & planification: hermes/utilisation/crons.md
       - 📊 Dashboards & monitoring: hermes/utilisation/dashboards.md
       - 🏛️ Architecture LEO: hermes/utilisation/architecture-leo.md
       - 🌐 Interface Web: hermes/interface-web.md
