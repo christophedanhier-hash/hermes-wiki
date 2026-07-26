@@ -29,7 +29,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 | Service | Statut | Modèle |
 |---------|--------|--------|
 | **Léo** (default, toi ici) | ✅ Gateway actif | DeepSeek Flash |
-| **Léo Copilote** (infra) | ✅ Gateway actif + 46 crons (tous actifs) (tous actifs) | DeepSeek Pro |
+| **Léo Copilote** (infra) | ✅ Gateway actif + 46 crons (tous actifs) | DeepSeek Pro |
 | **BAVI LEO Voyages** (Sylvia) | ✅ Gateway actif | DeepSeek Flash |
 | **Émile** (pédagogique) | ✅ Gateway actif | DeepSeek Flash |
 | **n8n**  | ❌ Retiré (13/07/2026) | — |
@@ -59,9 +59,9 @@ Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 | ⚙️ Config Hermes | `config.yaml` (gateways, providers, crons) |
 | 🔑 Tous les tokens OAuth | google_token, leo_google_token, leo_drive_token, leo_email_token, leo_sheets_token, gdrive-service-account |
 | 🔐 Credentials vault | `credentials_vault.json` (tous les .env, secrets) |
-| 📚 Skills Hermes | ~1022 fichiers, 22 skills actifs |
+| 📚 Skills Hermes | 144 skills |
 | 👤 **Tous les profils** | `profiles/default`, `profiles/michel`, `profiles/sylvia`, `profiles/emile`, `profiles/robert` — configs, skills, memory, cron |
-| 🏛️ Vaults Obsidian | `vault-leo`, `vault-default`, `vault-emile`, `vault-bavi` |
+| 🏛️ Vaults Obsidian | `vault-michel`, `vault-default`, `vault-emile`, `vault-sylvia`, `vault-robert` |
 | 📜 Scripts personnalisés | ~106 scripts dans `scripts/` |
 | 🧠 Session DB | `state.db` (~2.6 MB) — historique complet des conversations |
 | 📋 Kanban | `kanban.db` — tâches et projets |
@@ -76,7 +76,7 @@ Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 ```json
 {
   "Nom":       "LEO Backup quotidien → GDrive",
-  "ID":        "55465c2cedde",
+  "ID":        "aab31e4f836b",
   "Horaire":   "0 6 * * *" (tous les jours à 06:00),
   "Script":    "leo-full-backup.py",
   "Mode":      "no_agent" (0 token LLM),
@@ -183,7 +183,7 @@ gh auth login --with-token < ~/.hermes/leo_token.json
 
 ```bash
 ls ~/.hermes/profiles/       # Doit montrer: default michel sylvia emile robert
-ls ~/.hermes/vault-*/        # Doit montrer: vault-leo vault-default vault-emile vault-bavi
+ls ~/.hermes/vault-*/        # Doit montrer: vault-michel vault-default vault-emile vault-sylvia vault-robert
 ls ~/.hermes/memories/       # Doit montrer: MEMORY.md USER.md ← CRITIQUE
 ls ~/.hermes/state.db        # Sessions DB
 ```
@@ -238,6 +238,6 @@ done
 | Recovery Kit | `~/.hermes/recovery-kit/` |
 | Skill DRP | `leo-backup-dr` (skill Hermes — infrastructure) |
 
-*Document mis à jour le 10/07/2026 à 00:00 — LEO 🦁*
+*Document mis à jour le 26/07/2026 — LEO 🦁*
 
 > 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
