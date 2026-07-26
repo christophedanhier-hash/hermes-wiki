@@ -122,14 +122,16 @@ docker exec -it hermes hermes setup
 
 LEO est l'assistant personnel de Christophe. Il tourne sur un **serveur Linux** en conteneur Docker, accessible 24/7. Le serveur est équipé d'un processeur moderne avec mémoire suffisante pour l'inférence IA locale.
 
-### Architecture
+### Architecture du déploiement
+
+LEO tourne via **systemd** (`hermes-dashboard.service`) qui lance `server.py` depuis `~/Projets_Dev/BAVI_LEO/`. Le serveur sert à la fois l'interface web (port 9119) et le wiki local (port 8765).
 
 ```mermaid
 graph TB
     subgraph HOST["HOST — Ubuntu 26.04 LTS"]
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
         subgraph Docker["Hermes (Docker)"]
-            GW["5 profils Gateway<br/>default · michel · michel · sylvia · emile · robert · sylvia"]
+            GW["5 profils Gateway<br/>default · michel · sylvia · emile · robert"]
             Crons["46 crons (tous actifs)"]
         end
     end
@@ -141,44 +143,33 @@ graph TB
     null
 ```
 
-### docker-compose.yml
+### Services système
 
-```yaml
-services:
-  gateway:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes
-    restart: unless-stopped
-    network_mode: host
-    volumes:
-      - ~/.hermes:/opt/data
-    environment:
-      - HERMES_UID=${HERMES_UID:-1000}
-      - HERMES_GID=${HERMES_GID:-1000}
-    command: ["gateway", "run"]
+LEO utilise un service systemd unique :
 
-  dashboard:
-    image: nousresearch/hermes-agent:latest
-    container_name: hermes-dashboard
-    restart: unless-stopped
-    network_mode: host
-    depends_on:
-      - gateway
-    volumes:
-      - ~/.hermes:/opt/data
-    environment:
-      - HERMES_UID=${HERMES_UID:-1000}
-      - HERMES_GID=${HERMES_GID:-1000}
-    command: ["dashboard", "--host", "127.0.0.1", "--no-open"]
+```ini
+# /home/tofdan/.config/systemd/user/hermes-dashboard.service
+[Unit]
+Description=LEO Dashboard Panel
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/tofdan/Projets_Dev/BAVI_LEO
+ExecStart=/usr/bin/python3 /home/tofdan/Projets_Dev/BAVI_LEO/server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target
 ```
 
-> **Pourquoi conteneurisé ?**  
-> - Service 24/7 : redémarrage automatique en cas de panne  
-> - Isolation : Hermes et ses dépendances ne polluent pas le système hôte  
-> - Mise à jour simple : `docker pull nousresearch/hermes-agent:latest && docker restart hermes`  
-> - Portabilité : même config sur n'importe quel serveur Linux
+Le service `server.py` gère à la fois :
+- Le **dashboard web** (port 8765) — wiki local + interface
+- Les **gateways Telegram** des 5 profils
+- La **gestion des crons**
 
-### Services connectés
+## Services connectés
 
 | Service | Rôle | Connexion |
 |:--------|:-----|:----------|
