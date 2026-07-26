@@ -1,6 +1,6 @@
 Ajouter la date de dernière mise à jour.
 
-> **Corriger le nombre de profils et bots dans la documentation., Mémoire unifiée entre default et leo-copilot. Corriger les fournisseurs et modèles utilisés dans la documentation..**
+> **Corriger le nombre de profils et bots dans la documentation., Mémoire unifiée entre default et michel. Corriger les fournisseurs et modèles utilisés dans la documentation..**
 
 ---
 
@@ -19,13 +19,13 @@ flowchart TD
 
     subgraph LEO_COP["🔧 Leo Copilot — Infrastructure"]
         direction LR
-        Agent2["🤖 Hermes Agent<br/>Profil: leo-copilot"]
+        Agent2["🤖 Hermes Agent<br/>Profil: michel"]
         DS_Pro["🧠 DeepSeek Pro<br/>Code · Infra · Workflows"]
     end
 
     subgraph BAVI["🧭 BAVI LEO — Voyages"]
         direction LR
-        Agent3["🤖 Hermes Agent<br/>Profil: bavi-leo"]
+        Agent3["🤖 Hermes Agent<br/>Profil: sylvia"]
         DS_Flash2["⚡ DeepSeek Flash<br/>Roadbooks"]
     end
 
@@ -37,7 +37,7 @@ flowchart TD
 
     subgraph ROBERT["🎯 Robert — Conseil Stratégique IA"]
         direction LR
-        Agent5["🤖 Hermes Agent<br/>Profil: bureau-robert"]
+        Agent5["🤖 Hermes Agent<br/>Profil: robert"]
         SOPHIE["👩‍💼 Sophie<br/>Experte transverse<br/>DeepSeek Pro"]
     end
 
@@ -134,9 +134,9 @@ Bot spécialisé **infrastructure** (workflows Python, serveurs, déploiements, 
 
 ```mermaid
 flowchart TB
-    subgraph COPILOT["🔧 Profil leo-copilot"]
+    subgraph COPILOT["🔧 Profil michel"]
         direction TB
-        P1["📋 Profil: leo-copilot"]
+        P1["📋 Profil: michel"]
         B1["📱 @hermes_leo_copilot_bot"]
         M1["🧠 DeepSeek Pro<br/>(deepseek-v4-pro)"]
         F1["⚡ Fallback DeepSeek Flash"]
@@ -145,11 +145,11 @@ flowchart TB
 
     subgraph EXTERNE["🌐 Services gérés"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 41 Crons Hermes (leo-copilot exclusif)"]
+        CRONS["⏰ 41 Crons Hermes (michel exclusif)"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
-    MEM["📁 Sync mémoire<br/>default ↔ leo-copilot<br/>symlinks (instantané)"]
+    MEM["📁 Sync mémoire<br/>default ↔ michel<br/>symlinks (instantané)"]
 
     B1 --> M1
     B1 -.->|"si Pro down"| F1
@@ -173,7 +173,7 @@ flowchart TB
 ```
 
 **Particularités :**
-- **Mémoire partagée** : sync `default ↔ leo-copilot` toutes les 30min via `sync-memory.py`. Les profils `bavi-leo` et `emile` ont des mémoires séparées.
+- **Mémoire partagée** : sync `default ↔ michel` toutes les 30min via `sync-memory.py`. Les profils `sylvia` et `emile` ont des mémoires séparées.
 - **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + DeepSeek V4 Pro ($0.55/$2.19) + fallback deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b
 - **Focus** : infrastructure uniquement, sauf demande explicite de Christophe
 
@@ -185,9 +185,9 @@ Bot isolé pour les roadbooks camping-car. Les amis et la famille l'utilisent.
 
 ```mermaid
 flowchart LR
-    subgraph BOT2["🧭 Profil bavi-leo"]
+    subgraph BOT2["🧭 Profil sylvia"]
         direction TB
-        P2["📋 Profil: bavi-leo"]
+        P2["📋 Profil: sylvia"]
         B2["📱 @bavi_leo_voyages_bot"]
         M2["⚡ DeepSeek Flash"]
         S2["📝 Skills<br/>Sylvie · Maps · Wiki"]
@@ -220,10 +220,10 @@ flowchart TB
 
     subgraph HERMES["🖥️ Hermes (5 profils)"]
         DEF["default<br/>DeepSeek Flash"]
-        LCP["leo-copilot<br/>DeepSeek Pro"]
-        BAV["bavi-leo<br/>DeepSeek Flash"]
+        LCP["michel<br/>DeepSeek Pro"]
+        BAV["sylvia<br/>DeepSeek Flash"]
         EMILE["emile<br/>DeepSeek Flash"]
-        BUR["bureau-robert<br/>DeepSeek Pro"]
+        BUR["robert<br/>DeepSeek Pro"]
     end
 
     subgraph API["☁️ API Externes"]
@@ -281,10 +281,10 @@ flowchart TB
 |:------|:---------|:-------|:-------|
 | Dialogue général, config, veille | **LEO** (DM) | DeepSeek Flash | `default` |
 | Code, API, debug, analyses complexes | Sous-agent auto | DeepSeek Pro | `default` |
-| Infrastructure (dashboards, déploiements, crons) | → `@hermes_leo_copilot_bot` | **DeepSeek Pro** | `leo-copilot` |
-| Roadbooks, voyages camping-car | → `@bavi_leo_voyages_bot` | DeepSeek Flash | `bavi-leo` |
+| Infrastructure (dashboards, déploiements, crons) | → `@hermes_leo_copilot_bot` | **DeepSeek Pro** | `michel` |
+| Roadbooks, voyages camping-car | → `@bavi_leo_voyages_bot` | DeepSeek Flash | `sylvia` |
 | Création de contenu, rédaction | → `@emile_creation_bot` | DeepSeek Flash | `emile` |
-| Conseil stratégique IA, analyses métier | → `@bureau_robert_bot` | DeepSeek Pro | `bureau-robert` |
+| Conseil stratégique IA, analyses métier | → `@bureau_robert_bot` | DeepSeek Pro | `robert` |
 | Classification emails, parsing local | Ollama (LEO) | qwen2.5:7b | API directe |
 
 ---
@@ -294,17 +294,17 @@ flowchart TB
 | Concept | C'est quoi ? | Handle Telegram ? | Moteur | Profil |
 |:--------|:-------------|:------------------|:-------|:-------|
 | **LEO** | Agent Hermes principal | Non — DM direct | DeepSeek Flash + Pro | `default` |
-| **@hermes_leo_copilot_bot** | Bot infrastructure | Oui | **DeepSeek Pro** | `leo-copilot` |
-| **@bavi_leo_voyages_bot** | Bot voyages | Oui | DeepSeek Flash | `bavi-leo` |
+| **@hermes_leo_copilot_bot** | Bot infrastructure | Oui | **DeepSeek Pro** | `michel` |
+| **@bavi_leo_voyages_bot** | Bot voyages | Oui | DeepSeek Flash | `sylvia` |
 | **@emile_creation_bot** | Bot création contenu | Oui | DeepSeek Flash | `emile` |
-| **@bureau_robert_bot** | Conseil stratégique IA | Oui | DeepSeek Pro | `bureau-robert` |
+| **@bureau_robert_bot** | Conseil stratégique IA | Oui | DeepSeek Pro | `robert` |
 
 **LEO n'est pas un bot Telegram. LEO est ton majordome IA.** Les bots sont des extensions spécialisées avec leurs propres profils, mémoires et accès.
 
 ---
 
-*Document mis à jour le 17/07/2026 à 00:00 — Michel (leo-copilot) 🔧*
+*Document mis à jour le 17/07/2026 à 00:00 — Michel (michel) 🔧*
 
 ---
 
-> 🤖 Dernier audit : 24/07/2026 à 10:59 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

@@ -168,3 +168,5 @@ Si vous dites "stop" à votre assistant et qu'il continue, rappelez-lui la règl
 
 Vous avez rencontré un problème non listé ? Ouvrez une issue sur le [dépôt GitHub](https://github.com/christophedanhier-hash/hermes-guide) — ce guide est vivant.
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

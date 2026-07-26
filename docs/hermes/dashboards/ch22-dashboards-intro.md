@@ -28,7 +28,7 @@ Scripts :
 - `~/Projets_Dev/leo-dashboard/collect-v2.py` — collecteur unifié (state.db des 5 profils, infra, budget, vaults)
 - `~/Projets_Dev/leo-dashboard/deploy-dashboard.py` — génère HTML + push GitHub Pages
 
-Cron ID `4d6ec4488b3c` dans le profil `leo-copilot`.
+Cron ID `4d6ec4488b3c` dans le profil `michel`.
 
 Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
 
@@ -191,7 +191,7 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ```bash
 # Le cron
-🌍 Global Dashboard — H:05 → ~/.hermes/profiles/leo-copilot/scripts/deploy_leo_global.py (no_agent)
+🌍 Global Dashboard — H:05 → ~/.hermes/profiles/michel/scripts/deploy_leo_global.py (no_agent)
 ```
 
 - **Usage LLM** — requêtes/jour, tokens consommés, coût estimé
@@ -206,4 +206,4 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - Voir `exemples/LEO.md` pour les dashboards en production
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:05 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

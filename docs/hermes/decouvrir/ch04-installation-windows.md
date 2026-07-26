@@ -128,4 +128,4 @@ L'adresse `host.docker.internal` permet à WSL de communiquer avec les services 
 - [Ollama pour Windows](https://ollama.com/download)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:02 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

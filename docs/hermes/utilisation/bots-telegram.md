@@ -97,7 +97,7 @@ flowchart LR
 
 ## 2️⃣ 🔧 `@hermes_leo_copilot_bot` — Michel (Infrastructure)
 
-> Ce bot correspond au profil **`michel`** (ex-leo-copilot, renommé juillet 2026).
+> Ce bot correspond au profil **`michel`** (ex-michel, renommé juillet 2026).
 
 | | |
 |:---|:---|
@@ -114,7 +114,7 @@ flowchart LR
 
 ## 3️⃣ 🧭 `@bavi_leo_voyages_bot` — Sylvia (Voyages)
 
-> Ce bot correspond au profil **`sylvia`** (ex-bavi-leo).
+> Ce bot correspond au profil **`sylvia`** (ex-sylvia).
 
 | | |
 |---|---|
@@ -161,8 +161,8 @@ flowchart LR
 | **Mémoire** | Unifiée (default+michel) | Unifiée (default+michel) | Séparée | Séparée | Séparée |
 | **Crons** | 0 | **44 (tous actifs)** | 0 | 0 | 0 |
 
-> **Note** : Les profils `leo-copilot`, `bavi-leo`, `bureau-robert` ont été renommés respectivement en `michel`, `sylvia`, `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés.
+> **Note** : Les profils `michel`, `sylvia`, `bureau-robert` ont été renommés respectivement en `michel`, `sylvia`, `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés.
 
 ---
 
-> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

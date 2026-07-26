@@ -61,4 +61,4 @@ Ce guide est en licence libre — libre à vous de le partager, l'adapter et l'e
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:01 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

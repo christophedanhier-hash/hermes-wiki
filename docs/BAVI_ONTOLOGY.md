@@ -296,3 +296,5 @@ Crons ───────────→ cron-metrics-collector → cron_metri
 *Document généré automatiquement par Michel (Bureau Infrastructure LEO) le 24 juillet 2026.*
 *Contexte extrait de : mémoire Hermes, configs, jobs.json, skills, sessions historiques.*
 *Prochaine mise à jour : après chaque changement d'infrastructure.*
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

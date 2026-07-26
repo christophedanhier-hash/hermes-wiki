@@ -204,4 +204,4 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ---
 
-> 🤖 Dernier audit : 25/07/2026 à 14:00 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

@@ -11,7 +11,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 1. **Extraction** du backup dans `/tmp/leo-backup/`
 2. **Restauration** des mémoires (`memories/`), skills, profils, config, .env, crons, scripts
 3. **Correction** du symlink `SOUL.md` cassé → pointait sur `~/Projets_Dev/` qui n'existe plus
-4. **Redémarrage** des 5 gateways (default, leo-copilot, bavi-leo, emile, bureau-robert)
+4. **Redémarrage** des 5 gateways (default, michel, sylvia, emile, robert)
 5. **Ajustement** des chemins `OBSIDIAN_VAULT_PATH` dans les 4 `.env` (→ `~/.hermes/vault-*`)
 6. **Backup de sauvegarde** immédiat : `leo-full-backup-2026-07-10_12-18.tar.gz` (93 Mo)
 
@@ -29,7 +29,7 @@ Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier 
 | Service | Statut | Modèle |
 |---------|--------|--------|
 | **Léo** (default, toi ici) | ✅ Gateway actif | DeepSeek Flash |
-| **Léo Copilote** (infra) | ✅ Gateway actif + 42 crons (39 actifs) (tous actifs) | DeepSeek Pro |
+| **Léo Copilote** (infra) | ✅ Gateway actif + 46 crons (tous actifs) (tous actifs) | DeepSeek Pro |
 | **BAVI LEO Voyages** (Sylvia) | ✅ Gateway actif | DeepSeek Flash |
 | **Émile** (pédagogique) | ✅ Gateway actif | DeepSeek Flash |
 | **n8n**  | ❌ Retiré (13/07/2026) | — |
@@ -60,7 +60,7 @@ Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
 | 🔑 Tous les tokens OAuth | google_token, leo_google_token, leo_drive_token, leo_email_token, leo_sheets_token, gdrive-service-account |
 | 🔐 Credentials vault | `credentials_vault.json` (tous les .env, secrets) |
 | 📚 Skills Hermes | ~1022 fichiers, 22 skills actifs |
-| 👤 **Tous les profils** | `profiles/default`, `profiles/leo-copilot`, `profiles/bavi-leo`, `profiles/emile`, `profiles/bureau-robert` — configs, skills, memory, cron |
+| 👤 **Tous les profils** | `profiles/default`, `profiles/michel`, `profiles/sylvia`, `profiles/emile`, `profiles/robert` — configs, skills, memory, cron |
 | 🏛️ Vaults Obsidian | `vault-leo`, `vault-default`, `vault-emile`, `vault-bavi` |
 | 📜 Scripts personnalisés | ~106 scripts dans `scripts/` |
 | 🧠 Session DB | `state.db` (~2.6 MB) — historique complet des conversations |
@@ -131,7 +131,7 @@ Vérifications automatiques :
 
 ```bash
 # Backup immédiat
-~/.hermes/venv/bin/python3 ~/.hermes/profiles/leo-copilot/scripts/leo-full-backup.py
+~/.hermes/venv/bin/python3 ~/.hermes/profiles/michel/scripts/leo-full-backup.py
 
 # Vérifier via cron
 hermes cron list | grep backup
@@ -182,7 +182,7 @@ gh auth login --with-token < ~/.hermes/leo_token.json
 ### Étape 4 — Vérifier les composants critiques
 
 ```bash
-ls ~/.hermes/profiles/       # Doit montrer: default leo-copilot bavi-leo emile bureau-robert
+ls ~/.hermes/profiles/       # Doit montrer: default michel sylvia emile robert
 ls ~/.hermes/vault-*/        # Doit montrer: vault-leo vault-default vault-emile vault-bavi
 ls ~/.hermes/memories/       # Doit montrer: MEMORY.md USER.md ← CRITIQUE
 ls ~/.hermes/state.db        # Sessions DB
@@ -231,8 +231,8 @@ done
 
 | Fichier | Chemin |
 |---------|--------|
-| Script de backup principal | `~/.hermes/profiles/leo-copilot/scripts/leo-full-backup.py` |
-| Script de maintenance | `~/.hermes/profiles/leo-copilot/scripts/leo-daily-maintenance.py` |
+| Script de backup principal | `~/.hermes/profiles/michel/scripts/leo-full-backup.py` |
+| Script de maintenance | `~/.hermes/profiles/michel/scripts/leo-daily-maintenance.py` |
 | Backups locaux | `~/.hermes/backups/` |
 | Backups GDrive | `Hermes_Christophe/Backups/` (ID: `1ljeXPcYa-F4CkD9L_q0DrLgxYLMiAOGR`) |
 | Recovery Kit | `~/.hermes/recovery-kit/` |
@@ -240,4 +240,4 @@ done
 
 *Document mis à jour le 10/07/2026 à 00:00 — LEO 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:13 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

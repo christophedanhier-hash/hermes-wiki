@@ -62,3 +62,5 @@ every monday 9am → Tous les lundis 9h
 ```
 
 > 🔗 **Documentation complète :** [hermes-agent.nousresearch.com/docs](https://hermes-agent.nousresearch.com/docs)
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

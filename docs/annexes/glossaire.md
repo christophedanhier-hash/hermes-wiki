@@ -34,7 +34,7 @@
 
 **Gateway** — Le service Hermes qui fait le pont entre les plateformes de messagerie (Telegram, Discord, etc.) et l'agent. Voir Chapitre 5.
 
-**Gemini** — LLM de Google. Utilisé par LEO comme fallback gratuit (gemini-2.5-flash) et comme provider principal pour le bot leo-copilot.
+**Gemini** — LLM de Google. Utilisé par LEO comme fallback gratuit (gemini-2.5-flash) et comme provider principal pour le bot michel.
 
 **GitHub Pages** — Service d'hébergement gratuit de pages web statiques. Tous les dashboards LEO sont hébergés ici.
 
@@ -91,3 +91,5 @@
 ---
 
 > **💡 Glossaire vivant** — ce glossaire est mis à jour au fil de l'évolution du guide. N'hésitez pas à suggérer des ajouts.
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

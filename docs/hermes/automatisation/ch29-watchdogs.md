@@ -38,7 +38,7 @@ Tous les jours:
 
 ## Auto-heal : le watchdog principal
 
-> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et leo-copilot.
+> 🚫 **Auto-Heal supprimé le 04/07/2026** — remplacé par le déploiement horaire unifié via `collect-v2.py` et michel.
 
 ```yaml
 À clarifier selon l'architecture réelle du dashboard.
@@ -59,13 +59,13 @@ En cas d'échec:
 Mettre à jour la description pour refléter les ports réels et les services surveillés.
 
 ```bash
-for dashboard in leo-kpi machines crons github bavi-leo global; do
+for dashboard in leo-kpi machines crons github sylvia global; do
     code=$(curl -s -o /dev/null -w "%{http_code}" \
         "http://localhost:8765/panel (ou autre URL locale valide)")
     if [ "$code" != "200" ]; then
         echo "❌ ${dashboard}: HTTP ${code}"
         # Redéploiement automatique
-        python3 ~/.hermes/profiles/leo-copilot/scripts/deploy-dashboard.py
+        python3 ~/.hermes/profiles/michel/scripts/deploy-dashboard.py
     else
         echo "✅ ${dashboard}: HTTP 200"
     fi
@@ -87,4 +87,4 @@ Règles:
 ```
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 24/07/2026 à 11:11 (UTC+2)
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

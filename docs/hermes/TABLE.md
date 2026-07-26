@@ -54,7 +54,7 @@
 - **[Ch.5 — Le Gateway : connecter Telegram](02-configurer/ch05-gateway.md)**
   - Créer un bot Telegram avec @BotFather
   - Configurer le gateway Hermes
-  - Gérer les profils : default, leo-copilot, bavi-leo
+  - Gérer les profils : default, michel, sylvia
   - La gestion s6 en environnement Docker
 
 - **[Ch.6 — Providers : le moteur de votre agent](02-configurer/ch06-providers.md)**
@@ -247,3 +247,5 @@
 
 **Légende :** 📝 = écrit | 🔄 = en cours | ⬜ = à rédiger
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

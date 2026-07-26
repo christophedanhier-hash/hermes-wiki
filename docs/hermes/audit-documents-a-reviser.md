@@ -73,7 +73,7 @@
 
 ### Bureau Michel (10)
 - [ ] `agent-pro/bureau-michel/index.md`
-- [ ] `agent-pro/bureau-michel/analyse-bot-leo-copilot.md`
+- [ ] `agent-pro/bureau-michel/analyse-bot-michel.md`
 - [ ] `agent-pro/bureau-michel/analyse-bureau-memoire-20260625.md`
 - [ ] `agent-pro/bureau-michel/analyse-ecarts-guide-vs-plateforme.md`
 - [ ] `agent-pro/bureau-michel/analyse-acces-credentials-20260630.md`
@@ -113,3 +113,5 @@
 **Total : 75 documents à réviser**
 **Généré le : 04/07/2026 — 22:55:00**
 **Suivi : #TODO (créer issue dans leo-tracker)**
+
+> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
