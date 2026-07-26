@@ -183,7 +183,7 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 
 ## Pour aller plus loin
 
-- Voir `03-utilisation/crons.md` pour le déploiement automatisé
+- Consultez le scheduler Hermes (`hermes cron list`) pour la planification automatisée
 - Voir `03-utilisation/architecture-leo.md` pour la vue complète (schéma Mermaid, interactions, filets)
 
 *Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
