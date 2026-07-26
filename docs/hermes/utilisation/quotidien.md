@@ -1,5 +1,3 @@
-Le titre devrait être mis à jour pour refléter la réalité. Par exemple, 'Utilisation quotidienne' ou 'Intégration de Hermes dans votre routine'.
-
 Une fois Hermes installé et configuré, voici comment l'utiliser au quotidien.
 
 ## Parler à votre assistant
@@ -62,7 +60,7 @@ Votre assistant peut lire des fichiers texte, PDF, ou extraire des pages web :
 👤 "Fais un backup de ma config tous les matins à 6h"
 ```
 
-Voir `03-utilisation/crons.md` pour les détails.
+Voir la section Crons dans le [dashboard unifié](http://localhost:8765/dashboard) ou `hermes cron list`.
 
 ## La règle d'or de la communication
 
@@ -124,7 +122,7 @@ LEO vérifie, supprime ce qui est obsolète, et confirme.
 
 ## Pour aller plus loin
 
-- Voir `utilisation/crons.md` pour les tâches planifiées
+- Consultez le scheduler Hermes (`hermes cron list`) pour les tâches planifiées
 - Voir `utilisation/dashboards.md` pour le monitoring
 - Voir `utilisation/architecture-leo.md` ou `architecture-communication.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
