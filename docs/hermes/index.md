@@ -27,24 +27,27 @@ LEO a été construit pour être :
 
 ## Structure du guide
 
-```
-📖 index.md               → Ce fichier — introduction et philosophie
-📁 01-installation/
-   ├── linux.md            → Installation sur Debian/Ubuntu
-   └── windows.md          → Installation sur Windows (WSL)
-📁 02-configuration/
-   ├── providers.md        → Configuration LLM (DeepSeek, Ollama, Gemini)
-   └── profiles.md         → Profils, gateways, skills
-📁 03-utilisation/
-   ├── quotidien.md        → Usage quotidien (comme LEO)
-   ├── crons.md            → Tâches planifiées
-   └── dashboards.md       → Monitoring et KPIs
-📁 04-aller-plus-loin/
-   └── troubleshooting.md  → Problèmes courants et solutions
-📁 exemples/
-   └── LEO.md              → L'architecture complète de LEO
-📁 references/
-   └── commandes.md        → Aide-mémoire des commandes
+```text
+📖 hermes/index.md              → Présentation — introduction et philosophie
+📁 hermes/installation/
+   └── linux.md                 → Installation Linux
+📁 hermes/configuration/
+   ├── providers.md             → Providers LLM (DeepSeek, Ollama, Gemini)
+   └── profiles.md              → Profils, gateways, skills
+📁 hermes/utilisation/
+   ├── quotidien.md             → Usage quotidien
+   ├── dashboards.md            → Monitoring et KPIs
+   ├── architecture-leo.md      → Architecture LEO (dashboard, vaults, crons)
+   ├── bots-telegram.md         → Les 5 bots Telegram
+   ├── securite.md              → Sécurité documentaire
+   └── backup-recovery.md       → Backup & Recovery
+📁 hermes/decisions/
+   └── pourquoi-deepseek-pas-gemini.md  → Choix du modèle
+📁 hermes/services/
+   └── spotify.md               → Contrôle Spotify
+📁 hermes/
+   ├── interface-web.md         → Interface web Hermes
+   └── architecture-communication.md  → Architecture & Communication
 ```
 
 ## Public visé
