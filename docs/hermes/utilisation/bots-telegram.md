@@ -1,6 +1,6 @@
 # 🤖 Bots Telegram — Écosystème LEO
 
-> **5 bots, 5 missions, mémoire unifiée default↔michel** — chaque bot a un profil Hermes et un rôle dédié.
+> **5 bots, 5 missions, mémoire indépendante par profil** — chaque bot a un profil Hermes et un rôle dédié.
 
 ---
 
@@ -25,12 +25,6 @@ flowchart TB
         OL["Ollama local<br/>qwen2.5:7b"]
     end
 
-    subgraph MEMORY["📁 Mémoire"]
-        SYNC["sync-memory.py<br/>toutes les 30min"]
-        M1["MEMORY.md<br/>default"]
-        M2["MEMORY.md<br/>michel"]
-    end
-
     User -->|"chat quotidien"| LeoFlash
     User -->|"code, infra, scripts"| Michel
     User -->|"roadbooks, voyages"| Sylvia
@@ -45,10 +39,6 @@ flowchart TB
     Emile --> DS
     Robert --> DS
 
-    SYNC --> M1
-    SYNC --> M2
-    M1 <-.->|"réplication"| M2
-
     style User fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
     style LeoFlash fill:#e3f2fd,stroke:#1976d2,color:#0d47a1
     style Michel fill:#ede7f6,stroke:#5e35b1,color:#311b92
@@ -58,7 +48,6 @@ flowchart TB
     style DS fill:#fff3e0,stroke:#e65100,color:#bf360c
     style GF fill:#e0f2f1,stroke:#00695c,color:#004d40
     style OL fill:#f3e5f5,stroke:#6a1b9a,color:#4a148c
-    style SYNC fill:#fce4ec,stroke:#c62828,color:#b71c1c
 ```
 
 ---
@@ -97,18 +86,18 @@ flowchart LR
 
 ## 2️⃣ 🔧 `@hermes_leo_copilot_bot` — Michel (Infrastructure)
 
-> Ce bot correspond au profil **`michel`** (ex-michel, renommé juillet 2026).
+> Ce bot correspond au profil **`michel`**.
 
 | | |
 |:---|:---|
 | **Rôle** | Code, infrastructure, dashboards, déploiements, audits |
 | **Modèle** | **DeepSeek Pro** (deepseek-v4-pro) |
 | **Provider** | DeepSeek API directe |
-| **Profil Hermes** | `michel` (isolé, mémoire unifiée avec `default`) |
+| **Profil Hermes** | `michel` (isolé, mémoire indépendante) |
 | **Latence** | ⚡ < 3s |
 | **Coût** | $ pay-as-you-go |
 | **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b |
-| **Crons** | 44 jobs (tous actifs) |
+| **Crons** | 46 jobs (tous actifs) |
 
 ---
 
@@ -158,10 +147,10 @@ flowchart LR
 | **Latence** | ⚡ < 2s | ⚡ < 3s | ⚡ < 2s | ⚡ < 2s | ⚡ < 3s |
 | **Profil** | `default` | `michel` | `sylvia` | `emile` | `robert` |
 | **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek | DeepSeek |
-| **Mémoire** | Unifiée (default+michel) | Unifiée (default+michel) | Séparée | Séparée | Séparée |
-| **Crons** | 0 | **44 (tous actifs)** | 0 | 0 | 0 |
+| **Mémoire** | Indépendante | Indépendante | Séparée | Séparée | Séparée |
+| **Crons** | 0 | **46 (tous actifs)** | 0 | 0 | 0 |
 
-> **Note** : Les profils `michel`, `sylvia`, `bureau-robert` ont été renommés respectivement en `michel`, `sylvia`, `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés.
+> **Note** : Le profil `bureau-robert` a été renommé en `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés (`@bureau_robert_bot`).
 
 ---
 
