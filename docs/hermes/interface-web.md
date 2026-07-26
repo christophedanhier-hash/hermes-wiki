@@ -1,6 +1,6 @@
 # 🌐 Interface Web Hermes Agent
 
-Page mise à jour le **04/07/2026** — Documentation de l'interface utilisateur Hermes Agent v0.18.0.
+Page mise à jour le **04/07/2026** — Documentation de l'interface utilisateur Hermes Agent v0.19.0.
 
 ---
 
@@ -78,7 +78,7 @@ Configuration et sélection des modèles LLM.
 | Fonctionnalité | Description |
 |----------------|-------------|
 | **Liste des modèles** | Modèles disponibles par provider |
-| **Provider** | DeepSeek, Ollama, Google/Gemini, OpenAI, Grok, Anthropic |
+| **Provider** | DeepSeek, Ollama, Google/Gemini |
 | **Sélection** | Choix du modèle par défaut pour le profil actif |
 
 Permet de basculer entre modèles sans toucher au fichier de config.
@@ -222,7 +222,7 @@ Informations système et diagnostics.
 
 | Métrique | Valeur (LEO) |
 |----------|--------------|
-| **Version Hermes** | v0.18.0 |
+| **Version Hermes** | v0.19.0 |
 | **Python** | 3.14.4 |
 | **OS** | Ubuntu 26.04 LTS |
 | **Gateway** | Running |
@@ -242,7 +242,7 @@ Présente dans toutes les pages :
 | **Update Hermes** | Mise à jour de l'agent |
 | **Theme** | HERMES TEAL (défaut) |
 | **Language** | EN/FR |
-| **Version** | v0.18.0 |
+| **Version** | v0.19.0 |
 
 ---
 
