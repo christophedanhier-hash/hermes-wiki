@@ -1,10 +1,10 @@
-Ajouter la date de dernière mise à jour.
+> Dernière mise à jour : **26/07/2026** (corrections architecture, mémoire, crons, prix)
 
-> **Corriger le nombre de profils et bots dans la documentation., Mémoire unifiée entre default et michel. Corriger les fournisseurs et modèles utilisés dans la documentation..**
+> ⚠️ **Changements 26/07/2026** : mémoire partagée supprimée (11/07/2026), profils indépendants, crons 46, renommage Leo Copilot → Michel, correction prix DeepSeek Pro.
 
 ---
 
-## Corriger le titre pour refléter les profils et bots réels.
+## Architecture — Profils, Bots & Communication
 
 ```mermaid
 flowchart TD
@@ -17,7 +17,7 @@ flowchart TD
         DS_Pro_Sub["🧠 DeepSeek Pro<br/>Sous-agents"]
     end
 
-    subgraph LEO_COP["🔧 Leo Copilot — Infrastructure"]
+    subgraph MICHEL["🔧 Michel — Infrastructure"]
         direction LR
         Agent2["🤖 Hermes Agent<br/>Profil: michel"]
         DS_Pro["🧠 DeepSeek Pro<br/>Code · Infra · Workflows"]
@@ -38,22 +38,14 @@ flowchart TD
     subgraph ROBERT["🎯 Robert — Conseil Stratégique IA"]
         direction LR
         Agent5["🤖 Hermes Agent<br/>Profil: robert"]
-        SOPHIE["👩‍💼 Sophie<br/>Experte transverse<br/>DeepSeek Pro"]
+        SOPHIE["👩‍💼 Sophie *<br/>Abstraction experte transverse<br/>DeepSeek Pro"]
     end
 
-    MEM["📁 Mémoire Partagée<br/>sync-memory.py · 30min"]
-
     User -->|"DM Telegram"| LEO_MAIN
-    User -->|"@hermes_leo_copilot_bot"| LEO_COP
+    User -->|"@hermes_leo_copilot_bot"| MICHEL
     User -->|"@bavi_leo_voyages_bot"| BAVI
     User -->|"@emile_creation_bot"| EMILE
     User -->|"@bureau_robert_bot"| ROBERT
-
-    LEO_MAIN -.-> MEM
-    LEO_COP -.-> MEM
-    BAVI -.-> MEM
-    EMILE -.-> MEM
-    ROBERT -.-> MEM
 
     Agent --> DS_Flash
     Agent -.->|"délégation"| DS_Pro_Sub
@@ -71,7 +63,7 @@ flowchart TD
     style Agent fill:#bbdefb,stroke:#1976d2,color:#0d47a1
     style DS_Flash fill:#e8f5e9,stroke:#2e7d32,color:#1b5e20
     style DS_Pro_Sub fill:#fce4ec,stroke:#c62828,color:#b71c1c
-    style LEO_COP fill:#ede7f6,stroke:#5e35b1,stroke-width:3px,color:#311b92
+    style MICHEL fill:#ede7f6,stroke:#5e35b1,stroke-width:3px,color:#311b92
     style Agent2 fill:#d1c4e9,stroke:#5e35b1,color:#311b92
     style DS_Pro fill:#fce4ec,stroke:#c62828,color:#b71c1c
     style BAVI fill:#e8f5e9,stroke:#388e3c,stroke-width:3px,color:#1b5e20
@@ -83,8 +75,11 @@ flowchart TD
     style ROBERT fill:#e0f2f1,stroke:#00695c,stroke-width:3px,color:#004d40
     style Agent5 fill:#b2dfdb,stroke:#00695c,color:#004d40
     style SOPHIE fill:#fce4ec,stroke:#c62828,color:#b71c1c
-    style MEM fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#bf360c
 ```
+
+> **\* Sophie** : abstraction représentant la capacité d'expertise transverse du profil robert, pas un agent ou profil séparé.
+
+**Mémoire** : chaque profil a sa propre mémoire indépendante. Plus de mémoire partagée depuis le 11/07/2026.
 
 ---
 
@@ -134,7 +129,7 @@ Bot spécialisé **infrastructure** (workflows Python, serveurs, déploiements, 
 
 ```mermaid
 flowchart TB
-    subgraph COPILOT["🔧 Profil michel"]
+    subgraph MICHEL["🔧 Profil michel"]
         direction TB
         P1["📋 Profil: michel"]
         B1["📱 @hermes_leo_copilot_bot"]
@@ -145,36 +140,32 @@ flowchart TB
 
     subgraph EXTERNE["🌐 Services gérés"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 41 Crons Hermes (michel exclusif)"]
+        CRONS["⏰ 46 Crons Hermes (michel exclusif)"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
-
-    MEM["📁 Sync mémoire<br/>default ↔ michel<br/>symlinks (instantané)"]
 
     B1 --> M1
     B1 -.->|"si Pro down"| F1
     B1 --> SKILLS
-    MEM -.-> P1
 
     SKILLS --> DASH
     SKILLS --> CRONS
     SKILLS --> GH
 
-    style COPILOT fill:#ede7f6,stroke:#5e35b1,stroke-width:3px,color:#311b92
+    style MICHEL fill:#ede7f6,stroke:#5e35b1,stroke-width:3px,color:#311b92
     style P1 fill:#d1c4e9,stroke:#5e35b1,stroke-width:2px,color:#311b92
     style B1 fill:#e0f7fa,stroke:#00838f,stroke-width:2px,color:#004d40
     style M1 fill:#fce4ec,stroke:#c62828,stroke-width:2px,color:#b71c1c
     style F1 fill:#fff3e0,stroke:#e65100,stroke-width:2px,stroke-dasharray:5,color:#bf360c
     style SKILLS fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px,color:#1b5e20
-    style MEM fill:#fce4ec,stroke:#c62828,color:#b71c1c
     style DASH fill:#e8eaf6,stroke:#3949ab,color:#1a237e
     style CRONS fill:#e8eaf6,stroke:#3949ab,color:#1a237e
     style GH fill:#e8eaf6,stroke:#3949ab,color:#1a237e
 ```
 
 **Particularités :**
-- **Mémoire partagée** : sync `default ↔ michel` toutes les 30min via `sync-memory.py`. Les profils `sylvia` et `emile` ont des mémoires séparées.
-- **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + DeepSeek V4 Pro ($0.55/$2.19) + fallback deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b
+- **Mémoire indépendante** : chaque profil a sa propre mémoire. Plus de sync mémoire depuis le 11/07/2026.
+- **Moteurs** : DeepSeek V4 Flash ($0.14/$0.28) + DeepSeek V4 Pro ($0.435/$0.87) + fallback deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b
 - **Focus** : infrastructure uniquement, sauf demande explicite de Christophe
 
 ---
@@ -212,7 +203,7 @@ flowchart TB
 
     subgraph TELEGRAM["📱 Telegram"]
         DM["DM @tofdan<br/>→ LEO"]
-        COP["@hermes_leo_copilot_bot<br/>→ Copilot"]
+        COP["@hermes_leo_copilot_bot<br/>→ Infrastructure"]
         VOY["@bavi_leo_voyages_bot<br/>→ Voyages"]
         EMI["@emile_creation_bot<br/>→ Émile"]
         ROB["@bureau_robert_bot<br/>→ Robert"]
@@ -235,7 +226,7 @@ flowchart TB
     subgraph OUTPUT["📊 Output"]
         DASH["1 Dashboard<br/>(leo-dashboard unifié)"]
         WFL["🐍 Workflows Python"]
-        CRON["41 Crons"]
+        CRON["46 Crons"]
         ISSUES["leo-tracker<br/>GitHub Issues"]
     end
 
@@ -303,8 +294,6 @@ flowchart TB
 
 ---
 
-*Document mis à jour le 17/07/2026 à 00:00 — Michel (michel) 🔧*
-
----
+*Document mis à jour le 26/07/2026 — Michel 🔧*
 
 > 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
