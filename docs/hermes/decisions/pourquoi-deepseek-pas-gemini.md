@@ -1,5 +1,3 @@
-Le titre devrait être mis à jour pour refléter la réalité des profils utilisés.
-
 > Analyse comparative — Juillet 2026. Le choix est financier, pas technique.
 
 ---
@@ -127,13 +125,13 @@ Même avec Gemini 2.5 Flash (le moins cher des Flash récents à $0.30/$2.50), o
 
 ## 🎯 Notre stratégie actuelle
 
-> ⚠️ Mise à jour 24/06/2026 : Leo Copilot a brièvement utilisé Gemini 2.5 Flash/Pro avant de revenir à DeepSeek V4 Pro. Voir détails ci-dessous.
+> ⚠️ Mise à jour 24/06/2026 : Michel (infra) a brièvement utilisé Gemini 2.5 Flash/Pro avant de revenir à DeepSeek V4 Pro. Voir détails ci-dessous.
 
 ```mermaid
 flowchart TB
     subgraph BOTS["🤖 5 Bots LEO"]
         MAIN["🦁 LEO Principal\nDeepSeek V4 Flash\nChat quotidien"]
-        COPILOT["🔧 Leo Copilot\nDeepSeek V4 Pro\nInfra, code"]
+        MICHEL["🔧 Michel — Infrastructure\nDeepSeek V4 Pro\nInfra, code"]
         BAVI["🧭 BAVI Voyages\nDeepSeek V4 Flash\nRoadbooks"]
         EMILE["🎓 Émile\nDeepSeek V4 Flash\nAssistant pédagogique"]
         ROBERT["🏛️ Robert\nDeepSeek V4 Pro\nConseil stratégique"]
@@ -149,13 +147,13 @@ flowchart TB
     end
 
     MAIN & BAVI & EMILE --> DS_FLASH
-    COPILOT & ROBERT --> DS_PRO
+    MICHEL & ROBERT --> DS_PRO
     DS_PRO & DS_FLASH -.->|si KO| GEMINI
 ```
 
-### Pourquoi Gemini n'a pas été retenu comme principal sur Leo Copilot
+### Pourquoi Gemini n'a pas été retenu comme principal sur Michel (infra)
 
-En test (22-23/06/2026), Leo Copilot a utilisé Gemini 2.5 Flash puis 2.5 Pro :
+En test (22-23/06/2026), Michel a utilisé Gemini 2.5 Flash puis 2.5 Pro :
 
 | Critère | Gemini 2.5 Flash | Gemini 2.5 Pro | DeepSeek V4 Pro |
 |:--------|:----------------:|:--------------:|:--------------:|
@@ -182,7 +180,7 @@ Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexe
 
 | Usage | Modèle | Pourquoi |
 |:---|:---|:---|
-| Crons quotidiens (41 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
+| Crons quotidiens (46 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
 | Bots Telegram (dialogue) | DeepSeek V4 Flash | Latence faible, volume élevé |
 | Classification emails | DeepSeek V4 Flash | 0.18 USD/M output |
 | Debug & analyses complexes | DeepSeek V4 Pro | Raisonnement profond |
