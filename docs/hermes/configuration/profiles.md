@@ -29,21 +29,20 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 
 ### Règle LEO : architecture multi-profils
 
-> *"5 profils spécialisés, 5 bots Telegram, 1 mémoire unifiée."*
+> **5 profils spécialisés, 5 bots Telegram, mémoire indépendante par profil.**
 
 LEO utilise **5 profils Hermes** tous avec bot Telegram :
 
 | Profil | Bot Telegram | Rôle | Modèle | Mémoire |
 |--------|:-----------:|------|--------|---------|
-| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Unifiée (default+michel) |
-| `michel` | ✅ | Infrastructure & crons | DeepSeek Pro | Unifiée (default+michel) |
+| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Indépendante |
+| `michel` | ✅ | Infrastructure & crons | DeepSeek Pro | Indépendante |
 | `robert` | ✅ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
 | `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 | `emile` | ✅ | Assistant pédagogique mémoire | DeepSeek Flash | Séparée |
 
-> **Note historique** : Les profils `michel` → `michel`, `sylvia` → `sylvia`, `bureau-robert` → `robert` ont été renommés pour simplifier. Les anciens noms persistent dans les archives.
-- **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau)
-- **Crons** : 44 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée.
+> **Note historique** : Le profil `bureau-robert` a été renommé en `robert` lors de la consolidation de juillet 2026. Les anciens noms persistent dans les archives.
+- **Crons** : 46 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée.
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
 
 | Propriété | Configuration | Description |
@@ -182,7 +181,7 @@ Quand [condition], faire [action].
 
 - [Documentation Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
 - Voir `02-configuration/providers.md` pour la configuration LLM
-- Voir `exemples/LEO.md` pour l'architecture complète
+- Voir `utilisation/dashboards.md` pour le monitoring
 *Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
 
 ---
