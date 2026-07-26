@@ -1,6 +1,5 @@
 # 🗺️ Carte Documentaire — Wiki Hermes LEO
 
-La règle doit être mise à jour pour refléter les modifications récentes. Par exemple: > **Règle** : toute modification de la plateforme LEO → mettre à jour cette carte ET les pages impactées dans le même mouvement, y compris l'ajout des nouveaux profils et bots.
 > **Règle** : toute modification de la plateforme LEO → mettre à jour cette carte ET les pages impactées dans le même mouvement.
 
 ## 📄 Pages du wiki
@@ -22,7 +21,7 @@ La règle doit être mise à jour pour refléter les modifications récentes. Pa
 | 13 | `utilisation/bots-telegram.md` | **5 bots**, tokens, architecture | 3, 7, 14 | ✅ |
 | 14 | `utilisation/architecture-leo.md` | Dashboard unifié, collect-v2, crons, 🐍 workflows Python, vaults, routage LLM | 7, 15, 16, 19, 21 | ✅ |
 | 15 | ~~`utilisation/crons.md`~~ | ~~**46 crons (tous actifs)**, collect-v2~~ | ~~14, 16, 21~~ | ❌ Supprimé |
-| 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 8 sources (n8n retiré 13/07/2026), vaults | 14, 15, 19 | ✅ |
+| 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 10 sources, vaults | 14, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
 | 18 | ~~`utilisation/skills-catalogue.md`~~ | ~~Catalogue des skills BAVI LEO & Hermes~~ | ~~5, 20~~ | ❌ Supprimé |
 | 19 | ~~`services/n8n.md`~~ | **ARCHIVÉ** — n8n déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ❌ |
@@ -64,12 +63,7 @@ bots-telegram.md (13)
 configuration/providers.md (9)
   → architecture-leo.md (14)     ← Providers utilisés
 
-crons.md (15)
-  → dashboards.md (16)           ← Métriques des crons (collect-v2)
-  → architecture-leo.md (14)     ← Watchdogs, déploiement
-
 dashboards.md (16)
-  → crons.md (15)                ← Crons associés
   → architecture-leo.md (14)     ← Architecture
 ```
 
@@ -79,9 +73,9 @@ Quand tu changes... | Pages à vérifier
 :-------------------|:----------------
 **Provider LLM** (ex: DeepSeek→autre) | 3, 9, 13, 14
 **Ajout/suppression bot** | 3, 5, 8, 13, 14
-**Nouveau cron** | 14, 15, 16
+**Nouveau cron** | 14, 16
 **Nouveau dashboard / collecteur** | 14, 16
-**Modification collect-v2.py** | 14, 15, 16
+**Modification collect-v2.py** | 14, 16
 **Nouveau skill** | 18
 **Modif config serveur** | 2
 **Ajout/suppression vault** | 14, 16
@@ -92,14 +86,14 @@ Quand tu changes... | Pages à vérifier
 
 1. **`architecture-communication.md`** — Vision globale, routage, 5 bots
 2. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, workflows Python
-3. **`utilisation/dashboards.md`** — leo-dashboard, 8 sources (n8n retiré 13/07/2026)
+3. **`utilisation/dashboards.md`** — leo-dashboard, 10 sources
 4. **~~`changelog.md`~~** — ~~Historique des modifs~~ ❌ Supprimé
 5. **~~`utilisation/crons.md`~~** — ~~46 crons (tous actifs), planification~~ ❌ Supprimé
 6. **Cette carte** 🗺️
 
 ---
 
-*Document mis à jour le 17/07/2026 — Michel (michel) 🔧*
+*Document mis à jour le 26/07/2026 — LEO 🦁*
 
 ---
 
