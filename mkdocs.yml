@@ -55,7 +55,6 @@ nav:
       - 📖 Présentation: hermes/index.md
       - 🏗️ Architecture & Communication: hermes/architecture-communication.md
       - 💻 Installation Linux: hermes/installation/linux.md
-      - 💻 Installation Windows: hermes/installation/windows.md
       - ⚙️ Configuration — Providers LLM: hermes/configuration/providers.md
       - ⚙️ Configuration — Profils: hermes/configuration/profiles.md
       - 📋 Usage quotidien: hermes/utilisation/quotidien.md
