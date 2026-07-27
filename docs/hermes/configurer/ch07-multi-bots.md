@@ -14,7 +14,7 @@ Le diagramme doit être mis à jour pour refléter les noms réels des bots util
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **default** : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **michel** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (41 jobs, tous actifs)
+- **michel** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (46 jobs, tous actifs)
 - **robert** : le consultant stratégique — analyses IT, recommandations
 - **sylvia** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
 - **emile** : l'assistant pédagogique — mémoire, création de contenu
@@ -204,4 +204,4 @@ delegation:
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 27/07/2026 à 12:00 (UTC+2)

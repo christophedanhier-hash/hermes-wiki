@@ -193,7 +193,7 @@ Le système ne se contente pas de tourner — il se surveille :
 
 ```yaml
 Auto-heal (toutes les 30-60 min):
-  ✅ Crons: 41 jobs (tous actifs)
+  ✅ Crons: 46 jobs (tous actifs)
   ✅ Ollama: UP (qwen2.5:7b responsive)
   ✅ n8n: ❌ Retiré 13/07/2026
   ✅ Docker: 2/2 conteneurs up (hermes-agent + ollama)
@@ -202,13 +202,13 @@ Auto-heal (toutes les 30-60 min):
   ❌ Token Christophe: à ré-autoriser
 ```
 
-Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
+Les watchdogs surveillent en continu : code-server, dashboards, tunnels.
 
 ## En résumé
 
 | Composant | Quantité | Coût mensuel |
 |:----------|:--------:|:------------:|
-| Crons | 41 (tous actifs) | ~0,10 €/j |
+| Crons | 46 (tous actifs) | ~0,10 €/j |
 | Dashboards | 1 (unifié) | 0 € (GitHub Pages) |
 | n8n workflow (retiré 13/07/2026)s | ❌ Retiré | — |
 | Machines surveillées | 3 | 0 € |
@@ -222,4 +222,4 @@ Les watchdogs surveillent en continu : code-server, n8n, dashboards, tunnels.
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 27/07/2026 à 12:00 (UTC+2)
