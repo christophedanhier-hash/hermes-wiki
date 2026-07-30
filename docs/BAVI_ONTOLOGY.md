@@ -60,7 +60,7 @@ BAVI OS
 
 | Profil | Bot Telegram | Modèle | Provider | Rôle |
 |--------|-------------|--------|----------|------|
-| `default` | Léo | deepseek-v4-pro | deepseek | Interface de dialogue, délégation |
+| `default` | Léo | deepseek-v4-flash | deepseek | Interface de dialogue, délégation |
 | `michel` | Michel | deepseek-v4-pro | deepseek | Infrastructure, code, crons |
 | `emile` | Émile | deepseek-v4-flash | deepseek | Assistant pédagogique |
 | `robert` | Robert | deepseek-v4-flash | deepseek | Conseil stratégique IT |
@@ -84,7 +84,7 @@ BAVI OS
 
 ---
 
-## 4. CRONS (44 jobs gérés par Michel)
+## 4. CRONS (47 jobs gérés par Michel)
 
 ### 4.1 Catégories
 

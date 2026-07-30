@@ -7,7 +7,7 @@
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
 > - **Déploiement** : toutes les heures (`10 * * * *`) via michel
 > - **n8n** : ❌ Retiré le 13/07/2026.
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 46 crons (tous actifs).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 47 crons (tous actifs).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
@@ -28,7 +28,7 @@
 | **Gateways** | 5 actifs (s6 supervision) |
 | **Modèle principal** | deepseek-v4-flash |
 | **Fallback** | deepseek/deepseek-v4-flash, custom:google/gemini-3.5-flash, custom:ollama/qwen2.5:7b |
-| **Crons actifs** | 44 (tous actifs — tous consolidés dans michel) |
+| **Crons actifs** | 47 (tous actifs — tous consolidés dans michel) |
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
 
@@ -123,11 +123,11 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **46 crons Hermes** (tous consolidés dans `michel`) → **46 jobs (tous actifs)**
+> **47 crons Hermes** (tous consolidés dans `michel`) → **47 jobs (tous actifs)**
 
 | Profil | Crons |
 |--------|:-----:|
-| `michel` (consolidateur) | 44 |
+| `michel` (consolidateur) | 47 |
 | `default` | 0 |
 | `sylvia` | 0 |
 | `emile` | 0 |
@@ -135,7 +135,7 @@
 
 **0 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 44 jobs (tous actifs)**
+**Total général : 47 jobs (tous actifs)**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
 <!-- AUTO:END crons -->
