@@ -4,7 +4,7 @@
 
 ## Le constat
 
-LEO a **cinq profils** qui tournent 24/7 avec **46 crons (tous actifs), 5 bots Telegram**. Chaque message, chaque analyse de cron, chaque classification d'email passe par une API.
+LEO a **cinq profils** qui tournent 24/7 avec **47 crons (tous actifs), 5 bots Telegram**. Chaque message, chaque analyse de cron, chaque classification d'email passe par une API.
 
 À ce volume, **le prix au million de tokens est le facteur décisif** — et DeepSeek est **10 à 20 fois moins cher** que Gemini.
 
@@ -141,7 +141,7 @@ flowchart TB
         GEMINI["Gemini 3.5 Flash\nSecours si DeepSeek down"]
     end
 
-    subgraph CRONS["⏰ 46 crons (tous actifs)"]
+    subgraph CRONS["⏰ 47 crons (tous actifs)"]
         DS_PRO["DeepSeek V4 Pro\nAnalyses, backups"]
         DS_FLASH["DeepSeek V4 Flash\nCollecte, dashboards"]
     end
@@ -170,7 +170,7 @@ En test (22-23/06/2026), Michel a utilisé Gemini 2.5 Flash puis 2.5 Pro :
 
 > **DeepSeek gagne sur le prix (10-20× moins cher). Gemini gagne sur l'écosystème (docs, modèles, capacités).**
 
-Pour LEO, qui fait **du volume** (46 crons (tous actifs), bots Telegram, classification d'emails), le prix est le critère n°1. DeepSeek est imbattable.
+Pour LEO, qui fait **du volume** (47 crons (tous actifs), bots Telegram, classification d'emails), le prix est le critère n°1. DeepSeek est imbattable.
 
 Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexes**, Gemini est supérieur — et c'est pour ça qu'il reste configuré en fallback.
 
@@ -180,7 +180,7 @@ Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexe
 
 | Usage | Modèle | Pourquoi |
 |:---|:---|:---|
-| Crons quotidiens (46 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
+| Crons quotidiens (47 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
 | Bots Telegram (dialogue) | DeepSeek V4 Flash | Latence faible, volume élevé |
 | Classification emails | DeepSeek V4 Flash | 0.18 USD/M output |
 | Debug & analyses complexes | DeepSeek V4 Pro | Raisonnement profond |
@@ -204,4 +204,4 @@ LEO surveille les prix via le **cron budget-check-v6** et alertera si le rapport
 
 *Document mis à jour le 07/07/2026 à 02:38 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)

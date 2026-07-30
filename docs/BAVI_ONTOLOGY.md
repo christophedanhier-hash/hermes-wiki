@@ -297,4 +297,4 @@ Crons ───────────→ cron-metrics-collector → cron_metri
 *Contexte extrait de : mémoire Hermes, configs, jobs.json, skills, sessions historiques.*
 *Prochaine mise à jour : après chaque changement d'infrastructure.*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)

@@ -101,7 +101,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 
 ## 3. Déploiement
 
-Le déploiement du dashboard fait partie d'un ensemble de 46 crons gérés par michel. Le cron spécifique pour le dashboard est :
+Le déploiement du dashboard fait partie d'un ensemble de 47 crons gérés par michel. Le cron spécifique pour le dashboard est :
 
 ```
 10 * * * *  →  collect-v2.py (via michel, no_agent)
@@ -109,7 +109,7 @@ Le déploiement du dashboard fait partie d'un ensemble de 46 crons gérés par m
 
 Changement clé du 04/07/2026 :
 - **Avant** : 7 crons séparés (un par dashboard) + Auto-Fix Daemon
-- **Après** : 1 cron unique `collect-v2.py` pour le dashboard, parmi 46 crons gérés par michel.
+- **Après** : 1 cron unique `collect-v2.py` pour le dashboard, parmi 47 crons gérés par michel.
 
 ---
 
@@ -169,4 +169,4 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 > **Document mis à jour le 26/07/2026** — correction architecture : profils, vaults, sources.
 *Document mis à jour le 26/07/2026 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)

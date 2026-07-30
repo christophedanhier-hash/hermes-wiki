@@ -132,7 +132,7 @@ graph TB
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
         subgraph Docker["Hermes (Docker)"]
             GW["5 profils Gateway<br/>default · michel · sylvia · emile · robert"]
-            Crons["46 crons (tous actifs)"]
+            Crons["47 crons (tous actifs)"]
         end
     end
     
@@ -195,4 +195,4 @@ Le service `server.py` gère à la fois :
 - [Docker Hub](https://hub.docker.com/r/nousresearch/hermes-agent)
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
