@@ -20,7 +20,7 @@
 | 12 | `utilisation/quotidien.md` | Usage quotidien comme LEO | 7 | ✅ |
 | 13 | `utilisation/bots-telegram.md` | **5 bots**, tokens, architecture | 3, 7, 14 | ✅ |
 | 14 | `utilisation/architecture-leo.md` | Dashboard unifié, collect-v2, crons, 🐍 workflows Python, vaults, routage LLM | 7, 15, 16, 19, 21 | ✅ |
-| 15 | ~~`utilisation/crons.md`~~ | ~~**46 crons (tous actifs)**, collect-v2~~ | ~~14, 16, 21~~ | ❌ Supprimé |
+| 15 | ~~`utilisation/crons.md`~~ | ~~**47 crons (tous actifs)**, collect-v2~~ | ~~14, 16, 21~~ | ❌ Supprimé |
 | 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 10 sources, vaults | 14, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
 | 18 | ~~`utilisation/skills-catalogue.md`~~ | ~~Catalogue des skills BAVI LEO & Hermes~~ | ~~5, 20~~ | ❌ Supprimé |
@@ -88,7 +88,7 @@ Quand tu changes... | Pages à vérifier
 2. **`utilisation/architecture-leo.md`** — Dashboard unifié, collect-v2, vaults, workflows Python
 3. **`utilisation/dashboards.md`** — leo-dashboard, 10 sources
 4. **~~`changelog.md`~~** — ~~Historique des modifs~~ ❌ Supprimé
-5. **~~`utilisation/crons.md`~~** — ~~46 crons (tous actifs), planification~~ ❌ Supprimé
+5. **~~`utilisation/crons.md`~~** — ~~47 crons (tous actifs), planification~~ ❌ Supprimé
 6. **Cette carte** 🗺️
 
 ---
@@ -97,4 +97,4 @@ Quand tu changes... | Pages à vérifier
 
 ---
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)

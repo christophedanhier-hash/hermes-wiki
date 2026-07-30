@@ -97,7 +97,7 @@ flowchart LR
 | **Latence** | ⚡ < 3s |
 | **Coût** | $ pay-as-you-go |
 | **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b |
-| **Crons** | 46 jobs (tous actifs) |
+| **Crons** | 47 jobs (tous actifs) |
 
 ---
 
@@ -154,4 +154,4 @@ flowchart LR
 
 ---
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)

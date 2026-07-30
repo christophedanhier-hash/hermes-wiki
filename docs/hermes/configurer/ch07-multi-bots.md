@@ -204,4 +204,4 @@ delegation:
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 27/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
