@@ -1,13 +1,11 @@
-Le titre semble obsolète car le workflow n8n a été migré en script Python. Il pourrait être mis à jour pour refléter cette nouvelle réalité.
+# 🧠 Gardien du Drive — 📦 ARCHIVÉ
 
-Le document doit être mis à jour pour refléter que le workflow n8n a été supprimé et que les services sont maintenant hébergés en host.
-
-> Classification auto Google Drive via Ollama qwen2.5:7b local. **Coût : 0 €.**
-> Tout ce qui doit être jeté → `100 - Corbeille` (gestion manuelle).
+> **Ce workflow a été migré en script Python le 13/07/2026.** n8n a été retiré. Le service équivalent tourne désormais en cron Hermes no_agent.
+> Cette page est conservée pour référence historique.
 
 ---
 
-## Architecture
+## Architecture (historique)
 
 ```mermaid
 graph TD
@@ -19,9 +17,7 @@ graph TD
     CODE --> P4["🩺 PHASE 4<br/>Rapport de santé"]
 ```
 
----
-
-## Les 5 phases
+## Les 5 phases (historique)
 
 | Phase | Action | Destination |
 |:---|:---|:---|
@@ -31,31 +27,18 @@ graph TD
 | 🗑️ **Obsolètes** | Fichiers > 3 mois non modifiés → | **100 - Corbeille** (max 10/h) |
 | 🩺 **Santé** | Résumé : doublons, inbox, volume | Rapport JSON |
 
----
-
-## Dossiers
-
-| Dossier | Rôle | Géré par |
-|:---|:---|:---|
-| **📥 À classer** | Dépôt des fichiers à classer | Automatique |
-| **99_ARCHIVES** | Archives à trier | Automatique |
-| **Archives** | Archives générales | Automatique |
-| **100 - Corbeille** | Révision manuelle avant suppression | **Toi** |
-| **📚 Backups** | Librairie EPUB Calibre | 🛡️ Protégé |
-
----
-
-## Technique
+## Technique (historique)
 
 | Propriété | Valeur |
 |:---|:---|
-| Workflow | `🧠 Gardien du Drive` (ID: `sTly8jZ2dHWcJQ3w`) |
+| Workflow | `🧠 Gardien du Drive` (ID: `sTly8jZ2dHWcJQ3w`) — ❌ supprimé |
 | Déclencheur | Toutes les heures |
 | LLM | Ollama qwen2.5:7b (LEO:11434) |
 | Coût | **0 €** |
+| Remplacé par | Cron Hermes no_agent (13/07/2026) |
 
 ---
 
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+*Document archivé le 31/07/2026 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 31/07/2026 (archivage pour n8n retiré)
