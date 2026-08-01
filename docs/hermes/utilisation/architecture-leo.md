@@ -55,7 +55,7 @@ flowchart TB
         DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>http://localhost:8765/dashboard"]
     end
 
-    subgraph crons["⏱️ Crons LEO (46 gérés par michel)"]
+    subgraph crons["⏱️ Crons LEO (47 gérés par michel)"]
         DRIVE_ISSUE["Drive → Issue<br/>Surveillance Drive"]
         GARDIEN["Gardien du Drive<br/>Protection documents"]
         SAVE_CONTACTS["Save Contacts<br/>Sauvegarde contacts"]
@@ -160,7 +160,7 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 | Sources de collecte | **10** |
 | Profils Hermes | **5** |
 | Vaults Obsidian | **5** |
-| Crons LEO | **46** |
+| Crons LEO | **47** |
 | Budget DeepSeek | **~$19.97** |
 | Déploiement | Toutes les heures via michel |
 
@@ -169,4 +169,4 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 > **Document mis à jour le 26/07/2026** — correction architecture : profils, vaults, sources.
 *Document mis à jour le 26/07/2026 — Léo 🦁*
 
-> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
+> 🤖 Dernier audit : 01/08/2026 à 05:00 (UTC+2) — 47 crons, 5 profils

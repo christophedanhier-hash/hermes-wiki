@@ -148,10 +148,10 @@ flowchart LR
 | **Profil** | `default` | `michel` | `sylvia` | `emile` | `robert` |
 | **Provider** | DeepSeek (+ Gemini/Ollama fallback) | DeepSeek | DeepSeek | DeepSeek | DeepSeek |
 | **Mémoire** | Indépendante | Indépendante | Séparée | Séparée | Séparée |
-| **Crons** | 0 | **46 (tous actifs)** | 0 | 0 | 0 |
+| **Crons** | 0 | **47 (tous actifs)** | 0 | 0 | 0 |
 
 > **Note** : Le profil `bureau-robert` a été renommé en `robert` lors de la consolidation de juillet 2026. Les noms de bots Telegram sont restés inchangés (`@bureau_robert_bot`).
 
 ---
 
-> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
+> 🤖 Dernier audit : 01/08/2026 à 05:00 (UTC+2) — 47 crons
