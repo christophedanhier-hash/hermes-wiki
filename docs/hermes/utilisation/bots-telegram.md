@@ -111,7 +111,7 @@ flowchart LR
 | **Modèle** | DeepSeek Flash (deepseek-v4-flash) |
 | **Profil Hermes** | `sylvia` (isolé) |
 | **Accès** | Christophe uniquement |
-| **Wiki** | [🧭 Voyages](https://christophedanhier-hash.github.io/voyages-wiki/) |
+| **Wiki** | [🧭 Voyages](http://100.92.102.28:8765/voyages/) |
 
 ---
 
