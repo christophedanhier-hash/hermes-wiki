@@ -6,7 +6,7 @@ statut: archive
 ---
 
 > ⚠️ **Document archivé le 04/07/2026** — ce document date d'avant la reconstruction post-crash. Les chiffres (crons, machines, GPU, skills, 7 dashboards, auto-fix-daemon) ne reflètent plus la réalité.  
-> 📖 Référence à jour : [Guide Hermès pour les Nuls v3.3](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/)
+> 📖 Référence à jour : [Guide Hermès pour les Nuls v3.3](http://100.92.102.28:8765/wiki/agent-pro/bureau-leo/guide-hermes-complet/)
 
 
 # Monitoring crons : le tableau de bord des tâches

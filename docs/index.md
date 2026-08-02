@@ -140,7 +140,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
     <div class="url">wiki-oca/t600</div>
 </a>
 
-<a href="https://christophedanhier-hash.github.io/BAVI_LEO/" class="portail-card" target="_blank" rel="noreferrer noopener">
+<a href="http://100.92.102.28:8765/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🏛️</div>
     <div class="title">Wiki BAVI</div>
     <div class="desc">Bureaux Agentiques Virtuels — PRO (Solidaris), OCA (T600), Voyages, Général</div>

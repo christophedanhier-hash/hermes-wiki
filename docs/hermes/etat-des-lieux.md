@@ -1,6 +1,6 @@
 # 📋 État des lieux — Installation Hermes de Christophe
 
-> ⚠️ **Document archivé au 07/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
+> ⚠️ **Document archivé au 07/07/2026** — cette page date du 20/06. Les informations ci-dessous sont obsolètes (crash du 30/06, reconstruction). Consultez [le guide complet v3.2](http://100.92.102.28:8765/wiki/agent-pro/bureau-leo/guide-hermes-complet/) pour les données à jour.
 >
 > **Mise à jour 07/07/2026** : les principaux changements post-reconstruction sont :
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
@@ -32,7 +32,7 @@
 | **Skills installés** | 126 |
 | **n8n** | ❌ Retiré le 13/07/2026 |
 
-> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](http://localhost:8765 (panel) et http://localhost:9119 (Hermes dashboard)).
+> 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](http://100.92.102.28:8765/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](http://localhost:8765 (panel) et http://localhost:9119 (Hermes dashboard)).
 
 ## 🏠 Provider local (Ollama)
 
@@ -137,7 +137,7 @@
 
 **Total général : 49 jobs (tous actifs)**
 
-📖 Détail complet : [BAVI_LEO / wiki / crons](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/crons/)
+📖 Détail complet : [BAVI_LEO / wiki / crons](http://100.92.102.28:8765/wiki/crons/)
 <!-- AUTO:END crons -->
 <!-- AUTO:END crons -->
 <!-- AUTO:END crons -->
@@ -171,7 +171,7 @@
 
 ## 🧠 BAVI Knowledge Hub — Agent Pro
 
-Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agent Pro](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/)
+Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agent Pro](http://100.92.102.28:8765/wiki/agent-pro/)
 
 | Métrique | Valeur |
 |:---------|:-------|
@@ -181,7 +181,7 @@ Portail de visualisation des documents produits par les bureaux BAVI LEO : [Agen
 | **Template** | `analyse-template.md` avec `version:` + statut |
 | **Architecture** | Source unique `hermes-christophe/BAVI/` ↔ Drive (cron 18h) — plus de triplication |
 | **Index auto** | `agent-pro-index.py` (sync docs + génération tables) |
-| **Guide** | [📖 Guide utilisation](https://christophedanhier-hash.github.io/BAVI_LEO/guide-utilisation/) |
+| **Guide** | [📖 Guide utilisation](http://100.92.102.28:8765/guide-utilisation/) |
 | **Skill** | `bureau-versioning` — workflow itération analyses |
 
 ## 💰 Budget DeepSeek
