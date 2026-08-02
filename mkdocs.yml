@@ -1,4 +1,4 @@
-site_name: Wiki LEO — Portail LEO
+site_name: Wiki Hermes — Documentation LEO
 site_description: Portail central de l'écosystème Hermes Agent — dashboards, wikis, bots, bureaux virtuels, infrastructure
 site_author: Christophe (Tofdan) & LEO
 repo_url: https://github.com/christophedanhier-hash/hermes-wiki
@@ -50,7 +50,6 @@ extra_javascript:
 
 
 nav:
-  - 🏠 Accueil: index.md
   - 🛡️ Hermes Agent:
       - 📖 Présentation: hermes/index.md
       - 🏗️ Architecture & Communication: hermes/architecture-communication.md
