@@ -153,7 +153,7 @@ Télécharger le dernier backup depuis Google Drive → Hermes_Christophe → Ba
 ### Étape 8 — Vérification finale (1 min)
 
     hermes gateway list
-    curl -s -o /dev/null -w "BAVI: %{http_code}" https://christophedanhier-hash.github.io/BAVI_LEO/
+    curl -s -o /dev/null -w "BAVI: %{http_code}" http://100.92.102.28:8765/
 
 ## Vérifications périodiques
 
@@ -198,6 +198,6 @@ Après tout ajout de clé API ou modification du `.env` :
 | Backups locaux | `~/.hermes/backups/` |
 | Backups GDrive | `Hermes_Christophe/Backups/` (ID: `1ljeXPcYa-F4CkD9L_q0DrLgxYLMiAOGR`) |
 | Recovery Kit | `~/.hermes/recovery-kit/` |
-| Document BAVI complet | [bureau-leo/pra-backup-disaster-recovery](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/pra-backup-disaster-recovery/) |
+| Document BAVI complet | [bureau-leo/pra-backup-disaster-recovery](http://100.92.102.28:8765/wiki/agent-pro/bureau-leo/pra-backup-disaster-recovery/) |
 
 *Document mis à jour le 02/08/2026 — Michel (Chef Infrastructure LEO)*
