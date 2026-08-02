@@ -1,6 +1,6 @@
 > Dernière mise à jour : **26/07/2026** (corrections architecture, mémoire, crons, prix)
 
-> ⚠️ **Changements 26/07/2026** : mémoire partagée supprimée (11/07/2026), profils indépendants, crons 46, renommage Leo Copilot → Michel, correction prix DeepSeek Pro.
+> ⚠️ **Changements 26/07/2026** : mémoire partagée supprimée (11/07/2026), profils indépendants, crons 49, renommage Leo Copilot → Michel, correction prix DeepSeek Pro.
 
 ---
 
@@ -140,7 +140,7 @@ flowchart TB
 
     subgraph EXTERNE["🌐 Services gérés"]
         DASH["📊 1 dashboard unifié<br/>(leo-dashboard)"]
-        CRONS["⏰ 46 Crons Hermes (michel exclusif)"]
+        CRONS["⏰ 49 Crons Hermes (michel exclusif)"]
         GH["🐙 GitHub<br/>6 wikis"]
     end
 
@@ -226,7 +226,7 @@ flowchart TB
     subgraph OUTPUT["📊 Output"]
         DASH["1 Dashboard<br/>(leo-dashboard unifié)"]
         WFL["🐍 Workflows Python"]
-        CRON["46 Crons"]
+        CRON["49 Crons"]
         ISSUES["leo-tracker<br/>GitHub Issues"]
     end
 
@@ -296,4 +296,4 @@ flowchart TB
 
 *Document mis à jour le 26/07/2026 — Michel 🔧*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernier audit : 02/08/2026 à 05:00 (UTC+2) — 49 crons, profils corrigés
