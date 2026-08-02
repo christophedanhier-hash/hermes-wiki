@@ -80,9 +80,9 @@ Utilisateur ──→ tofdan.be ──→ Cloudflare ──→ Tunnel ──→ 
 | **Yoga** | Windows 11 | — | CPU, RAM (via SSH) |
 | **Penguin** | Debian 13 | 6.3 Go | CPU, RAM, VS Code + Kilo Code |
 
-## Les 47 crons (tous actifs)
+## Les 49 crons (tous actifs)
 
-Les crons sont le cœur de l'automatisation. **47 tâches planifiées** tournent 24/7, toutes consolidées dans le profil `michel` :
+Les crons sont le cœur de l'automatisation. **49 tâches planifiées** tournent 24/7, toutes consolidées dans le profil `michel` :
 
 ### Crons horaires (métriques + dashboard)
 
@@ -148,7 +148,7 @@ cron-metrics:
   script: collect-metrics.sh
 ```
 
-Sur 47 crons (tous actifs), la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
+Sur 49 crons (tous actifs), la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
 
 ## Le dashboard unifié
 
@@ -193,7 +193,7 @@ Le système ne se contente pas de tourner — il se surveille :
 
 ```yaml
 Auto-heal (toutes les 30-60 min):
-  ✅ Crons: 47 jobs (tous actifs)
+  ✅ Crons: 49 jobs (tous actifs)
   ✅ Ollama: UP (qwen2.5:7b responsive)
   ✅ n8n: ❌ Retiré 13/07/2026
   ✅ Docker: 2/2 conteneurs up (hermes-agent + ollama)
@@ -208,7 +208,7 @@ Les watchdogs surveillent en continu : code-server, dashboards, tunnels.
 
 | Composant | Quantité | Coût mensuel |
 |:----------|:--------:|:------------:|
-| Crons | 46 (tous actifs) | ~0,10 €/j |
+| Crons | 49 (tous actifs) | ~0,10 €/j |
 | Dashboards | 1 (unifié) | 0 € (GitHub Pages) |
 | n8n workflow (retiré 13/07/2026)s | ❌ Retiré | — |
 | Machines surveillées | 3 | 0 € |
@@ -222,4 +222,4 @@ Les watchdogs surveillent en continu : code-server, dashboards, tunnels.
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
+> 🤖 Dernier audit : 02/08/2026 à 05:00 (UTC+2) — 49 crons
