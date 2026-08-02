@@ -1,243 +1,203 @@
-# 💾 Backup & Recovery — État actuel (10/07/2026)
+# 💾 Backup & Recovery — Plan de Reprise d'Activité LEO
 
-> **Mise à jour post-migration du 10/07/2026** — tous les chemins ont migré de `~/Projets_Dev/` vers `~/.hermes/`. Le backup inclut maintenant 29 chemins + hermes-christophe.
+> **Dernière mise à jour : 02/08/2026** — Audit complet, 32 901 fichiers sauvegardés, recovery-kit régénéré (clés OpenRouter + Gemini incluses).
 
-## 🔴 Restauration d'urgence — 10/07/2026 12:09
+## Synthèse
 
-Le conteneur Docker LEO a été perdu. Restauration complète depuis le fichier `leo-full-backup-2026-07-10.tar.gz` (dans `~/Téléchargements/`).
+| Indicateur | Valeur |
+|-----------|--------|
+| Dernier backup | 2026-08-02 06:02 |
+| Taille archive | 606 MB |
+| Fichiers sauvegardés | 32 901 |
+| RTO estimé | ~45 minutes |
+| Destination | Google Drive (5 To) + HDD local (1 To) |
+| Fréquence | Quotidienne (06:00 CEST) |
 
-### Déroulé
+## Ce qui est sauvegardé
 
-1. **Extraction** du backup dans `/tmp/leo-backup/`
-2. **Restauration** des mémoires (`memories/`), skills, profils, config, .env, crons, scripts
-3. **Correction** du symlink `SOUL.md` cassé → pointait sur `~/Projets_Dev/` qui n'existe plus
-4. **Redémarrage** des 5 gateways (default, michel, sylvia, emile, robert)
-5. **Ajustement** des chemins `OBSIDIAN_VAULT_PATH` dans les 4 `.env` (→ `~/.hermes/vault-*`)
-6. **Backup de sauvegarde** immédiat : `leo-full-backup-2026-07-10_12-18.tar.gz` (93 Mo)
+### Profils Hermes
 
-### Problèmes résolus
+| Profil | Fichiers | Contenu |
+|--------|:-------:|---------|
+| default (LEO) | 36 | Bot principal, config, tokens |
+| michel | 15 336 | Scripts, skills, sessions, logs |
+| sylvia | 3 101 | Agence voyage, roadbooks |
+| emile | 723 | Assistant pédagogique |
+| robert | 10 760 | Conseil stratégique |
 
-| Problème | Cause | Fix |
-|----------|-------|-----|
-| SOUL.md introuvable | Symlink → `~/.hermes/profiles/default/SOUL.md` (inexistant) | Recréé vers `~/.hermes/profiles/default/SOUL.md` |
-| Crons bloqués | Sans SOUL.md, le cron ne chargeait pas le profil | Symlink réparé + gateway redémarrée |
-| Vaults inaccessibles | `OBSIDIAN_VAULT_PATH` → `~/Projets_Dev/vault-*` | Mis à jour vers `~/.hermes/vault-*` |
-| Profiles absents | Backup extrait sans les dossiers `profiles/` | Copiés depuis `/tmp/leo-backup/profiles/` |
+### Vaults Obsidian
 
-### État final (12:25)
+| Vault | Fichiers | Dailies |
+|-------|:-------:|:-------:|
+| vault-michel | 29 | 21 |
+| vault-default | 36 | 28 |
+| vault-emile | 36 | 28 |
+| vault-sylvia | 37 | 28 |
+| vault-robert | 17 | 13 |
 
-| Service | Statut | Modèle |
-|---------|--------|--------|
-| **Léo** (default, toi ici) | ✅ Gateway actif | DeepSeek Flash |
-| **Léo Copilote** (infra) | ✅ Gateway actif + 47 crons (tous actifs) | DeepSeek Pro |
-| **BAVI LEO Voyages** (Sylvia) | ✅ Gateway actif | DeepSeek Flash |
-| **Émile** (pédagogique) | ✅ Gateway actif | DeepSeek Flash |
-| **n8n**  | ❌ Retiré (13/07/2026) | — |
-| **Ollama** | ✅ Docker (port 11434) | qwen2.5:7b |
-| **Wikis publics** (5) | ✅ GitHub Pages — 10/07 10:00 | — |
+### Autres
 
-### Leçons
+| Catégorie | Fichiers | Statut |
+|-----------|:-------:|:------:|
+| Tokens Google OAuth | 6 JSON | ✅ |
+| Config (.env, config.yaml) | 2 | ✅ |
+| Bases (state.db, kanban.db) | 2 | ✅ |
+| Skills | 1 225 | ✅ |
+| Scripts (via profiles/michel/) | 123+ | ✅ |
+| Crons (jobs + outputs) | 356 | ✅ |
+| Memories | 4 | ✅ |
+| Metrics (incl. benchmark.db) | 46 | ✅ |
+| hermes-christophe | 1 130 | ✅ |
 
-- **Le symlink SOUL.md est le point de défaillance #1** — sans lui, le profil ne charge pas son identité et les crons échouent
-- **memories/ est critique** — perte = perte d'identité de l'agent
-- **Les paths doivent être absolus** — les `OBSIDIAN_VAULT_PATH` en `~/Projets_Dev/` plantent hors conteneur
-- **Faire un backup immédiat après restauration** — protège l'état restauré
+### Non sauvegardé (reconstruit depuis GitHub)
 
-## Vue d'ensemble
+| Élément | Méthode | Temps |
+|---------|---------|:-----:|
+| BAVI_LEO | git clone | 2 min |
+| hermes-wiki | git clone | 1 min |
+| emile-wiki | git clone | 1 min |
+| wiki-oca | git clone | 1 min |
+| voyages-wiki | git clone | 1 min |
+| Docker (HA, Ollama) | docker-compose | 10 min |
 
-| Destination | Format | Taille | Rétention | Fréquence |
-|-------------|--------|--------|-----------|-----------|
-| 🖥️ Local (`~/.hermes/backups/`) | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~150 MB | 7 jours | Quotidien 06:00 |
-| ☁️ Google Drive `Hermes_Christophe/Backups/` | `leo-full-backup-YYYY-MM-DD.tar.gz` | ~150 MB | Manuel (GDrive) | Quotidien 06:00 |
+## Recovery Kit
 
-Le backup est **automatique et sans LLM** (mode `no_agent` = 0 token consommé).
+Emplacement : `/home/tofdan/.hermes/recovery-kit/`
 
-## Ce qui est backupé
+| Fichier | Rôle | Dernière màj |
+|---------|------|:------------:|
+| `secrets.b64` | Archive des secrets (tokens, .env, configs) | **02/08/2026** |
+| `rebuild.sh` | Script de reconstruction automatisé | 10/07/2026 |
+| `checksums.sha256` | Vérification d'intégrité | **02/08/2026** |
+| `docker-commands.md` | Commandes Docker | 10/07/2026 |
+| `secrets-manifest.txt` | Liste des fichiers dans secrets.b64 | 10/07/2026 |
+| `README.md` | Documentation | 10/07/2026 |
 
-| Élément | Détail |
-|---------|--------|
-| ⚙️ Config Hermes | `config.yaml` (gateways, providers, crons) |
-| 🔑 Tous les tokens OAuth | google_token, leo_google_token, leo_drive_token, leo_email_token, leo_sheets_token, gdrive-service-account |
-| 🔐 Credentials vault | `credentials_vault.json` (tous les .env, secrets) |
-| 📚 Skills Hermes | 144 skills |
-| 👤 **Tous les profils** | `profiles/default`, `profiles/michel`, `profiles/sylvia`, `profiles/emile`, `profiles/robert` — configs, skills, memory, cron |
-| 🏛️ Vaults Obsidian | `vault-michel`, `vault-default`, `vault-emile`, `vault-sylvia`, `vault-robert` |
-| 📜 Scripts personnalisés | ~106 scripts dans `scripts/` |
-| 🧠 Session DB | `state.db` (~2.6 MB) — historique complet des conversations |
-| 📋 Kanban | `kanban.db` — tâches et projets |
-| 📊 Crons & jobs | `cron/` (jobs.json + historique des runs) |
-| 🧠 Mémoires persistantes | `memories/` (USER.md, MEMORY.md) **— CRITIQUE** |
-| 💫 SOUL.md | Fichier d'identité LEO |
-| 📈 Métriques | `metrics/` (données dashboard KPI) |
-| 🔧 hermes-christophe | `~/Projets_Dev/hermes-christophe/` — scripts BAVI + LEO (61 fichiers) |
+**Contenu de secrets.b64** : .env (DeepSeek, Gemini, OpenRouter, Telegram, GitHub), config.yaml, credentials_vault.json, gateway_state.json, 5 tokens OAuth Google, 5 profils/.env.
 
 ## Cron associé
 
-```json
-{
-  "Nom":       "LEO Backup quotidien → GDrive",
-  "ID":        "aab31e4f836b",
-  "Horaire":   "0 6 * * *" (tous les jours à 06:00),
-  "Script":    "leo-full-backup.py",
-  "Mode":      "no_agent" (0 token LLM),
-  "Deliver":   "local"
-}
-```
+    Nom :     💾 LEO Backup quotidien → GDrive (script)
+    Horaire : 0 6 * * * (06:00)
+    Script :  leo-full-backup.py
+    Mode :    no_agent (0 token LLM)
 
 Le script :
-1. Crée une archive tar.gz de **29 chemins** critiques + hermes-christophe
+1. Crée une archive tar.gz des chemins critiques + hermes-christophe
 2. Sauvegarde localement dans `~/.hermes/backups/`
 3. Upload sur Google Drive via OAuth (token `leo_google_token.json`)
-4. Nettoie les backups locaux > 7 jours
+4. Mirror HDD → `/mnt/data/backups/hermes/`
+5. Rotation automatique 7 jours sur les 3 destinations
 
-## Recovery Kit — Couche 2 ✅
+## Maintenance automatique
 
-**Emplacement :** `/home/tofdan/.hermes/recovery-kit/`  
-**Statut :** ✅ Créé le 10/07/2026
+Cron quotidien 03:00 (`leo-daily-maintenance.py`, no_agent) :
 
-| Fichier | Rôle |
-|---------|------|
-| `README.md` | Documentation du kit |
-| `rebuild.sh` | Script de reconstruction automatisé |
-| `docker-commands.md` | Commandes exactes de recréation des conteneurs |
-| `secrets.b64` | `.env` + tokens + configs (base64) |
-| `secrets-manifest.txt` | Liste des fichiers dans l'archive |
-| `checksums.sha256` | Intégrité du kit |
+    Nom :     🔧 LEO Maintenance quotidienne
+    Horaire : 0 3 * * * (03:00)
 
-Le kit est **statique** : aucune modification du conteneur, pas de `--privileged`.
-
-## Nettoyage et maintenance automatiques
-
-Un cron de maintenance tourne tous les jours à **03:00** :
-
-```json
-{
-  "Nom":       "LEO Maintenance quotidienne",
-  "ID":        "af37c79fc7c5",
-  "Horaire":   "0 3 * * *" (tous les jours à 03:00),
-  "Script":    "leo-daily-maintenance.py",
-  "Mode":      "no_agent" (0 token LLM)
-}
-```
-
-Vérifications automatiques :
-- ✅ Purge des outputs cron > 30 jours
-- ✅ Détection de fichiers orphelins `_*.py` à la racine
-- ✅ Vérification des symlinks cassés
-- ✅ Détection de débris (`.bak`, `.dead`, fichiers coquille)
-- ✅ Alerte espace disque
-
-## Usage manuel
-
-```bash
-# Backup immédiat
-~/.hermes/venv/bin/python3 ~/.hermes/profiles/michel/scripts/leo-full-backup.py
-
-# Vérifier via cron
-hermes cron list | grep backup
-hermes cron run backup
-```
+Vérifications : purge outputs cron > 30 jours, détection fichiers orphelins, symlinks cassés, débris (.bak, .dead), dossiers vides, alerte espace disque.
 
 ## Procédure de restauration complète (PRA)
 
-En cas de perte totale du serveur LEO, la restauration prend **~45 minutes**.
+En cas de perte totale du serveur, restauration en **~45 minutes**.
 
-### Étape 1 — Installer Hermes (10 min)
+### Étape 1 — Installer l'environnement (10 min)
 
-```bash
-apt update && apt upgrade -y
-apt install -y python3 python3-pip python3-venv git curl wget
+    apt update && apt upgrade -y
+    apt install -y python3 python3-pip python3-venv git curl wget
+    cd /opt
+    git clone https://github.com/nousresearch/hermes-agent.git
+    cd hermes-agent
+    python3 -m venv .venv
+    source .venv/bin/activate
+    pip install -e .
 
-cd /opt
-git clone https://github.com/nousresearch/hermes-agent.git
-cd hermes-agent
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -e .
-```
+### Étape 2 — Restaurer les données (5 min)
 
-### Étape 2 — Restaurer la config (5 min)
+Télécharger le dernier backup depuis Google Drive → Hermes_Christophe → Backups/ puis :
 
-Télécharger le dernier backup depuis **Google Drive → Hermes_Christophe → Backups/** puis :
+    tar xzf leo-full-backup-YYYY-MM-DD.tar.gz -C /home/tofdan/.hermes/
+    chown -R tofdan:tofdan /home/tofdan/.hermes/
 
-```bash
-tar xzf leo-full-backup-YYYY-MM-DD.tar.gz -C /home/tofdan/.hermes/
-chown -R tofdan:tofdan /home/tofdan/.hermes/
-```
+### Étape 3 — Restaurer les secrets (2 min)
 
-### Étape 3 — Restaurer les accès (5 min)
+    cd /home/tofdan/.hermes/recovery-kit
+    base64 -d secrets.b64 | tar xz -C /home/tofdan/.hermes/
+    chmod 600 /home/tofdan/.hermes/.env
+    chmod 600 /home/tofdan/.hermes/credentials_vault.json
+    sha256sum -c checksums.sha256
 
-Le backup contient déjà tous les tokens. Vérifier :
+### Étape 4 — Configurer GitHub (2 min)
 
-```bash
-ls ~/.hermes/*.json ~/.hermes/.env
-```
+    cat /home/tofdan/.hermes/leo_token.json
+    gh auth login --with-token < /home/tofdan/.hermes/leo_token.json
 
-Configurer GitHub :
+### Étape 5 — Cloner les repos (15 min)
 
-```bash
-gh auth login --with-token < ~/.hermes/leo_token.json
-```
+    cd ~/Projets_Dev
+    for repo in BAVI_LEO hermes-wiki emile-wiki wiki-oca voyages-wiki; do
+        git clone "https://github.com/christophedanhier-hash/$repo.git"
+    done
 
-### Étape 4 — Vérifier les composants critiques
+### Étape 6 — Vérifier l'intégrité (5 min)
 
-```bash
-ls ~/.hermes/profiles/       # Doit montrer: default michel sylvia emile robert
-ls ~/.hermes/vault-*/        # Doit montrer: vault-michel vault-default vault-emile vault-sylvia vault-robert
-ls ~/.hermes/memories/       # Doit montrer: MEMORY.md USER.md ← CRITIQUE
-ls ~/.hermes/state.db        # Sessions DB
-```
+    ls /home/tofdan/.hermes/profiles/
+    ls /home/tofdan/.hermes/vault-*/
+    ls /home/tofdan/.hermes/memories/
 
-### Étape 5 — Cloner les repos GitHub (15 min)
+### Étape 7 — Restaurer Docker (5 min)
 
-```bash
-cd ~/Projets_Dev
-for repo in BAVI_LEO hermes-wiki emile-wiki wiki-oca voyages-wiki hermes-christophe; do
-    git clone "https://github.com/christophedanhier-hash/$repo.git"
-done
-```
+    docker-compose -f ~/docker-compose.yml up -d
 
-### Étape 6 — Vérification (5 min)
+### Étape 8 — Vérification finale (1 min)
 
-```bash
-# Dashboards en ligne ?
-for url in hermes-wiki BAVI_LEO wiki-oca voyages-wiki emile-wiki; do
-  curl -s -o /dev/null -w "$url: %{http_code}\n" \
-    "https://christophedanhier-hash.github.io/$url/"
-done
-```
+    hermes gateway list
+    curl -s -o /dev/null -w "BAVI: %{http_code}" https://christophedanhier-hash.github.io/BAVI_LEO/
 
-## État GDrive (10/07/2026)
+## Vérifications périodiques
 
-| Backup | Taille | Date |
-|--------|--------|------|
-| leo-full-backup-2026-07-10.tar.gz | 181.8 MB | 10/07 04:01 |
-| leo-full-backup-2026-07-09.tar.gz | 161.4 MB | 09/07 04:02 |
-| leo-full-backup-2026-07-08.tar.gz | 148.7 MB | 08/07 04:01 |
-| leo-full-backup-2026-07-07.tar.gz | 131.8 MB | 07/07 04:01 |
-| leo-full-backup-2026-07-06.tar.gz | 120.4 MB | 06/07 04:01 |
+| Fréquence | Action |
+|-----------|--------|
+| Quotidienne | Vérifier backup local (cron 06:00) |
+| Hebdomadaire | Vérifier présence sur GDrive |
+| Mensuelle | Tester restauration complète |
+| Après nouveau profil/vault | Vérifier PATHS dans le script |
 
-## Points d'attention
+## Maintenance du recovery-kit
 
-- **Permissions** — après restauration, vérifier `chown -R tofdan:tofdan ~/.hermes/`
-- **Rotation automatique** — ne pas désactiver (max 7 jours de rétention locale)
-- **Test mensuel** — vérifier que les backups apparaissent dans Backups/ sur GDrive
-- **Le token GDrive (`leo_google_token.json`) est inclus dans le backup** — il permet de restaurer et uploader les backups suivants
-- **memories/ est critique** — sans USER.md et MEMORY.md, l'agent perd son identité (cause #1 du crash 30/06)
-- **Recovery-kit** — régénérer `secrets.b64` après chaque modification du `.env`
-- **Ne JAMAIS commit le recovery-kit** — il contient les secrets en clair
+Après tout ajout de clé API ou modification du `.env` :
+
+    cd /home/tofdan/.hermes
+    tar czf - .env config.yaml credentials_vault.json gateway_state.json \
+      leo_google_token.json leo_sheets_token.json leo_drive_token.json \
+      gdrive-service-account.json google_client_secret.json \
+      profiles/default/.env profiles/michel/.env profiles/sylvia/.env \
+      profiles/emile/.env profiles/robert/.env |
+      base64 > recovery-kit/secrets.b64
+    cd recovery-kit
+    sha256sum secrets.b64 rebuild.sh README.md docker-commands.md secrets-manifest.txt > checksums.sha256
+
+## Historique
+
+| Date | Action |
+|------|--------|
+| 30/06/2026 | Crash — perte totale des sessions et mémoire |
+| 05/07/2026 | Mise en place backup GDrive quotidien |
+| 10/07/2026 | Création recovery-kit, restauration post-migration |
+| 16/07/2026 | Correction bug croissance exponentielle (backups/ dans PATHS) |
+| 22/07/2026 | Ajout profils sylvia, emile, robert |
+| 02/08/2026 | Audit complet + régénération secrets.b64 (OpenRouter, Gemini, benchmark.db) |
 
 ## Emplacement des fichiers
 
 | Fichier | Chemin |
 |---------|--------|
-| Script de backup principal | `~/.hermes/profiles/michel/scripts/leo-full-backup.py` |
+| Script de backup | `~/.hermes/profiles/michel/scripts/leo-full-backup.py` |
 | Script de maintenance | `~/.hermes/profiles/michel/scripts/leo-daily-maintenance.py` |
 | Backups locaux | `~/.hermes/backups/` |
 | Backups GDrive | `Hermes_Christophe/Backups/` (ID: `1ljeXPcYa-F4CkD9L_q0DrLgxYLMiAOGR`) |
 | Recovery Kit | `~/.hermes/recovery-kit/` |
-| Skill DRP | `leo-backup-dr` (skill Hermes — infrastructure) |
+| Document BAVI complet | [bureau-leo/pra-backup-disaster-recovery](https://christophedanhier-hash.github.io/BAVI_LEO/wiki/agent-pro/bureau-leo/pra-backup-disaster-recovery/) |
 
-*Document mis à jour le 26/07/2026 — LEO 🦁*
-
-> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
+*Document mis à jour le 02/08/2026 — Michel (Chef Infrastructure LEO)*
