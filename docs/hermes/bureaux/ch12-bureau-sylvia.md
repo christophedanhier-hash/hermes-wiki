@@ -100,7 +100,7 @@ Les roadbooks sont publiés sur le **wiki Voyages** :
 
 ```
 📦 github.com/christophedanhier-hash/voyages-wiki
-🌐 https://christophedanhier-hash.github.io/voyages-wiki/
+🌐 http://100.92.102.28:8765/voyages/
 📁 ~/Projets_Dev/voyages-wiki/docs/
 ```
 
