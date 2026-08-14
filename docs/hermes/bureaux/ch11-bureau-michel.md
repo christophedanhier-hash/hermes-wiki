@@ -10,7 +10,7 @@ C'est le padron de la machine — il a accès root complet (`sudo` sans restrict
 Bureau Michel = l'ingénieur système de LEO
 ├── 🔧 Crons automatisés (déploiement horaire unifié)
 ├── 📊 1 dashboard unifié (leo-dashboard)
-├── 🐍 Scripts Python (Drive→Issue, Gardien du Drive, Save Contacts — ex-n8n)
+├── 🐍 Scripts Python (Drive→Issue, Gardien du Drive, Save Contacts — ex-n8n, migrés 13/07/2026)
 ├── 🌐 Nginx + Cloudflare Tunnel
 ├── 🔒 UFW + SSL + DNS
 ├── 💰 Suivi du budget DeepSeek (~$19.97)

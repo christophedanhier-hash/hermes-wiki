@@ -1,6 +1,6 @@
 # 💾 Backup & Recovery — Plan de Reprise d'Activité LEO
 
-> **Dernière mise à jour : 02/08/2026** — Audit complet, 32 901 fichiers sauvegardés, recovery-kit régénéré (clés OpenRouter + Gemini incluses).
+> **Dernière mise à jour : 02/08/2026** — Audit complet, 32 901 fichiers sauvegardés, recovery-kit régénéré (clés OpenRouter (non actif en prod) + Gemini incluses).
 
 ## Synthèse
 
