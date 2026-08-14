@@ -7,10 +7,10 @@ Les watchdogs sont des scripts qui surveillent en continu l'état des services e
 Mettre à jour l'explication pour refléter la réalité actuelle.
 
 ```bash
-# Watchdog typique
+# ⚠️ HISTORIQUE — n8n retiré le 13/07/2026. NE PAS EXÉCUTER (exemple de pattern watchdog).
+# Watchdog typique (ancien pattern n8n — remplacé par healthchecks Hermes directs)
 #!/bin/bash
 # Vérifie que n8n répond (exemple historique — n8n retiré 13/07/2026)
-# Remplacé par des healthchecks Hermes directs
 if ! curl -s http://localhost:5678/healthz > /dev/null; then
     echo "❌ n8n ne répond pas"
     # Tentative de redémarrage (historique)
@@ -43,7 +43,7 @@ Tous les jours:
 ```yaml
 À clarifier selon l'architecture réelle du dashboard.
   ✅ Ollama:       qwen2.5:7b responsive ?
-  ✅ Docker:       2/2 conteneurs UP (n8n retiré 13/07) ?
+  ✅ Docker:       2/2 conteneurs UP (n8n retiré 13/07/2026 — plus surveillé) ?
   ✅ Disque:       < 80% utilisé ?
   ✅ Token LEO:    Google API OK ?
   Supprimer ou préciser le contexte

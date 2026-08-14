@@ -1,5 +1,8 @@
 # L'architecture LEO — Exemple concret
 
+> 📦 **[ARCHIVE — pré-13/07/2026]** — chiffres périmés (22 crons). Conserver à titre historique ; la vérité terrain actuelle = 45 crons michel + 5 hôte.
+
+
 LEO est l'assistant personnel de Christophe. Ce document détaille son architecture pour servir d'exemple à ceux qui veulent construire le leur.
 
 ## Identité

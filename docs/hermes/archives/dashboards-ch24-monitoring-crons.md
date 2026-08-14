@@ -1,4 +1,7 @@
 ---
+
+> 📦 **[ARCHIVE — pré-13/07/2026]** — chiffres périmés (30/22/17 crons, n8n actif). Conserver à titre historique ; la vérité terrain actuelle = 45 crons michel + 5 hôte.
+
 archive: true
 archived_date: 2026-07-04
 reason: "Contient des informations obsolètes (pré-crash 30/06, 7 dashboards obsolètes, auto-fix-daemon supprimé). Consultez le guide v3.3 pour les données à jour."

@@ -1,5 +1,8 @@
 > **📦 ARCHIVE** — Cette decision a ete depassee. Copilot a ete teste (proxy ACP) puis remplace par Gemini 3.5 Flash sur le bot leo-copilot. DeepSeek reste le moteur principal du profil default. Voir le skill `routage-llm` pour l'architecture actuelle.
 
+> 📦 **[ARCHIVE — pré-13/07/2026]** — chiffres périmés (30/22/17 crons, n8n actif). Conserver à titre historique ; la vérité terrain actuelle = 45 crons michel + 5 hôte.
+
+
 # 🦁 Pourquoi LEO utilise DeepSeek, pas GitHub Copilot
 
 > Analyse technique — Juin 2026. À partager librement.

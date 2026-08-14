@@ -128,7 +128,8 @@ if tok:
 **Solution :** après avoir pushé depuis `/tmp/`, faites un `git pull` dans le repo local :
 
 ```bash
-cd ~/Projets_Dev/n8n-dashboard
+# ⚠️ HISTORIQUE — n8n retiré 13/07/2026. Remplacé par leo-dashboard :
+cd ~/Projets_Dev/leo-dashboard
 git pull origin main
 ```
 
