@@ -13,7 +13,7 @@
 - Stop: $10
 - Routage: DeepSeek → Gemini → Ollama
 
-## 3. Crons Actifs (44 configurés, tous actifs)
+## 3. Crons Actifs (45 configurés, tous actifs)
 ## 4. Dashboards
 - leo-dashboard unifié : Port 8765 (panel) + 9119 (Hermes dashboard)
 ## 5. Bureaux
