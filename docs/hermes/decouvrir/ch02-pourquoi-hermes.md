@@ -101,7 +101,7 @@ Les crons Hermes ne sont pas de simples tâches shell. Chaque cron peut être :
 - **Un prompt LLM** — l'agent réfléchit et agit
 - **Un script + un prompt** — collecte des données puis analyse
 
-LEO a **49 crons actifs** dont la quasi-totalité en no_agent (0$ de consommation LLM pour les tâches répétitives).
+LEO a **45 crons actifs** (+ 5 crons hôte) dont la quasi-totalité en no_agent (0$ de consommation LLM pour les tâches répétitives).
 
 #### 5. 🗂️ Profils et gateways parallèles
 
@@ -140,4 +140,4 @@ Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et p
 
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 02/08/2026 à 05:00 (UTC+2) — 49 crons
+> 🤖 Dernier audit : 14/08/2026 — 45 crons michel + 5 hôte

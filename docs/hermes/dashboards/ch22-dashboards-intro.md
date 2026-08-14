@@ -127,13 +127,13 @@ if tok:
 **Solution :** après avoir pushé depuis `/tmp/`, faites un `git pull` dans le repo local :
 
 ```bash
-cd ~/Projets_Dev/n8n-dashboard
+cd ~/Projets_Dev/leo-dashboard
 git pull origin main
 ```
 
-> 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n (juin 2026).
+> 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n (juin 2026) — ~~dashboard n8n retiré le 13/07/2026~~, consolidé dans leo-dashboard.
 
-### 🔴 Webhook budget pour n8n
+### 🔴 Webhook budget pour n8n — [HISTORIQUE — n8n retiré 13/07/2026]
 
 > ⚠️ n8n retiré le 13/07/2026. Ce bloc est conservé pour référence. Si vous utilisiez n8n pour remplacer un cron Hermes, n8n tournait dans Docker et n'a pas accès direct au filesystem. Créez un **webhook HTTP** sur l'hôte :
 
@@ -145,7 +145,7 @@ git pull origin main
 # GET  /health        → status
 ```
 
-Lancé en background (`python3 scripts/budget-webhook.py &`). n8n y POSTe les données collectées.
+Lancé en background (`python3 scripts/budget-webhook.py &`). n8n y postait les données collectées (n8n retiré depuis — les scripts écrivent directement).
 
 ### 🔴 Budget désynchronisé
 
