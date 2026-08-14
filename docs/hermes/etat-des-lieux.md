@@ -22,7 +22,7 @@
 | **RAM** | Mémoire suffisante |
 | **GPU** | Pas de GPU dédié |
 | **Stockage** | 457 Go SSD système + 1 To HDD backups |
-| **Docker** | Non utilisé pour n8n, host services |
+| **Docker** | Non utilisé pour n8n (retiré 13/07/2026), host services |
 | **Profils actifs** | 5 (default, emile, michel, robert, sylvia) |
 | **Bots actifs** | 5 (tous avec bot Telegram) |
 | **Gateways** | 5 actifs (s6 supervision) |

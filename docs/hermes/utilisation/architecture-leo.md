@@ -94,7 +94,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 6. BAVI — métriques bureaux
 7. Services — statut des services (Ollama, Docker, etc.)
 8. Vaults — monitoring des 5 vaults Obsidian
-9. Workflows Python — santé des workflows de remplacement n8n
+9. Workflows Python — santé des workflows de remplacement n8n (ex-n8n, migrés 13/07/2026)
 10. Bots — statistiques par profil Telegram (sessions, messages, coût)
 
 ---
@@ -116,6 +116,8 @@ Changement clé du 04/07/2026 :
 ## 4. Les Workflows n8n (3) — ❌ RETIRÉS
 
 > ⚠️ **n8n a été retiré le 13/07/2026.** Les 3 workflows ont été migrés vers des crons Hermes no_agent. Cette section est conservée pour référence historique.
+
+> ℹ️ **Section historique — n8n retiré 13/07/2026.**
 
 n8n tournait sur `localhost:5678` (même machine que Hermes).
 
