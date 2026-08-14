@@ -154,4 +154,4 @@ flowchart LR
 
 ---
 
-> 🤖 Dernier audit : 02/08/2026 à 05:00 (UTC+2) — 49 crons
+> 🤖 Dernier audit : 14/08/2026 — 45 crons michel + 5 hôte

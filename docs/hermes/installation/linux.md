@@ -132,7 +132,7 @@ graph TB
         Ollama["Ollama :11434<br/>qwen2.5:7b"]
         subgraph Docker["Hermes (Docker)"]
             GW["5 profils Gateway<br/>default · michel · sylvia · emile · robert"]
-            Crons["47 crons (tous actifs)"]
+            Crons["45 crons (tous actifs)"]
         end
     end
     
