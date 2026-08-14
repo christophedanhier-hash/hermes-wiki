@@ -133,7 +133,7 @@ cd ~/Projets_Dev/leo-dashboard
 git pull origin main
 ```
 
-> 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n (juin 2026).
+> 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n *(historique — n8n retiré 13/07/2026)*.
 
 ### 🔴 Budget désynchronisé
 

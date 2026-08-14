@@ -104,7 +104,7 @@ Les crons sont le cœur de l'automatisation. **49 tâches planifiées** tournent
 
 - Nom: Dashboard Crons
   Horaire: Toutes les heures
-  Action: Statut des 14 crons
+  Action: Statut des 45 crons
   Coût: 0€ (no_agent)
 ```
 
