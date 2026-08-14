@@ -7,6 +7,8 @@ Les watchdogs sont des scripts qui surveillent en continu l'état des services e
 Mettre à jour l'explication pour refléter la réalité actuelle.
 
 ```bash
+> ⚠️ **OBSOLÈTE — n8n retiré 13/07/2026.** Bloc conservé comme exemple de pattern. NE PAS EXÉCUTER.
+```bash
 # ⚠️ HISTORIQUE — n8n retiré le 13/07/2026. NE PAS EXÉCUTER (exemple de pattern watchdog).
 # Watchdog typique (ancien pattern n8n — remplacé par healthchecks Hermes directs)
 #!/bin/bash
