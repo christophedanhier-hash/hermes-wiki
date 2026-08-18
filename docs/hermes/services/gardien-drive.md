@@ -1,6 +1,6 @@
 # 🧠 Gardien du Drive — 📦 ARCHIVÉ
 
-> **Ce workflow a été migré en script Python le 13/07/2026.** n8n a été retiré. Le service équivalent tourne désormais en cron Hermes no_agent.
+> **Ce workflow a été migré en script Python le 13/07/2026.** Le service équivalent tourne désormais en cron Hermes no_agent.
 > Cette page est conservée pour référence historique.
 
 ---
@@ -41,4 +41,4 @@ graph TD
 
 *Document archivé le 31/07/2026 — Léo 🦁*
 
-> 🤖 Dernier audit : 31/07/2026 (archivage pour n8n retiré)
+> 🤖 Dernier audit : 31/07/2026 (archivage)

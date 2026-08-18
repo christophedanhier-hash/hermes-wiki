@@ -97,7 +97,7 @@ flowchart LR
 | **Latence** | ⚡ < 3s |
 | **Coût** | $ pay-as-you-go |
 | **Fallback** | deepseek-v4-flash → gemini-3.5-flash → qwen2.5:7b |
-| **Crons** | 49 jobs (tous actifs) |
+| **Crons** | 51 jobs (46 + 5 hôte, tous actifs) |
 
 ---
 

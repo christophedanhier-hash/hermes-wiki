@@ -24,13 +24,13 @@
 | 16 | `utilisation/dashboards.md` | **1 dashboard unifié** (leo-dashboard), 10 sources, vaults | 14, 19 | ✅ |
 | 17 | `utilisation/backup-recovery.md` | Backup & recovery | 14 | ✅ |
 | 18 | ~~`utilisation/skills-catalogue.md`~~ | ~~Catalogue des skills BAVI LEO & Hermes~~ | ~~5, 20~~ | ❌ Supprimé |
-| 19 | ~~`services/n8n.md`~~ | **ARCHIVÉ** — n8n déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ❌ |
+| 19 | ~~`services/automatisation.md`~~ | **ARCHIVÉ** — outil déprécié le 13/07/2026, remplacé par 🐍 workflows Python | 14, 16 | ❌ |
 | 20 | `services/spotify.md` | Contrôle musical Spotify | — | ✅ |
 | 21 | `utilisation/securite.md` | Sécurité — bonnes pratiques documentaires, données sensibles | Toutes | ✅ |
 | 22 | `utilisation/documentation-map.md` | **Cette carte** — référentiel de cohérence | Toutes | ✅ |
-| — | ~~`services/gardien-drive.md`~~ | **ARCHIVÉ** — workflow n8n déprécié, sync via scripts Python | 19 | ❌ |
+| — | ~~`services/gardien-drive.md`~~ | **ARCHIVÉ** — workflow déprécié, sync via scripts Python | 19 | ❌ |
 | — | ~~`etat-des-lieux.md`~~ | **ARCHIVÉ** — inventaire pré-crash, obsolète | — | ❌ |
-| — | ~~`services/n8n.md`~~ | **ARCHIVÉ** — voir ci-dessus | — | ❌ |
+| — | ~~`services/automatisation.md`~~ | **ARCHIVÉ** — voir ci-dessus | — | ❌ |
 | — | `bureaux/ch14-bureau-robert.md` | Robert — conseiller stratégique IA (Solidaris) | 3, 13, 8 | ✅ |
 | — | `audit-documents-a-reviser.md` | Suivi des corrections post-audit | Toutes | ✅ |
 | — | `hermes/index.md` | Présentation Hermes Agent, philosophie LEO | 9, 12 | ✅ |

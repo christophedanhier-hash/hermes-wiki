@@ -80,7 +80,7 @@ Tous en **HTML statique** hébergés sur **GitHub Pages** — zéro backend, zé
 | 🖥️ **Panel LEO** | `http://localhost:8765` (local) | Pilotage, API crons, métriques | Horaire (collect-v2.py) |
 | 🤖 **Dashboard Hermes** | `http://localhost:9119` (local) | Chat, sessions, fichiers, crons, config | Temps réel |
 
-La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, crons, infra, github, bavi, services, vaults) → panel local. (n8n retiré 13/07/2026)
+La collecte unifiée utilise `collect-v2.py` : 8 sources (sessions, budget, crons, infra, github, bavi, services, vaults) → panel local.
 
 ### Les crons (tâches planifiées)
 

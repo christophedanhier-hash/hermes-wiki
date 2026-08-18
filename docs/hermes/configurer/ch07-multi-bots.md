@@ -14,7 +14,7 @@ Le diagramme doit être mis à jour pour refléter les noms réels des bots util
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **default** : le hub central, votre premier interlocuteur — analyses, emails, classification, documentation
-- **michel** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (47 jobs, tous actifs)
+- **michel** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (46 jobs, tous actifs)
 - **robert** : le consultant stratégique — analyses IT, recommandations
 - **sylvia** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
 - **emile** : l'assistant pédagogique — mémoire, création de contenu
@@ -86,7 +86,7 @@ Tu es Léo Copilote, l'ingénieur infrastructure de l'écosystème LEO.
 Tu gères :
 - 45 crons (tous actifs) automatisés (+ 5 hôte)
 - 1 dashboard unifié
-- scripts Python (ex-n8n, workflows migrés le 13/07/2026)
+- scripts Python (workflows migrés)
 - Les gateways Hermes
 - Le budget DeepSeek
 

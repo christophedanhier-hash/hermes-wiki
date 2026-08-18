@@ -18,7 +18,7 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 Corriger la documentation pour refléter l'existence d'un seul dashboard unifié et les détails associés.
 
-LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (8 sources — n8n retiré 13/07/2026) :
+LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (8 sources) :
 
 | Dashboard | Contenu | URL | Collecte | Déploiement |
 |-----------|---------|-----|----------|-------------|
@@ -131,13 +131,12 @@ cd ~/Projets_Dev/leo-dashboard
 git pull origin main
 ```
 
-> 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n (juin 2026) — ~~dashboard n8n retiré le 13/07/2026~~, consolidé dans leo-dashboard.
+> 🐛 **Bug #16** — Cette cause racine a été corrigée sur l'ancien dashboard (juin 2026), consolidé dans leo-dashboard.
 
-### 🔴 Webhook budget pour n8n — [HISTORIQUE — n8n retiré 13/07/2026]
+### 🔴 Webhook budget
 
-> ⚠️ n8n retiré le 13/07/2026. Ce bloc est conservé pour référence. Si vous utilisiez n8n pour remplacer un cron Hermes, n8n tournait dans Docker et n'a pas accès direct au filesystem. Créez un **webhook HTTP** sur l'hôte :
+> **Note :** ce bloc décrit le pattern du webhook budget. Créez un **webhook HTTP** sur l'hôte :
 
-> ⚠️ **Note 17/07/2026** : n8n a été retiré de LEO le 13/07/2026. Cette section est conservée à titre d'exemple pour ceux qui utilisent n8n.
 
 ```python
 # budget-webhook.py — mini serveur HTTP
@@ -145,7 +144,7 @@ git pull origin main
 # GET  /health        → status
 ```
 
-Lancé en background (`python3 scripts/budget-webhook.py &`). n8n y postait les données collectées (n8n retiré depuis — les scripts écrivent directement).
+Lancé en background (`python3 scripts/budget-webhook.py &`). Les scripts écrivent directement les données collectées.
 
 ### 🔴 Budget désynchronisé
 
@@ -177,7 +176,7 @@ Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seul
 - 🔵 **Crons (41)** — statut, historique, erreurs
 - 📊 **Dashboards (7)** — HTTP, âge, budget
 - 💰 **Budget DeepSeek** — solde, jours restants
-- ~~🩺 **n8n** — online/offline~~ (retiré le 13/07/2026)
+
 - 🏛️ **BAVI LEO** — sessions, messages, tokens
 - 🖥️ **Machines** (nombre à vérifier) — statut en ligne/hors ligne
 - 🚨 **Alertes** — dernières anomalies détectées
