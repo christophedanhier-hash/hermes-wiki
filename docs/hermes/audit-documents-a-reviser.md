@@ -83,8 +83,7 @@
 - [ ] `agent-pro/bureau-michel/prompt-kilo-code-tofdan.md`
 - [ ] `agent-pro/bureau-michel/reference-infra-leo-acces.md`
 - [ ] `agent-pro/bureau-michel/strategie-tofdan-be.md`
-- [x] ~~`agent-pro/bureau-michel/n8n/rapport-n8n-leo-20260619.md`~~ [ABANDONNÉ — n8n retiré 13/07/2026]
-- [x] ~~`agent-pro/bureau-michel/n8n/ping-workflow.md`~~ [ABANDONNÉ — n8n retiré 13/07/2026]
+
 
 ### Bureau Sylvia (2)
 - [ ] `agent-pro/bureau-sylvia/index.md`

@@ -4,9 +4,8 @@
 >
 > **Mise à jour 07/07/2026** : les principaux changements post-reconstruction sont :
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
-> - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults) — n8n retiré
+> - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults)
 > - **Déploiement** : toutes les heures (`10 * * * *`) via michel
-> - **n8n** : ❌ Retiré le 13/07/2026.
 > - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 45 crons (tous actifs).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
@@ -22,7 +21,7 @@
 | **RAM** | Mémoire suffisante |
 | **GPU** | Pas de GPU dédié |
 | **Stockage** | 457 Go SSD système + 1 To HDD backups |
-| **Docker** | Non utilisé pour n8n (retiré 13/07/2026), host services |
+| **Docker** | Non utilisé — host services |
 | **Profils actifs** | 5 (default, emile, michel, robert, sylvia) |
 | **Bots actifs** | 5 (tous avec bot Telegram) |
 | **Gateways** | 5 actifs (s6 supervision) |
@@ -30,7 +29,7 @@
 | **Fallback** | deepseek/deepseek-v4-flash, custom:google/gemini-3.5-flash, custom:ollama/qwen2.5:7b |
 | **Crons actifs** | 49 (tous actifs — tous consolidés dans michel) |
 | **Skills installés** | 126 |
-| **n8n** | ❌ Retiré le 13/07/2026 |
+
 
 > 🔄 Ce document est historiquement la première page de référence. Les données sont désormais maintenues dans le [Guide Hermès pour les Nuls](http://100.92.102.28:8765/wiki/agent-pro/bureau-leo/guide-hermes-complet/) et visibles en temps réel sur le [LEO Dashboard](http://localhost:8765 (panel) et http://localhost:9119 (Hermes dashboard)).
 
@@ -135,7 +134,7 @@
 
 **5 crons hôte** (tout est dans les profils Hermes)
 
-**Total général : 49 jobs (tous actifs)**
+**Total général : 51 jobs (46 michel + 5 hôte, tous actifs)**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](http://100.92.102.28:8765/wiki/crons/)
 <!-- AUTO:END crons -->

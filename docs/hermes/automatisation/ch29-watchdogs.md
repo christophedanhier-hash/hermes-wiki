@@ -7,22 +7,20 @@ Les watchdogs sont des scripts qui surveillent en continu l'état des services e
 Mettre à jour l'explication pour refléter la réalité actuelle.
 
 ```bash
-> ⚠️ **OBSOLÈTE — n8n retiré 13/07/2026.** Bloc conservé comme exemple de pattern. NE PAS EXÉCUTER.
+> ℹ️ **Exemple de pattern watchdog** (les watchdogs actuels surveillent Hermes, Ollama, Docker et les dashboards).
 ```bash
-# ⚠️ HISTORIQUE — n8n retiré le 13/07/2026. NE PAS EXÉCUTER (exemple de pattern watchdog).
-# Watchdog typique (ancien pattern n8n — remplacé par healthchecks Hermes directs)
+# Watchdog typique — vérifie qu'un service répond
 #!/bin/bash
-# Vérifie que n8n répond (exemple historique — n8n retiré 13/07/2026)
-if ! curl -s http://localhost:5678/healthz > /dev/null; then
-    echo "❌ n8n ne répond pas"
-    # Tentative de redémarrage (historique)
-    docker restart n8n
+if ! curl -s http://localhost:8765/healthz > /dev/null; then
+    echo "❌ le service ne répond pas"
+    # Tentative de redémarrage
+    systemctl --user restart hermes-gateway
     # Notification
-    hermes memory add "n8n relancé le $(date)" --target memory
+    hermes memory add "service relancé le $(date)" --target memory
 fi
 ```
 
-> ⚠️ **Note 17/07/2026** : n8n a été retiré le 13/07/2026. Cet exemple est conservé pour montrer le pattern de watchdog. Les watchdogs actuels surveillent Hermes, Ollama, Docker et les dashboards.
+
 ```
 
 ## Les watchdogs de LEO
@@ -45,7 +43,7 @@ Tous les jours:
 ```yaml
 À clarifier selon l'architecture réelle du dashboard.
   ✅ Ollama:       qwen2.5:7b responsive ?
-  ✅ Docker:       2/2 conteneurs UP (n8n retiré 13/07/2026 — plus surveillé) ?
+  ✅ Docker:       2/2 conteneurs UP ?
   ✅ Disque:       < 80% utilisé ?
   ✅ Token LEO:    Google API OK ?
   Supprimer ou préciser le contexte

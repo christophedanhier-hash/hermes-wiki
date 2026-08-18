@@ -180,7 +180,7 @@ Pour du **prototypage**, de la **vision**, ou des **tâches ponctuelles complexe
 
 | Usage | Modèle | Pourquoi |
 |:---|:---|:---|
-| Crons quotidiens (47 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
+| Crons quotidiens (46 jobs) | DeepSeek V4 Pro | Fiable, pas cher |
 | Bots Telegram (dialogue) | DeepSeek V4 Flash | Latence faible, volume élevé |
 | Classification emails | DeepSeek V4 Flash | 0.18 USD/M output |
 | Debug & analyses complexes | DeepSeek V4 Pro | Raisonnement profond |

@@ -16,7 +16,7 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-> ⚠️ **Mise à jour du 04/07/2026** : Les 7 dashboards pré-crash (LEO KPI, BAVI LEO, Machines, Crons, GitHub, n8n, Global) sont OBSOLÈTES et figés au 30/06/2026. NE PLUS les consulter.
+> ⚠️ **Mise à jour du 04/07/2026** : Les 7 dashboards pré-crash (LEO KPI, BAVI LEO, Machines, Crons, GitHub, Global) sont OBSOLÈTES et figés au 30/06/2026. NE PLUS les consulter.
 
 LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (10 sources) :
 
@@ -128,12 +128,11 @@ if tok:
 **Solution :** après avoir pushé depuis `/tmp/`, faites un `git pull` dans le repo local :
 
 ```bash
-# ⚠️ HISTORIQUE — n8n retiré 13/07/2026. Remplacé par leo-dashboard :
 cd ~/Projets_Dev/leo-dashboard
 git pull origin main
 ```
 
-> 🐛 **Bug #16** — Cette cause racine a été corrigée sur le dashboard n8n *(historique — n8n retiré 13/07/2026)*.
+> 🐛 **Bug #16** — Cette cause racine a été corrigée sur l'ancien dashboard.
 
 ### 🔴 Budget désynchronisé
 

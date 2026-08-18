@@ -85,7 +85,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 |-----------|-----|---------|-----------|-----------|
 | **🌍 leo-dashboard** | [leo-dashboard](http://localhost:8765/dashboard) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults, workflows, bots | `collect-v2.py` | H:10 (déploiement michel) |
 
-**Collecteur unifié** : `collect-v2.py` agrège 10 sources de données (n8n retiré 13/07/2026) :
+**Collecteur unifié** : `collect-v2.py` agrège 10 sources de données :
 1. Sessions — nombre de sessions et messages
 2. Budget — solde DeepSeek (~$19.97 de coût cumulé, $41.83 de solde)
 3. Crons — statut des tâches planifiées
@@ -94,7 +94,7 @@ Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe 
 6. BAVI — métriques bureaux
 7. Services — statut des services (Ollama, Docker, etc.)
 8. Vaults — monitoring des 5 vaults Obsidian
-9. Workflows Python — santé des workflows de remplacement n8n (ex-n8n, migrés 13/07/2026)
+9. Workflows Python — santé des workflows
 10. Bots — statistiques par profil Telegram (sessions, messages, coût)
 
 ---
@@ -113,21 +113,6 @@ Changement clé du 04/07/2026 :
 
 ---
 
-## 4. Les Workflows n8n (3) — ❌ RETIRÉS
-
-> ⚠️ **n8n a été retiré le 13/07/2026.** Les 3 workflows ont été migrés vers des crons Hermes no_agent. Cette section est conservée pour référence historique.
-
-> ℹ️ **Section historique — n8n retiré 13/07/2026.**
-
-n8n tournait sur `localhost:5678` (même machine que Hermes).
-
-| Workflow | Rôle | Description | Statut |
-|----------|------|-------------|--------|
-| **Drive → Issue** | Surveillance Drive | Créait une issue GitHub quand un fichier Drive était modifié | → Cron `drive-to-issue` |
-| **Gardien du Drive** | Protection documents | Surveillait l'intégrité des documents Google Docs | → Cron `gardien-drive` |
-| **Save Contacts** | Sauvegarde contacts | Sauvegardait les contacts Google vers un fichier JSON | → Cron `save-contacts` |
-
----
 
 ## 5. Vaults Obsidian (5)
 
@@ -157,7 +142,7 @@ Les 5 vaults sont surveillés via le dashboard unifié.
 
 | Métrique | Valeur |
 |----------|--------|
-| **Workflows n8n** | ❌ Retiré (13/07/2026) |
+
 | Dashboards | **1** (unifié) |
 | Sources de collecte | **10** |
 | Profils Hermes | **5** |

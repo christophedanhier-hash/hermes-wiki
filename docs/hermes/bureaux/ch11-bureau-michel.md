@@ -10,7 +10,7 @@ C'est le padron de la machine — il a accès root complet (`sudo` sans restrict
 Bureau Michel = l'ingénieur système de LEO
 ├── 🔧 Crons automatisés (déploiement horaire unifié)
 ├── 📊 1 dashboard unifié (leo-dashboard)
-├── 🐍 Scripts Python (Drive→Issue, Gardien du Drive, Save Contacts — ex-n8n, migrés 13/07/2026)
+├── 🐍 Scripts Python (Drive→Issue, Gardien du Drive, Save Contacts)
 ├── 🌐 Nginx + Cloudflare Tunnel
 ├── 🔒 UFW + SSL + DNS
 ├── 💰 Suivi du budget DeepSeek (~$19.97)
@@ -48,7 +48,7 @@ HDD: 1 To (/dev/sdb2 → /mnt/data)
 ### Conteneurs Docker
 
 Le document doit être mis à jour pour inclure les conteneurs Docker actuels et leurs rôles et ports.arch/hermes-agent | Agent IA principal | — |
-| `n8n` | ❌ Retiré (13/07/2026) | — | — |
+
 | `ollama` | ollama/ollama | LLM local (qwen2.5:7b) | 11434 |
 | *(code-server)* | code-server | VS Code web | 8081 |
 
@@ -156,7 +156,7 @@ Sur 45 crons (tous actifs), la quasi-totalité sont en `no_agent` — le coût t
 
 | Dashboard | URL | Contenu |
 |:----------|:----|:--------|
-| **LEO Dashboard** | `christophedanhier-hash.github.io/leo-dashboard/` | Portail agrégé (sessions, budget, machines, crons, GitHub, ~~n8n~~ (retiré), BAVI, services, vaults) |
+| **LEO Dashboard** | `christophedanhier-hash.github.io/leo-dashboard/` | Portail agrégé (sessions, budget, machines, crons, GitHub, BAVI, services, vaults) |
 
 Tous les dashboards sont des fichiers **HTML statiques** (zéro backend). La collecte unifiée utilise `collect-v2.py` (9 sources).
 
@@ -176,16 +176,6 @@ Le Bureau Michel suit le budget en temps réel :
 
 Le secret de ce coût ridicule : **Ollama local pour la classification**, **DeepSeek Flash pour le quotidien**, **DeepSeek Pro seulement pour les analyses complexes**.
 
-## n8n — Workflows d'automatisation (❌ RETIRÉ)
-
-> ⚠️ **n8n a été retiré le 13/07/2026.** Les workflows ont été migrés vers des crons Hermes no_agent. Cette section est conservée pour référence.
-
-> ℹ️ **Historique — n8n retiré le 13/07/2026.** n8n était utilisé pour les workflows qui nécessitaient des webhooks ou des intégrations API :
-
-- **n8n** : ❌ Retiré le 13/07/2026. Les 3 workflows (Drive→Issue, Gardien du Drive, Save Contacts) ont été migrés vers des crons Hermes no_agent.
-- **Base SQLite** dans un volume Docker dédié
-
-Workflow emblématique : **LEO Ping** — un endpoint `GET /webhook/ping` qui renvoie `{"response":"pong"}`. Simple, mais essentiel pour vérifier que le service tourne.
 
 ## Auto-heal et watchdogs
 
@@ -193,9 +183,9 @@ Le système ne se contente pas de tourner — il se surveille :
 
 ```yaml
 Auto-heal (toutes les 30-60 min):
-  ✅ Crons: 49 jobs (tous actifs)
+  ✅ Crons: 51 jobs (46 + 5 hôte, tous actifs)
   ✅ Ollama: UP (qwen2.5:7b responsive)
-  ✅ n8n: ❌ Retiré 13/07/2026
+
   ✅ Docker: 2/2 conteneurs up (hermes-agent + ollama)
   ✅ Disque: 21% utilisé (345 Go libre)
   ✅ Token LEO Google: OK
@@ -210,7 +200,7 @@ Les watchdogs surveillent en continu : code-server, dashboards, tunnels.
 |:----------|:--------:|:------------:|
 | Crons | 49 (tous actifs) | ~0,10 €/j |
 | Dashboards | 1 (unifié) | 0 € (GitHub Pages) |
-| n8n workflow (retiré 13/07/2026)s | ❌ Retiré | — |
+
 | Machines surveillées | 3 | 0 € |
 | DeepSeek API | Flash + Pro | ~1,50 €/mois |
 | **Total** | | **~1,50-5 €/mois** |

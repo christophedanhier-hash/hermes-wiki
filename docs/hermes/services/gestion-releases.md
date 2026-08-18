@@ -53,7 +53,7 @@ cd ~/Projets_Dev/leo-tracker && git push
 | 4 gateways UP | `hermes gateway status` |
 | Crons OK | Dashboard global |
 | Dashboards OK | Vérification HTTP |
-| Supprimer la mention du n8n dans le document.s | ❌ Retiré (13/07/2026) |
+| Supprimer la mention de l'ancien outil dans le document | ✅ Fait |
 
 ## 6. Rollback — Si échec
 

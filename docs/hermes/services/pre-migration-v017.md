@@ -17,7 +17,7 @@
 | **Skills custom** | 🟢 1 skill agent (hermes-agent) | Aucun impact |
 | **send_message tool** | ✅ Présent (78 KB) | Utilisé dans 2 skills bundle (non critiques) |
 | **Tokens OAuth** | ✅ Google token valide | |
-| **n8n** | ❌ Retiré 13/07/2026 | Migré vers crons Hermes |
+| **Automatisation** | Crons Hermes + scripts Python | — |
 | **Dashboards** | 🟢 Tous OK | Indépendants |
 
 ---
@@ -79,7 +79,7 @@
 | **Crons reprennent** | Jobs.json intact, scheduler résilient |
 | **Mémoire préservée** | state.db + MEMORY.md backupés |
 | **Skills OK** | Format SKILL.md inchangé en v0.17 |
-| **n8n retiré** | Migré vers crons Hermes (13/07/2026) |
+| **Automatisation** | Crons Hermes + scripts Python |
 | **Rollback < 2 min** | Backup + pip install version précédente |
 
 ---
