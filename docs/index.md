@@ -169,9 +169,43 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 
 </div>
 
+<div class="section-title"><span class="emoji">🛠️</span>Outils LEO</div>
+
+<div class="portail-grid">
+
+<a href="https://tofdan.be/docs/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">📚</div>
+    <div class="title">Leo Docs</div>
+    <div class="desc">Explorateur de documents markdown — vaults, wikis, bureaux. Base de connaissance centrale</div>
+    <div class="url">tofdan.be/docs</div>
+</a>
+
+<a href="https://tofdan.be/leo-chat/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">💬</div>
+    <div class="title">Leo Chat</div>
+    <div class="desc">Chat multi-providers — DeepSeek, GPT, Gemini, Ollama local. Tous les modèles Hermes</div>
+    <div class="url">tofdan.be/leo-chat</div>
+</a>
+
+<a href="https://tofdan.be/leo-kast/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🎙️</div>
+    <div class="title">Leo Kast</div>
+    <div class="desc">Assistant vocal — personas, transcription, traduction. Gemini via proxy Hermes</div>
+    <div class="url">tofdan.be/leo-kast</div>
+</a>
+
+<a href="https://tofdan.be/" class="portail-card" target="_blank" rel="noreferrer noopener">
+    <div class="icon">🌐</div>
+    <div class="title">Site tofdan.be</div>
+    <div class="desc">Portail Tofdan — accueil public, sous-sites Astro + Hermes, dashboard, docs</div>
+    <div class="url">tofdan.be</div>
+</a>
+
+</div>
+
 ---
 
-> 🕐 **Dernière mise en ligne : 19/08/2026 20:15**  
+> 🕐 **Dernière mise en ligne : 19/08/2026 20:25**  
 > *Propulsé par [Hermes Agent](https://hermes-agent.nousresearch.com) · 🦁 LEO*
 
 > 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
