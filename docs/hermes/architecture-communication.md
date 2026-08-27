@@ -296,4 +296,4 @@ flowchart TB
 
 *Document mis à jour le 26/07/2026 — Michel 🔧*
 
-> 🤖 Dernier audit : 14/08/2026 — 45 crons michel + 5 hôte, profils corrigés
+> 🤖 Dernier audit : 14/08/2026 — 58 crons actifs (michel 50 + LEO 6 + sylvia 2) michel + 5 hôte, profils corrigés

@@ -154,4 +154,4 @@ flowchart LR
 
 ---
 
-> 🤖 Dernier audit : 14/08/2026 — 45 crons michel + 5 hôte
+> 🤖 Dernier audit : 14/08/2026 — 58 crons actifs (michel 50 + LEO 6 + sylvia 2) michel + 5 hôte

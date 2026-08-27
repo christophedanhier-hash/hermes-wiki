@@ -6,7 +6,7 @@
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults)
 > - **Déploiement** : toutes les heures (`10 * * * *`) via michel
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 45 crons (tous actifs).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 58 crons actifs (michel 50 + LEO 6 + sylvia 2).
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)
@@ -122,7 +122,7 @@
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
 > **Dernière synchro : 17/07/2026**
-> **45 crons Hermes** (tous consolidés dans `michel`) → **45 jobs (tous actifs)**
+> **58 crons actifs (michel 50 + LEO 6 + sylvia 2) Hermes** (tous consolidés dans `michel`) → **45 jobs (tous actifs)**
 
 | Profil | Crons |
 |--------|:-----:|
@@ -316,4 +316,4 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 14/08/2026 — 45 crons michel + 5 hôte
+> 🤖 Dernier audit : 14/08/2026 — 58 crons actifs (michel 50 + LEO 6 + sylvia 2) michel + 5 hôte
