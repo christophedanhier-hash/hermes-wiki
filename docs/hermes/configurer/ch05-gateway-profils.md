@@ -39,14 +39,18 @@ LEO utilise **5 profils Hermes** dont **5 avec bot Telegram**, chacun avec sa sp
 | `michel` | ❌ | Infrastructure & crons | DeepSeek Pro | Partagée avec default |
 | `michel` | ✅ | Chef infrastructure (alias michel TUI) | DeepSeek Pro | Séparée |
 | `sylvia` | ❌ | BAVI Voyages (Sylvia) | DeepSeek Flash | Séparée |
-| `emile` | ✅ | Création contenu | DeepSeek Flash | Séparée |
+| `emile` | ✅ | Documents professionnels Émilie | DeepSeek Flash | Séparée |
 | `robert` | ❌ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
 | `robert` | ✅ | Conseil Stratégique IA (alias Telegram) | DeepSeek Pro | Séparée |
 | `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
 
-- **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau)
+- **Mémoire unifiée** entre `default` et `michel` (deux profils, un cerveau — *état historique antérieur au 11/07/2026*)
 - **Crons** : 46 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée (emile=0, sylvia=0, default=0, robert=0).
 - **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
+
+> [!NOTE]
+> **Évolution des profils (20/09/2026) :**
+> Ce tableau reflète la configuration historique initiale sous DeepSeek. Dans l'architecture de référence actuelle (voir [`hermes/architecture.md`](../architecture.md)), chaque profil dispose d'une mémoire totalement indépendante. Le profil `emile` est l'assistant professionnel d'Émilie dans My Émile IA Workbench (développé via Avenyra) pour la gestion et rédaction de notes, rapports, activités et documents professionnels. Le profil `gerard` assure l'assistance pour l'astronomie, l'astrophotographie, le site tofdan et la documentation générale en local (sans bot Telegram).
 
 | Propriété | Configuration | Description |
 |-----------|--------------|-------------|

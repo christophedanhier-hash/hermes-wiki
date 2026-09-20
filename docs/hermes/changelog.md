@@ -17,8 +17,8 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
     - `michel` : copilote infrastructure, crons, watchdogs et déploiements.
     - `robert` : conseil stratégique, gouvernance IT et architecture.
     - `sylvia` : logistique de voyages et roadbooks camping-car.
-    - `emile` : pédagogie, formation et accompagnement de mémoire.
-    - `gerard` : traitement et suivi des dossiers documentaires T600/OCA.
+    - `emile` : assistant professionnel d'Émilie dans My Émile IA Workbench (Avenyra) : rédaction, structuration et gestion des notes, rapports, activités et documents pro (validation humaine).
+    - `gerard` : assistant astronomie et astrophotographie de Christophe, suivi du site tofdan/astro, documentation générale et guide d'étude (dont projet T600).
     - *Note d'identité* : **LEO est un agent Hermes** (profil `default`) opérant via le gateway Hermes en DM direct avec Christophe (aucun handle Telegram inventé). `leo` est l'alias Hive du profil `default`, et non un septième profil.
 - **Routage LLM & Providers configurés** :
     - Profils `default`, `michel`, `robert`, `emile`, `gerard` : **Azure Foundry** avec le modèle `gpt-5.6-luna` et secours déclaré vers Google Gemini (`custom:google/gemini-3.7-flash` ou Google Gemini selon configuration).
@@ -29,7 +29,7 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
     - Port `8765` : Panel LEO (métriques, crons et pilotage).
     - Port `8766` : Leo Docs (explorateur documentaire).
     - Port `9119` : Hermes Dashboard (supervision de la plateforme).
-    - Port `8793` : Workbench My Émile IA (écoute locale localhost).
+    - Port `8793` : Workbench My Émile IA (écoute locale localhost, développé via Avenyra).
 - **Mémoire & Isolation** :
     - Mémoires strictement indépendantes par profil (`~/.hermes/profiles/<nom>/memories/`). Aucune mémoire partagée.
 - **Communication inter-profils** :
@@ -58,6 +58,11 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
 - **Réalignement de l'architecture de communication** ([`hermes/architecture-communication.md`](architecture-communication.md)) : conformité avec les 6 profils, routage Azure/OpenRouter, intégration Hive et séparation des faits historiques.
 - **Mise à jour de la navigation** : référencement de `changelog.md` dans `mkdocs.yml` et `documentation-map.md`.
 
+#### Correction documentaire ciblée — Rôles opérationnels réels d'Émile et Gérard (20/09/2026)
+- **Émile** : Rectification du profil. Émile n'est plus un assistant de formation/mémoire (phase pédagogique initiale terminée). Il est l'assistant professionnel d'Émilie dans My Émile IA Workbench (développé via Avenyra) pour rédiger, structurer et gérer notes, rapports, activités et documents professionnels (avec validation humaine).
+- **Gérard** : Rectification du profil. Gérard n'est pas limité aux dossiers T600/OCA (projet parmi d'autres). Il est l'assistant de Christophe pour l'astronomie, l'astrophotographie, le wiki et le site tofdan liés à l'astronomie, la documentation générale et son étude comme guide astronomie. Aucun bot Telegram inventé.
+- **Alignement transverse** : Révision coordonnée des pages actives et chapitres de configuration (`architecture.md`, `architecture-communication.md`, `profiles.md`, `providers.md`, `bots-telegram.md`, `architecture-leo.md`, `pourquoi-deepseek-pas-gemini.md`, `ch07-multi-bots.md`, `ch05-gateway-profils.md`, `dashboards.md`, `backup-recovery.md`, `interface-web.md`).
+
 ---
 
 ## 🏛️ Rappels des faits historiques antérieurs
@@ -67,6 +72,7 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
 
 - **11/07/2026 — Suppression de la mémoire partagée** : arrêt du mécanisme de synchronisation transverse des mémoires et bascule sur le modèle hermétique où chaque profil détient exclusivement ses propres `memories/`.
 - **26/07/2026 — Rationalisation des profils** : renommage du profil `bureau-robert` en `robert` ; attribution formelle des crons et de l'infrastructure au profil `michel`.
+- **Rôles initiaux d'Émile et Gérard** : Le profil `emile` a débuté comme assistant pour les études et la rédaction du mémoire de fin d'études avant son affectation professionnelle au workbench Avenyra. Le profil `gerard` a d'abord été documenté sur la seule documentation T600/OCA avant la prise en compte complète de ses activités d'astronomie et du site tofdan.
 - **Anciennes configurations de modèles** : utilisation historique de DeepSeek V4 (Flash / Pro) et compteurs antérieurs (45 à 58 crons selon les étapes de consolidation de juillet et août 2026), supplantés par la stack actuelle mesurée au 20/09/2026.
 
 ---

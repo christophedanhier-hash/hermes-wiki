@@ -140,7 +140,6 @@ graph TB
     GW -->|"déploie"| GH["GitHub Pages<br/>1 dashboard unifié"]
     GW -->|"utilise"| Google["Google APIs<br/>Drive · Gmail · Calendar · Sheets"]
     GW -->|"appelle"| Ollama
-    null
 ```
 
 ### Services système

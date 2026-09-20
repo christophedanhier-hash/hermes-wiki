@@ -39,11 +39,16 @@ Six profils opérationnels ont été observés le 20/09/2026 :
 | `default` | LEO, dialogue et pilotage | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `michel` | infrastructure, crons et déploiements | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `robert` | conseil stratégique | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `emile` | pédagogie et formation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | dossiers T600/OCA | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `emile` | assistant professionnel Émilie (My Émile IA Workbench) | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | astronomie, astrophotographie, site tofdan et documentation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `sylvia` | voyages | OpenRouter | `meta/muse-spark-1.3-contributor` | selon sa configuration |
 
 `leo` est l'alias Hive du profil `default`, pas un septième profil d'exécution. Les profils disposent de leurs propres configurations, sessions et mémoires ; il ne faut pas présenter une mémoire partagée comme architecture actuelle.
+
+> [!NOTE]
+> **Évolution des rôles opérationnels :**
+> - **Émile** n'est plus un assistant pédagogique ou de mémoire (cette phase initiale de formation étant achevée). Il est l'assistant professionnel d'Émilie au sein de My Émile IA Workbench (développé via Avenyra) pour rédiger, structurer et gérer notes, rapports, activités et documents professionnels (avec validation humaine).
+> - **Gérard** n'est pas limité aux dossiers T600/OCA (qui constituent un projet parmi d'autres). Il est l'assistant de Christophe pour ses activités d'astronomie et d'astrophotographie, le wiki et le site tofdan liés à l'astronomie, ainsi que la documentation générale et son étude comme guide astronomie.
 
 Les modèles effectifs doivent être confirmés par la configuration chargée et, lorsque nécessaire, par `session_model_usage`. Un nom de modèle configuré n'est pas à lui seul une preuve d'appel réussi.
 
@@ -56,7 +61,7 @@ Les gateways observées sont séparées par profil. Les interfaces et services o
 | Panel LEO | 8765 | accessible réseau | métriques, crons et pilotage |
 | Leo Docs | 8766 | accessible réseau | explorateur documentaire |
 | Hermes dashboard | 9119 | accessible réseau | interface Hermes |
-| My Émile IA | 8793 | localhost | workbench métier |
+| My Émile IA | 8793 | localhost | workbench professionnel Émilie (Avenyra) |
 
 La présence d'un processus ne suffit pas à déclarer un service sain : la route HTTP et le contenu servi doivent être contrôlés.
 

@@ -1,115 +1,97 @@
-Le titre ne reflète pas les informations sur les profils/bots. Il devrait être mis à jour pour inclure ces détails.
+# Chapitre 13 — Bureau Émile : assistant professionnel d'Émilie
 
-Le Bureau Émile est un assistant pédagogique dédié à l'accompagnement d'Émilie pour son **mémoire de fin d'études en sciences de l'éducation**. C'est le plus jeune bureau de LEO, créé le 25 juin 2026.
+Le Bureau Émile est dédié à l'accompagnement professionnel d'Émilie au sein de l'environnement **My Émile IA Workbench** (développé via Avenyra, accessible localement sur le port `8793`).
 
-## Son rôle
+> 📜 **Contexte historique :** Créé initialement le 25 juin 2026 pour assister Émilie lors de la rédaction de son mémoire de fin d'études en sciences de l'éducation, le profil `emile` a évolué : la phase de formation, de pédagogie et de mémoire universitaire est aujourd'hui terminée. Émile est désormais son assistant professionnel pérenne pour toutes ses activités métier.
 
-Émile n'est pas un correcteur automatique — c'est un **partenaire de rédaction** qui suit l'étudiante tout au long de son travail.
+---
+
+## Son rôle actuel
+
+Émile est un **partenaire de travail professionnel** qui seconde Émilie au quotidien dans la rédaction, la structuration et le suivi de ses documents professionnels, avec validation humaine systématique :
 
 ```
-Bureau Émile = votre directeur de mémoire IA
-├── 📖 Relecture et amélioration des chapitres
-├── 📚 Bibliographie et références
-├── 📝 Structure et plan du mémoire
-├── 🔄 Versionning (brouillons → versions finales)
-├── 💡 Suggestions d'amélioration
-└── ✅ Vérification orthographe et style académique
+Bureau Émile = assistant professionnel (My Émile IA Workbench)
+├── 📝 Rédaction et structuration de notes professionnelles
+├── 📊 Préparation et synthèse de rapports d'activité
+├── 📁 Gestion, organisation et classement documentaire métier
+├── 🔄 Suivi des activités, comptes-rendus et livrables
+├── 💡 Suggestions de clarification et relecture stylistique
+└── 👤 Validation humaine obligatoire avant toute finalisation
 ```
+
+---
 
 ## Architecture
 
 ```mermaid
 flowchart TB
-    E[👩‍🎓 Émile] -->|chat| BOT["🤖 Bot @Bureau_ia_emilie_bot"]
-    E -->|lit| WIKI["📖 Wiki Mémoire"]
-    BOT -->|primaire| DS["🧠 DeepSeek V4 Flash"]
-    BOT -->|fallback >128K| GM["🌐 Gemini 3.5 Flash"]
-    BOT -->|charge contexte| WIKI
-    WIKI --> GH["🌍 GitHub Pages"]
+    E["👩‍💼 Émilie"] -->|"chat / validation"| BOT["🤖 Bot @Bureau_ia_emilie_bot"]
+    E -->|"interface web"| UI["💻 Workbench My Émile IA<br/>(Port 8793 - Avenyra)"]
+    BOT -->|"provider principal"| AZ["🧠 Azure Foundry<br/>(gpt-5.6-luna)"]
+    BOT -->|"secours"| GM["🌐 Google Gemini"]
+    BOT -->|"fichiers & notes"| VAULT["📂 Notes & Docs Pro<br/>(vault-emile)"]
 ```
 
-- **Modèle principal** : DeepSeek V4 Flash (contexte 128K tokens)
-- **Fallback** : Gemini 3.5 Flash (contexte 1M tokens — gratuit)
+### Caractéristiques opérationnelles
+
+- **Profil Hermes** : `emile`
 - **Bot Telegram** : [@Bureau_ia_emilie_bot](https://t.me/Bureau_ia_emilie_bot)
-- **Wiki** : [emile-wiki](https://christophedanhier-hash.github.io/emile-wiki/)
+- **Interface applicative** : Workbench My Émile IA (port local `8793`, développé via Avenyra)
+- **Modèle de référence** : Azure Foundry (`gpt-5.6-luna`), secours déclaré Google Gemini (historique sous DeepSeek Flash)
+- **Dépôt documentaire** : `emile-wiki` et coffre local `vault-emile`
 
-### Pourquoi deux modèles ?
+---
 
-Le mémoire d'Émilie peut faire 50 à 150 pages. Si le contexte dépasse 128K tokens (la limite de DeepSeek), le bot bascule automatiquement sur Gemini qui accepte jusqu'à 1 million de tokens — gratuitement.
+## Principes professionnels
 
-```python
-if contexte_tokens < 128_000:
-    utiliser("deepseek-v4-flash")   # Payant mais meilleur
-else:
-    utiliser("gemini-3.5-flash")   # Gratuit, contexte géant
-```
+1. **Validation humaine** — l'agent produit des ébauches, synthèses et structurations ; la validation finale relève exclusivement d'Émilie.
+2. **Structure et clarté** — chaque note ou rapport privilégie des plans clairs, des points d'action et des synthèses décisionnelles.
+3. **Traçabilité** — conservation de l'historique des versions et des documents sources.
+4. **Confidentialité** — données confinées au profil professionnel isolé et au poste de travail.
 
-## Sources de connaissance
+---
 
-Le bot s'alimente à plusieurs sources :
-
-| Source | Description | Comment |
-|:-------|:------------|:--------|
-| **Wiki** | Documentation structurée | Lecture automatique |
-| **Drive** | Brouillons, notes, documents | Sync horaire → Wiki |
-| **Conversation** | Historique Telegram | Mémoire de session |
-
-### Contenu du wiki
-
-Le wiki Émile contient déjà :
-
-- **Plan du mémoire** — structure validée par le directeur
-- **Chapitres** — brouillons en cours d'écriture
-- **Bibliographie** — sources et références
-- **Notes de recherche** — réflexions personnelles
-- **Retours du directeur** — annotations et corrections
-
-## Workflow typique
+## Workflow professionnel typique
 
 ```
-1. Émile écrit un brouillon dans Google Docs
-2. Sauvegarde dans le dossier Drive partagé "bureau-emile"
-3. La sync horaire convertit le .docx en .md → Wiki
-4. Émile demande : "Peux-tu relire mon chapitre 2 ?"
-5. Le bot charge le chapitre depuis le Wiki
-6. Analyse : structure, style, orthographe, références
-7. Retour avec suggestions d'amélioration
+1. Réception ou collecte de notes brutes d'activité
+2. Transmission via le Workbench My Émile IA ou Telegram
+3. Structuration automatique : plan, synthèse, points clés, actions
+4. Relecture et ajustements interactifs avec Émilie
+5. Validation humaine explicite par Émilie
+6. Classement dans le dossier d'activité et mise à jour du suivi
 ```
 
-## Règles pédagogiques
-
-1. **Bienveillance** — toujours encourageant et constructif
-2. **Structure** — chaque retour a : points forts, suggestions, questions
-3. **Exemples** — illustrer les corrections avec des exemples concrets
-4. **Progression** — célébrer les améliorations d'une version à l'autre
-5. **Autonomie** — ne jamais réécrire à la place d'Émilie, guider
+---
 
 ## Intégration avec les autres bureaux
 
 | Bureau | Interaction |
 |:-------|:------------|
-| 🔧 **Michel** | Héberge le bot, gère le cron de sync Drive→Wiki |
-| 🤖 **LEO** | Point d'entrée : redirige les demandes pédagogiques |
-| 🏛️ **Robert** | Pourrait faire une analyse qualité du mémoire |
+| 🔧 **Michel** | Hébergement du profil, gestion des scripts système et des watchdogs |
+| 🤖 **LEO** | Hub central : routage des communications transverses |
+| 🏛️ **Robert** | Conseil sur la gouvernance documentaire et les méthodes |
 
-## Comparaison avec Sylvia
+---
 
-Le Bureau Émile est inspiré du Bureau Sylvia (voyages) — même pattern, adapté à l'académique :
+## Genèse et historique : du mémoire universitaire au Workbench métier
 
-| Aspect | Sylvia (voyages) | Émile (mémoire) |
-|:-------|:----------------:|:----------------:|
-| **Utilisateur** | Christophe + amis | Émilie |
-| **Livrable** | Roadbook | Mémoire |
-| **Wiki** | `voyages-wiki` | `emile-wiki` |
-| **Sync** | Drive → GitHub (docs voyages) | Drive → GitHub (brouillons) |
-| **Modèle** | DeepSeek V4 Flash | DeepSeek Flash + Gemini fallback |
-| **Création** | 03/06/2026 | 25/06/2026 |
+À sa création en juin 2026, Émile a été inspiré du modèle du Bureau Sylvia (voyages) pour l'appliquer au cadre académique du mémoire universitaire :
+
+| Aspect | Période initiale (juin-juillet 2026) | Rôle pérenne actuel |
+|:-------|:-------------------------------------|:--------------------|
+| **Vocation** | Compagnon de mémoire universitaire | Assistant professionnel au quotidien |
+| **Interface** | Bot Telegram + synchronisation Drive | Workbench My Émile IA (port 8793) + Telegram |
+| **Développement** | Scripts expérimentaux BAVI | Workbench structuré développé via Avenyra |
+| **Livrables** | Chapitres et bibliographie du mémoire | Notes, rapports d'activité, documentation pro |
+| **Statut de phase** | Formation / études | **Terminée** — activité professionnelle active |
+
+---
 
 ## Voir aussi
 
-- **Ch.7** : Multi-bots — comment créer un profil dédié
-- **Ch.8** : Skills — les compétences pédagogiques
-- **Ch.9** : Mémoire persistante
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
-
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+- **Ch.7** : [Multi-bots](../configurer/ch07-multi-bots.md) — configuration des profils Hermes
+- **Ch.10** : [Architecture des bureaux](ch10-architecture-bureaux.md) — organisation BAVI
+- **Architecture de référence** : [`hermes/architecture.md`](../architecture.md)
+- **Supervision & interfaces** : [`hermes/utilisation/dashboards.md`](../utilisation/dashboards.md)

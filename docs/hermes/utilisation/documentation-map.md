@@ -32,6 +32,7 @@ La page `hermes/architecture.md` est désormais la page canonique de l'état act
 |---|---|
 | `hermes/etat-des-lieux.md` | conserver comme historique ; ne pas utiliser pour les chiffres actuels |
 | `hermes/decouvrir/ch03-architecture-leo.md` | conserver comme chapitre pédagogique ; réaligner ou marquer les instantanés historiques |
+| `hermes/annexes/exemple-leo-complet.md` | conserver comme retour d'expérience historique (mono-profil post-crash) |
 | archives et journaux datés | conserver sans réécrire les faits de leur date |
 
 ## Matrice des changements

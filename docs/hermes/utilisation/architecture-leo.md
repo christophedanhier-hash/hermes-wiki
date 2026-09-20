@@ -20,12 +20,12 @@ Six profils opérationnels ont été mesurés au 20/09/2026 :
 | `michel` | Infrastructure, crons & déploiements | `@hermes_leo_copilot_bot` | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` |
 | `robert` | Conseil stratégique IT & architecture | `@bureau_robert_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `sylvia` | Voyages, itinéraires & roadbooks | `@bavi_leo_voyages_bot` | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon config |
-| `emile` | Pédagogie, mémoire & formation | `@Bureau_ia_emilie_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | Dossiers documentaires T600/OCA | Profil opérationnel | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `emile` | Assistant professionnel Émilie (Workbench) | `@Bureau_ia_emilie_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | Astronomie, astrophotographie & documentation | Profil opérationnel | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 
 > [!NOTE]
 > - `leo` est l'alias Hive du profil `default`, et non un profil d'exécution supplémentaire.
-> - Gérard est un profil opérationnel dédié aux dossiers T600/OCA sans bot Telegram inventé si non prouvé.
+> - Gérard est un profil opérationnel dédié à l'astronomie, à l'astrophotographie, au site tofdan et à la documentation générale (le dossier T600/OCA étant un volet parmi d'autres ; pas de bot Telegram inventé si non prouvé).
 > - L'accès à `default` n'utilise aucun handle public inventé.
 
 ---
@@ -76,7 +76,7 @@ Les ports et services réels observés sur la machine au 20/09/2026 sont les sui
 | **Panel LEO** | 8765 | Accessible réseau | Métriques globales, crons, supervision des profils |
 | **Leo Docs** | 8766 | Accessible réseau | Explorateur documentaire et wikis |
 | **Hermes Dashboard** | 9119 | Accessible réseau | Interface native Hermes Agent |
-| **My Émile IA** | 8793 | Localhost | Workbench métier et pédagogique |
+| **My Émile IA** | 8793 | Localhost | Workbench professionnel Émilie (Avenyra) |
 
 ---
 
@@ -114,7 +114,7 @@ Chaque profil s'appuie sur son propre espace documentaire pour ses notes et synt
 |---|---|---|
 | **michel** | `michel` | Exploitation infra, journaux d'interventions, runbooks |
 | **default** | `default` | Notes de pilotage général et échanges Christophe |
-| **emile** | `emile` | Suivi pédagogique, recherches, rédaction du mémoire |
+| **emile** | `emile` | Notes professionnelles, activités et documentation métier |
 | **sylvia** | `sylvia` | Fiches étapes, roadbooks et documentation camping-car |
 | **robert** | `robert` | Notes stratégiques, audits de systèmes, analyses |
 
@@ -125,6 +125,7 @@ Chaque profil s'appuie sur son propre espace documentaire pour ses notes et synt
 > 📜 **Historique post-crash (juillet - août 2026) :**
 >
 > - **Reconstruction du 30/06/2026 :** Après le crash de fin juin 2026, l'architecture a été consolidée autour d'un collecteur unifié (`collect-v2.py`) et de profils étanches avec mémoires indépendantes.
+> - **Évolution des profils Émile et Gérard :** Le profil `emile` a initialement soutenu la formation et le mémoire de fin d'études d'Émilie avant de devenir son assistant professionnel au quotidien. Le profil `gerard` a été documenté initialement sur le dossier technique T600/OCA avant d'englober l'ensemble des activités d'astronomie, le site tofdan et son étude comme guide astronomie.
 > - **Fournisseurs initiaux :** Les configurations de juillet 2026 utilisaient initialement DeepSeek Direct (`deepseek-v4-flash` / `deepseek-v4-pro`) avec un budget initial constaté de ~$19.97, avant la bascule ultérieure vers Azure Foundry (`gpt-5.6-luna`).
 > - **Crons intermédiaires :** Les paliers à 45, 49 puis 58 crons documentés à l'été 2026 représentent des états historiques antérieurs à l'inventaire stabilisé de 72 jobs au 20/09/2026.
 

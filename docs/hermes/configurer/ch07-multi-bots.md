@@ -1,4 +1,4 @@
-Le titre devrait être mis à jour pour refléter les noms réels des bots utilisés.
+# Chapitre 7 — Multi-bots : pourquoi 5 bots valent mieux qu'un
 
 LEO ne tourne pas avec un seul bot Telegram, mais avec **cinq bots spécialisés**. Chaque bot a son propre profil Hermes, son propre modèle, son propre rôle — et ils communiquent entre eux.
 
@@ -9,7 +9,14 @@ Un seul bot peut tout faire. Alors pourquoi en créer plusieurs ?
 ### 1. Séparation des responsabilités
 
 ``` 
-Le diagramme doit être mis à jour pour refléter les noms réels des bots utilisés.
+Un seul bot                                                 5 bots spécialisés
+┌─────────────────────┐           ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐
+│ 🦁 LEO              │           │ 🦁 LEO   │ │ 🔧       │ │ 🧭       │ │ 💼       │ │ 🏛️       │
+│                     │           │ Central  │ │ Michel   │ │ Sylvia   │ │ Émile    │ │ Robert   │
+│ • Analyses          │    →      │ Hub      │ │ Infra    │ │ Voyages  │ │ Pro      │ │ Conseil  │
+│ • Emails            │           │ général  │ │ Système  │ │ Roadbooks│ │ Docs     │ │ Strat    │
+│ • Transverse        │           └──────────┘ └──────────┘ └──────────┘ └──────────┘ └──────────┘
+└─────────────────────┘
 ```
 
 Avec un seul bot, tout est mélangé. Avec plusieurs bots :
@@ -17,12 +24,17 @@ Avec un seul bot, tout est mélangé. Avec plusieurs bots :
 - **michel** : l'ingénieur infrastructure — crons, dashboards, scripts Python, budget, système (root sudo) — gère tous les crons (46 jobs, tous actifs)
 - **robert** : le consultant stratégique — analyses IT, recommandations
 - **sylvia** (Sylvia) : la voyageuse — roadbooks camping-car, itinéraires, cartes OSM
-- **emile** : l'assistant pédagogique — mémoire, création de contenu
+- **emile** : l'assistant professionnel d'Émilie — My Émile IA Workbench (développé via Avenyra) pour rédiger, structurer et gérer notes, rapports, activités et documents pro (la phase initiale de formation/mémoire étant terminée)
 
 ### 2. Modèles adaptés à chaque usage
 
-Les modèles utilisés doivent être mis à jour pour refléter les noms réels des fournisseurs et des modèles. Conseil stratégique IA |
-| emile | DeepSeek V4 Flash | Payant (faible) | Pédagogie, mémoire |
+| Bot | Modèle principal | Coût | Usage typique |
+|:----|:-----------------|:----:|:--------------|
+| `default` | DeepSeek V4 Flash | Payant (faible) | Quotidien, polyvalent |
+| `michel` | DeepSeek V4 Pro | Payant (faible) | Analyses complexes, infra |
+| `sylvia` | DeepSeek V4 Flash | Payant (faible) | Roadbooks, voyages |
+| `robert` | DeepSeek V4 Pro | Payant (faible) | Conseil stratégique IA |
+| `emile` | DeepSeek V4 Flash | Payant (faible) | Documents professionnels Émilie (Workbench) |
 | (fallback) | Gemini 3.5 Flash + Ollama qwen2.5:7b | Gratuit | Si DeepSeek indisponible |
 
 ### 3. Isolation des tokens et permissions
@@ -168,7 +180,7 @@ stat -L -c "%n → inode %i" ~/Projets_Dev/SOUL.md ~/.hermes/profiles/*/SOUL.md
 # Tous doivent montrer le MÊME inode
 ```
 
-**⚠️ Quand NE PAS unifier :** les profils avec des personnalités différentes (Sylvia voyage ≠ Émile pédagogie) gardent leur propre SOUL.md indépendant. Seuls les profils qui sont la **même personne avec un modèle différent** partagent un SOUL.md unifié.
+**⚠️ Quand NE PAS unifier :** les profils avec des personnalités différentes (Sylvia voyage ≠ Émile professionnel) gardent leur propre SOUL.md indépendant. Seuls les profils qui sont la **même personne avec un modèle différent** partagent un SOUL.md unifié.
 
 ### 3. Skills synchronisés
 
@@ -199,9 +211,11 @@ delegation:
 | `default` | LEO 🦁 | DeepSeek V4 Flash | Hub central — analyses, emails, docs |
 | `michel` | Léo Copilote 🦁 | DeepSeek V4 Pro | Infrastructure — crons, système, budget |
 | `sylvia` | Sylvia 🚐 | DeepSeek V4 Flash | Roadbooks camping-car, voyages |
-| `emile` | Émile 🎓 | DeepSeek V4 Flash | Assistant pédagogique mémoire |
+| `emile` | Émile 💼 | DeepSeek V4 Flash | Assistant professionnel Émilie (Workbench) |
 | `robert` | Robert 🏛️ | DeepSeek V4 Pro | Conseil stratégique IA |
 
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+> [!NOTE]
+> **Précision historique et profils actuels (20/09/2026) :**
+> Ce chapitre décrit la configuration multi-bots initiale. Le profil `emile` a débuté comme assistant pour les études et le mémoire avant d'évoluer vers l'assistance professionnelle au quotidien dans My Émile IA Workbench (développé via Avenyra). Par ailleurs, le profil opérationnel `gerard` (astronomie, astrophotographie, site tofdan, guide d'étude et documentation) opère localement sans bot Telegram.
 
-> 🤖 Dernier audit : 30/07/2026 à 06:00 (UTC+2)
+*Document mis à jour le 20/09/2026 — Léo 🦁*

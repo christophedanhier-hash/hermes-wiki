@@ -8,7 +8,7 @@ Ce document détaille l'organisation des profils opérationnels Hermes, leurs pa
 > **Principes d'architecture canonique :**
 > - **LEO est un agent Hermes** (profil `default`) et non un bot Telegram autonome. Son accès s'effectue via le gateway Hermes en DM Telegram direct avec Christophe, sans handle public inventé.
 > - **`leo`** est l'alias Hive du profil `default`, et non un septième profil d'exécution distinct.
-> - **Gérard** est un profil opérationnel dédié aux dossiers T600/OCA (aucun bot Telegram n'est inventé sans preuve de déploiement).
+> - **Gérard** est un profil opérationnel dédié à l'astronomie, l'astrophotographie, le wiki et le site tofdan liés à l'astronomie, la documentation générale et le guidage d'étude (le projet T600/OCA étant un volet parmi d'autres ; aucun bot Telegram n'est inventé sans preuve de déploiement).
 > - **Six profils opérationnels** sont actifs au 20/09/2026 : `default`, `michel`, `robert`, `sylvia`, `emile` et `gerard`.
 > - **Mémoire indépendante** : chaque profil dispose de son propre répertoire `memories/` hermétique (`~/.hermes/profiles/<nom>/memories/`). Aucune mémoire n'est partagée.
 > - **Hive** assure la coordination asynchrone (messages, délégations, obligations) entre profils sans mutualiser leurs contextes de mémoire.
@@ -42,7 +42,7 @@ flowchart TD
         Agent3 --> OR3
     end
 
-    subgraph EMILE["👤 Émile — Pédagogie & Formation"]
+    subgraph EMILE["👤 Émile — Assistant Pro Émilie"]
         direction TB
         Agent4["🤖 Hermes Agent<br/>Profil: emile"]
         AF4["⚡ Azure Foundry<br/>gpt-5.6-luna"]
@@ -56,7 +56,7 @@ flowchart TD
         Agent5 --> AF5
     end
 
-    subgraph GERARD["📁 Gérard — Dossiers T600/OCA"]
+    subgraph GERARD["🔭 Gérard — Astronomie & Documentation"]
         direction TB
         Agent6["🤖 Hermes Agent<br/>Profil: gerard"]
         AF6["⚡ Azure Foundry<br/>gpt-5.6-luna"]
@@ -250,9 +250,9 @@ flowchart LR
 
 ---
 
-## 4. 👤 Émile — Pédagogie & Formation (`@Bureau_ia_emilie_bot`)
+## 4. 👤 Émile — Assistant professionnel d'Émilie (`@Bureau_ia_emilie_bot`)
 
-Le profil `emile` accompagne les travaux de recherche, la rédaction de mémoire et les activités de formation.
+Le profil `emile` est l'assistant professionnel d'Émilie dans My Émile IA Workbench (développé via Avenyra). Il l'aide à rédiger, structurer et gérer ses notes, rapports, activités et documents professionnels (avec validation humaine). La phase initiale de formation et d'accompagnement de mémoire universitaire est désormais terminée.
 
 ```mermaid
 flowchart LR
@@ -261,7 +261,7 @@ flowchart LR
         P3["📋 Profil: emile"]
         B3["📱 @Bureau_ia_emilie_bot"]
         M3["⚡ Azure Foundry<br/>gpt-5.6-luna"]
-        S3["🎓 Workbench My Émile IA<br/>port 8793 (localhost)"]
+        S3["💼 Workbench My Émile IA<br/>port 8793 (localhost)"]
         MEM3["💾 Mémoire dédiée<br/>~/.hermes/profiles/emile/memories/"]
     end
 
@@ -280,7 +280,7 @@ flowchart LR
 
 - **Interface** : Bot Telegram `@Bureau_ia_emilie_bot`.
 - **Moteur configuré** : Azure Foundry `gpt-5.6-luna` (secours Google Gemini).
-- **Service local associé** : Workbench My Émile IA (`http://localhost:8793` en écoute locale).
+- **Service local associé** : Workbench My Émile IA (`http://localhost:8793` en écoute locale, développé via Avenyra).
 - **Mémoire** : Indépendante (`~/.hermes/profiles/emile/memories/`).
 
 ---
@@ -320,18 +320,18 @@ flowchart LR
 
 ---
 
-## 6. 📁 Gérard — Dossiers T600/OCA (Profil opérationnel)
+## 6. 🔭 Gérard — Astronomie, Astrophotographie & Documentation (Profil opérationnel)
 
-Le profil `gerard` assure le traitement spécialisé et l'indexation des dossiers documentaires T600/OCA.
+Le profil `gerard` est l'assistant de Christophe pour ses activités d'astronomie et d'astrophotographie, le wiki et le site tofdan liés à l'astronomie, ainsi que la documentation générale et son étude comme guide astronomie. Le dossier T600/OCA constitue un projet spécialisé parmi d'autres dans son champ d'action.
 
 ```mermaid
 flowchart LR
-    subgraph PROF6["📁 Profil gerard"]
+    subgraph PROF6["🔭 Profil gerard"]
         direction TB
         P5["📋 Profil: gerard"]
         CLI5["💻 CLI / Workflows internes"]
         M5["⚡ Azure Foundry<br/>gpt-5.6-luna"]
-        S5["📁 Traitement dossiers T600/OCA"]
+        S5["🔭 Astronomie, astrophoto,<br/>site tofdan & docs (dont T600)"]
         MEM5["💾 Mémoire dédiée<br/>~/.hermes/profiles/gerard/memories/"]
     end
 
@@ -350,6 +350,7 @@ flowchart LR
 
 - **Interface** : Profil opérationnel local déclenché par ligne de commande ou scripts internes (aucun bot Telegram fictif).
 - **Moteur configuré** : Azure Foundry `gpt-5.6-luna` (secours Google Gemini).
+- **Périmètre** : Astronomie, astrophotographie, site tofdan, guide d'étude et documentation générale (projet T600 inclus).
 - **Mémoire** : Indépendante (`~/.hermes/profiles/gerard/memories/`).
 
 ---
@@ -498,9 +499,9 @@ flowchart TB
 | Dialogue quotidien, coordination générale, veille | **LEO** | DM Telegram direct (Gateway) | Azure Foundry (`gpt-5.6-luna`) | `default` | Indépendante |
 | Infrastructure, crons, dashboards, sauvegardes | **Michel** | Bot `@hermes_leo_copilot_bot` | Azure Foundry (`gpt-5.6-luna`) | `michel` | Indépendante |
 | Roadbooks, logistique voyages camping-car | **Sylvia** | Bot `@bavi_leo_voyages_bot` | OpenRouter (`muse-spark-1.3`) | `sylvia` | Indépendante |
-| Pédagogie, suivi de mémoire, formation | **Émile** | Bot `@Bureau_ia_emilie_bot` | Azure Foundry (`gpt-5.6-luna`) | `emile` | Indépendante |
+| Rédaction et gestion de notes, rapports, activités et documents pro Émilie | **Émile** | Bot `@Bureau_ia_emilie_bot` | Azure Foundry (`gpt-5.6-luna`) | `emile` | Indépendante |
 | Conseil stratégique IT, gouvernance, audits | **Robert** | Bot `@bureau_robert_bot` | Azure Foundry (`gpt-5.6-luna`) | `robert` | Indépendante |
-| Traitement et suivi des dossiers T600/OCA | **Gérard** | Profil local (CLI / jobs internes) | Azure Foundry (`gpt-5.6-luna`) | `gerard` | Indépendante |
+| Astronomie, astrophotographie, site tofdan/astro, guide d'étude & docs (dont T600) | **Gérard** | Profil local (CLI / jobs internes) | Azure Foundry (`gpt-5.6-luna`) | `gerard` | Indépendante |
 
 ### Synthèse des interfaces
 
@@ -509,9 +510,9 @@ flowchart TB
 | **LEO** | Agent Hermes principal | Non — DM direct (Gateway) | `gpt-5.6-luna` | `default` (alias Hive: `leo`) |
 | **Michel** | Copilote infrastructure & crons | Oui — `@hermes_leo_copilot_bot` | `gpt-5.6-luna` | `michel` |
 | **Sylvia** | Spécialiste voyages | Oui — `@bavi_leo_voyages_bot` | `meta/muse-spark-1.3-contributor` | `sylvia` |
-| **Émile** | Assistant pédagogique | Oui — `@Bureau_ia_emilie_bot` | `gpt-5.6-luna` | `emile` |
+| **Émile** | Assistant professionnel Émilie (Workbench) | Oui — `@Bureau_ia_emilie_bot` | `gpt-5.6-luna` | `emile` |
 | **Robert** | Conseiller stratégique IA | Oui — `@bureau_robert_bot` | `gpt-5.6-luna` | `robert` |
-| **Gérard** | Spécialiste dossiers T600/OCA | Non — Ligne de commande / scripts | `gpt-5.6-luna` | `gerard` |
+| **Gérard** | Assistant astronomie, astrophotographie & docs | Non — Ligne de commande / scripts | `gpt-5.6-luna` | `gerard` |
 
 > **Règle fondamentale d'identification :**
 > **LEO n'est pas un bot Telegram.** LEO est l'agent Hermes central de Christophe. Les bots Telegram sont des passerelles de profils spécialisés isolés.
@@ -525,6 +526,7 @@ flowchart TB
 > Les éléments suivants sont conservés à des fins de traçabilité historique et d'archivage des versions antérieures :
 > - **11/07/2026 — Suppression de la mémoire partagée** : Clôture du mécanisme de partage de contexte transverse. Remplacement par l'isolation étanche où chaque profil gère son répertoire `memories/`.
 > - **26/07/2026 — Refonte des profils et copilotes** : Renommage du profil `bureau-robert` en `robert` ; centralisation de la gestion des crons sous le profil `michel` (succédant à l'ancien alias `leo-copilot`).
+> - **Évolution des profils Émile et Gérard** : Le profil `emile` accompagnait initialement Émilie dans sa formation et son mémoire de fin d'études avant de devenir son assistant professionnel au sein de My Émile IA Workbench (Avenyra). Le profil `gerard` a été documenté initialement sur le seul projet T600/OCA avant la formalisation de son périmètre d'assistant astronomie, astrophotographie, site tofdan et documentation générale.
 > - **Ancienne pile LLM** : Configuration antérieure sous DeepSeek V4 (Flash / Pro) et Ollama local (`qwen2.5:7b`), aujourd'hui remplacée par la configuration Azure Foundry et OpenRouter mesurée au 20/09/2026.
 > - **Anciens compteurs de crons** : Des instantanés historiques mentionnaient 45 à 58 crons actifs en juillet et août 2026. L'état actuel mesuré au 20/09/2026 est de **72 jobs** planifiés dans `profiles/michel/cron/jobs.json` (71 activés, 70 `no_agent`, 2 LLM).
 

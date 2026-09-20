@@ -30,15 +30,16 @@ vs
 | 🔧 **Michel** | Infrastructure — crons, dashboards, scripts Python, budget | ✅ Actif |
 | 🤖 **LEO** | Hub central — analyses, dossiers personnels | ✅ Actif |
 | 🧭 **Sylvia** | Voyages — roadbooks camping-car, itinéraires | ✅ Actif |
-| 🎓 **Émile** | Pédagogie — assistant mémoire universitaire | ✅ Actif |
+| 💼 **Émile** | Assistant professionnel d'Émilie — My Émile IA Workbench (Avenyra) | ✅ Actif |
 | 🏛️ **Robert** | Conseil stratégique IT — architectures, recommandations | ✅ Actif |
 | 💰 **Sophie** | Pilotage financier — TCO, ROI, business cases | 📝 En préparation |
-| 🏗️ **Gérard** | Documentation T600 — télescope automatisé | ✅ Actif |
+| 🔭 **Gérard** | Astronomie, astrophotographie, site tofdan & documentation | ✅ Actif |
 | 🩺 **Virginie** | Médical — consultations pluridisciplinaires | ✅ Actif |
 | 🛡️ **AO** | Assurance obligatoire — INAMI, eHealth | 📝 Structure prête |
 | 📋 **Versioning** | Gestion des versions et des releases | 📝 Structure prête |
 
 > **Note 18/07/2026** : 7 bureaux structurés, 3 en attente (Sophie, AO, Versioning). L'architecture CrewAI originale a été remplacée par les profils Hermes dédiés (sylvia, bureau-robert, emile, michel, default).
+> 💡 **Note d'évolution :** Émile a initialement été structuré autour du mémoire universitaire avant d'évoluer vers son rôle professionnel pérenne dans My Émile IA Workbench (développé via Avenyra, phase d'études achevée). Gérard intervient sur l'ensemble des activités d'astronomie, d'astrophotographie, du site tofdan et de documentation de Christophe (la documentation T600/OCA étant un volet parmi d'autres).
 
 ## Comment fonctionne un bureau
 
@@ -105,8 +106,8 @@ Chaque bureau utilise le modèle le plus adapté à son travail :
 | Michel | DeepSeek V4 Pro (via michel) | Analyses complexes, décisions techniques |
 | Sylvia | DeepSeek V4 Flash | Création de contenu, roadbooks |
 | Robert | DeepSeek V4 Pro (via bureau-robert) | Conseil stratégique, recommandations |
-| Gérard | DeepSeek V4 Flash | Documentation technique, schémas |
-| Émile | DeepSeek V4 Flash + Gemini (fallback) | Longs contextes, pédagogie |
+| Gérard | DeepSeek V4 Flash | Astronomie, astrophotographie, site tofdan, documentation technique |
+| Émile | DeepSeek V4 Flash + Gemini (fallback) | Rédaction, structuration et gestion documentaire pro (Workbench) |
 | LEO | DeepSeek V4 Flash | Usage quotidien, polyvalent |
 
 ## Le cycle de production
@@ -176,7 +177,7 @@ Ces métadonnées permettent au script `agent-pro-index.py` de générer automat
 
 - **Ch.11** : Bureau Michel — l'infrastructure en détail
 - **Ch.12** : Bureau Sylvia — les voyages
-- **Ch.13** : Bureau Émile — la pédagogie
+- **Ch.13** : Bureau Émile — assistant professionnel d'Émilie (Workbench)
 - **Ch.14** : Bureau Robert — le conseil stratégique
 - **Ch.15** : Bureau LEO et les autres bureaux
 *Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*

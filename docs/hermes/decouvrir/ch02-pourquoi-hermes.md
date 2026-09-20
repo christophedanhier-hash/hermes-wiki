@@ -113,9 +113,11 @@ Avec Hermès, vous pouvez avoir **plusieurs agents indépendants** sur la même 
 | `michel` | @hermes_leo_copilot_bot | deepseek-v4-pro | Code, infra |
 | `sylvia` | @bavi_leo_voyages_bot | DeepSeek Flash | Voyages camping-car |
 | `robert` | @bureau_robert_bot | DeepSeek V4 Pro | Conseil stratégique IT |
-| `emile` | @emile_agent_bot | DeepSeek V4 Flash | Assistant pédagogique |
+| `emile` | @Bureau_ia_emilie_bot | DeepSeek V4 Flash | Assistant professionnel Émilie (Workbench) |
 
 Chaque profil a son propre gateway, ses propres skills, sa propre mémoire. Et pourtant, ils peuvent partager des informations via un cron `sync-memory`.
+
+> 💡 **Note d'évolution :** La phase initiale de formation/mémoire du profil `emile` est terminée : il assiste désormais Émilie dans son activité professionnelle (My Émile IA Workbench, développé via Avenyra). Par ailleurs, l'écosystème comprend également le profil opérationnel local `gerard` (astronomie, astrophotographie, site tofdan et documentation, sans bot Telegram). Pour la configuration de référence actuelle sous Azure Foundry, consulter [`hermes/architecture.md`](../architecture.md).
 
 ## 🦁 Pourquoi Christophe a choisi Hermès
 

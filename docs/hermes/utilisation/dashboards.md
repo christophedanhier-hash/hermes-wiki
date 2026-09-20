@@ -27,7 +27,7 @@ Au 20/09/2026, les services et interfaces réseau observés sont :
 | **Panel LEO** | 8765 | Accessible réseau | Métriques globales, crons, supervision des 6 profils, vaults |
 | **Leo Docs** | 8766 | Accessible réseau | Explorateur documentaire et consultation des wikis |
 | **Hermes Dashboard** | 9119 | Accessible réseau | Interface native Hermes Agent |
-| **My Émile IA** | 8793 | Localhost | Workbench métier et pédagogique |
+| **My Émile IA** | 8793 | Localhost | Workbench professionnel Émilie (Avenyra) |
 
 ### Collecte unifiée (`collect-v2.py`)
 
@@ -134,7 +134,7 @@ Au 20/09/2026, la console et le portail centralisent :
 - 📊 **Panel LEO (port 8765)** : vue unifiée des métriques, sessions et états de santé ;
 - 📚 **Leo Docs (port 8766)** : accès centralisé à la documentation et aux wikis ;
 - 🤖 **Hermes Dashboard (port 9119)** : console d'administration Hermes ;
-- 🎓 **My Émile IA (port 8793)** : interface locale dédiée au travail pédagogique ;
+- 💼 **My Émile IA (port 8793)** : workbench professionnel dédié à l'activité d'Émilie (Avenyra) ;
 - 💰 **Suivi des coûts LLM** : consommation maîtrisée sur Azure Foundry et OpenRouter, coût nul pour les automatisations directes ;
 - 🚨 **Suivi opérationnel** : l'unité systemd Michel en boucle d'auto-restart (conflit de PID déjà actif) est suivie au niveau runbook infra.
 
@@ -145,6 +145,7 @@ Au 20/09/2026, la console et le portail centralisent :
 > 📜 **Historique des dashboards (juin - juillet 2026) :**
 >
 > - **30/06/2026 :** Abandon des 7 anciens dashboards fragmentés (LEO KPI, BAVI LEO, Machines, Crons, GitHub, Global) au profit d'une interface unifiée pilotée par `collect-v2.py`.
+> - **Workbench My Émile IA :** Initialement conçu pour le suivi des études et le mémoire, My Émile IA est devenu le workbench professionnel d'Émilie développé avec Avenyra.
 > - **Historique des ports et services :** Les configurations antérieures mentionnaient des ports intermédiaires (comme le port code-server 7681) qui ne font plus partie des services actifs mesurés au 20/09/2026.
 > - **Paliers de crons :** Les mentions historiques de 45, 49 ou 58 crons correspondent à des étapes de montée en charge antérieures à l'inventaire stabilisé actuel.
 

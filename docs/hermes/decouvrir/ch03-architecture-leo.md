@@ -8,7 +8,15 @@ LEO n'est pas un simple script lancé sur un Raspberry Pi. C'est un écosystème
 
 ## Vue d'ensemble
 
-Le diagramme doit être mis à jour pour inclure tous les profils et bots.
+```
+Telegram ──→ Gateway Hermes ──→ Profil default ──→ Modèle principal (dialogue)
+                                    │
+                                    ├──→ Profil michel ──→ Modèle principal (code/infra)
+                                    │
+                                    ├──→ Profils sylvia, emile, robert (spécialisés)
+                                    │
+                                    └──→ Secours / fallback automatique
+```
 
 ### Les 5 bots Telegram
 
@@ -17,7 +25,7 @@ Le diagramme doit être mis à jour pour inclure tous les profils et bots.
 | 🤖 @hermes_leo_bot | `default` | DeepSeek Flash | Chat quotidien | < 2s | Payant |
 | 🟪 @hermes_leo_copilot_bot | `michel` | DeepSeek V4 Pro | Code, infra | < 2s | Payant |
 | 🧭 @bavi_leo_voyages_bot | `sylvia` | DeepSeek Flash | Voyages camping-car | < 2s | Payant |
-| 🎓 @Bureau_ia_emilie_bot | `emile` | DeepSeek Flash | Pédagogie, mémoire | < 2s | Payant |
+| 💼 @Bureau_ia_emilie_bot | `emile` | DeepSeek Flash | Assistant professionnel Émilie (Workbench) | < 2s | Payant |
 | 🏛️ @bureau_robert_bot | `robert` | DeepSeek Pro | Conseil IT stratégique | < 2s | Payant |
 
 Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres skills. Les profils default et michel partagent une mémoire unifiée.
@@ -26,6 +34,11 @@ Chaque bot est un **profil Hermes** isolé — son propre gateway, ses propres s
 
 L'un des atouts d'Hermès est de pouvoir utiliser **plusieurs LLMs** et de choisir le meilleur pour chaque tâche :
 
+| Ordre | Provider | Coût | Quand |
+|:-----:|:---------|:----:|:------|
+| 🥇 | **DeepSeek Flash** | Payant | Réponse Telegram, conversation, raisonnement |
+| 🥈 | **DeepSeek V4 Pro** (profil michel) | Payant | Code, infra, debug système |
+| 🥉 | **Ollama** (qwen2.5:7b, local) | **Gratuit** 🏠 | Traitement batch, tâches privées |
 | 4e | **Gemini 3.5 Flash** (fallback) | **Gratuit** ☁️ | Secours si DeepSeek indisponible |
 
 **Le principe économique :** 95% des tâches planifiées (crons) tournent en `no_agent` = 0 token LLM consommé. Les 5% restants utilisent d'abord Ollama (gratuit), puis DeepSeek seulement si nécessaire.
@@ -59,7 +72,7 @@ Docker Container
 │   ├── default (profil principal)
 │   ├── michel (infrastructure)
 │   ├── sylvia (voyages)
-│   ├── emile (pédagogie)
+│   ├── emile (assistant professionnel Émilie)
 │   └── robert (conseil stratégique)
 ├── s6-log (gestion des logs)
 │   └── rotation automatique
@@ -112,11 +125,11 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 | 🦁 **LEO** | Dossiers personnels, analyses | Privé |
 | 🔧 **Michel** | Infrastructure Hermes | Privé |
 | 🧭 **Sylvia** | Voyages camping-car | Privé |
-| 🎓 **Emile** | Pédagogie, mémoire | Privé |
+| 💼 **Emile** | Assistant pro Émilie (Workbench) | Privé |
 | 🩺 **Virginie** | Médical | Privé |
 | 🏛️ **Robert** | Conseil stratégique IT | **PRO** |
 | 💰 **Sophie** | Pilotage économique | **PRO** |
-| 📋 **Gérard** | Documentation T600 | Technique |
+| 🔭 **Gérard** | Astronomie, astrophotographie & documentation | Technique |
 | 🛡️ **AO** | Assurance Obligatoire | **PRO** |
 | 📦 **Versioning** | Gestion des versions | Technique |
 
@@ -162,9 +175,11 @@ BAVI = l'organisation des connaissances de LEO en bureaux spécialisés :
 
 - LEO = 1 serveur principal + 5 bots Telegram + 1 dashboard unifié + collecte horaire unique + 28 skills
 - Tout tourne sur Hermes Agent dans un conteneur Docker supervisé par s6
-- Les 5 profils : default (dialogue), michel (infra), sylvia (voyages), emile (pédagogie), robert (conseil)
+- Les profils opérationnels : default (dialogue), michel (infra), sylvia (voyages), emile (assistant professionnel), robert (conseil), complétés par gerard (astronomie & documentation, sans bot Telegram)
 - Le secret : une organisation stricte (profils, bureaux, skills) qui permet à l'agent de gérer la complexité
 - Les erreurs du passé ont forgé les règles du présent
+
+> 💡 **Note d'évolution :** Ce chapitre présente la topologie générale et historique de LEO. Conformément à l'évolution des profils, Émile est désormais l'assistant professionnel d'Émilie (My Émile IA Workbench, développé via Avenyra, la phase études/mémoire étant achevée) et Gérard assiste Christophe pour l'astronomie, l'astrophotographie, le site tofdan et la documentation (le projet T600/OCA étant un volet parmi d'autres). Pour l'infrastructure de référence actuelle sous Azure Foundry, consulter [`hermes/architecture.md`](../architecture.md).
 
 ---
 

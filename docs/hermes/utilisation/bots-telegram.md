@@ -8,7 +8,7 @@ L'écosystème LEO s'appuie sur une architecture multi-profils isolée où chaqu
 > **Principes directeurs d'identification :**
 > - **LEO est un agent Hermes** (profil `default`) et non un bot Telegram autonome. Son accès se fait par le Gateway Hermes (en DM direct avec Christophe), sans handle public inventé.
 > - **`leo`** est l'alias Hive du profil `default`, et non un septième profil d'exécution.
-> - **Gérard** est un profil opérationnel dédié aux dossiers T600/OCA (aucun bot Telegram n'est inventé sans preuve de déploiement).
+> - **Gérard** est un profil opérationnel dédié à l'astronomie, à l'astrophotographie, au site tofdan et à la documentation générale (le T600/OCA étant un projet parmi d'autres ; aucun bot Telegram n'est inventé sans preuve de déploiement).
 > - **Six profils opérationnels** sont actifs au 20/09/2026 : `default`, `michel`, `robert`, `sylvia`, `emile` et `gerard`.
 
 ---
@@ -25,8 +25,8 @@ flowchart TB
         P_Michel["🔧 michel<br/>Infra & crons<br/>Azure Foundry"]
         P_Robert["🏛️ robert<br/>Conseil stratégique<br/>Azure Foundry"]
         P_Sylvia["🧭 sylvia<br/>Voyages<br/>OpenRouter"]
-        P_Emile["👤 emile<br/>Pédagogie<br/>Azure Foundry"]
-        P_Gerard["📁 gerard<br/>Dossiers T600/OCA<br/>Azure Foundry"]
+        P_Emile["👤 emile<br/>Assistant pro Émilie<br/>Azure Foundry"]
+        P_Gerard["🔭 gerard<br/>Astronomie & docs<br/>Azure Foundry"]
     end
 
     subgraph INTERFACES["📱 Interfaces / Gateways"]
@@ -126,16 +126,16 @@ flowchart TB
 
 ---
 
-## 4️⃣ 👤 Profil `emile` — Pédagogie (`@Bureau_ia_emilie_bot`)
+## 4️⃣ 👤 Profil `emile` — Assistant professionnel Émilie (`@Bureau_ia_emilie_bot`)
 
 | Propriété | Valeur |
 |---|---|
-| **Rôle** | Assistant pédagogique pour mémoire de fin d'études et formation |
+| **Rôle** | Assistant professionnel d'Émilie au sein de My Émile IA Workbench (développé via Avenyra) : aide à la rédaction, à la structuration et à la gestion des notes, rapports, activités et documents professionnels (avec validation humaine). La phase initiale de formation et d'accompagnement de mémoire est achevée. |
 | **Interface** | Bot Telegram `@Bureau_ia_emilie_bot` |
 | **Modèle configuré** | `gpt-5.6-luna` |
 | **Provider principal** | Azure Foundry |
 | **Fallback déclaré** | Google Gemini |
-| **Services liés** | Workbench My Émile IA (port local 8793) |
+| **Services liés** | Workbench My Émile IA (port local 8793, développé via Avenyra) |
 
 ---
 
@@ -151,12 +151,12 @@ flowchart TB
 
 ---
 
-## 6️⃣ 📁 Profil `gerard` — Dossiers T600/OCA (Profil opérationnel)
+## 6️⃣ 🔭 Profil `gerard` — Astronomie, Astrophotographie & Documentation (Profil opérationnel)
 
 | Propriété | Valeur |
 |---|---|
-| **Rôle** | Traitement et suivi des dossiers documentaires T600/OCA |
-| **Interface** | Profil opérationnel (pas de bot Telegram inventé sans preuve) |
+| **Rôle** | Assistant de Christophe pour ses activités d'astronomie et d'astrophotographie, le wiki et le site tofdan liés à l'astronomie, la documentation générale et son étude comme guide astronomie (le projet T600/OCA étant un volet parmi d'autres). |
+| **Interface** | Profil opérationnel (aucun bot Telegram fictif inventé) |
 | **Modèle configuré** | `gpt-5.6-luna` |
 | **Provider principal** | Azure Foundry |
 | **Fallback déclaré** | Google Gemini |
@@ -171,8 +171,8 @@ flowchart TB
 | `michel` | Infrastructure & crons | `@hermes_leo_copilot_bot` | Azure Foundry | `gpt-5.6-luna` | `gemini-3.7-flash` |
 | `robert` | Conseil stratégique | `@bureau_robert_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `sylvia` | Voyages camping-car | `@bavi_leo_voyages_bot` | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon config |
-| `emile` | Pédagogie & mémoire | `@Bureau_ia_emilie_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | Dossiers T600/OCA | Profil opérationnel | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `emile` | Assistant professionnel Émilie | `@Bureau_ia_emilie_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | Astronomie, astrophoto & documentation | Profil opérationnel | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 
 ---
 
@@ -181,6 +181,7 @@ flowchart TB
 > 📜 **Historique de nommage et d'architecture (juillet - août 2026) :**
 >
 > - Le profil `bureau-robert` a été renommé en `robert` en juillet 2026, tout en conservant le bot Telegram `@bureau_robert_bot`.
+> - **Rôles initiaux :** Le profil `emile` accompagnait initialement la formation et la rédaction du mémoire d'études d'Émilie avant d'évoluer vers son rôle d'assistant professionnel pour ses activités. Le profil `gerard` a d'abord été restreint à la seule documentation T600/OCA avant d'être documenté pour l'ensemble des activités d'astronomie et du site tofdan.
 > - Les chiffres antérieurs de crons (45, 49, 58) correspondent à d'anciennes étapes intermédiaires de reconstruction et de consolidation aujourd'hui archivées.
 > - La configuration d'origine basée sur DeepSeek direct a été remplacée en production par la configuration actuelle Azure Foundry et OpenRouter.
 
