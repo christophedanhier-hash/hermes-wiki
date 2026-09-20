@@ -54,6 +54,7 @@ nav:
       - 📖 Présentation: hermes/index.md
       - 🏗️ Architecture Hermes LEO (référence): hermes/architecture.md
       - 🔗 Architecture & Communication: hermes/architecture-communication.md
+      - 📜 Changelog: hermes/changelog.md
       - 💻 Installation Linux: hermes/installation/linux.md
       - ⚙️ Configuration — Providers LLM: hermes/configuration/providers.md
       - ⚙️ Configuration — Profils: hermes/configuration/profiles.md

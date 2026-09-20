@@ -9,7 +9,7 @@
 - **Profils et configuration** : [`hermes/configuration/profiles.md`](../configuration/profiles.md)
 - **Providers** : [`hermes/configuration/providers.md`](../configuration/providers.md)
 - **Dashboards** : [`hermes/utilisation/dashboards.md`](dashboards.md)
-- **Changements** : `hermes/changelog.md` (page absente du dépôt actuel ; à recréer dans un lot dédié)
+- **Changements vérifiés** : [`hermes/changelog.md`](../changelog.md)
 
 La page `hermes/architecture.md` est désormais la page canonique de l'état actuel. Les pages datées et historiques ne sont pas des sources de vérité courante.
 
@@ -19,6 +19,7 @@ La page `hermes/architecture.md` est désormais la page canonique de l'état act
 |---|---|---|---|
 | `hermes/architecture.md` | état de référence de la plateforme | configs, processus, ports, jobs | profils, providers, dashboards, changelog |
 | `hermes/architecture-communication.md` | profils, interfaces et flux | architecture canonique + gateways | profils, bots, Hive |
+| `hermes/changelog.md` | journal public des changements vérifiés | commits, audits et mesures réelles | architecture, profils, providers |
 | `hermes/configuration/profiles.md` | profils et mémoires | `profiles/*/config.yaml` | architecture |
 | `hermes/configuration/providers.md` | routage LLM | configs et usage effectif | architecture |
 | `hermes/utilisation/architecture-leo.md` | fonctionnement LEO et dashboards | architecture + collecteurs | dashboards, crons |
