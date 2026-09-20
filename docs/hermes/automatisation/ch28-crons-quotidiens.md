@@ -1,19 +1,43 @@
-Le titre devrait être mis à jour pour refléter la réalité des informations fournies.
+# Chapitre 28 — Crons quotidiens : backup, veille IA, sync
 
 Les crons quotidiens sont les tâches lourdes qui s'exécutent une fois par jour. Backup, veille IA, synchronisation — le ménage automatisé.
 
+> **Référence opérationnelle :** L'ordonnancement complet des 71 jobs actifs est documenté dans [`hermes/configuration/profiles.md`](../configuration/profiles.md) et centralisé sous le profil `michel` (`profiles/michel/cron/jobs.json`).
+
 ## Les crons quotidiens de LEO
 
-> ⚠️ **Mise à jour 04/07/2026** : suite aux changements post-crash, le déploiement des dashboards est maintenant unifié toutes les heures via `collect-v2.py`. L'Auto-Fix Daemon a été supprimé.
-
 ```yaml
-Les crons quotidiens doivent être mis à jour pour refléter ces modifications.
+06:00 — Backup quotidien
+  Action: Archive de tous les profils + configs locales
+  Rétention: 7 jours
+  Coût: 0 € (no_agent)
+  Script: ~/.hermes/profiles/michel/scripts/leo-full-backup.py
+
+07:30 — Veille IA (Phase 1)
+  Action: Collecte des flux RSS
+  Coût: 0 € (no_agent)
+
+08:00 — Veille IA (Phase 2)
+  Action: Synthèse et analyse par LLM
+  Coût: Faible (appel LLM planifié)
+
+09:00 — Hermes Update Check
+  Action: Vérifie si une mise à jour d'Hermes Agent est disponible
+  Coût: 0 € (no_agent)
+
+18:00 — Sync Drive → GitHub
+  Action: Miroir Google Drive ↔ dépôts GitHub / wikis
+  Coût: 0 € (no_agent)
 ```
 
 ## Backup quotidien
 
 ```yaml
-Les profils et bots mentionnés dans le document ne correspondent pas à la réalité. Les profils et bots actuels sont default, emile, michel, robert, sylvia.
+Périmètre de sauvegarde:
+  - Profils opérationnels : default, michel, robert, sylvia, emile, gerard
+  - Configs (config.yaml, SOUL.md, variables locales)
+  - Mémoires persistantes, skills synchronisés et sessions
+  - Scripts d'automatisation et crons
 
 Destination:
   - Local: ~/.hermes/backups/
@@ -27,13 +51,12 @@ Taille moyenne: ~40-70 MB
 
 ```yaml
 Processus:
-  - **Collecte RSS (17 sources, ~50 articles)**
-  2. DeepSeek V4 Flash analyse chaque article
-  3. Sélection des 15 plus pertinents
-  4. Rédaction du rapport formaté
-  5. Envoi par email à christophe.danhier@gmail.com
+  1. Collecte RSS (sources tech et IA)
+  2. Analyse et sélection des articles les plus pertinents
+  3. Rédaction du rapport formaté
+  4. Envoi automatique de la synthèse
 
-Coût: ~0,05 €/jour = ~1,50 €/mois
+Coût: Faible (~0,05 €/jour)
 Tags: ALERTE, NOUVEAU, À SUIVRE, CONFORMITÉ, TENDANCE
 ```
 
@@ -49,19 +72,20 @@ Fonctionnement:
 Wikis synchronisés:
   - BAVI_LEO ↔ Drive (docs bureaux)
   - voyages-wiki ↔ Drive (roadbooks)
-  - emile-wiki ↔ Drive (brouillons mémoire)
+  - emile-wiki ↔ Drive (documents et notes professionnelles)
 ```
 
 ## Planification avec cron
 
 ```yaml
 # Format: minute heure jour mois jour_semaine
-0 6 * * *   → Tous les jours à 06:00
-30 7 * * * → Tous les jours à 07:30
-0 8 * * *   → Tous les jours à 08:00
-0 9 * * *   → Tous les jours à 09:00
-0 18 * * *  → Tous les jours à 18:00
+0 6 * * *   → Tous les jours à 06:00 (backup)
+30 7 * * * → Tous les jours à 07:30 (veille phase 1)
+0 8 * * *   → Tous les jours à 08:00 (veille phase 2)
+0 9 * * *   → Tous les jours à 09:00 (check version)
+0 18 * * *  → Tous les jours à 18:00 (sync Drive)
 ```
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+---
+
+*Document mis à jour le 20/09/2026 — Léo 🦁*

@@ -133,7 +133,7 @@ flowchart TB
         MAIN["🦁 LEO Principal\nDeepSeek V4 Flash\nChat quotidien"]
         MICHEL["🔧 Michel — Infrastructure\nDeepSeek V4 Pro\nInfra, code"]
         BAVI["🧭 BAVI Voyages\nDeepSeek V4 Flash\nRoadbooks"]
-        EMILE["🎓 Émile\nDeepSeek V4 Flash\nAssistant pédagogique"]
+        EMILE["👤 Émile\nDeepSeek V4 Flash\nAssistant pro Émilie"]
         ROBERT["🏛️ Robert\nDeepSeek V4 Pro\nConseil stratégique"]
     end
 
@@ -150,6 +150,10 @@ flowchart TB
     MICHEL & ROBERT --> DS_PRO
     DS_PRO & DS_FLASH -.->|si KO| GEMINI
 ```
+
+> [!NOTE]
+> **Précision historique et rôles actuels (20/09/2026) :**
+> Dans cette analyse comparative datant de juillet 2026, Émile était initialement documenté comme assistant pédagogique et de mémoire. Son rôle actuel est celui d'assistant professionnel d'Émilie dans My Émile IA Workbench (Avenyra) pour la gestion et rédaction de notes, rapports, activités et documents pro. Le profil Gérard est l'assistant de Christophe pour l'astronomie, l'astrophotographie, le site tofdan et la documentation (en local, sans bot Telegram).
 
 ### Pourquoi Gemini n'a pas été retenu comme principal sur Michel (infra)
 

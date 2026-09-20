@@ -22,7 +22,7 @@
 | default (LEO) | 36 | Bot principal, config, tokens |
 | michel | 15 336 | Scripts, skills, sessions, logs |
 | sylvia | 3 101 | Agence voyage, roadbooks |
-| emile | 723 | Assistant pédagogique |
+| emile | 723 | Assistant professionnel Émilie |
 | robert | 10 760 | Conseil stratégique |
 
 ### Vaults Obsidian

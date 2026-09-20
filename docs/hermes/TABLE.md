@@ -101,18 +101,18 @@
   - Roadbooks et wiki voyages
   - Agence de voyage complète (camping-car, hôtels, itinéraires)
 
-- ****Ch.13 — Bureau Emile : la pédagogie****
-  - Assistant pédagogique pour mémoire de fin d'études
-  - Méthodologie d'audit et workflow
+- ****Ch.13 — Bureau Emile : assistant professionnel d'Émilie****
+  - Assistant professionnel dans My Émile IA Workbench (développé via Avenyra)
+  - Rédaction, structuration et gestion documentaire avec validation humaine
 
 - ****Ch.14 — Bureau Robert : le conseil stratégique****
   - Analyses concurrentielles
   - Recommandations stratégiques IT
-  - Documentation T600
+  - Gouvernance et architectures cibles
 
 - ****Ch.15 — Les autres bureaux****
   - Bureau Sophie : pilotage économique et financier
-  - Bureau Gérard : documentation technique
+  - Bureau Gérard : astronomie, astrophotographie et documentation
   - Bureau Virginie : orchestration médicale
   - Bureau LEO : le fourre-tout personnel
   - Assurance Obligatoire : le bureau transverse

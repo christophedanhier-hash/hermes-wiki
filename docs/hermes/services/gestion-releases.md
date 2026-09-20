@@ -50,10 +50,9 @@ cd ~/Projets_Dev/leo-tracker && git push
 
 | Point | Check |
 |:---|:---|
-| 4 gateways UP | `hermes gateway status` |
+| Gateways UP | `hermes gateway status` |
 | Crons OK | Dashboard global |
 | Dashboards OK | Vérification HTTP |
-| Supprimer la mention de l'ancien outil dans le document | ✅ Fait |
 
 ## 6. Rollback — Si échec
 

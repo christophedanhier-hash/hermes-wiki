@@ -66,7 +66,9 @@ cd ~/Projets_Dev/emile-wiki && git add -A && git commit -m "sync Drive $(date +%
 |:-----|:--------------|:------|
 | **BAVI_LEO** | `Hermes_Christophe/BAVI/` | Documentation bureaux |
 | **voyages-wiki** | `Hermes_Christophe/Voyages/` | Roadbooks camping-car |
-| **emile-wiki** | `bavi/bureau-emile/` | Mémoire universitaire |
+| **emile-wiki** | `bavi/bureau-emile/` | Notes et documents professionnels |
+
+> 💡 **Note d'évolution :** Le dossier `bureau-emile` et le wiki associé sont dédiés à la documentation et aux activités professionnelles d'Émilie (My Émile IA Workbench), la phase initiale de mémoire universitaire étant terminée.
 
 ## Résolution de conflits
 
@@ -80,7 +82,7 @@ Règle: GitHub gagne en cas de conflit.
 ## Voir aussi
 
 - **Ch.12** : Bureau Sylvia (publication des roadbooks)
-- **Ch.13** : Bureau Émile (sync des brouillons)
+- **Ch.13** : Bureau Émile (assistant professionnel d'Émilie)
 - **Ch.17** : Skills productivité
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 

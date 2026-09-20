@@ -30,8 +30,9 @@ LEO a 2 disques :
 ### RAM
 
 ```bash
-Ajouter les informations sur le nombre de profils et bots.
-# → 22.94 Go total, ~2 Go pour Hermes, ~0 Mo
+# Vérifier la mémoire utilisée
+free -h
+# Les profils Hermes et les services surveillés sont visibles dans le dashboard.
 ```
 
 Si la RAM utilisée dépasse 85%, les conteneurs Docker risquent l'OOM kill.
@@ -47,9 +48,9 @@ nvidia-smi --query-gpu=memory.used,utilization.gpu --format=csv
 ### Processus
 
 ```bash
-# Vérifier que tout tourne
-Corriger l'information sur le service Docker.
-# → hermes-agent, ollama : tous UP
+# Vérifier les services documentés
+systemctl --user --type=service --state=running
+# Les services applicatifs et leurs ports sont décrits dans l’architecture canonique.
 ```
 
 ## Dashboard machines sur LEO

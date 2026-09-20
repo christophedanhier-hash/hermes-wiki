@@ -95,7 +95,7 @@ hermes binaire: /opt/hermes/.venv/bin/hermes (pas sur PATH)
 CRASH+RECONSTRUCTION 30/06: sessions vidées → 5 bots crashésés. 
 Backup GDrive 73.7MB téléchargé + extrait. 4 gateways relancés.
 §
-Émile 🎓: emidanhier@gmail.com, @Bureau_ia_emilie_bot
+Émile 💼: @Bureau_ia_emilie_bot (My Émile IA Workbench)
 ```
 
 ### USER.md (extrait réel)

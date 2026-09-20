@@ -40,7 +40,6 @@ hermes -p mon-profil gateway run
 
 Le skill `gateway` dans `hermes-agent` gère la connexion aux plateformes de messagerie.
 
-Ajoutez des sections pour d'autres plateformes de messagerie si elles sont utilisées.
 ### Architecture du gateway
 
 Quand vous lancez `hermes gateway run`, Hermes :
@@ -87,8 +86,10 @@ Le skill `profils` documente comment organiser des instances Hermes indépendant
 | `default` | Assistant principal | DeepSeek V4 Flash | `881242...` |
 | `michel` | Infrastructure | DeepSeek V4 Pro | `899720...` |
 | `sylvia` | Bureaux BAVI | DeepSeek V4 Flash | `885780...` |
-| `emile` | Pédagogie | DeepSeek Flash + Gemini | `890688...` |
+| `emile` | Assistant professionnel Émilie (Workbench) | DeepSeek Flash + Gemini | `890688...` |
 | `bureau-robert` | Conseil stratégique IT | DeepSeek V4 Pro | — |
+
+> Note : Ce tableau présente les tokens et configurations initiales. Pour la configuration actuelle sous Azure Foundry (`gpt-5.6-luna`) et OpenRouter, consulter [`hermes/configuration/profiles.md`](../configuration/profiles.md).
 
 ### Structure d'un profil
 

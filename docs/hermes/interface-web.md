@@ -189,7 +189,7 @@ Gestion des profils Hermes.
 | **default** | deepseek-v4-flash | Hub central — conversations, analyses, documentation |
 | **michel** | deepseek-v4-pro | Infrastructure — crons, déploiements, maintenance |
 | **sylvia** | deepseek-v4-flash | Bot voyages Telegram |
-| **emile** | deepseek-v4-flash | Assistant pédagogique |
+| **emile** | deepseek-v4-flash | Assistant professionnel Émilie (Workbench) |
 | **robert** | deepseek-v4-pro | Conseil Stratégique IA |
 
 Chaque profil a sa propre configuration : modèle, provider, skills, plugins, crons, gateway Telegram.

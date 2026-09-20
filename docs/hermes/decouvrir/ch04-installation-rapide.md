@@ -8,7 +8,9 @@ Assez de théorie. Installons Hermès et faisons notre premier test.
 
 ## Prérequis
 
-Supprimer la mention de Git car elle est optionnelle et non requise.
+- **Linux** (Debian/Ubuntu recommandé), **macOS**, ou **Windows avec WSL2**
+- **curl** installé (présent sur la majorité des systèmes)
+- 1 Go d'espace disque libre
 
 ## Installation (Linux / macOS)
 
@@ -62,7 +64,7 @@ Hermès vous répond. Simple.
 
 ## Configuration minimale
 
-Corriger les sections de configuration pour aligner avec la réalité.
+Par défaut, Hermès n'a pas de clé API LLM — il vous demandera d'en configurer une au premier lancement. Vous avez plusieurs options :
 
 ### Option A : DeepSeek (recommandé pour débuter)
 

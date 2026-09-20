@@ -19,8 +19,8 @@ Depuis l'audit du 20/09/2026, la répartition opérationnelle est la suivante :
 | `default` (LEO) | Dialogue quotidien et pilotage | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `michel` | Infrastructure et crons | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` |
 | `robert` | Conseil stratégique | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `emile` | Pédagogie et formation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | Dossiers T600/OCA | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `emile` | Assistant professionnel Émilie (Workbench) | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | Astronomie, astrophotographie & documentation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
 | `sylvia` | Voyages camping-car | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon configuration |
 
 ---
@@ -121,8 +121,8 @@ Sur LEO, la politique de routage garantit à la fois performance et sobriété :
 | Pilotage général | `default` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
 | Administration & code | `michel` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
 | Conseil stratégique | `robert` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Pédagogie & mémoire | `emile` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Dossiers T600/OCA | `gerard` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Assistant pro Émilie (Workbench) | `emile` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Astronomie, astrophotographie & docs | `gerard` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
 | Roadbooks voyages | `sylvia` | OpenRouter / `meta/muse-spark-1.3-contributor` | Pay-as-you-go |
 | Secours si panne primaire | Profils Azure | Google Gemini (`gemini-3.7-flash`) | Quota / API |
 | 70 crons d'automatisation | `michel` | Aucun LLM (`no_agent`) | **0$** |
@@ -131,7 +131,7 @@ Sur LEO, la politique de routage garantit à la fois performance et sobriété :
 
 ## Contexte historique (daté)
 
-> 📜 **Historique (juillet 2026) :** Lors de la phase initiale de reconstruction post-crash en juillet 2026, DeepSeek (`deepseek-v4-flash` et `deepseek-v4-pro`) était configuré comme provider principal direct avant d'être remplacé par Azure Foundry (`gpt-5.6-luna`). De même, les versions initiales mentionnaient `gemini-3.5-flash` avant la bascule vers la série Gemini 3.7. Ces mentions dans les archives et journaux datés reflètent l'état de leur époque.
+> 📜 **Historique (juillet 2026) :** Lors de la phase initiale de reconstruction post-crash en juillet 2026, DeepSeek (`deepseek-v4-flash` et `deepseek-v4-pro`) était configuré comme provider principal direct avant d'être remplacé par Azure Foundry (`gpt-5.6-luna`). De même, les versions initiales mentionnaient `gemini-3.5-flash` avant la bascule vers la série Gemini 3.7. Le profil `emile` a initialement été déployé pour la formation et le mémoire universitaire d'Émilie avant d'évoluer vers le workbench métier My Émile IA. Le profil `gerard` a d'abord été documenté sur les seuls dossiers T600/OCA avant l'intégration globale de l'astronomie, l'astrophotographie et du site tofdan. Ces mentions dans les archives et journaux datés reflètent l'état de leur époque.
 
 ---
 

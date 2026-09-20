@@ -47,8 +47,9 @@ HDD: 1 To (/dev/sdb2 → /mnt/data)
 
 ### Conteneurs Docker
 
-Le document doit être mis à jour pour inclure les conteneurs Docker actuels et leurs rôles et ports.arch/hermes-agent | Agent IA principal | — |
-
+| Conteneur | Image | Rôle | Port |
+|:----------|:------|:-----|:----:|
+| `hermes-agent` | nousresearch/hermes-agent | Agent IA principal | — |
 | `ollama` | ollama/ollama | LLM local (qwen2.5:7b) | 11434 |
 | *(code-server)* | code-server | VS Code web | 8081 |
 
