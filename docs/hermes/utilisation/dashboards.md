@@ -1,50 +1,57 @@
-# Dashboards et monitoring
+# Dashboards, supervision et interfaces locales
 
-Visualisez l'activité de votre assistant en temps réel avec des dashboards HTML autonomes, déployés sur GitHub Pages.
+> **Page canonique de référence :** [`hermes/architecture.md`](../architecture.md). Mesures vérifiées le **20/09/2026**.
+
+Visualisez l'activité de votre assistant, l'état des services et les métriques des profils en temps réel via des dashboards HTML autonomes et des services web dédiés.
 
 ## Principe
 
-Un dashboard est un fichier HTML statique (zéro JavaScript serveur, zéro backend) :
+Les dashboards et interfaces de LEO combinent des pages HTML statiques légères (zéro backend lourd, hébergeables en local ou sur GitHub Pages) et des services applicatifs spécialisés :
 
 ```
-Script de collecte → JSON + HTML → Push GitHub Pages
-                                      ↓
-                    https://user.github.io/mon-dashboard/
+Script de collecte (no_agent) → JSON + HTML → Servi localement ou GitHub Pages
+                                            ↓
+                             http://localhost:8765/dashboard
 ```
 
-**Avantages :** gratuit (GitHub Pages), accessible partout, aucun serveur à maintenir.
+**Avantages :** exécution légère, aucun coût LLM pour les collectes récurrentes, portabilité complète.
 
-## Les dashboards de LEO
+---
 
-> ⚠️ **Mise à jour du 04/07/2026** : Les 7 dashboards pré-crash (LEO KPI, BAVI LEO, Machines, Crons, GitHub, Global) sont OBSOLÈTES et figés au 30/06/2026. NE PLUS les consulter.
+## Les services et dashboards observés sur LEO
 
-LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (10 sources) :
+Au 20/09/2026, les services et interfaces réseau observés sont :
 
-| Dashboard | Contenu | URL | Collecte | Déploiement |
-|-----------|---------|-----|----------|-------------|
-| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 5 vaults) | [leo-dashboard](http://localhost:8765/dashboard) | collect-v2.py */15 | deploy-dashboard.sh H:10 |
+| Service | Port | Portée observée | Fonction & Contenu |
+|---|---:|---|---|
+| **Panel LEO** | 8765 | Accessible réseau | Métriques globales, crons, supervision des 6 profils, vaults |
+| **Leo Docs** | 8766 | Accessible réseau | Explorateur documentaire et consultation des wikis |
+| **Hermes Dashboard** | 9119 | Accessible réseau | Interface native Hermes Agent |
+| **My Émile IA** | 8793 | Localhost | Workbench métier et pédagogique |
 
-Scripts :
-- `~/.hermes/profiles/michel/scripts/collect-v2.py` — collecteur unifié (state.db des 5 profils, infra, budget, vaults)
-- `~/.hermes/profiles/michel/scripts/deploy-dashboard.sh` — génère HTML + push GitHub Pages
+### Collecte unifiée (`collect-v2.py`)
 
-Cron ID `e350dd5a464a` dans le profil `michel`.
+Les métriques consolidées sur le Panel LEO sont générées par :
+- `~/.hermes/profiles/michel/scripts/collect-v2.py` — collecteur unifié (bases des profils opérationnels, métriques système, budget LLM, état des vaults) ;
+- `~/.hermes/profiles/michel/scripts/deploy-dashboard.sh` — génération du HTML et mise à disposition locale ou déploiement distant.
 
-Tous sont générés par des scripts `no_agent` — **0$ de coût LLM** par mise à jour.
+Ces collectes sont planifiées sous forme de jobs `no_agent` dans l'ordonnanceur Michel (**0$ de consommation de tokens**).
+
+---
 
 ## Architecture technique
 
-Chaque dashboard suit le même pattern :
+Chaque tableau de bord suit le même cycle :
 
 1. **Un script de collecte** (Python) qui :
-   - Récupère les données (API, fichiers, logs)
-   - Génère un `index.html` avec Chart.js ou CSS pur
+   - Récupère les données (fichiers d'état des profils, logs, statut système, API) ;
+   - Génère un `index.html` avec Chart.js ou tableaux CSS purs.
 
-2. **Un cron no_agent** qui exécute le script toutes les 4h
+2. **Un cron `no_agent`** qui exécute le script périodiquement sans solliciter de modèle d'IA.
 
-3. **Un dépôt GitHub Pages** qui sert le HTML
+3. **Un serveur local ou GitHub Pages** qui sert le document HTML.
 
-### Script type
+### Script type de génération
 
 ```python
 #!/usr/bin/env python3
@@ -57,137 +64,99 @@ data = collecter_metriques()
 # 2. Générer le HTML
 html = generer_dashboard(data)
 
-# 3. Écrire dans le repo
+# 3. Écrire dans le dépôt ou répertoire servi
 repo = Path("/tmp/mon-dashboard")
-repo.joinpath("index.html").write_text(html)
+repo.joinpath("index.html").write_text(html, encoding="utf-8")
 
-# 4. Push sur GitHub
+# 4. Déploiement Git si nécessaire
 subprocess.run(["git", "-C", str(repo), "add", "."])
 subprocess.run(["git", "-C", str(repo), "commit", "-m", "Màj dashboard"])
 subprocess.run(["git", "-C", str(repo), "push", "origin", "main"])
 ```
 
-### Déploiement
+### Exemple de configuration cron
 
 ```bash
-# 1. Créer le repo
-gh repo create mon-dashboard --public
-
-# 2. Activer GitHub Pages
-echo '{"source":{"branch":"main","path":"/"}}' | \
-  gh api repos/user/mon-dashboard/pages --input -
-
-# 3. Cloner en local
-git clone https://github.com/user/mon-dashboard.git /tmp/mon-dashboard
-
-# 4. Configurer le cron
 hermes cron create \
   --script deploy-dashboard.sh \
-  --schedule "0 */4 * * *" \
+  --schedule "10 * * * *" \
   --name "mon-dashboard" \
   --no-agent
 ```
 
-## Pitfalls
+---
 
-### 🔴 Pas de JavaScript si le navigateur flashe
+## Bonnes pratiques & pièges évités (Pitfalls)
 
-Sur certains appareils (Chromebook, mobile), Chart.js en mode responsive peut causer un rafraîchissement en boucle. Solution : **remplacer Chart.js par un tableau CSS statique**.
+### 🔴 Éviter le rechargement en boucle sur mobile
+Sur certains appareils légers, Chart.js en mode responsive peut provoquer un rafraîchissement continu. La solution éprouvée consiste à privilégier des **tableaux CSS statiques** pour l'affichage synthétique des statuts :
 
 ```css
-/* Au lieu d'un graphique JS : tableau statique */
 .hist-table td.ok-cell { color: #22c55e; }
 .hist-table td.err-cell { color: #ef4444; }
 ```
 
-### 🔴 Gérer l'identité Git
-
-Dans l'environnement minimal d'un cron, `git commit` échoue si l'identité n'est pas configurée :
-
-```python
-subprocess.run(["git", "config", "user.name", "MonAssistant"])
-subprocess.run(["git", "config", "user.email", "assistant@exemple.com"])
-```
-
-### 🔴 Gérer l'authentification GitHub
-
-Le cron n'a pas de TTY pour le flow OAuth Git. Passez le token dans l'URL :
+### 🔴 Identité Git dans l'environnement minimal cron
+Dans l'environnement d'exécution isolé d'un cron, `git commit` échoue si l'identité n'est pas explicite :
 
 ```python
-import os
-tok = os.environ.get("GH_TOKEN")
-if tok:
-    remote = f"https://user:{tok}@github.com/user/repo.git"
-    subprocess.run(["git", "remote", "set-url", "origin", remote])
+subprocess.run(["git", "config", "user.name", "Michel"])
+subprocess.run(["git", "config", "user.email", "michel@local"])
 ```
 
-### 🔴 Les repos locaux doivent être synchronisés
-
-`dashboard-watch` vérifie l'âge du dernier commit **dans le repo local** pour déterminer si un dashboard est stale. Si votre script de déploiement push vers un clone temporaire (`/tmp/...`), le repo local ne sera jamais mis à jour et `dashboard-watch` déclenchera un redeploiement à chaque cycle.
-
-**Solution :** après avoir pushé depuis `/tmp/`, faites un `git pull` dans le repo local :
-
-```bash
-cd ~/Projets_Dev/leo-dashboard
-git pull origin main
-```
-
-> 🐛 **Bug #16** — Cette cause racine a été corrigée sur l'ancien dashboard.
-
-### 🔴 Budget désynchronisé
-
-Si le budget affiché sur un dashboard ne correspond pas au `budget.json`, le cron `dashboard-watch` (voir `crons.md`) déclenche une alerte. Vérifiez que les clés lues par le script de déploiement correspondent exactement à celles du JSON :
-
-```python
-# Dans budget.json : "avg_daily", "total_spent" (pas "daily_spend")
-# Dans le script : budget.get("avg_daily", 0)  # ✅ correct
-```
-
-## Surveillance automatique (dashboard-watch)
-
-Un cron **dashboard-watch** (`scripts/dashboard-watch.py`) tourne toutes les 2h et vérifie :
-
-1. **HTTP 200** — chaque dashboard répond
-2. **Âge < 2h** — données fraîches
-3. **Budget cohérent** — valeur affichée ≈ `budget.json` (écart max 1$)
-4. **Redeploiement auto** — si stale ou 404, le script relance le déploiement
-5. **Rebuild GH Pages** — après chaque push, appelle l'API pour forcer le rafraîchissement CDN
-
-```python
-# Extrait : rebuild GH Pages après push
-subprocess.run(["gh", "api", f"repos/user/{repo}/pages/builds", "-X", "POST"])
-```
-
-## 🦁 Global Dashboard LEO (portail unique)
-
-Depuis le 22/06/2026, LEO a un **portail unique** qui consolide tout en une seule page :
-- 🔵 **Crons (49, tous actifs)** — statut, historique (collect-v2)
-- 📊 **1 Dashboard unifié** (leo-dashboard) — remplace les 7 anciens dashboards
-- 💰 **Budget DeepSeek** — solde, jours restants
-- 🖥️ **Ports** — dashboards 8765+9119, code-server 7681
-- 🏛️ **BAVI LEO** — sessions, messages, tokens
-- 🖥️ **Machines (3)** — statut en ligne/hors ligne
-- 🚨 **Alertes** — dernières anomalies détectées
-- 🔗 **Liens rapides** — accès au dashboard unifié
-
-**Avantages :**
-- ✅ **Plus aucun rapport Telegram** — collect-v2 + déploiement horaire livrent en local
-- ✅ **Un seul bookmark** au lieu de 7
-- ✅ **Collecte */15, déploiement H:10** — 0$ de coût LLM
-- ✅ **Auto-déploiement GH Pages** via deploy-dashboard.sh
-
-- **Usage LLM** — requêtes/jour, tokens consommés, coût estimé
-- **Système** — CPU, RAM, disque, uptime de votre serveur
-- **Projets** — Suivi d'avancement, tâches complétées
-- **Réseau** — Latence, bande passante, statut des services
-
-## Pour aller plus loin
-
-- Consultez le scheduler Hermes (`hermes cron list`) pour la planification automatisée
-- Voir `03-utilisation/architecture-leo.md` pour la vue complète (schéma Mermaid, interactions, filets)
-
-*Document mis à jour le 18/07/2026 à 12:00 — Léo 🦁*
+### 🔴 Synchronisation des dépôts locaux
+`dashboard-watch` vérifie la fraîcheur des commits locaux. Si un déploiement pousse depuis un clone temporaire (`/tmp/...`), le dépôt local doit être synchronisé via un `git pull` pour éviter des redéclenchements inutiles.
 
 ---
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+## Surveillance et pipelines documentaires
+
+La supervision de LEO ne se limite pas à l'affichage web ; elle s'intègre aux pipelines documentaires automatisés :
+
+- **`docs-update`** : mise à jour des documentations structurantes ;
+- **`doc-watch-auto`** : surveillance automatique des référentiels (Wiki Hermes, BAVI_LEO, guide Christophe) via `doc-watch-snapshot.py` ;
+- **`doc-crons-sync`** : synchronisation périodique de l'inventaire des crons ;
+- **Auto-commit wiki** : traçabilité des modifications.
+
+### Surveillance automatique (`dashboard-watch.py`)
+
+Un script de contrôle vérifie à intervalles réguliers :
+1. **Disponibilité HTTP (code 200)** des interfaces servies ;
+2. **Fraîcheur des données** (< 2h) ;
+3. **Cohérence des métriques de budget** entre fichiers JSON et affichage.
+
+---
+
+## Synthèse de la supervision LEO
+
+Au 20/09/2026, la console et le portail centralisent :
+- 🔵 **Crons ordonnancés** : 72 jobs dans `profiles/michel/cron/jobs.json` (71 activés, 70 `no_agent`, 2 LLM) ;
+- 📊 **Panel LEO (port 8765)** : vue unifiée des métriques, sessions et états de santé ;
+- 📚 **Leo Docs (port 8766)** : accès centralisé à la documentation et aux wikis ;
+- 🤖 **Hermes Dashboard (port 9119)** : console d'administration Hermes ;
+- 🎓 **My Émile IA (port 8793)** : interface locale dédiée au travail pédagogique ;
+- 💰 **Suivi des coûts LLM** : consommation maîtrisée sur Azure Foundry et OpenRouter, coût nul pour les automatisations directes ;
+- 🚨 **Suivi opérationnel** : l'unité systemd Michel en boucle d'auto-restart (conflit de PID déjà actif) est suivie au niveau runbook infra.
+
+---
+
+## Contexte historique (daté)
+
+> 📜 **Historique des dashboards (juin - juillet 2026) :**
+>
+> - **30/06/2026 :** Abandon des 7 anciens dashboards fragmentés (LEO KPI, BAVI LEO, Machines, Crons, GitHub, Global) au profit d'une interface unifiée pilotée par `collect-v2.py`.
+> - **Historique des ports et services :** Les configurations antérieures mentionnaient des ports intermédiaires (comme le port code-server 7681) qui ne font plus partie des services actifs mesurés au 20/09/2026.
+> - **Paliers de crons :** Les mentions historiques de 45, 49 ou 58 crons correspondent à des étapes de montée en charge antérieures à l'inventaire stabilisé actuel.
+
+---
+
+## Pour aller plus loin
+
+- Consulter [`architecture.md`](../architecture.md) pour la description canonique du système
+- Consulter [`architecture-leo.md`](architecture-leo.md) pour le schéma d'ensemble des flux
+- Consulter [`bots-telegram.md`](bots-telegram.md) pour les interfaces Telegram associées
+- Consulter [`profiles.md`](../configuration/profiles.md) pour la configuration des profils
+
+---
+
+> 🤖 Dernière mesure vérifiée : **20/09/2026** — LEO et Michel. Source de vérité : `ss -ltnp`, processus actifs et `architecture.md`.

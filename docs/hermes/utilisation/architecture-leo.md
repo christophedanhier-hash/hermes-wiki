@@ -1,159 +1,142 @@
-Ajouter '(Post-crash reconstruction)' dans le titre.
+# 🏛️ Architecture LEO
 
-> Document vivant — mis à jour le **26/07/2026** (corrections architecture).
+> **Page canonique de référence :** [`hermes/architecture.md`](../architecture.md). Mesures vérifiées le **20/09/2026**.
+
+## 0. Architecture Profil / Gateway / Agent
+
+**LEO n'est pas un bot Telegram autonome** : LEO est l'**agent Hermes principal** (exécuté sur le profil `default`), accessible via le **Gateway Hermes** qui assure la passerelle entre l'interface utilisateur (DM Telegram de Christophe) et l'agent.
+
+```
+Telegram (DM Christophe) ──→ Gateway Hermes ──→ Agent LEO (profil default) ──→ Azure Foundry (gpt-5.6-luna)
+```
+
+Chaque **profil Hermes** est un environnement d'exécution isolé disposant de sa propre configuration, de ses sessions, de ses compétences (skills) et de sa mémoire.
+
+Six profils opérationnels ont été mesurés au 20/09/2026 :
+
+| Profil | Rôle | Interface / Gateway | Provider principal | Modèle | Fallback |
+|---|---|---|---|---|---|
+| `default` | LEO — Dialogue quotidien, pilotage | Gateway Hermes (DM direct) | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `michel` | Infrastructure, crons & déploiements | `@hermes_leo_copilot_bot` | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` |
+| `robert` | Conseil stratégique IT & architecture | `@bureau_robert_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `sylvia` | Voyages, itinéraires & roadbooks | `@bavi_leo_voyages_bot` | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon config |
+| `emile` | Pédagogie, mémoire & formation | `@Bureau_ia_emilie_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | Dossiers documentaires T600/OCA | Profil opérationnel | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+
+> [!NOTE]
+> - `leo` est l'alias Hive du profil `default`, et non un profil d'exécution supplémentaire.
+> - Gérard est un profil opérationnel dédié aux dossiers T600/OCA sans bot Telegram inventé si non prouvé.
+> - L'accès à `default` n'utilise aucun handle public inventé.
 
 ---
 
-## 0. Architecture Profil / Bot / Gateway
-
-LEO n'est pas un bot Telegram. LEO est un **agent Hermes** accessible via le **Gateway Hermes** qui fait le pont entre Telegram et l'agent.
-
-```
-Telegram ──→ Gateway Hermes ──→ Agent LEO (profil default) ──→ DeepSeek Flash
-```
-
-Chaque **profil Hermes** est un agent indépendant avec sa propre configuration, ses sessions et sa mémoire. Certains profils sont exposés sur Telegram via un bot dédié :
-
-| Profil | Bot Telegram | Rôle | Provider |
-|--------|-------------|------|----------|
-| **default** | `@hermes_leo_bot` | Chat quotidien LEO (Christophe) | DeepSeek Flash |
-| **michel** | `@hermes_leo_copilot_bot` | Infra, crons, scripts | DeepSeek V4 Pro |
-| **sylvia** | `@bavi_leo_voyages_bot` | Voyages camping-car | DeepSeek Flash |
-| **emile** | Profil local | Pédagogie, mémoire | DeepSeek Flash |
-| **robert** | Profil local | Conseil stratégique IA | DeepSeek Flash |
-
-> **LEO = Hermes Agent**, pas un bot. Les bots Telegram sont des profils Hermes isolés. La communication passe par le Gateway, pas par un handle Telegram direct.
-
-### Dashboard unique
-
-Le dashboard `leo-dashboard` agglomère les métriques de **tous les profils** (sessions, budget, crons, services, vaults) en une seule vue.
-
----
-
-## 1. Vue d'ensemble
+## 1. Vue d'ensemble du système
 
 ```mermaid
 flowchart TB
-    subgraph Sources["📡 Sources de données (10)"]
-        DS["DeepSeek API<br/>budget"]
-        GH_API["GitHub API<br/>github"]
-        OS["OS serveur LEO<br/>infra"]
-        SESS["Sessions DB<br/>sessions"]
-        BAVI_M["BAVI metrics<br/>bavi"]
-        CRONS_M["Crons Hermes<br/>crons"]
-        SVCS["Services<br/>services"]
-        VAULTS["Obsidian Vaults<br/>vaults"]
-        WKFL["Workflows Python<br/>workflows"]
-        BOTS["Stats profils<br/>bots"]
+    subgraph Sources["📡 Sources de données & supervision"]
+        LLM_M["Métriques LLM<br/>Azure & OpenRouter"]
+        GH_API["GitHub API<br/>activité dépôts"]
+        OS["OS serveur LEO<br/>CPU / RAM / disques"]
+        SESS["Sessions DB<br/>historique échanges"]
+        BAVI_M["Métriques métiers<br/>BAVI / OCA"]
+        CRONS_M["Crons Hermes<br/>72 jobs Michel"]
+        SVCS["Services réseau<br/>ports 8765, 8766, 9119, 8793"]
+        VAULTS["Obsidian Vaults<br/>coffres profils"]
+        WKFL["Pipelines Python<br/>docs & sync"]
     end
 
-    subgraph Collecte["⏱️ Collecte unifiée (H:10)"]
-        COLLECT["collect-v2.py<br/>10 sources → JSON<br/>déploiement toutes les heures"]
+    subgraph Collecte["⏱️ Collecte & synchronisation"]
+        COLLECT["collect-v2.py<br/>Agrégation multi-sources<br/>Crons no_agent Michel"]
+        PIPES["Pipelines documentaires<br/>docs-update · doc-watch-auto<br/>doc-crons-sync · auto-commit"]
     end
 
-    subgraph Dashboard["📊 leo-dashboard (1 seul)"]
-        DASH["leo-dashboard<br/>Chart.js · GitHub Pages<br/>http://localhost:8765/dashboard"]
-    end
-
-    subgraph crons["⏱️ Crons LEO (49 gérés par michel)"]
-        DRIVE_ISSUE["Drive → Issue<br/>Surveillance Drive"]
-        GARDIEN["Gardien du Drive<br/>Protection documents"]
-        SAVE_CONTACTS["Save Contacts<br/>Sauvegarde contacts"]
-    end
-
-    subgraph Vaults["📒 Vaults Obsidian (5)"]
-        MICHEL_VAULT["michel"]
-        DEFAULT_VAULT["default"]
-        EMILE_VAULT["emile"]
-        SYLVIA_VAULT["sylvia"]
-        ROBERT_VAULT["robert"]
+    subgraph Dashboards["📊 Interfaces & Supervision"]
+        PANEL["Panel LEO<br/>Port 8765 (réseau)"]
+        DOCS["Leo Docs<br/>Port 8766 (réseau)"]
+        HDASH["Hermes Dashboard<br/>Port 9119 (réseau)"]
+        EMILE_UI["My Émile IA<br/>Port 8793 (localhost)"]
     end
 
     Sources --> COLLECT
-    COLLECT --> DASH
-    DASH -->|monitoring| scripts
-    Vaults -->|monitoring dashboard| DASH
+    Sources --> PIPES
+    COLLECT --> PANEL
+    COLLECT --> HDASH
+    PIPES --> DOCS
 ```
 
 ---
 
-## 2. Dashboard unique
+## 2. Services et interfaces réseau
 
-Depuis la reconstruction post-crash du 30/06/2026, **un seul dashboard** existe :
+Les ports et services réels observés sur la machine au 20/09/2026 sont les suivants :
 
-| Dashboard | URL | Contenu | Généré par | Fréquence |
-|-----------|-----|---------|-----------|-----------|
-| **🌍 leo-dashboard** | [leo-dashboard](http://localhost:8765/dashboard) | Sessions, budget, machines, crons, GitHub, BAVI, services, vaults, workflows, bots | `collect-v2.py` | H:10 (déploiement michel) |
-
-**Collecteur unifié** : `collect-v2.py` agrège 10 sources de données :
-1. Sessions — nombre de sessions et messages
-2. Budget — solde DeepSeek (~$19.97 de coût cumulé, $41.83 de solde)
-3. Crons — statut des tâches planifiées
-4. Infra — CPU/RAM/disque du serveur LEO
-5. GitHub — activité des repos
-6. BAVI — métriques bureaux
-7. Services — statut des services (Ollama, Docker, etc.)
-8. Vaults — monitoring des 5 vaults Obsidian
-9. Workflows Python — santé des workflows
-10. Bots — statistiques par profil Telegram (sessions, messages, coût)
+| Service | Port | Portée | Rôle |
+|---|---:|---|---|
+| **Panel LEO** | 8765 | Accessible réseau | Métriques globales, crons, supervision des profils |
+| **Leo Docs** | 8766 | Accessible réseau | Explorateur documentaire et wikis |
+| **Hermes Dashboard** | 9119 | Accessible réseau | Interface native Hermes Agent |
+| **My Émile IA** | 8793 | Localhost | Workbench métier et pédagogique |
 
 ---
 
-## 3. Déploiement
+## 3. Planification et pipelines d'automatisation
 
-Le déploiement du dashboard fait partie d'un ensemble de 58 crons actifs (michel 50 + LEO 6 + sylvia 2) gérés par michel. Le cron spécifique pour le dashboard est :
+### Jobs planifiés Michel
 
-```
-10 * * * *  →  collect-v2.py (via michel, no_agent)
-```
+Au 20/09/2026, le fichier de référence `~/.hermes/profiles/michel/cron/jobs.json` dénombre :
+- **72 jobs planifiés au total** ;
+- **71 jobs activés** ;
+- **70 jobs `no_agent`** (exécutés par scripts directs, 0$ de consommation LLM) ;
+- **2 jobs pilotés par agent LLM**.
 
-Changement clé du 04/07/2026 :
-- **Avant** : 7 crons séparés (un par dashboard) + Auto-Fix Daemon
-- **Après** : 1 cron unique `collect-v2.py` pour le dashboard, parmi 58 crons actifs (michel 50 + LEO 6 + sylvia 2) gérés par michel.
+Ces chiffres sont propres à l'ordonnanceur Hermes de Michel et ne doivent pas être confondus avec un crontab système hôte.
 
----
+### Pipelines documentaires actifs
 
+L'écosystème maintient la documentation synchronisée via quatre pipelines majeurs :
+1. **`docs-update`** : mise à jour des documentations structurantes ;
+2. **`doc-watch-auto`** : surveillance automatique des référentiels (dont le wiki Hermes et BAVI_LEO via `doc-watch-snapshot.py`) ;
+3. **`doc-crons-sync`** : synchronisation des tables de crons ;
+4. **Auto-commit wiki** : validation et traçabilité des modifications.
 
-## 5. Vaults Obsidian (5)
+### Incident en cours (suivi infrastructure)
 
-| Vault | Usage | Profil associé | Monitoring |
-|-------|-------|----------------|------------|
-| **michel** | Vault infra Michel | `michel` | ✅ Dashboard monitoring |
-| **default** | Vault par défaut Christophe | `default` | ✅ Dashboard monitoring |
-| **emile** | Vault pédagogie Émile | `emile` | ✅ Dashboard monitoring |
-| **sylvia** | Vault voyages Sylvia | `sylvia` | ✅ Dashboard monitoring |
-| **robert** | Vault conseil stratégique Robert | `robert` | ✅ Dashboard monitoring |
-
-Les 5 vaults sont surveillés via le dashboard unifié.
+L'unité systemd du profil Michel a été observée en boucle de redémarrage automatique en raison d'un conflit de processus (PID déjà actif). Cet état est suivi dans le runbook infrastructure de Michel et n'est pas masqué dans la documentation.
 
 ---
 
-## 6. Budget
+## 4. Vaults Obsidian
 
-| Métrique | Valeur |
-|----------|--------|
-| Budget réel constaté | **~$19.97** |
-| Seuil d'alerte | $30 |
-| Seuil d'arrêt | $10 |
+Chaque profil s'appuie sur son propre espace documentaire pour ses notes et synthèses :
 
----
-
-## 7. Statistiques clés
-
-| Métrique | Valeur |
-|----------|--------|
-
-| Dashboards | **1** (unifié) |
-| Sources de collecte | **10** |
-| Profils Hermes | **5** |
-| Vaults Obsidian | **5** |
-| Crons LEO | **49** |
-| Budget DeepSeek | **~$19.97** |
-| Déploiement | Toutes les heures via michel |
+| Vault | Profil associé | Vocation |
+|---|---|---|
+| **michel** | `michel` | Exploitation infra, journaux d'interventions, runbooks |
+| **default** | `default` | Notes de pilotage général et échanges Christophe |
+| **emile** | `emile` | Suivi pédagogique, recherches, rédaction du mémoire |
+| **sylvia** | `sylvia` | Fiches étapes, roadbooks et documentation camping-car |
+| **robert** | `robert` | Notes stratégiques, audits de systèmes, analyses |
 
 ---
 
-> **Document mis à jour le 26/07/2026** — correction architecture : profils, vaults, sources.
-*Document mis à jour le 26/07/2026 — Léo 🦁*
+## Contexte historique (daté)
 
-> 🤖 Dernier audit : 14/08/2026 — 58 crons actifs (michel 50 + LEO 6 + sylvia 2) michel + 5 hôte, 5 profils
+> 📜 **Historique post-crash (juillet - août 2026) :**
+>
+> - **Reconstruction du 30/06/2026 :** Après le crash de fin juin 2026, l'architecture a été consolidée autour d'un collecteur unifié (`collect-v2.py`) et de profils étanches avec mémoires indépendantes.
+> - **Fournisseurs initiaux :** Les configurations de juillet 2026 utilisaient initialement DeepSeek Direct (`deepseek-v4-flash` / `deepseek-v4-pro`) avec un budget initial constaté de ~$19.97, avant la bascule ultérieure vers Azure Foundry (`gpt-5.6-luna`).
+> - **Crons intermédiaires :** Les paliers à 45, 49 puis 58 crons documentés à l'été 2026 représentent des états historiques antérieurs à l'inventaire stabilisé de 72 jobs au 20/09/2026.
+
+---
+
+## Pour aller plus loin
+
+- Consulter [`architecture.md`](../architecture.md) pour la vue canonique complète
+- Consulter [`dashboards.md`](dashboards.md) pour le détail des dashboards et de la supervision
+- Consulter [`bots-telegram.md`](bots-telegram.md) pour les interfaces Telegram et profils
+- Consulter [`profiles.md`](../configuration/profiles.md) pour la gestion des profils Hermes
+
+---
+
+> 🤖 Dernière mesure vérifiée : **20/09/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml`, `~/.hermes/profiles/michel/cron/jobs.json` et `architecture.md`.
