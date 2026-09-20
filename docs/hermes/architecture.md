@@ -1,74 +1,109 @@
-# Architecture Système
+# Architecture Hermes LEO — état de référence
 
-## 1. Infrastructure
-- **Host LEO**: Intel i7-7700K, 22GB RAM, 20% disque, pas de GPU
-- **Telegram**: DM @tofdan (pas de bot dédié)
-- **Modèles** : DeepSeek (Flash/Pro), fallback gemini-3.5-flash → qwen2.5:7b (Ollama local)
+> **Page canonique de l'architecture actuelle.** Mesures vérifiées le **20/09/2026**. Les pages historiques conservent leur contexte et ne doivent pas être lues comme un état courant.
 
-## 2. Budget API
-- Coût total : ~$19.97
-- Seuil d'alerte : $30, Stop : $10
-- Routage : DeepSeek → Gemini → Ollama
-- Seuils d'alerte: $30
-- Stop: $10
-- Routage: DeepSeek → Gemini → Ollama
+## Périmètre et sources
 
-## 3. Crons Actifs (45 configurés, tous actifs)
-## 4. Dashboards
-- leo-dashboard unifié : Port 8765 (panel) + 9119 (Hermes dashboard)
-## 5. Bureaux
-- 10 bureaux BAVI : Michel (infra), Gérard (T600), Robert (战略), Sophie (financier), Sylvia (voyages), Émile (pédagogie), Léo (analyse), Virginie (médical), AO (assurance), Connaissance
-## 6. Crons actuels
-Voir : [Crons quotidiens](automatisation/ch28-crons-quotidiens.md) | [Watchdogs](automatisation/ch29-watchdogs.md) | [Drive/GitHub](automatisation/ch30-drive-github-sync.md)
+Cette page décrit l'installation Hermes Agent de Christophe telle qu'observée sur LEO. Les chiffres dynamiques sont des instantanés :
 
-| # | **Tâche** | **Horodatage** | **Script réel** | **Statut** |
-|---:|---|:---:|---|:---:|
-| 1 | 🔍 Veille IA quotidienne | `0 7 * * *` | run-veille-ia-wrapper.sh | ⏸️ Paused |
-| 2 | 🔄 Déploiement auto tofdan.be | `5 * * * *` | deploy-tofdan.sh | ✅ |
-| 3 | 📧 Email Classifier (inbox zero) | `*/30 * * * *` | gmail_classifier-wrapper.sh | ✅ |
-| 4 | 📝 docs-update | `0 */4 * * *` | run-docs-update.sh | ✅ |
-| 5 | 🔄 drive-sync | `0 * * * *` | drive-sync.sh | ✅ |
-| 6 | 📋 Doc Watch Auto | `*/2 * * * *` | doc-watch-auto.sh | ✅ |
-| 7 | 🔄 sync-skills-to-copilot | `*/30 * * * *` | sync_skills_to_copilot.sh | ✅ |
-| 8 | 📊 Unified Collector v2 | `*/15 * * * *` | collect-v2.py | ✅ |
-| 9 | 💰 Budget Alert | `0 8,20 * * *` | budget-alert-wrapper.sh | ✅ |
-| 10 | 🛡️ LEO Health Check | `2,17,32,47 * * * *` | leo-health-check.py | ✅ |
-| 11 | 🔧 LEO Maintenance quotidienne | `0 3 * * *` | leo-daily-maintenance.py | ✅ |
-| 12 | 💾 LEO Backup quotidien → GDrive | `0 6 * * *` | leo-full-backup.py | ✅ |
-| 13 | 📦 Auto-Archive BAVI LEO | toutes les 5m | auto-archive-wrapper.sh | ✅ |
-| 14 | 🔄 Auto-commit wikis | `0 * * * *` | auto-commit-repos.sh | ✅ |
-| 15 | 🔄 Refresh Google Tokens | `*/50 * * * *` | refresh_google_tokens.py | ✅ |
-| 16 | 🦺 GitHub Actions Watchdog | `4,19,34,49 * * * *` | github_workflow_watchdog.py | ✅ |
-| 17 | 📋 doc-crons-sync | `0 */6 * * *` | run-doc-crons-sync.sh | ✅ |
-| 18 | 📊 Synthèse Hebdomadaire LEO | Dimanche 20h | synthese_hebdo.py | ✅ |
-| 19 | 🔄 Rebuild Wiki BAVI local | `*/15 * * * *` | rebuild-wiki.sh | ✅ |
-| 20 | 🔄 Rebuild Wiki Voyages local | `15 * * * *` | rebuild-voyages.sh | ✅ |
-| 21 | 📡 Machine KPI Collector | `*/5 * * * *` | machine-kpi.py | ✅ |
-| 22 | 🔄 Gateway Auto-Restart | `*/15 * * * *` | gateway-watchdog.sh | ✅ |
-| 23 | 💾 Recovery State Export → GDrive | `30 * * * *` | export-recovery-state.py | ✅ |
-| 24 | 📷 Surveillance caméras → Telegram | `*/5 * * * *` | camera-motion-alert.py | ✅ |
-| 25 | ⚡ Énergie — HomeWizard P1 | `*/2 * * * *` | collect-energy.py | ✅ |
-| 26 | 🛡️ Watchdog BAVI-LEO | `*/5 * * * *` | bavi-watchdog.py | ✅ |
-| 27 | Collecte Viessmann | `*/5 * * * *` | collect-viessmann.py | ⏸️ Paused |
-| 28 | Gardien du Drive | `0 */6 * * *` | gardien-drive-wrapper.sh | ✅ |
-| 29 | Drive → Issue GitHub | `*/30 * * * *` | drive-issue-wrapper.sh | ✅ |
-| 30 | Save Contacts | `*/15 * * * *` | save-contacts-wrapper.sh | ✅ |
-| 31 | 🖥️ Dashboards Watchdog (8765+9119) | `*/2 * * * *` | dashboards-watchdog.sh | ✅ |
-| 32 | 🦺 Cron Watchdog v2 | `*/15 * * * *` | cron-watchdog-wrapper.sh | ✅ |
-| 33 | 📓 Journaux Quotidiens (10 emplacements) | `0 23 * * *` | cron job agent (obsidian skill) | ✅ |
-| 34 | 📧 Check Gmail — importants | toutes les 30m | check-gmail.py | ✅ |
-| 35 | 🔍 Audit Infra (cohérence globale) | `0 * * * *` | infra-audit.py | ✅ |
-| 36 | 📦 Cron Log Archiver | `15 * * * *` | cron-log-archiver.py | ✅ |
-| 37 | 📊 Agrégation Énergie horaire | `0 * * * *` | energy-aggregate.py | ✅ |
-| 38 | 📝 Audit rédactionnel unifié | `0 6 * * *` | cron job agent | ✅ |
-| 39 | 📋 Sync Contacts Sheets | toutes les 2h | contacts-sync.py | ✅ |
-| 40 | 🕐 Audit Qualité Crons (journalier) | `0 7 * * *` | cron-quality-audit.py | ✅ |
-| 41 | 📞 Point contact LEO (4×/jour) | `0 8,11,14,17 * * *` | cron job agent | ✅ |
+- profils et modèles : `~/.hermes/profiles/*/config.yaml` ;
+- jobs planifiés : `~/.hermes/profiles/michel/cron/jobs.json` ;
+- services et ports : processus actifs et `ss -ltnp` ;
+- version : `/home/tofdan/.hermes/venv/bin/hermes --version` ;
+- santé détaillée : dashboards locaux et rapports Michel.
 
-## 7. Sessions & Utilisation
-- Dashboard : 1 unifié (leo-dashboard)
-- Bureaux : Michel (infra), Gérard (T600), Robert (战略), Sylvia (voyages), Émile (pédagogie), Léo (analyse), Virginie (médical), AO (assurance)
+Quand une valeur change, cette page doit être mise à jour avec sa date de mesure et sa source.
 
----
+## Vue d'ensemble
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+```mermaid
+flowchart TB
+    C["Christophe"] --> T["Telegram / interfaces"]
+    T --> G["Gateways Hermes"]
+    G --> P["Profils Hermes"]
+    P --> F["Azure Foundry ou OpenRouter"]
+    G --> H["Hive inter-profils"]
+    H --> D["Documentation, dossiers et automatisations"]
+    P --> S["Services locaux"]
+    S --> W["Wiki Hermes / dashboards / My Émile"]
+```
+
+Hermes Agent est le socle d'exécution. LEO est l'agent principal ; les autres profils sont des agents spécialisés ou des profils opérationnels indépendants. Les gateways relient les profils aux interfaces autorisées.
+
+## Profils et routage mesurés
+
+Six profils opérationnels ont été observés le 20/09/2026 :
+
+| Profil | Rôle | Provider principal | Modèle configuré | Fallback déclaré |
+|---|---|---|---|---|
+| `default` | LEO, dialogue et pilotage | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `michel` | infrastructure, crons et déploiements | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `robert` | conseil stratégique | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `emile` | pédagogie et formation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | dossiers T600/OCA | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `sylvia` | voyages | OpenRouter | `meta/muse-spark-1.3-contributor` | selon sa configuration |
+
+`leo` est l'alias Hive du profil `default`, pas un septième profil d'exécution. Les profils disposent de leurs propres configurations, sessions et mémoires ; il ne faut pas présenter une mémoire partagée comme architecture actuelle.
+
+Les modèles effectifs doivent être confirmés par la configuration chargée et, lorsque nécessaire, par `session_model_usage`. Un nom de modèle configuré n'est pas à lui seul une preuve d'appel réussi.
+
+## Gateways et interfaces
+
+Les gateways observées sont séparées par profil. Les interfaces et services observés sont :
+
+| Service | Port | Portée observée | Fonction |
+|---|---:|---|---|
+| Panel LEO | 8765 | accessible réseau | métriques, crons et pilotage |
+| Leo Docs | 8766 | accessible réseau | explorateur documentaire |
+| Hermes dashboard | 9119 | accessible réseau | interface Hermes |
+| My Émile IA | 8793 | localhost | workbench métier |
+
+La présence d'un processus ne suffit pas à déclarer un service sain : la route HTTP et le contenu servi doivent être contrôlés.
+
+## Automatisations et crons
+
+Le fichier de référence du profil Michel contient, lors de la mesure du 20/09/2026 :
+
+```text
+72 jobs
+71 activés
+70 no_agent
+2 jobs pilotés par un agent
+```
+
+Ces nombres concernent `profiles/michel/cron/jobs.json` uniquement. Ils ne doivent pas être additionnés avec un crontab hôte sans mesure séparée. Les familles observées comprennent notamment : documentation, doc-watch, synchronisation des crons, auto-commit, collecte KPI, dashboards, sauvegarde, watchdogs et Hive.
+
+Le nombre de jobs est dynamique. Les pages qui affichent un instantané doivent indiquer sa date et son fichier source ; les tableaux exhaustifs doivent être générés depuis le fichier de référence.
+
+## Documentation et synchronisation
+
+Le Wiki Hermes est stocké dans :
+
+```text
+/home/tofdan/Projets_Dev/hermes-wiki
+```
+
+Les pipelines documentaires observés comprennent :
+
+- `docs-update` ;
+- `doc-watch-auto` ;
+- `doc-crons-sync` ;
+- auto-commit des wikis.
+
+`doc-watch-snapshot.py` surveille notamment le Wiki Hermes, BAVI_LEO, wiki-oca, voyages-wiki et le guide Christophe. Toute modification de périmètre doit être répercutée dans la source du pipeline et vérifiée par un run réel.
+
+## Incident à suivre séparément
+
+Au moment de l'audit, Michel était opérationnel mais son unité systemd tentait aussi de redémarrer un gateway alors qu'un processus Michel existait déjà. Cet état produisait une boucle de redémarrage observée dans les journaux.
+
+Cette anomalie relève du runbook infrastructure Michel. Elle ne doit pas être masquée par la documentation et ne doit pas être corrigée dans le lot éditorial sans mandat infrastructure distinct.
+
+## Règles de maintenance
+
+1. Mettre à jour cette page après toute évolution structurante.
+2. Citer la source et la date de mesure pour tout chiffre.
+3. Conserver les pages historiques avec un bandeau explicite plutôt que réécrire leur passé.
+4. Corriger les fichiers générés dans leur script source, puis régénérer.
+5. Vérifier le build MkDocs et la page servie avant de déclarer la mise à jour livrée.
+
+> Dernière mesure : **20/09/2026** — LEO et Michel.
