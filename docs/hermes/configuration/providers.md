@@ -1,181 +1,147 @@
 # Configuration des providers LLM
 
-Hermes Agent peut utiliser plusieurs fournisseurs de modèles de langage (LLM). Voici comment configurer les plus courants.
+> **Page canonique de référence :** [`hermes/architecture.md`](../architecture.md). Mesures vérifiées le **20/09/2026**.
 
-## Principe
+Hermes Agent permet d'orchestrer plusieurs fournisseurs de modèles de langage (LLM). Sur l'écosystème LEO, la configuration s'appuie sur une séparation par profil avec fournisseur principal et fallback de secours déclaré.
 
-```
-Ajouter la section sur les providers locaux et fallback basés sur les informations fournies.
-```
+## Principe d'orchestration sur LEO
 
-## DeepSeek (recommandé pour le provider principal)
+Depuis l'audit du 20/09/2026, la répartition opérationnelle est la suivante :
 
-DeepSeek offre un excellent rapport qualité/prix avec son API.
+- **Azure Foundry (`gpt-5.6-luna`)** : provider principal pour la majorité des profils opérationnels (`default`, `michel`, `robert`, `emile`, `gerard`).
+- **OpenRouter (`meta/muse-spark-1.3-contributor`)** : provider principal pour le profil `sylvia` (voyages et roadbooks).
+- **Google Gemini** : fallback déclaré (notamment `custom:google/gemini-3.7-flash` sur le profil Michel).
+- **Automatisations no_agent** : 70 des 72 jobs planifiés dans `profiles/michel/cron/jobs.json` s'exécutent sans appel LLM (coût nul).
+- **Ollama local (`qwen2.5:7b`)** : environnement local disponible sur la machine, mais non utilisé comme fallback actif en production.
 
-### 1. Créer un compte
+| Profil | Rôle | Provider principal | Modèle configuré | Fallback déclaré |
+|---|---|---|---|---|
+| `default` (LEO) | Dialogue quotidien et pilotage | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `michel` | Infrastructure et crons | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` |
+| `robert` | Conseil stratégique | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `emile` | Pédagogie et formation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `gerard` | Dossiers T600/OCA | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `sylvia` | Voyages camping-car | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon configuration |
 
-1. Allez sur [platform.deepseek.com](https://platform.deepseek.com)
-2. Créez un compte
-3. Rechargez du crédit (quelques dollars suffisent pour commencer)
-4. Générez une clé API dans la section API Keys
+---
 
-### 2. Configurer
+## 1. Azure Foundry (Provider principal)
 
-```bash
-# Dans votre .env (recommandé pour les clés API)
-echo "DEEPSEEK_API_KEY=sk-..." >> ~/.hermes/.env
+Azure Foundry héberge le modèle de référence `gpt-5.6-luna` pour cinq profils opérationnels.
 
-# Dans votre config.yaml
-hermes config set model.default deepseek-v4-flash
-hermes config set model.provider deepseek
-```
-
-Ou éditez `config.yaml` manuellement :
+### Configuration dans `config.yaml`
 
 ```yaml
 model:
-  default: deepseek-v4-flash
-  provider: deepseek
+  default: gpt-5.6-luna
+  provider: azure
 ```
 
-La clé API se trouve dans `.env` (pas dans `config.yaml`) :
+### Variables d'environnement (`.env`)
+
+Les clés et endpoints sont stockés exclusivement dans le fichier `.env` du profil (`~/.hermes/profiles/<nom>/.env`) et ne doivent jamais être commités :
 
 ```bash
-# ~/.hermes/.env
-DEEPSEEK_API_KEY=sk-...
+AZURE_OPENAI_API_KEY=sk-...
+AZURE_OPENAI_ENDPOINT=https://<votre-ressource>.openai.azure.com/
+AZURE_OPENAI_API_VERSION=2024-02-15-preview
 ```
 
-### 3. Vérifier
+---
+
+## 2. Google Gemini (Fallback déclaré)
+
+Google Gemini assure le rôle de secours automatique en cas d'indisponibilité du provider principal. Pour le profil `michel`, le fallback est explicitement configuré sur `custom:google/gemini-3.7-flash`.
+
+### Configuration du fallback
+
+```yaml
+fallback_providers:
+  - provider: google
+    model: custom:google/gemini-3.7-flash
+```
+
+Dans le fichier `.env` du profil :
 
 ```bash
-hermes chat -q "Quel est mon solde DeepSeek ?"
+GEMINI_API_KEY=AIza...
 ```
 
-## Ollama (provider local, gratuit)
+---
 
-Ollama exécute des LLM sur votre machine. Gratuit, privé, sans consommation de tokens.
+## 3. OpenRouter (Profil Sylvia)
 
-### 1. Installer Ollama
+Le profil dédié aux voyages (`sylvia`) s'appuie sur OpenRouter pour accéder au modèle `meta/muse-spark-1.3-contributor`.
+
+### Configuration
+
+```yaml
+model:
+  default: meta/muse-spark-1.3-contributor
+  provider: openrouter
+```
+
+Dans le `.env` de Sylvia :
 
 ```bash
-# Linux
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Windows → Téléchargez depuis ollama.com/download
+OPENROUTER_API_KEY=sk-or-v1-...
 ```
 
-### 2. Télécharger un modèle
+---
 
-```bash
-# Modèle recommandé pour l'assistant
-ollama pull qwen2.5:7b
+## 4. Ollama (Environnement local)
 
-# Autres modèles (non installés sur LEO — RTX 3050 8GB)
-# ollama pull llama3.1:8b    # Meta Llama 3.1
-# ollama pull mistral:7b     # Mistral
-```
+Ollama permet d'exécuter des modèles locaux directement sur la machine (par exemple `qwen2.5:7b` sur GPU RTX 3050 8GB).
 
-> **Sur LEO** : seul `qwen2.5:7b` est installé (RTX 3050 8GB). Choisissez un modèle adapté à votre GPU.
+> **Important :** Sur l'installation LEO au 20/09/2026, Ollama est un runtime local d'appoint et **n'est pas le fallback de secours actif en production**.
 
-### 3. Configurer Hermes
-
-```bash
-# Configurer via CLI
-hermes config set model.default qwen2.5:7b
-hermes config set model.provider ollama
-hermes config set model.base_url "http://localhost:11434/v1"
-```
-
-Ou dans `config.yaml` :
+### Configuration type (expérimentale ou locale)
 
 ```yaml
 model:
   default: qwen2.5:7b
   provider: ollama
   base_url: "http://localhost:11434/v1"
-  api_key: "ollama"  # Valeur arbitraire, non utilisée
 ```
 
-### 4. Vérifier
+Vérification du service local :
 
 ```bash
 curl http://localhost:11434/api/tags
 ```
 
-## Google Gemini (fallback)
+---
 
-Gemini peut servir de provider de secours si le principal est indisponible.
+## 5. Synthèse du routage et maîtrise des coûts
 
-### 1. Obtenir une clé
+Sur LEO, la politique de routage garantit à la fois performance et sobriété :
 
-1. Allez sur [aistudio.google.com/apikey](https://aistudio.google.com/apikey)
-2. Créez une clé API (gratuite avec quota limité)
-
-### 2. Configurer
-
-```yaml
-# Dans config.yaml — comme fallback
-fallback_providers:
-  - provider: google
-    model: gemini-3.5-flash
-```
-
-Stockez la clé dans `.env` :
-
-```bash
-echo "GEMINI_API_KEY=AIza..." >> .env
-```
-
-## Grâce à un assistant déjà configuré
-
-Si vous configurez votre assistant comme **LEO**, l'arbitrage entre providers est automatique :
-
-| Tâche | Provider utilisé | Coût |
-|-------|-----------------|------|
-| Conversation normale | DeepSeek 🤖 | Payant (faible) |
-| Traitement batch, analyse simple | Ollama 🏠 | Gratuit |
-| Secours si plantage | Gemini ⚡ | Gratuit (quota) |
-| Scripts planifiés | Aucun LLM (no_agent) | 0 |
-
-## Configuration avancée
-
-### Variables d'environnement (recommandé pour les clés)
-
-Créez un fichier `.env` à côté de `config.yaml` :
-
-```bash
-DEEPSEEK_API_KEY="sk-..."
-GEMINI_API_KEY="AIza..."
-OPENAI_API_KEY="sk-..."  # Si vous utilisez OpenAI
-```
-
-### Plusieurs providers dans un seul profil
-
-```yaml
-model:
-  default: deepseek-v4-flash
-  provider: deepseek
-  base_url: ""  # URL par défaut du provider
-  api_key: "${DEEPSEEK_API_KEY}"  # Référence variable d'environnement
-
-# Provider fallback (Gemini)
-providers:
-  google:
-    api_key: "${GEMINI_API_KEY}"
-
-fallback_providers:
-  - provider: google
-    model: gemini-3.5-flash
-```
-
-Ce n'est pas grave si votre fichier `config.yaml` est plus ou moins complexe. L'important est qu'il fonctionne pour **vous**.
-
-## Pour aller plus loin
-
-- Voir la [documentation des providers Hermes](https://hermes-agent.nousresearch.com/docs)
-- Voir `02-configuration/profiles.md` pour les profils et gateways
-*Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
+| Usage | Profil | Provider / Modèle | Modalité |
+|---|---|---|---|
+| Pilotage général | `default` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Administration & code | `michel` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Conseil stratégique | `robert` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Pédagogie & mémoire | `emile` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Dossiers T600/OCA | `gerard` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
+| Roadbooks voyages | `sylvia` | OpenRouter / `meta/muse-spark-1.3-contributor` | Pay-as-you-go |
+| Secours si panne primaire | Profils Azure | Google Gemini (`gemini-3.7-flash`) | Quota / API |
+| 70 crons d'automatisation | `michel` | Aucun LLM (`no_agent`) | **0$** |
 
 ---
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+## Contexte historique (daté)
+
+> 📜 **Historique (juillet 2026) :** Lors de la phase initiale de reconstruction post-crash en juillet 2026, DeepSeek (`deepseek-v4-flash` et `deepseek-v4-pro`) était configuré comme provider principal direct avant d'être remplacé par Azure Foundry (`gpt-5.6-luna`). De même, les versions initiales mentionnaient `gemini-3.5-flash` avant la bascule vers la série Gemini 3.7. Ces mentions dans les archives et journaux datés reflètent l'état de leur époque.
+
+---
+
+## Pour aller plus loin
+
+- Consulter [`architecture.md`](../architecture.md) pour l'état canonique de l'infrastructure
+- Consulter [`profiles.md`](profiles.md) pour l'isolation des profils et des mémoires
+- Consulter [`dashboards.md`](../utilisation/dashboards.md) pour le suivi des métriques et des services
+- [Documentation officielle Hermes : Providers](https://hermes-agent.nousresearch.com/docs)
+
+---
+
+> 🤖 Dernière mesure vérifiée : **20/09/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml` et `architecture.md`.

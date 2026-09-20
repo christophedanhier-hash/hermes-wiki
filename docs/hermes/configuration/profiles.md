@@ -29,27 +29,34 @@ Structure d'un profil dans `~/.hermes/profiles/<nom>/` :
 
 ### Règle LEO : architecture multi-profils
 
-> **5 profils spécialisés, 5 bots Telegram, mémoire indépendante par profil.**
+> **Page canonique de référence :** [`hermes/architecture.md`](../architecture.md). Mesures vérifiées le **20/09/2026**.
 
-LEO utilise **5 profils Hermes** tous avec bot Telegram :
+LEO repose sur une architecture multi-profils isolée (mémoire, sessions, configuration et `.env` propres à chaque profil). **Six profils opérationnels** ont été mesurés le 20/09/2026 :
 
-| Profil | Bot Telegram | Rôle | Modèle | Mémoire |
-|--------|:-----------:|------|--------|---------|
-| `default` | ✅ | Dialogue quotidien | DeepSeek Flash | Indépendante |
-| `michel` | ✅ | Infrastructure & crons | DeepSeek Pro | Indépendante |
-| `robert` | ✅ | Conseil Stratégique IA | DeepSeek Pro | Séparée |
-| `sylvia` | ✅ | Voyages Roadbooks | DeepSeek Flash | Séparée |
-| `emile` | ✅ | Assistant pédagogique mémoire | DeepSeek Flash | Séparée |
+| Profil | Rôle | Provider principal | Modèle configuré | Fallback déclaré | Interface / Gateway |
+|---|---|---|---|---|---|
+| `default` | LEO, dialogue et pilotage général | Azure Foundry | `gpt-5.6-luna` | Google Gemini | Gateway Hermes (DM Telegram) |
+| `michel` | Infrastructure, crons et déploiements | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` | Bot Telegram dédié |
+| `robert` | Conseil stratégique | Azure Foundry | `gpt-5.6-luna` | Google Gemini | Bot Telegram dédié |
+| `sylvia` | Voyages et roadbooks | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon configuration | Bot Telegram dédié |
+| `emile` | Pédagogie et formation | Azure Foundry | `gpt-5.6-luna` | Google Gemini | Bot Telegram dédié |
+| `gerard` | Dossiers T600/OCA | Azure Foundry | `gpt-5.6-luna` | Google Gemini | Profil opérationnel |
 
-> **Note historique** : Le profil `bureau-robert` a été renommé en `robert` lors de la consolidation de juillet 2026. Les anciens noms persistent dans les archives.
-- **Crons** : 46 dans `michel` (tous actifs). Règle « ZÉRO hors michel » respectée.
-- **Zéro duplication** de config — chaque profil a son `.env` et `config.yaml`
+> **Notes clés sur les profils :**
+>
+> - **LEO est un agent Hermes** (profil `default`), pas un bot Telegram autonome ; son accès s'effectue via le gateway Hermes sans handle Telegram inventé.
+> - **`leo` est l'alias Hive du profil `default`**, et non un septième profil distinct.
+> - **Gérard** est un profil opérationnel dédié aux dossiers T600/OCA (aucun bot Telegram inventé si non prouvé).
+> - **Crons Michel :** 72 jobs planifiés au 20/09/2026 dans `~/.hermes/profiles/michel/cron/jobs.json` (71 activés, 70 `no_agent`, 2 pilotés par un LLM).
+> - **Incident d'infrastructure suivi séparément :** l'unité systemd Michel est observée en boucle d'auto-restart car un PID est déjà actif. Cet incident relève de l'infrastructure et n'est pas masqué dans la documentation.
+> - **Note historique (datée) :** Le profil `bureau-robert` a été renommé en `robert` lors de la consolidation de juillet 2026. La configuration de juillet 2026 utilisait initialement DeepSeek avant la bascule vers Azure Foundry.
 
 | Propriété | Configuration | Description |
 |-----------|--------------|-------------|
-| **Modèle** | `model.default` | LLM principal (ex: `deepseek-v4-flash`) |
-| **Provider** | `model.provider` | Fournisseur (ex: `deepseek`, `openrouter` *(fallback — non actif)*) |
-| **Gateway** | `gateways.telegram.bot_token` | Token du bot Telegram |
+| **Modèle** | `model.default` | Modèle LLM configuré (ex: `gpt-5.6-luna`) |
+| **Provider** | `model.provider` | Fournisseur principal (ex: `azure`, `openrouter`) |
+| **Fallback** | `fallback_providers` | Fournisseur de secours déclaré (ex: Google Gemini) |
+| **Gateway** | `gateways.telegram.bot_token` | Token du bot Telegram (pour les profils avec gateway) |
 | **Outils** | `hermes tools` | Toolsets activés par plateforme |
 | **Skills** | `hermes skills install <id>` | Procédures chargées automatiquement |
 
@@ -180,10 +187,10 @@ Quand [condition], faire [action].
 ## Pour aller plus loin
 
 - [Documentation Hermes : Skills](https://hermes-agent.nousresearch.com/docs)
-- Voir `02-configuration/providers.md` pour la configuration LLM
-- Voir `utilisation/dashboards.md` pour le monitoring
-*Document mis à jour le 17/07/2026 à 00:00 — Léo 🦁*
+- Voir [`providers.md`](providers.md) pour la configuration des providers LLM
+- Voir [`dashboards.md`](../utilisation/dashboards.md) pour les interfaces et le monitoring
+- Voir [`architecture.md`](../architecture.md) pour l'état canonique de référence
 
 ---
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+> 🤖 Dernière mesure vérifiée : **20/09/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml` et `architecture.md`.
