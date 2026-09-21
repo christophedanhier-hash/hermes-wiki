@@ -65,6 +65,14 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
 
 ---
 
+#### Refonte complète de la table de la plateforme — 21/09/2026
+- Remplacement de `hermes/TABLE.md`, devenue obsolète après les évolutions Hermes/LEO.
+- Nouvelle structure centrée sur les 6 profils, les services actuels, Leo Docs, LEO Knowledge, le pipeline multi-profils, la sécurité et les parcours opérationnels.
+- Conservation de l’ancienne version dans `hermes/archives/retirees-2026/table-legacy-2026-09-21.md`.
+- Build strict et liens vérifiés avant publication.
+
+---
+
 ## 🏛️ Rappels des faits historiques antérieurs
 
 > [!NOTE]
