@@ -54,6 +54,7 @@ nav:
       - 📖 Présentation: hermes/index.md
       - 🏗️ Architecture Hermes LEO (référence): hermes/architecture.md
       - 🔗 Architecture & Communication: hermes/architecture-communication.md
+      - 🔎 Audit vérité terrain (21/09/2026): hermes/audit-verite-terrain-2026-09-21.md
       - 📜 Changelog: hermes/changelog.md
       - 💻 Installation Linux: hermes/installation/linux.md
       - ⚙️ Configuration — Providers LLM: hermes/configuration/providers.md

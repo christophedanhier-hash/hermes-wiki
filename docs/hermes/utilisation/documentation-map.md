@@ -62,5 +62,6 @@ La page `hermes/architecture.md` est désormais la page canonique de l'état act
 - Audit infrastructure Michel : 20/09/2026.
 - Wiki source : `/home/tofdan/Projets_Dev/hermes-wiki`.
 - La migration des pages secondaires est planifiée par lots ; cette première version établit la page canonique et la matrice.
+- Audit vérité terrain du 21/09/2026 : [`hermes/audit-verite-terrain-2026-09-21.md`](../audit-verite-terrain-2026-09-21.md).
 
-> Dernière mise à jour : **20/09/2026** — LEO, avec audit infrastructure Michel.
+> Dernière mise à jour : **21/09/2026 03:34** — Michel, avec audit vérité terrain.
