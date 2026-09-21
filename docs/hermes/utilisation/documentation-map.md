@@ -26,23 +26,20 @@ L'architecture documentaire active du Wiki Hermes est organisée autour d'une r�
 Dans le cadre du chantier de consolidation de l'écosystème Hermes LEO, la documentation a fait l'objet d'une rationalisation majeure sans aucune perte de contenu :
 
 ### Fusion des documents d'architecture
-Les trois documents d'architecture préexistants ont été consolidés en un **document actif unique** : [`hermes/architecture.md`](../architecture.md) :
-1. `docs/hermes/architecture.md` (page socle) ;
-2. `docs/hermes/architecture-communication.md` (profils, flux, Hive, rôles) ;
-3. `docs/hermes/utilisation/architecture-leo.md` (dashboards, services, ordonnanceur, pipelines).
+Les documents d'architecture préexistants ont été consolidés en un **document actif unique** : [`hermes/architecture.md`](../architecture.md).
 
-Les pages absorbées sont archivées avec bandeau de traçabilité dans :
-- `docs/hermes/archives/architecture-2026/architecture-communication.md`
-- `docs/hermes/archives/architecture-2026/architecture-leo.md`
+Les pages absorbées ne sont plus des sources actives et sont archivées avec bandeau de traçabilité dans :
+- [`hermes/archives/architecture-2026/architecture-communication.md`](../archives/architecture-2026/architecture-communication.md) (ancienne page communication, profils, flux, Hive, rôles) ;
+- [`hermes/archives/architecture-2026/architecture-leo.md`](../archives/architecture-2026/architecture-leo.md) (ancienne page architecture LEO, dashboards, services, ordonnanceur, pipelines).
 
 ### Retrait de la navigation active de pages secondaires
-Quatre pages ont été retirées de la navigation du site pour resserrer le parcours utilisateur sur les composants opérationnels de référence :
-- `docs/hermes/decisions/pourquoi-deepseek-pas-gemini.md` (analyse financière historique 07/2026) ;
-- `docs/hermes/services/spotify.md` (plugin musical secondaire) ;
-- `docs/hermes/utilisation/quotidien.md` (guide utilisateur générique) ;
-- `docs/hermes/installation/linux.md` (procédure d'installation initiale).
+Quatre pages secondaires ont été retirées de la navigation active pour resserrer le parcours utilisateur sur les composants opérationnels de référence. Elles ne sont plus présentées comme sources actives et sont archivées dans `docs/hermes/archives/retirees-2026/` avec bandeau d'archive explicite :
+- [`hermes/archives/retirees-2026/pourquoi-deepseek-pas-gemini.md`](../archives/retirees-2026/pourquoi-deepseek-pas-gemini.md) (analyse financière historique 07/2026, ancienne page `decisions/pourquoi-deepseek-pas-gemini.md`) ;
+- [`hermes/archives/retirees-2026/spotify.md`](../archives/retirees-2026/spotify.md) (plugin musical secondaire, ancienne page `services/spotify.md`) ;
+- [`hermes/archives/retirees-2026/quotidien.md`](../archives/retirees-2026/quotidien.md) (guide utilisateur générique initial, ancienne page `utilisation/quotidien.md`) ;
+- [`hermes/archives/retirees-2026/linux.md`](../archives/retirees-2026/linux.md) (procédure d'installation initiale Debian/Ubuntu, ancienne page `installation/linux.md`).
 
-Ces pages ont été déplacées dans `docs/hermes/archives/retirees-2026/` avec bandeau d'archive explicite. Leur contenu est intégralement préservé pour l'historique et la traçabilité.
+Leur contenu est intégralement préservé pour l'historique et la traçabilité.
 
 ---
 
@@ -72,15 +69,15 @@ Les documents archivés sont conservés hors navigation active pour consultation
 
 | Fichier archivé | Contexte & Raison du classement | Référence active équivalente |
 |---|---|---|
-| `architecture-2026/architecture-communication.md` | Document fusionné — profils, gateways et flux Hive | [`hermes/architecture.md`](../architecture.md) |
-| `architecture-2026/architecture-leo.md` | Document fusionné — supervision, services et ordonnanceur | [`hermes/architecture.md`](../architecture.md) |
-| `retirees-2026/pourquoi-deepseek-pas-gemini.md` | Analyse financière comparative juillet 2026 | [`hermes/configuration/providers.md`](../configuration/providers.md) |
-| `retirees-2026/spotify.md` | Fiche plugin musical Spotify | Hors navigation active |
-| `retirees-2026/quotidien.md` | Guide générique d'usage initial | [`hermes/index.md`](../index.md) & [`hermes/architecture.md`](../architecture.md) |
-| `retirees-2026/linux.md` | Guide d'installation initiale Debian/Ubuntu | [`hermes/index.md`](../index.md) |
-| `decisions/pourquoi-deepseek-pas-copilot.md` | Décision comparative antérieure | [`hermes/configuration/providers.md`](../configuration/providers.md) |
-| `automatisation-ch27-crons-horaires.md` | Ancien découpage thématique crons | [`hermes/architecture.md`](../architecture.md) |
-| `dashboards-ch24-monitoring-crons.md` | Ancien découpage dashboards | [`hermes/utilisation/dashboards.md`](dashboards.md) |
+| [`architecture-2026/architecture-communication.md`](../archives/architecture-2026/architecture-communication.md) | Document fusionné — profils, gateways et flux Hive | [`hermes/architecture.md`](../architecture.md) |
+| [`architecture-2026/architecture-leo.md`](../archives/architecture-2026/architecture-leo.md) | Document fusionné — supervision, services et ordonnanceur | [`hermes/architecture.md`](../architecture.md) |
+| [`retirees-2026/pourquoi-deepseek-pas-gemini.md`](../archives/retirees-2026/pourquoi-deepseek-pas-gemini.md) | Analyse financière comparative juillet 2026 | [`hermes/configuration/providers.md`](../configuration/providers.md) |
+| [`retirees-2026/spotify.md`](../archives/retirees-2026/spotify.md) | Fiche plugin musical Spotify | Hors navigation active |
+| [`retirees-2026/quotidien.md`](../archives/retirees-2026/quotidien.md) | Guide générique d'usage initial | [`hermes/index.md`](../index.md) & [`hermes/architecture.md`](../architecture.md) |
+| [`retirees-2026/linux.md`](../archives/retirees-2026/linux.md) | Guide d'installation initiale Debian/Ubuntu | [`hermes/index.md`](../index.md) |
+| [`decisions/pourquoi-deepseek-pas-copilot.md`](../archives/decisions/pourquoi-deepseek-pas-copilot.md) | Décision comparative antérieure | [`hermes/configuration/providers.md`](../configuration/providers.md) |
+| [`automatisation-ch27-crons-horaires.md`](../archives/automatisation-ch27-crons-horaires.md) | Ancien découpage thématique crons | [`hermes/architecture.md`](../architecture.md) |
+| [`dashboards-ch24-monitoring-crons.md`](../archives/dashboards-ch24-monitoring-crons.md) | Ancien découpage dashboards | [`hermes/utilisation/dashboards.md`](dashboards.md) |
 
 ### Autres pages historiques du dépôt
 - `hermes/etat-des-lieux.md` : consigne les constats initiaux post-crash (juin 2026) ;
