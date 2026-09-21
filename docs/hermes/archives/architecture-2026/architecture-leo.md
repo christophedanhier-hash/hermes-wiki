@@ -1,6 +1,8 @@
-# 🏛️ Architecture LEO
+# 🏛️ Architecture LEO (Archive 2026)
 
-> **Page canonique de référence :** [`hermes/architecture.md`](../architecture.md). Mesures vérifiées le **20/09/2026**.
+> [!WARNING]
+> **Document d'archive — Hors navigation active (2026)**
+> Le contenu de ce document a été fusionné dans la page canonique unique [`../architecture.md`](../../architecture.md). Ce document est conservé hors navigation à des fins de traçabilité historique.
 
 ## 0. Architecture Profil / Gateway / Agent
 
@@ -133,10 +135,10 @@ Chaque profil s'appuie sur son propre espace documentaire pour ses notes et synt
 
 ## Pour aller plus loin
 
-- Consulter [`architecture.md`](../architecture.md) pour la vue canonique complète
-- Consulter [`dashboards.md`](dashboards.md) pour le détail des dashboards et de la supervision
-- Consulter [`bots-telegram.md`](bots-telegram.md) pour les interfaces Telegram et profils
-- Consulter [`profiles.md`](../configuration/profiles.md) pour la gestion des profils Hermes
+- Consulter [`architecture.md`](../../architecture.md) pour la vue canonique complète
+- Consulter [`dashboards.md`](../../utilisation/dashboards.md) pour le détail des dashboards et de la supervision
+- Consulter [`bots-telegram.md`](../../utilisation/bots-telegram.md) pour les interfaces Telegram et profils
+- Consulter [`profiles.md`](../../configuration/profiles.md) pour la gestion des profils Hermes
 
 ---
 

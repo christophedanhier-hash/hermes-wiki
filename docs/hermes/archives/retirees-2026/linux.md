@@ -1,4 +1,8 @@
-# Installation sur Linux (Debian/Ubuntu)
+# Installation sur Linux (Debian/Ubuntu) (Archive 2026)
+
+> [!WARNING]
+> **Document d'archive — Hors navigation active (2026)**
+> Cette page a été retirée de la navigation active de la documentation Hermes LEO sur décision éditoriale. Son contenu est conservé intégralement pour traçabilité et historique. Pour la documentation opérationnelle de référence, consulter la page canonique [`hermes/architecture.md`](../../architecture.md).
 
 ## 🎯 Objectif
 
@@ -135,7 +139,7 @@ graph TB
             Crons["58 crons actifs (michel 50 + LEO 6 + sylvia 2)"]
         end
     end
-    
+
     Telegram["📱 Telegram"] -->|"5 bots"| GW
     GW -->|"déploie"| GH["GitHub Pages<br/>1 dashboard unifié"]
     GW -->|"utilise"| Google["Google APIs<br/>Drive · Gmail · Calendar · Sheets"]

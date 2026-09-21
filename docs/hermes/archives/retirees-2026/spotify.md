@@ -1,5 +1,9 @@
 # 🎵 Spotify — Contrôle musical
 
+> [!WARNING]
+> **Document d'archive — Hors navigation active (2026)**
+> Cette page a été retirée de la navigation active de la documentation Hermes LEO sur décision éditoriale. Son contenu est conservé intégralement pour traçabilité et historique. Pour la documentation opérationnelle de référence, consulter la page canonique [`hermes/architecture.md`](../../architecture.md).
+
 Plugin Spotify natif Hermes connecté le **21/06/2026** via OAuth PKCE.
 
 ## 🔧 Configuration

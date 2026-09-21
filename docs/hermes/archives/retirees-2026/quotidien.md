@@ -1,3 +1,9 @@
+# 📋 Usage quotidien (Archive 2026)
+
+> [!WARNING]
+> **Document d'archive — Hors navigation active (2026)**
+> Cette page a été retirée de la navigation active de la documentation Hermes LEO sur décision éditoriale. Son contenu est conservé intégralement pour traçabilité et historique. Pour la documentation opérationnelle de référence, consulter la page canonique [`hermes/architecture.md`](../../architecture.md).
+
 Une fois Hermes installé et configuré, voici comment l'utiliser au quotidien.
 
 ## Parler à votre assistant
@@ -123,8 +129,8 @@ LEO vérifie, supprime ce qui est obsolète, et confirme.
 ## Pour aller plus loin
 
 - Consultez le scheduler Hermes (`hermes cron list`) pour les tâches planifiées
-- Voir `utilisation/dashboards.md` pour le monitoring
-- Voir `utilisation/architecture-leo.md` ou `architecture-communication.md` pour l'architecture complète
+- Voir `../../utilisation/dashboards.md` pour le monitoring
+- Voir `../../architecture.md` pour l'architecture complète
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
 > 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)

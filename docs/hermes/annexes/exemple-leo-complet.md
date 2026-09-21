@@ -1,6 +1,6 @@
 # L'architecture LEO — Exemple concret
 
-> ⚠️ **Document d'archive historique (04/07/2026)** — Ce document consigne l'architecture initiale post-reconstruction de LEO (mono-profil sous DeepSeek, phase d'études). Pour la référence opérationnelle actuelle (six profils opérationnels sous Azure Foundry / OpenRouter, dont Émile en assistant professionnel et Gérard en astronomie/documentation), consulter [`hermes/architecture.md`](../architecture.md) et [`hermes/utilisation/architecture-leo.md`](../utilisation/architecture-leo.md).
+> ⚠️ **Document d'archive historique (04/07/2026)** — Ce document consigne l'architecture initiale post-reconstruction de LEO (mono-profil sous DeepSeek, phase d'études). Pour la référence opérationnelle actuelle (six profils opérationnels sous Azure Foundry / OpenRouter, dont Émile en assistant professionnel et Gérard en astronomie/documentation), consulter [`hermes/architecture.md`](../architecture.md).
 
 LEO est l'assistant personnel de Christophe. Ce document détaille son architecture pour servir d'exemple à ceux qui veulent construire le leur.
 

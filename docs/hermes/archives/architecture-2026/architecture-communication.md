@@ -1,6 +1,8 @@
-# 🔗 Architecture & Communication — Écosystème Hermes LEO
+# 🔗 Architecture & Communication — Écosystème Hermes LEO (Archive 2026)
 
-> **Page canonique de référence :** [`hermes/architecture.md`](architecture.md). Mesures vérifiées le **20/09/2026**.
+> [!WARNING]
+> **Document d'archive — Hors navigation active (2026)**
+> Le contenu de ce document a été fusionné dans la page canonique unique [`../architecture.md`](../../architecture.md). Ce document est conservé hors navigation à des fins de traçabilité historique.
 
 Ce document détaille l'organisation des profils opérationnels Hermes, leurs passerelles de communication (gateways, DM et bots Telegram), le protocole d'échange inter-profils Hive, ainsi que les interfaces et services locaux actifs.
 
