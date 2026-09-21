@@ -1,251 +1,299 @@
-# Table des matières
+# Hermes LEO — Carte de la plateforme et parcours documentaire
 
-## 📖 Hermès pour les Nuls
+> **Référence de navigation interne.** Cette page présente l’architecture actuelle de la plateforme Hermes/LEO, ses profils, ses services, sa gouvernance documentaire et les pages canoniques associées.
+>
+> **Dernière vérification terrain :** 21/09/2026 — Hermes `v0.19.0`, Python `3.14.4`, 6 profils, 72 jobs Michel, services `8765`, `8766`, `9119` et `8793`.
+>
+> Les chiffres dynamiques sont datés et doivent être revérifiés dans les sources indiquées. Les archives historiques ne décrivent pas l’état courant.
 
+---
+
+## 1. Comprendre Hermes et LEO
+
+Hermes Agent est le socle d’exécution d’agents IA. LEO est l’agent principal exécuté sur le profil `default`.
+
+```mermaid
+flowchart LR
+    Christophe["Christophe"] --> DM["DM Telegram"]
+    DM --> Gateway["Gateway Hermes"]
+    Gateway --> Leo["LEO / default"]
+    Leo --> Providers["Providers LLM"]
+    Leo --> Tools["Skills, fichiers et services"]
+    Leo --> Hive["Hive inter-profils"]
 ```
-┌────────────────────────────────────────────────────────────┐
-│  HERMÈS POUR LES NULS                                      │
-│  Construire son propre assistant IA avec LEO              │
-│                                                            │
-│  Partie I  — Découvrir Hermès          🏁                  │
-│  Partie II — Configurer son Assistant  ⚙️                  │
-│  Partie III — Les Bureaux BAVI         🏛️                  │
-│  Partie IV — La Puissance des Skills   🧠                  │
-│  Partie V — Dashboards et Monitoring   📊                  │
-│  Partie VI — Automatisation et Crons   ⏱️                  │
-│  Partie VII — La Partie des Dix        💡                  │
-│  Annexes                                📚                 │
-└────────────────────────────────────────────────────────────┘
+
+### Pages de référence
+
+- [Présentation Hermes](index.md)
+- [Architecture Hermes LEO](architecture.md)
+- [Architecture de la connaissance LLM Wiki et Leo Docs](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Farchitecture-llm-wiki-leo-docs) — couche interne protégée
+- [Sécurité](utilisation/securite.md)
+- [Changelog vérifié](changelog.md)
+
+### À retenir
+
+- LEO est un agent Hermes, pas un bot Telegram public.
+- `leo` est l’alias Hive du profil `default`, pas un septième profil.
+- Les profils Hermes sont isolés : configuration, sessions, skills et mémoire sont propres à chaque profil.
+- Leo Docs est l’explorateur documentaire interne ; il ne déclare pas automatiquement qu’un document est actuel.
+
+---
+
+## 2. Architecture actuelle de la plateforme
+
+### Profils opérationnels
+
+| Profil | Rôle courant | Provider principal | Modèle configuré |
+|---|---|---|---|
+| `default` | LEO : dialogue, pilotage général et coordination | Azure Foundry | `gpt-5.6-luna` |
+| `michel` | Infrastructure, jobs, sauvegardes, métriques et déploiements | Azure Foundry | `gpt-5.6-luna` |
+| `robert` | Conseil stratégique, gouvernance et architecture | Azure Foundry | `gpt-5.6-luna` |
+| `sylvia` | Voyages, logistique camping-car et roadbooks | OpenRouter | `meta/muse-spark-1.3-contributor` |
+| `emile` | Assistant professionnel d’Émilie dans My Émile IA Workbench | Azure Foundry | `gpt-5.6-luna` |
+| `gerard` | Astronomie, astrophotographie, site tofdan, documentation et étude | Azure Foundry | `gpt-5.6-luna` |
+
+### Fallbacks et routage
+
+Les fallbacks déclarés sont vérifiables dans les configurations de profils. Le fallback Google Gemini ne doit pas être présenté comme le provider principal d’un profil lorsqu’il est configuré comme secours.
+
+- [Profils, mémoires et skills](configuration/profiles.md)
+- [Providers et routage LLM](configuration/providers.md)
+- [Gateways et interfaces Telegram](utilisation/bots-telegram.md)
+- [Architecture détaillée](architecture.md)
+
+### Coordination
+
+Hive assure les échanges asynchrones inter-profils et le suivi des obligations. Il ne remplace pas le chemin conversationnel direct des workbenches métier.
+
+---
+
+## 3. Services et interfaces
+
+| Service | Port | Rôle | Page associée |
+|---|---:|---|---|
+| Panel LEO | `8765` | Métriques, jobs et supervision opérationnelle | [Dashboards](utilisation/dashboards.md) |
+| Leo Docs | `8766` | Explorateur documentaire et recherche interne | [Carte documentaire](utilisation/documentation-map.md) |
+| Hermes Dashboard | `9119` | Interface native et supervision Hermes | [Interface Web](interface-web.md) |
+| My Émile IA | `8793` local | Workbench professionnel d’Émilie | Documentation métier My Émile IA |
+
+### Navigation utile
+
+- [Dashboards et monitoring](utilisation/dashboards.md)
+- [Interface Web Hermes](interface-web.md)
+- [Carte documentaire](utilisation/documentation-map.md)
+- [Backup & Recovery](utilisation/backup-recovery.md)
+
+Les ports et l’accessibilité doivent être vérifiés sur le système réel. Un service local ou privé ne doit pas être présenté comme une URL publique.
+
+---
+
+## 4. Documentation et base de connaissance
+
+La documentation Hermes utilise plusieurs couches complémentaires.
+
+```mermaid
+flowchart TB
+    Raw["Sources brutes datées"] --> Knowledge["LEO Knowledge : synthèses sourcées"]
+    Knowledge --> LeoDocs["Leo Docs : consultation transverse"]
+    Knowledge --> Review["Revue et validation"]
+    Review --> Wiki["Wiki Hermes public ou wiki spécialisé"]
+    Product["Documents métier"] --> Origin["Système produit d'origine"]
+    Origin -. "hors ingestion automatique" .-> Knowledge
 ```
 
----
+### Leo Docs
 
-## Partie I — Découvrir Hermès 🏁
-*Commencer par le commencement*
+Leo Docs répond à la question :
 
-- ****Ch.1 — Un agent IA, c'est quoi ?****
-  - Chatbot vs agent : la différence fondamentale
-  - Ce que LEO fait que ChatGPT ne peut pas faire
-  - Les briques d'un agent : modèle, outils, mémoire, actions
+```text
+Quels documents existent et où puis-je les consulter ?
+```
 
-- ****Ch.2 — Pourquoi Hermès ?****
-  - Hermes vs Claude Code vs Codex vs OpenCode
-  - Multi-provider : DeepSeek, Gemini, Ollama, 15+ autres
-  - Skills : le super-pouvoir qui rend Hermes unique
-  - Plateformes : Telegram, Discord, Slack, email, et plus
+Il indexe des wikis, vaults, audits, documents produits et LEO Knowledge. Son inventaire peut contenir des archives, des documents de travail et des historiques.
 
-- ****Ch.3 — L'architecture LEO****
-  - Vue d'ensemble : 3 bots, 3 profils, providers dédiés
-  - Le Gateway DeepSeek : pont entre Telegram et l'agent
-  - Hiérarchie des providers : quand utiliser quoi
-  - Les chiffres clés de LEO (dashboards, crons, skills)
+### LEO Knowledge / LLM Wiki
 
-- ****Ch.4 — Installation rapide****
-  - Installation sur Linux (Debian/Ubuntu)
-  - Installation sur Windows (WSL)
-  - Premier lancement et configuration minimale
-  - Vérification : le diagnostic
+LEO Knowledge répond à la question :
 
----
+```text
+Quelles connaissances fiables retenons-nous de ces documents ?
+```
 
-## Partie II — Configurer son Assistant ⚙️
-*Moteur, on tourne !*
+- `raw/` : sources immuables avec SHA-256 ;
+- `knowledge/` : synthèses avec provenance et confiance ;
+- `reports/` : lint, contradictions et manifestes ;
+- `pipeline/` : contrat commun aux six profils ;
+- `scripts/` : classification, ingestion contrôlée, recherche et lint.
 
-- ****Ch.5 — Le Gateway : connecter Telegram****
-  - Créer un bot Telegram avec @BotFather
-  - Configurer le gateway Hermes
-  - Gérer les profils : default, michel, sylvia
-  - La gestion s6 en environnement Docker
+- [Architecture LLM Wiki et Leo Docs](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Farchitecture-llm-wiki-leo-docs)
+- [Gouvernance documentaire](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Fgouvernance-documentaire)
+- [Opérations documentaires](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Foperations-documentaires)
+- [Contrat documentaire multi-profils](https://tofdan.be/docs/?page=leo-knowledge%2Fpipeline%2Fdocument-contract)
 
-- ****Ch.6 — Providers : le moteur de votre agent****
-  - DeepSeek : le pilier principal
-  - Ollama : l'IA locale et gratuite
-  - Gemini : le fallback silencieux
-  - Hiérarchie et fallback : comment Hermes choisit
+### Règle de qualification
 
-- ****Ch.7 — Multi-bots : pourquoi plusieurs valent mieux qu'un****
-  - L'architecture multi-profil de LEO
-  - Quand créer un nouveau bot vs tout dans le même
-  - Synchronisation de mémoire entre profils
-  - Gérer ses tokens et cred pools
+```text
+classifier → dry-run → revue → ingestion raw → lint → synthèse knowledge → publication sélective
+```
 
-- ****Ch.8 — Skills : le super-pouvoir d'Hermès****
-  - Qu'est-ce qu'un skill ?
-  - Les 28 skills de LEO : classification et navigation
-  - Installer, charger, et utiliser des skills
-  - Skills système vs skills utilisateur
-
-- ****Ch.9 — Mémoire persistante****
-  - Pourquoi un agent a besoin de mémoire
-  - Memory vs User Profile
-  - Configurer et utiliser la mémoire
-  - Le cron sync-memory entre profils
+Les tests, secrets, credentials, briefs temporaires et documents professionnels sensibles ne sont pas ingérés automatiquement.
 
 ---
 
-## Partie III — Les Bureaux BAVI 🏛️
-*La force de l'organisation*
+## 5. Périmètres métier
 
-- ****Ch.10 — Architecture bureaux****
-  - Le concept BAVI : organiser ses connaissances par bureau
-  - Les 10 bureaux : qui fait quoi
-  - La gouvernance : comment les bureaux collaborent
+### Émile
 
-- ****Ch.11 — Bureau Michel : l'infrastructure****
-  - Déploiement et configuration des workflows
-  - Gestion système, watchdogs, scripts
-  - La checklist de déploiement
+Émile est l’assistant professionnel d’Émilie dans My Émile IA Workbench. Il accompagne la rédaction, la structuration et la gestion de notes, rapports, activités et documents professionnels, avec validation humaine.
 
-- ****Ch.12 — Bureau Sylvia : les voyages****
-  - Le bot voyages dédié (@bavi_leo_voyages_bot)
-  - Roadbooks et wiki voyages
-  - Agence de voyage complète (camping-car, hôtels, itinéraires)
+Les documents professionnels d’Émilie restent dans leur système métier. Ils ne sont pas aspirés automatiquement dans LEO Knowledge.
 
-- ****Ch.13 — Bureau Emile : assistant professionnel d'Émilie****
-  - Assistant professionnel dans My Émile IA Workbench (développé via Avenyra)
-  - Rédaction, structuration et gestion documentaire avec validation humaine
+- [Bureau Émile](bureaux/ch13-bureau-emile.md)
+- [My Émile IA](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Fmy-emile-ia)
 
-- ****Ch.14 — Bureau Robert : le conseil stratégique****
-  - Analyses concurrentielles
-  - Recommandations stratégiques IT
-  - Gouvernance et architectures cibles
+### Gérard
 
-- ****Ch.15 — Les autres bureaux****
-  - Bureau Sophie : pilotage économique et financier
-  - Bureau Gérard : astronomie, astrophotographie et documentation
-  - Bureau Virginie : orchestration médicale
-  - Bureau LEO : le fourre-tout personnel
-  - Assurance Obligatoire : le bureau transverse
+Gérard accompagne Christophe pour l’astronomie, l’astrophotographie, le site et le wiki tofdan, la documentation générale et l’étude comme guide astronomie. Le T600/OCA est un projet parmi d’autres.
+
+- [Bureau Gérard et architecture des bureaux](bureaux/ch10-architecture-bureaux.md)
+- [Wiki OCA](https://christophedanhier-hash.github.io/wiki-oca/)
+
+### Michel
+
+Michel pilote l’infrastructure, les jobs, les sauvegardes, les métriques et les contrôles opérationnels. Les chiffres de jobs et les états de services sont dynamiques et doivent être datés.
+
+- [Bureau Michel](bureaux/ch11-bureau-michel.md)
+- [Backup & Recovery](utilisation/backup-recovery.md)
+
+### Robert et Sylvia
+
+- [Bureau Robert](bureaux/ch14-bureau-robert.md)
+- [Bureau Sylvia](bureaux/ch12-bureau-sylvia.md)
+
+Les descriptions historiques des anciens bureaux sont conservées dans les archives, pas dans cette table active.
 
 ---
 
-## Partie IV — La Puissance des Skills 🧠
-*Le savoir-faire réutilisable*
+## 6. Automatisation et jobs
 
-- ****Ch.16 — Skills système****
-  - hermes-agent, hermes-gateway, hermes-profiles
-  - Configuration et troubleshooting
-  - Les profils multi-agents
+Au 21/09/2026, le profil Michel contient :
 
-- ****Ch.17 — Skills productivité****
-  - Dashboards : hermes-dashboard, dashboard-kpi
-  - Documentation : mkdocs-wiki, living-documentation
-  - Google Workspace, Airtable, Notion
-  - Email : inbox-zero, leo-email-assistant
+```text
+72 jobs planifiés
+71 jobs activés
+70 jobs no_agent
+```
 
-- ****Ch.18 — Skills DevOps****
-  - GitHub PR workflow, code review, issues
-  - Code-server VS Code dans le navigateur
-  - Déploiement de dashboards
+Ces valeurs décrivent le registre Michel observé à cette date ; elles ne constituent pas une valeur permanente.
 
-- ****Ch.19 — Skills créatifs****
-  - ASCII art, architecture diagrams, Excalidraw
-  - ComfyUI, p5.js, manim-video
-  - Songwriting et musique IA
+### Familles opérationnelles
 
-- ****Ch.20 — Skills recherche et veille****
-  - AI Tech Watch : 17 sources RSS
-  - arXiv, blogwatcher, Polymarket
-  - Llm-wiki : base de connaissances LLM
+- maintenance quotidienne à `03:00` ;
+- backup quotidien à `06:00` ;
+- mise à jour et observation documentaire ;
+- métriques et dashboards ;
+- synchronisations et contrôles ;
+- audits de qualité ciblés.
 
-- ****Ch.21 — Écrire ses propres skills****
-  - Le format SKILL.md : frontmatter et contenu
-  - Les bonnes pratiques
-  - Versionner et partager ses skills
+La règle de choix est simple : un traitement déterministe doit rester un script `no_agent`; une tâche nécessitant une analyse peut utiliser un agent selon son contrat et son profil.
+
+- [Architecture Hermes LEO](architecture.md)
+- [Dashboards](utilisation/dashboards.md)
+- [Automatisation](automatisation/ch26-crons-intro.md)
+- [Crons quotidiens](automatisation/ch28-crons-quotidiens.md)
+- [Watchdogs](automatisation/ch29-watchdogs.md)
+- [Drive ↔ GitHub](automatisation/ch30-drive-github-sync.md)
 
 ---
 
-## Partie V — Dashboards et Monitoring 📊
-*Voir l'invisible*
+## 7. Sauvegarde, sécurité et reprise
 
-| ****Ch.22 — L'écosystème de dashboards****
-|  - Architecture : 7 dashboards pré-crash → **1 dashboard unifié** (leo-dashboard)
-|  - Navigation interconnectée
-  - Cycle de vie d'une donnée : du chat Telegram au graphique
+La documentation de référence doit être lue avec les scripts réels :
 
-- ****Ch.23 — Métriques machines****
-  - CPU, RAM, disque, GPU : collecte et visualisation
-  - Les 3 machines de LEO : LEO, Yoga, Penguin
-  - Alertes et seuils
+- [Backup & Recovery](utilisation/backup-recovery.md)
+- [Sécurité](utilisation/securite.md)
+- [Architecture](architecture.md)
 
-- ****Ch.24 — Monitoring des crons****
-  - Le tableau de bord des 25 tâches planifiées
-  - Historique 7 jours, durée d'exécution, taux de succès
-  - Détection des crons bloqués ou en échec
+Principes :
 
-- ****Ch.25 — Budget et tracking****
-  - Suivi du solde DeepSeek en temps réel
-  - Projection de consommation
-  - Dashboards LEO KPI et BAVI LEO KPI
+- local, miroir HDD et Google Drive sont des destinations distinctes ;
+- la rétention et le périmètre sont ceux du script réellement exécuté ;
+- le RTO n’est pas une garantie tant qu’un exercice n’a pas été mesuré ;
+- les secrets et identifiants ne sont jamais publiés ;
+- les volumes métier et documents professionnels ont leurs propres procédures.
 
 ---
 
-## Partie VI — Automatisation et Crons ⏱️
-*Que ça roule tout seul*
+## 8. Parcours recommandés
 
-- ****Ch.26 — Le scheduler Hermes****
-  - no_agent vs LLM-driven : quel mode pour quelle tâche ?
-  - Script vs prompt : les critères de choix
-  - Syntaxe cron, delivery, workdir
+### Pour comprendre la plateforme
 
-- ****Ch.27 — Les crons horaires****
-  - La vague H:00-H:30 : 8 crons qui s'enchaînent
-  - Machines KPI, budget, dashboards
-  - Le staggered scheduling
+```text
+Présentation → Architecture → Profils → Providers → Dashboards
+```
 
-- ****Ch.28 — Les crons quotidiens et spéciaux****
-  - Backup automatique (06:00)
-  - Veille IA (08:00)
-  - Drive sync (18:00)
-  - Classifieur emails (toutes les 15 min)
-  - Auto-commit repos (toutes les 2h)
+1. [Présentation Hermes](index.md)
+2. [Architecture LEO](architecture.md)
+3. [Profils](configuration/profiles.md)
+4. [Providers](configuration/providers.md)
+5. [Dashboards](utilisation/dashboards.md)
 
-- ****Ch.29 — Watchdogs et alertes****
-  - Dashboard Watch : vérification automatique du contenu
-  - Auto-Heal : détection et correction des erreurs
-  - Code-server watchdog
-  - Le double filet : Hermes + scripts Python
+### Pour comprendre la documentation
 
-- ****Ch.30 — Drive ↔ GitHub Sync****
-  - Synchronisation bidirectionnelle Drive ↔ GitHub
-  - Résolution de conflits
-  - Le Drive Guardian en script Python
+```text
+Carte documentaire → Leo Docs → LEO Knowledge → publication sélective
+```
 
----
+1. [Carte documentaire](utilisation/documentation-map.md)
+- [Architecture LLM Wiki et Leo Docs](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Farchitecture-llm-wiki-leo-docs)
+- [Gouvernance documentaire LEO](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Fgouvernance-documentaire)
+- [Opérations documentaires](https://tofdan.be/docs/?page=leo-knowledge%2Fknowledge%2Foperations-documentaires)
+- [Contrat documentaire multi-profils](https://tofdan.be/docs/?page=leo-knowledge%2Fpipeline%2Fdocument-contract)
 
-## Partie VII — La Partie des Dix 💡
-*Les listes qui sauvent*
+### Pour exploiter Hermes au quotidien
 
-- ****Ch.31 — 10 astuces pour ne pas galérer****
-  - Les pièges à éviter absolument
-  - Astuces de configuration et d'usage quotidien
+1. [Interface Web](interface-web.md)
+2. [Gateways et bots](utilisation/bots-telegram.md)
+3. [Dashboards](utilisation/dashboards.md)
+4. [Backup & Recovery](utilisation/backup-recovery.md)
+5. [Sécurité](utilisation/securite.md)
 
-- ****Ch.32 — 10 commandes à connaître absolument****
-  - Les essentiels du CLI Hermes
-  - Commandes slash en session interactive
+### Pour diagnostiquer
 
-- ****Ch.33 — 10 façons d'étendre Hermès****
-  - MCP servers, plugins, webhooks
-  - Intégrations avec d'autres outils
-
-- ****Ch.34 — 10 ressources pour aller plus loin****
-  - Documentation officielle, skills hub, communauté
+1. [Troubleshooting](annexes/troubleshooting.md)
+2. [Architecture](architecture.md)
+3. [Dashboards](utilisation/dashboards.md)
+4. [Carte documentaire](utilisation/documentation-map.md)
 
 ---
 
-## Annexes 📚
+## 9. Archives et historique
 
-- **[Annexe A — Glossaire](annexes/glossaire.md)**
-- **[Annexe B — Guide de démarrage rapide](annexes/guide-rapide.md)**
-- ****Annexe C — Arbre de décision des providers****
-- ****Annexe D — Check-list déploiement****
-- **[Annexe E — Aide-mémoire des commandes](annexes/commandes.md)**
-- **[Annexe F — Exemple : architecture complète de LEO](annexes/exemple-leo-complet.md)**
-- **[Annexe G — Troubleshooting](annexes/troubleshooting.md)**
+L’ancienne table des matières du 04/07/2026 est conservée ici :
+
+- [Table legacy 2026](archives/retirees-2026/table-legacy-2026-09-21.md)
+
+Elle est historique et ne doit pas être utilisée pour décrire l’état courant.
+
+Les archives d’architecture, de providers et de pages retirées sont référencées dans la [Carte documentaire](utilisation/documentation-map.md).
 
 ---
 
-**Légende :** 📝 = écrit | 🔄 = en cours | ⬜ = à rédiger
-*Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
+## 10. Règles de maintenance de cette table
 
-> 🤖 Dernier audit : 26/07/2026 à 12:00 (UTC+2)
+Toute modification structurante de Hermes doit vérifier :
+
+1. la page canonique [Architecture](architecture.md) ;
+2. les pages [Profils](configuration/profiles.md) et [Providers](configuration/providers.md) ;
+3. les services et ports réels ;
+4. le registre des jobs Michel ;
+5. la [Carte documentaire](utilisation/documentation-map.md) ;
+6. Leo Docs ;
+7. le build MkDocs strict ;
+8. le site effectivement servi après publication.
+
+Les chiffres dynamiques doivent porter une date et une source. Les journaux historiques ne sont pas réécrits pour refléter l’état présent.
+
+---
+
+> Cette refonte remplace la table historique devenue obsolète. Elle ne supprime pas l’historique : elle sépare l’état courant de l’archive.

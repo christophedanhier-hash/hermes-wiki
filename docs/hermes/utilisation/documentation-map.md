@@ -8,8 +8,10 @@
 
 L'architecture documentaire active du Wiki Hermes est organisée autour d'une référence canonique unique et de pages opérationnelles spécialisées :
 
+- **Table de la plateforme et parcours documentaire** : [`hermes/TABLE.md`](../TABLE.md)
 - **Architecture de référence (canonique & consolidée)** : [`hermes/architecture.md`](../architecture.md)
 - **Audit de vérité terrain (mesures directes)** : [`hermes/audit-verite-terrain-2026-09-21.md`](../audit-verite-terrain-2026-09-21.md)
+- **Architecture de la connaissance LLM Wiki et Leo Docs** : consultation interne protégée via Leo Docs
 - **Profils, mémoires et skills** : [`hermes/configuration/profiles.md`](../configuration/profiles.md)
 - **Providers et routage des modèles LLM** : [`hermes/configuration/providers.md`](../configuration/providers.md)
 - **Dashboards, supervision et services** : [`hermes/utilisation/dashboards.md`](dashboards.md)
@@ -75,7 +77,8 @@ Les documents archivés sont conservés hors navigation active pour consultation
 | [`retirees-2026/spotify.md`](../archives/retirees-2026/spotify.md) | Fiche plugin musical Spotify | Hors navigation active |
 | [`retirees-2026/quotidien.md`](../archives/retirees-2026/quotidien.md) | Guide générique d'usage initial | [`hermes/index.md`](../index.md) & [`hermes/architecture.md`](../architecture.md) |
 | [`retirees-2026/linux.md`](../archives/retirees-2026/linux.md) | Guide d'installation initiale Debian/Ubuntu | [`hermes/index.md`](../index.md) |
-| [`decisions/pourquoi-deepseek-pas-copilot.md`](../archives/decisions/pourquoi-deepseek-pas-copilot.md) | Décision comparative antérieure | [`hermes/configuration/providers.md`](../configuration/providers.md) |
+| `retirees-2026/table-legacy-2026-09-21.md` | Ancienne table des matières du 04/07/2026, remplacée par la carte actuelle | [`hermes/TABLE.md`](../TABLE.md) |
+| `decisions/pourquoi-deepseek-pas-copilot.md` | Décision comparative antérieure | [`hermes/configuration/providers.md`](../configuration/providers.md) |
 | [`automatisation-ch27-crons-horaires.md`](../archives/automatisation-ch27-crons-horaires.md) | Ancien découpage thématique crons | [`hermes/architecture.md`](../architecture.md) |
 | [`dashboards-ch24-monitoring-crons.md`](../archives/dashboards-ch24-monitoring-crons.md) | Ancien découpage dashboards | [`hermes/utilisation/dashboards.md`](dashboards.md) |
 
