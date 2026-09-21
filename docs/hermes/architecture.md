@@ -111,4 +111,4 @@ Cette anomalie relève du runbook infrastructure Michel. Elle ne doit pas être 
 4. Corriger les fichiers générés dans leur script source, puis régénérer.
 5. Vérifier le build MkDocs et la page servie avant de déclarer la mise à jour livrée.
 
-> Dernière mesure : **20/09/2026** — LEO et Michel.
+> Dernière mesure : **21/09/2026 03:34** — Michel. Audit détaillé : [`audit-verite-terrain-2026-09-21.md`](audit-verite-terrain-2026-09-21.md).
