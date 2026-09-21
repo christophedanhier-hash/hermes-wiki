@@ -28,26 +28,21 @@ LEO a été construit pour être :
 ## Structure du guide
 
 ```text
-📖 hermes/index.md              → Présentation — introduction et philosophie
-📁 hermes/installation/
-   └── linux.md                 → Installation Linux
+📖 hermes/index.md                          → Présentation — introduction et philosophie
+🏗️ hermes/architecture.md                   → Architecture Hermes LEO (référence complète consolidée)
+🔎 hermes/audit-verite-terrain-2026-09-21.md → Audit vérité terrain (mesures réelles)
+📜 hermes/changelog.md                      → Journal des changements vérifiés
 📁 hermes/configuration/
-   ├── providers.md             → Providers LLM (DeepSeek, Ollama, Gemini)
-   └── profiles.md              → Profils, gateways, skills
+   ├── providers.md                         → Providers LLM (Azure Foundry, OpenRouter, Gemini)
+   └── profiles.md                          → Profils, isolation mémoire, skills
 📁 hermes/utilisation/
-   ├── quotidien.md             → Usage quotidien
-   ├── dashboards.md            → Monitoring et KPIs
-   ├── architecture-leo.md      → Architecture LEO (dashboard, vaults, crons)
-   ├── bots-telegram.md         → Les 5 bots Telegram
-   ├── securite.md              → Sécurité documentaire
-   └── backup-recovery.md       → Backup & Recovery
-📁 hermes/decisions/
-   └── pourquoi-deepseek-pas-gemini.md  → Choix du modèle
-📁 hermes/services/
-   └── spotify.md               → Contrôle Spotify
+   ├── dashboards.md                        → Dashboards & monitoring
+   ├── bots-telegram.md                     → Gateways et bots Telegram
+   ├── backup-recovery.md                   → Sauvegardes et plan de reprise d'activité (PRA)
+   ├── securite.md                          → Sécurité documentaire
+   └── documentation-map.md                 → Carte documentaire et référentiel
 📁 hermes/
-   ├── interface-web.md         → Interface web Hermes
-   └── architecture-communication.md  → Architecture & Communication
+   └── interface-web.md                     → Interface web Hermes
 ```
 
 ## Public visé

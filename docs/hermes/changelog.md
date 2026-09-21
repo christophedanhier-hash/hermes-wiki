@@ -51,17 +51,17 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
 - **Profils** ([`hermes/configuration/profiles.md`](configuration/profiles.md)) : description des 6 profils opérationnels, confirmation de l'isolation mémoire et clarification de l'alias Hive `leo`.
 - **Providers** ([`hermes/configuration/providers.md`](configuration/providers.md)) : actualisation du routage LLM (Azure Foundry `gpt-5.6-luna`, OpenRouter `meta/muse-spark-1.3-contributor`, fallbacks Gemini).
 - **Interfaces Telegram** ([`hermes/utilisation/bots-telegram.md`](utilisation/bots-telegram.md)) : rétablissement de la réalité des gateways, retrait des handles Telegram fictifs, LEO en DM direct.
-- **Architecture LEO & Dashboards** ([`hermes/utilisation/architecture-leo.md`](utilisation/architecture-leo.md), [`hermes/utilisation/dashboards.md`](utilisation/dashboards.md)) : réalignement des 4 services locaux (8765, 8766, 9119, 8793) et des 72 jobs Michel.
+- **Architecture LEO & Dashboards** ([`hermes/architecture.md`](architecture.md), [`hermes/utilisation/dashboards.md`](utilisation/dashboards.md)) : réalignement des 4 services locaux (8765, 8766, 9119, 8793) et des 72 jobs Michel.
 
 #### Présente mise à jour — Changelog et Communication (Lot 3)
 - **Création de cette page** [`hermes/changelog.md`](changelog.md) : traçabilité publique des changements vérifiés.
-- **Réalignement de l'architecture de communication** ([`hermes/architecture-communication.md`](architecture-communication.md)) : conformité avec les 6 profils, routage Azure/OpenRouter, intégration Hive et séparation des faits historiques.
+- **Réalignement de l'architecture de communication** ([`hermes/architecture.md`](architecture.md)) : conformité avec les 6 profils, routage Azure/OpenRouter, intégration Hive et séparation des faits historiques.
 - **Mise à jour de la navigation** : référencement de `changelog.md` dans `mkdocs.yml` et `documentation-map.md`.
 
 #### Correction documentaire ciblée — Rôles opérationnels réels d'Émile et Gérard (20/09/2026)
 - **Émile** : Rectification du profil. Émile n'est plus un assistant de formation/mémoire (phase pédagogique initiale terminée). Il est l'assistant professionnel d'Émilie dans My Émile IA Workbench (développé via Avenyra) pour rédiger, structurer et gérer notes, rapports, activités et documents professionnels (avec validation humaine).
 - **Gérard** : Rectification du profil. Gérard n'est pas limité aux dossiers T600/OCA (projet parmi d'autres). Il est l'assistant de Christophe pour l'astronomie, l'astrophotographie, le wiki et le site tofdan liés à l'astronomie, la documentation générale et son étude comme guide astronomie. Aucun bot Telegram inventé.
-- **Alignement transverse** : Révision coordonnée des pages actives et chapitres de configuration (`architecture.md`, `architecture-communication.md`, `profiles.md`, `providers.md`, `bots-telegram.md`, `architecture-leo.md`, `pourquoi-deepseek-pas-gemini.md`, `ch07-multi-bots.md`, `ch05-gateway-profils.md`, `dashboards.md`, `backup-recovery.md`, `interface-web.md`).
+- **Alignement transverse** : Révision coordonnée des pages actives et chapitres de configuration (`architecture.md`, `profiles.md`, `providers.md`, `bots-telegram.md`, `dashboards.md`, `backup-recovery.md`, `interface-web.md`).
 
 ---
 

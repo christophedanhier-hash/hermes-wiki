@@ -1,3 +1,9 @@
+# Pourquoi DeepSeek et pas Gemini (Archive 2026)
+
+> [!WARNING]
+> **Document d'archive — Hors navigation active (2026)**
+> Cette page a été retirée de la navigation active de la documentation Hermes LEO sur décision éditoriale. Son contenu est conservé intégralement pour traçabilité et historique. Pour la documentation opérationnelle de référence, consulter la page canonique [`hermes/architecture.md`](../../architecture.md).
+
 > Analyse comparative — Juillet 2026. Le choix est financier, pas technique.
 
 ---

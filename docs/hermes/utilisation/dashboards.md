@@ -153,8 +153,7 @@ Au 20/09/2026, la console et le portail centralisent :
 
 ## Pour aller plus loin
 
-- Consulter [`architecture.md`](../architecture.md) pour la description canonique du système
-- Consulter [`architecture-leo.md`](architecture-leo.md) pour le schéma d'ensemble des flux
+- Consulter [`architecture.md`](../architecture.md) pour la description canonique du système et le schéma d'ensemble des flux
 - Consulter [`bots-telegram.md`](bots-telegram.md) pour les interfaces Telegram associées
 - Consulter [`profiles.md`](../configuration/profiles.md) pour la configuration des profils
 

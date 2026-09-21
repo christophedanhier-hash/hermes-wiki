@@ -1,67 +1,118 @@
 # 🗺️ Carte Documentaire — Wiki Hermes LEO
 
-> **Référentiel de cohérence.** Toute évolution de la plateforme doit mettre à jour cette carte et les pages impactées dans le même lot.
+> **Référentiel de cohérence transverse.** Toute évolution de la plateforme doit mettre à jour cette carte et les pages impactées dans le même lot éditorial.
 
-## Source de vérité documentaire
+---
 
-- **Architecture courante** : [`hermes/architecture.md`](../architecture.md)
-- **Architecture et communication détaillées** : [`hermes/architecture-communication.md`](../architecture-communication.md)
-- **Profils et configuration** : [`hermes/configuration/profiles.md`](../configuration/profiles.md)
-- **Providers** : [`hermes/configuration/providers.md`](../configuration/providers.md)
-- **Dashboards** : [`hermes/utilisation/dashboards.md`](dashboards.md)
-- **Changements vérifiés** : [`hermes/changelog.md`](../changelog.md)
+## 1. Sources de vérité documentaire actives
 
-La page `hermes/architecture.md` est désormais la page canonique de l'état actuel. Les pages datées et historiques ne sont pas des sources de vérité courante.
+L'architecture documentaire active du Wiki Hermes est organisée autour d'une référence canonique unique et de pages opérationnelles spécialisées :
 
-## Pages critiques et dépendances
+- **Architecture de référence (canonique & consolidée)** : [`hermes/architecture.md`](../architecture.md)
+- **Audit de vérité terrain (mesures directes)** : [`hermes/audit-verite-terrain-2026-09-21.md`](../audit-verite-terrain-2026-09-21.md)
+- **Profils, mémoires et skills** : [`hermes/configuration/profiles.md`](../configuration/profiles.md)
+- **Providers et routage des modèles LLM** : [`hermes/configuration/providers.md`](../configuration/providers.md)
+- **Dashboards, supervision et services** : [`hermes/utilisation/dashboards.md`](dashboards.md)
+- **Passerelles Telegram et Gateways** : [`hermes/utilisation/bots-telegram.md`](bots-telegram.md)
+- **Sauvegardes et PRA** : [`hermes/utilisation/backup-recovery.md`](backup-recovery.md)
+- **Sécurité documentaire & hygiène des secrets** : [`hermes/utilisation/securite.md`](securite.md)
+- **Interface web native Hermes** : [`hermes/interface-web.md`](../interface-web.md)
+- **Journal public des changements vérifiés** : [`hermes/changelog.md`](../changelog.md)
 
-| Page | Rôle | Source principale | Dépendances |
+---
+
+## 2. Consolidation documentaire de septembre 2026
+
+Dans le cadre du chantier de consolidation de l'écosystème Hermes LEO, la documentation a fait l'objet d'une rationalisation majeure sans aucune perte de contenu :
+
+### Fusion des documents d'architecture
+Les trois documents d'architecture préexistants ont été consolidés en un **document actif unique** : [`hermes/architecture.md`](../architecture.md) :
+1. `docs/hermes/architecture.md` (page socle) ;
+2. `docs/hermes/architecture-communication.md` (profils, flux, Hive, rôles) ;
+3. `docs/hermes/utilisation/architecture-leo.md` (dashboards, services, ordonnanceur, pipelines).
+
+Les pages absorbées sont archivées avec bandeau de traçabilité dans :
+- `docs/hermes/archives/architecture-2026/architecture-communication.md`
+- `docs/hermes/archives/architecture-2026/architecture-leo.md`
+
+### Retrait de la navigation active de pages secondaires
+Quatre pages ont été retirées de la navigation du site pour resserrer le parcours utilisateur sur les composants opérationnels de référence :
+- `docs/hermes/decisions/pourquoi-deepseek-pas-gemini.md` (analyse financière historique 07/2026) ;
+- `docs/hermes/services/spotify.md` (plugin musical secondaire) ;
+- `docs/hermes/utilisation/quotidien.md` (guide utilisateur générique) ;
+- `docs/hermes/installation/linux.md` (procédure d'installation initiale).
+
+Ces pages ont été déplacées dans `docs/hermes/archives/retirees-2026/` avec bandeau d'archive explicite. Leur contenu est intégralement préservé pour l'historique et la traçabilité.
+
+---
+
+## 3. Matrice des pages critiques et dépendances
+
+| Page active | Rôle & Vocation | Sources de vérité directes | Dépendances & Pages associées |
 |---|---|---|---|
-| `hermes/architecture.md` | état de référence de la plateforme | configs, processus, ports, jobs | profils, providers, dashboards, changelog |
-| `hermes/architecture-communication.md` | profils, interfaces et flux | architecture canonique + gateways | profils, bots, Hive |
-| `hermes/changelog.md` | journal public des changements vérifiés | commits, audits et mesures réelles | architecture, profils, providers |
-| `hermes/configuration/profiles.md` | profils et mémoires | `profiles/*/config.yaml` | architecture |
-| `hermes/configuration/providers.md` | routage LLM | configs et usage effectif | architecture |
-| `hermes/utilisation/architecture-leo.md` | fonctionnement LEO et dashboards | architecture + collecteurs | dashboards, crons |
-| `hermes/utilisation/dashboards.md` | interfaces de supervision | services et ports réels | architecture |
-| `hermes/utilisation/documentation-map.md` | cette carte | inventaire Git + nav | toutes les pages critiques |
+| [`hermes/architecture.md`](../architecture.md) | État de référence absolu de la plateforme | `~/.hermes/profiles/*/config.yaml`, `jobs.json`, `ss -ltnp` | `profiles.md`, `providers.md`, `dashboards.md`, `changelog.md` |
+| [`hermes/audit-verite-terrain-2026-09-21.md`](../audit-verite-terrain-2026-09-21.md) | Rapport de conformité terrain et contre-audit | Inspections processus, écoute réseau, registres | `architecture.md`, `documentation-map.md` |
+| [`hermes/changelog.md`](../changelog.md) | Historique public des évolutions validées | Commits, tickets et mesures vérifiées | `architecture.md`, `profiles.md`, `providers.md` |
+| [`hermes/configuration/profiles.md`](../configuration/profiles.md) | Configuration des 6 profils et mémoires dédiées | `~/.hermes/profiles/*/config.yaml` | `architecture.md`, `bots-telegram.md` |
+| [`hermes/configuration/providers.md`](../configuration/providers.md) | Routage des modèles et fournisseurs LLM | Configuration Hermes + `session_model_usage` | `architecture.md` |
+| [`hermes/utilisation/dashboards.md`](dashboards.md) | Interfaces de supervision et métriques | `collect-v2.py`, services HTTP 8765, 8766, 9119, 8793 | `architecture.md`, `backup-recovery.md` |
+| [`hermes/utilisation/bots-telegram.md`](bots-telegram.md) | Passerelles de dialogue et gateways Telegram | Processus gateway, configuration Telegram | `architecture.md`, `profiles.md` |
+| [`hermes/utilisation/backup-recovery.md`](backup-recovery.md) | Stratégie de sauvegarde, PRA et Recovery Kit | `leo-full-backup.py`, `jobs.json`, `recovery-kit/` | `architecture.md`, `securite.md` |
+| [`hermes/utilisation/securite.md`](securite.md) | Règles d'hygiène, confinement et secrets | Fichiers d'environnement, permissions système | `backup-recovery.md` |
+| [`hermes/interface-web.md`](../interface-web.md) | Interface utilisateur web Hermes Agent | Service natif port 9119 | `architecture.md` |
+| [`hermes/utilisation/documentation-map.md`](documentation-map.md) | Référentiel transverse de cartographie | Inventaire Git + configuration `mkdocs.yml` | Toutes pages |
 
-## Pages historiques
+---
 
-| Page | Traitement |
-|---|---|
-| `hermes/etat-des-lieux.md` | conserver comme historique ; ne pas utiliser pour les chiffres actuels |
-| `hermes/decouvrir/ch03-architecture-leo.md` | conserver comme chapitre pédagogique ; réaligner ou marquer les instantanés historiques |
-| `hermes/annexes/exemple-leo-complet.md` | conserver comme retour d'expérience historique (mono-profil post-crash) |
-| archives et journaux datés | conserver sans réécrire les faits de leur date |
+## 4. Section Historique & Archives
 
-## Matrice des changements
+Les documents archivés sont conservés hors navigation active pour consultation historique sans altérer la clarté opérationnelle :
 
-| Changement | Pages à vérifier | Source de mesure |
+### Archives consolidées 2026 (`docs/hermes/archives/`)
+
+| Fichier archivé | Contexte & Raison du classement | Référence active équivalente |
 |---|---|---|
-| Provider ou modèle | architecture, profils, providers, communication | `profiles/*/config.yaml`, `session_model_usage` |
-| Ajout/suppression de profil | architecture, profils, bots, carte | `profiles/`, registry Hive, gateways |
-| Nouveau gateway ou bot | architecture, communication, bots | processus, état gateway, Telegram |
-| Nouveau cron | architecture, dashboards, synchronisation | `profiles/michel/cron/jobs.json`, crontab hôte séparé |
-| Nouveau dashboard ou service | architecture, dashboards | `ss -ltnp`, route HTTP, service |
-| Backup ou watchdog | architecture, backup, sécurité | scripts et journaux réels |
-| Pipeline documentaire | architecture, carte, changelog | scripts doc-watch/docs-update |
-| Nouvelle page | navigation, carte, liens entrants | `mkdocs.yml`, build strict |
+| `architecture-2026/architecture-communication.md` | Document fusionné — profils, gateways et flux Hive | [`hermes/architecture.md`](../architecture.md) |
+| `architecture-2026/architecture-leo.md` | Document fusionné — supervision, services et ordonnanceur | [`hermes/architecture.md`](../architecture.md) |
+| `retirees-2026/pourquoi-deepseek-pas-gemini.md` | Analyse financière comparative juillet 2026 | [`hermes/configuration/providers.md`](../configuration/providers.md) |
+| `retirees-2026/spotify.md` | Fiche plugin musical Spotify | Hors navigation active |
+| `retirees-2026/quotidien.md` | Guide générique d'usage initial | [`hermes/index.md`](../index.md) & [`hermes/architecture.md`](../architecture.md) |
+| `retirees-2026/linux.md` | Guide d'installation initiale Debian/Ubuntu | [`hermes/index.md`](../index.md) |
+| `decisions/pourquoi-deepseek-pas-copilot.md` | Décision comparative antérieure | [`hermes/configuration/providers.md`](../configuration/providers.md) |
+| `automatisation-ch27-crons-horaires.md` | Ancien découpage thématique crons | [`hermes/architecture.md`](../architecture.md) |
+| `dashboards-ch24-monitoring-crons.md` | Ancien découpage dashboards | [`hermes/utilisation/dashboards.md`](dashboards.md) |
 
-## Règles
+### Autres pages historiques du dépôt
+- `hermes/etat-des-lieux.md` : consigne les constats initiaux post-crash (juin 2026) ;
+- `hermes/decouvrir/ch03-architecture-leo.md` : chapitre pédagogique initial ;
+- `hermes/annexes/exemple-leo-complet.md` : retour d'expérience mono-profil historique ;
+- Journaux datés (`journal-*.md`) : conservés sans modification rétroactive.
 
-1. Une valeur chiffrée indique son périmètre, sa source et sa date.
-2. Une page générée est corrigée dans son script source avant régénération.
-3. Un historique n'est jamais réécrit pour produire un faux état courant.
-4. Une page supprimée ou déplacée impose une recherche des liens entrants et un build strict.
-5. La preuve finale est la page servie, pas seulement le fichier Markdown.
+---
 
-## État de la présente carte
+## 5. Matrice des changements et règles de traçabilité
 
-- Audit LEO : 20/09/2026.
-- Audit infrastructure Michel : 20/09/2026.
-- Wiki source : `/home/tofdan/Projets_Dev/hermes-wiki`.
-- La migration des pages secondaires est planifiée par lots ; cette première version établit la page canonique et la matrice.
-- Audit vérité terrain du 21/09/2026 : [`hermes/audit-verite-terrain-2026-09-21.md`](../audit-verite-terrain-2026-09-21.md).
+| Typologie du changement | Pages à réviser systématiquement | Source de vérité à vérifier |
+|---|---|---|
+| Modification de modèle ou fournisseur LLM | `architecture.md`, `providers.md`, `profiles.md`, `changelog.md` | `profiles/*/config.yaml`, métriques d'usage |
+| Création, renommage ou suppression de profil | `architecture.md`, `profiles.md`, `bots-telegram.md`, `documentation-map.md` | `~/.hermes/profiles/`, registre Hive |
+| Nouvelle passerelle, bot ou gateway | `architecture.md`, `bots-telegram.md` | Processus, passerelles actives, configuration Telegram |
+| Ajout ou modification de tâche planifiée | `architecture.md`, `dashboards.md`, `backup-recovery.md` | `~/.hermes/profiles/michel/cron/jobs.json` |
+| Évolution de port ou service réseau | `architecture.md`, `dashboards.md` | `ss -ltnp`, réponse HTTP et contenu servi |
+| Évolution des scripts de sauvegarde ou PRA | `architecture.md`, `backup-recovery.md`, `securite.md` | `leo-full-backup.py`, `recovery-kit/` |
+| Ajout ou déplacement de page | `mkdocs.yml`, `documentation-map.md`, liens entrants | `mkdocs build --strict` |
 
-> Dernière mise à jour : **21/09/2026 03:34** — Michel, avec audit vérité terrain.
+---
+
+## 6. Règles de maintenance documentaire LEO
+
+1. **Exactitude factuelle** : Citer la source directe, le fichier et la date de mesure pour tout indicateur chiffré.
+2. **Priorité au script source** : Pour tout fichier généré automatiquement, corriger le script amont avant régénération.
+3. **Respect du passé** : Ne jamais modifier les données d'un journal ou d'une archive datée pour feindre un état courant.
+4. **Vérification d'intégrité stricte** : Tout déplacement ou renommage impose le contrôle des liens relatifs entrants et la validation par `mkdocs build --strict`.
+5. **Preuve finale par le service** : La conformité finale se valide sur la documentation compilée et servie, pas uniquement sur le Markdown brut.
+
+---
+
+> 🤖 Carte mise à jour le **21/09/2026** — LEO 🦁 & Michel 🔧.
+> Référentiel de conformité : Wiki Hermes (`/home/tofdan/Projets_Dev/hermes-wiki`).
