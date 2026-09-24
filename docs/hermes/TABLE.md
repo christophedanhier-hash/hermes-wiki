@@ -50,7 +50,7 @@ flowchart LR
 | `robert` | Conseil stratégique, gouvernance et architecture | Azure Foundry | `gpt-5.6-luna` |
 | `sylvia` | Voyages, logistique camping-car et roadbooks | OpenRouter | `meta/muse-spark-1.3-contributor` |
 | `emile` | Assistant professionnel d’Émilie dans My Émile IA Workbench | Azure Foundry | `gpt-5.6-luna` |
-| `gerard` | Astronomie, astrophotographie, site tofdan, documentation et étude | Azure Foundry | `gpt-5.6-luna` |
+| `gerard` | Astronomie, astrophotographie, site tofdan, documentation et étude | Azure Foundry | `DeepSeek-V4.1-Flash` (fallback `gemini-3.7-flash`) |
 
 ### Fallbacks et routage
 
