@@ -49,8 +49,8 @@ BAVI OS
 
 | Dashboard | Port | Accès |
 |-----------|------|-------|
-| LEO Control Panel | 8765 | `http://100.92.102.28:8765` — token: `LEO_PANEL_TOKEN` |
-| Hermes Dashboard | 9119 | `http://100.92.102.28:9119` — creds: `leo` / `HERMES_PORTAL_PASSWORD` |
+| LEO Control Panel | 8765 | `http://100.92.102.28:8765` — token requis (voir `.env`) |
+| Hermes Dashboard | 9119 | `http://100.92.102.28:9119` — identifiants requis (voir `.env`) |
 
 ---
 
@@ -179,7 +179,7 @@ BAVI OS
 - `$GAUTH` pour GitHub (jamais en clair)
 - `$DEEPSEEK_API_KEY` dans `.env`
 - `$OPENROUTER_API_KEY` dans `.env` (configuré, non utilisé)
-- `LEO_PANEL_TOKEN` pour l'API dashboard
+- `$LEO_PANEL_TOKEN` dans `.env` pour l'API dashboard
 - Backup AVANT toute modification de config
 
 ### 8.2 Règles de déploiement
