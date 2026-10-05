@@ -138,7 +138,7 @@ la version précédente de ce document.
 1. **Stockage primaire local (SSD)** :
     - Répertoire : `/home/tofdan/.hermes/backups/`
     - Format : `leo-full-backup-YYYY-MM-DD.tar.gz`
-    - Taille mesurée au **05/10/2026** : **3,28 Go** — **81 970 entrées** dans l'archive.
+    - Taille mesurée au **05/10/2026** : **3,20 Go** — **81 970 entrées** dans l'archive.
     - Mécanisme de rétention : Le script calcule l'âge calendaire de chaque fichier `age = (today - mtime_date).days`. Tout fichier pour lequel `age > RETENTION_DAYS` est supprimé.
 2. **Miroir secondaire local (Disque 1 To)** :
     - Répertoire : `/mnt/data/backups/hermes/`
