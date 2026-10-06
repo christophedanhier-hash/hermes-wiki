@@ -16,13 +16,19 @@ Script de collecte → JSON + HTML → Push GitHub Pages
 
 ## Les dashboards de LEO
 
-Corriger la documentation pour refléter l'existence d'un seul dashboard unifié et les détails associés.
-
 LEO a **1 dashboard unifié** en production, généré par le collecteur `collect-v2.py` (8 sources) :
 
 | Dashboard | Contenu | URL | Collecte | Déploiement |
 |-----------|---------|-----|----------|-------------|
-| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [leo-dashboard](http://localhost:8765 (panel) + 9119 (Hermes dashboard)/dashboard) | collect-v2.py */15 | deploy-dashboard.py H:10 |
+| **LEO Dashboard** | Synthèse, Analyses, Infra, BAVI (20 KPI, 4 charts, 4 vaults) | [tofdan.be/dashboard](https://tofdan.be/dashboard/) — connexion Google, aucun token à saisir | collect-v2.py */15 | deploy-dashboard.py H:10 |
+
+> **Comment y accéder**
+>
+> - **Par Internet, depuis n'importe quel appareil** : <https://tofdan.be/dashboard/> — l'authentification Google s'applique, puis le token est injecté **côté serveur**. Rien à taper.
+> - **En direct sur Tailscale** (dépannage) : `http://100.92.102.28:8765/dashboard?token=<LEO_AUTH_TOKEN>` — le token est **obligatoire** sur ce chemin, il n'y a aucune authentification.
+> - ⚠️ **Ne jamais écrire l'adresse `100.92.102.28:8765/dashboard` sans token** : elle répond `401 Unauthorized`. Le token se lit dans le `.env` du service, jamais dans un document publié.
+
+> **Hermes Dashboard (port 9119)** : service distinct, écoute sur `0.0.0.0:9119` mais **aucune route nginx ne l'expose** — il n'est joignable qu'en direct, sur le réseau Tailscale ou en local, avec identifiants propres.
 
 Scripts :
 - `~/Projets_Dev/leo-dashboard/collect-v2.py` — collecteur unifié (state.db des 5 profils, infra, budget, vaults)

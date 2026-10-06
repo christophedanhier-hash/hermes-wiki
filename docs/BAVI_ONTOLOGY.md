@@ -49,8 +49,8 @@ BAVI OS
 
 | Dashboard | Port | Accès |
 |-----------|------|-------|
-| LEO Control Panel | 8765 | `http://100.92.102.28:8765` — token requis (voir `.env`) |
-| Hermes Dashboard | 9119 | `http://100.92.102.28:9119` — identifiants requis (voir `.env`) |
+| LEO Control Panel | 8765 | **<https://tofdan.be/dashboard/>** — connexion Google, token injecté côté serveur (rien à saisir). En direct Tailscale : `http://100.92.102.28:8765/dashboard?token=<LEO_AUTH_TOKEN>` |
+| Hermes Dashboard | 9119 | `http://100.92.102.28:9119` — identifiants requis (voir `.env`). **Aucune route nginx** : joignable uniquement en direct (Tailscale ou local) |
 
 ---
 
