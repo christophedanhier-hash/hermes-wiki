@@ -22,7 +22,7 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
     - *Note d'identité* : **LEO est un agent Hermes** (profil `default`) opérant via le gateway Hermes en DM direct avec Christophe (aucun handle Telegram inventé). `leo` est l'alias Hive du profil `default`, et non un septième profil.
 - **Routage LLM & Providers configurés** :
     - Profils `default`, `michel`, `robert`, `emile`, `gerard` : **Azure Foundry** avec le modèle `gpt-5.6-luna` et secours déclaré vers Google Gemini (`custom:google/gemini-3.7-flash` ou Google Gemini selon configuration).
-    - Profil `sylvia` : **OpenRouter** avec le modèle `meta/muse-spark-1.3-contributor`.
+    - Profil `sylvia` : **azure-foundry-claude** (OpenRouter (catalogue, non utilisé)).
 - **Jobs planifiés Michel** (`~/.hermes/profiles/michel/cron/jobs.json`) :
     - 72 jobs planifiés au total : **71 activés**, 70 exécutés sans LLM (`no_agent`), **2 jobs pilotés par LLM**.
 - **Services locaux et interfaces actives** :
@@ -49,13 +49,13 @@ Un audit complet de la plateforme Hermes Agent et de ses profils a été mené l
 
 #### Commit `000a3f6` — Profils, providers, bots et dashboards (Lot 2)
 - **Profils** ([`hermes/configuration/profiles.md`](configuration/profiles.md)) : description des 6 profils opérationnels, confirmation de l'isolation mémoire et clarification de l'alias Hive `leo`.
-- **Providers** ([`hermes/configuration/providers.md`](configuration/providers.md)) : actualisation du routage LLM (Azure Foundry `gpt-5.6-luna`, OpenRouter `meta/muse-spark-1.3-contributor`, fallbacks Gemini).
+- **Providers** ([`hermes/configuration/providers.md`](configuration/providers.md)) : actualisation du routage LLM (Azure Foundry `gpt-5.6-luna`, OpenRouter (catalogue, non utilisé), fallbacks Gemini).
 - **Interfaces Telegram** ([`hermes/utilisation/bots-telegram.md`](utilisation/bots-telegram.md)) : rétablissement de la réalité des gateways, retrait des handles Telegram fictifs, LEO en DM direct.
 - **Architecture LEO & Dashboards** ([`hermes/architecture.md`](architecture.md), [`hermes/utilisation/dashboards.md`](utilisation/dashboards.md)) : réalignement des 4 services locaux (8765, 8766, 9119, 8793) et des 72 jobs Michel.
 
 #### Présente mise à jour — Changelog et Communication (Lot 3)
 - **Création de cette page** [`hermes/changelog.md`](changelog.md) : traçabilité publique des changements vérifiés.
-- **Réalignement de l'architecture de communication** ([`hermes/architecture.md`](architecture.md)) : conformité avec les 6 profils, routage Azure/OpenRouter, intégration Hive et séparation des faits historiques.
+- **Réalignement de l'architecture de communication** ([`hermes/architecture.md`](architecture.md)) : conformité avec les 6 profils, routage Azure/OpenRouter (catalogue, non utilisé), intégration Hive et séparation des faits historiques.
 - **Mise à jour de la navigation** : référencement de `changelog.md` dans `mkdocs.yml` et `documentation-map.md`.
 
 #### Correction documentaire ciblée — Rôles opérationnels réels d'Émile et Gérard (20/09/2026)

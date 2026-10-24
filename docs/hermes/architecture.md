@@ -53,9 +53,9 @@ flowchart TB
     end
 
     subgraph LLM["☁️ Providers & Modèles"]
-        AF["Azure Foundry<br/>gpt-5.6-luna"]
-        OR["OpenRouter<br/>meta/muse-spark-1.3-contributor"]
-        GEM["Google Gemini<br/>(fallback déclaré)"]
+        AF["Azure Foundry<br/>azure-foundry-claude"]
+        DS["deepseek-direct<br/>deepseek-flash"]
+        GEM["Google Gemini<br/>(fallback déclaré : Gemini 3.8 Flash)"]
     end
 
     subgraph OUTPUT["📊 Services locaux & Automatisations"]
@@ -117,12 +117,12 @@ Six profils opérationnels ont été mesurés et validés au **20/09/2026** et c
 
 | Profil | Rôle opérationnel | Provider principal | Modèle configuré | Fallback déclaré |
 |---|---|---|---|---|
-| `default` | LEO — Dialogue quotidien, pilotage général et arbitrage | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `michel` | Infrastructure, ordonnancement crons, sauvegardes, métriques | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` |
-| `robert` | Conseil stratégique IT, gouvernance et architecture | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `emile` | Assistant professionnel Émilie (My Émile IA Workbench) | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | Astronomie, astrophotographie, site tofdan astro et documentation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `sylvia` | Voyages, logistique camping-car et roadbooks | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon sa configuration |
+| `default` | LEO — Dialogue quotidien, pilotage général et arbitrage | deepseek-direct | `deepseek-flash` | Gemini 3.8 Flash |
+| `michel` | Infrastructure, ordonnancement crons, sauvegardes, métriques | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `robert` | Conseil stratégique IT, gouvernance et architecture | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `emile` | Assistant professionnel Émilie (My Émile IA Workbench) | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `gerard` | Astronomie, astrophotographie, site tofdan astro et documentation | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `sylvia` | Voyages, logistique camping-car et roadbooks | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
 
 ### Matrice de routage fonctionnel
 
@@ -133,7 +133,7 @@ Six profils opérationnels ont été mesurés et validés au **20/09/2026** et c
 | Conseil stratégique, audits de gouvernance (incl. Sophie) | **robert** | Bot `@bureau_robert_bot` | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/robert/memories/`) |
 | Rédaction, notes et gestion documentaire pro Émilie | **emile** | Bot `@Bureau_ia_emilie_bot` + Workbench | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/emile/memories/`) |
 | Astronomie, astrophotographie, site tofdan, guide d'étude | **gerard** | CLI / scripts / jobs internes | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/gerard/memories/`) |
-| Préparation voyages camping-car, étapes et roadbooks | **sylvia** | Bot `@bavi_leo_voyages_bot` | OpenRouter (`muse-spark-1.3`) | Dédiée (`profiles/sylvia/memories/`) |
+| Préparation voyages camping-car, étapes et roadbooks | **sylvia** | Bot `@bavi_leo_voyages_bot` | azure-foundry-claude | Dédiée (`profiles/sylvia/memories/`) |
 
 ---
 
@@ -222,7 +222,7 @@ Le système assure la cohérence transverse entre données brutes, métriques, d
 ```mermaid
 flowchart TB
     subgraph Sources["📡 Sources de données & supervision"]
-        LLM_M["Métriques LLM<br/>Azure & OpenRouter"]
+        LLM_M["Métriques LLM<br/>Azure Foundry"]
         GH_API["GitHub API<br/>activité dépôts"]
         OS["OS serveur LEO<br/>CPU / RAM / disques"]
         SESS["Sessions DB<br/>historique échanges"]
@@ -322,7 +322,7 @@ Cette anomalie fait l'objet d'un suivi séparé dans le **runbook infrastructure
 - **Évolution métier des profils Émile et Gérard** :
     - Le profil `emile` a initialement soutenu la formation et le mémoire universitaire d'Émilie avant de basculer en assistant professionnel de production au sein de My Émile IA Workbench (développé avec Avenyra).
     - Le profil `gerard` a été initié sur le projet télescope T600/OCA avant de voir son rôle officialisé comme assistant général d'astronomie, d'astrophotographie, de gestion du site tofdan et de documentation.
-- **Évolution de la pile LLM** : Utilisation initiale à l'été 2026 de DeepSeek Direct (`deepseek-v4-pro` / `deepseek-v4-flash`) et Ollama local (`qwen2.5:7b`), avant la transition vers la configuration actuelle Azure Foundry (`gpt-5.6-luna`) et OpenRouter (`meta/muse-spark-1.3-contributor`).
+- **Évolution de la pile LLM** : Utilisation initiale à l'été 2026 de DeepSeek Direct (`deepseek-v4-pro` / `deepseek-v4-flash`) et Ollama local (`qwen2.5:7b`), avant la transition vers Azure Foundry et deepseek-direct (OpenRouter étant une entrée de catalogue non utilisée — relevé du 24/10/2026).
 - **Évolution de l'ordonnanceur** : Les volumes historiques de 45, 49 puis 58 crons correspondent à des étapes transitoires documentées à l'été 2026, antérieures à l'inventaire consolidé de **72 jobs** stabilisé au 20-21/09/2026.
 
 ---

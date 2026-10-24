@@ -172,7 +172,7 @@ Mesure sur les **7 archives réelles** présentes sur disque :
 | **05/10** (après correctif) | **795** | **55** |
 
 **Conséquence concrète** : une restauration aurait rendu une plateforme
-**privée de ses 795 scripts** (dont les 84 crons) et du **cœur de la base Hive**
+**privée de ses 795 scripts** (dont les 115 crons déclarés, 105 actifs — relevé du 24/10/2026) et du **cœur de la base Hive**
 (`lib/` : `hive.py`, `engagements.py`, `breaker.py`). Le système se serait
 rallumé **vide de sa logique**, sans qu'aucune alerte ne se déclenche.
 

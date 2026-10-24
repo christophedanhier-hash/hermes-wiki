@@ -135,7 +135,7 @@ Au 20/09/2026, la console et le portail centralisent :
 - 📚 **Leo Docs (port 8766)** : accès centralisé à la documentation et aux wikis ;
 - 🤖 **Hermes Dashboard (port 9119)** : console d'administration Hermes ;
 - 💼 **My Émile IA (port 8793)** : workbench professionnel dédié à l'activité d'Émilie (Avenyra) ;
-- 💰 **Suivi des coûts LLM** : consommation maîtrisée sur Azure Foundry et OpenRouter, coût nul pour les automatisations directes ;
+- 💰 **Suivi des coûts LLM** : consommation maîtrisée sur Azure Foundry et deepseek-direct (OpenRouter: catalogue non utilisé — relevé du 24/10/2026), coût nul pour les automatisations directes ;
 - 🚨 **Suivi opérationnel** : l'unité systemd Michel en boucle d'auto-restart (conflit de PID déjà actif) est suivie au niveau runbook infra.
 
 ---

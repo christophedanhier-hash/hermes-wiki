@@ -45,12 +45,12 @@ flowchart LR
 
 | Profil | Rôle courant | Provider principal | Modèle configuré |
 |---|---|---|---|
-| `default` | LEO : dialogue, pilotage général et coordination | Azure Foundry | `gpt-5.6-luna` |
-| `michel` | Infrastructure, jobs, sauvegardes, métriques et déploiements | Azure Foundry | `gpt-5.6-luna` |
-| `robert` | Conseil stratégique, gouvernance et architecture | Azure Foundry | `gpt-5.6-luna` |
-| `sylvia` | Voyages, logistique camping-car et roadbooks | OpenRouter | `meta/muse-spark-1.3-contributor` |
-| `emile` | Assistant professionnel d’Émilie dans My Émile IA Workbench | Azure Foundry | `gpt-5.6-luna` |
-| `gerard` | Astronomie, astrophotographie, site tofdan, documentation et étude | Azure Foundry | `DeepSeek-V4.1-Flash` (fallback `gemini-3.7-flash`) |
+| `default` | LEO : dialogue, pilotage général et coordination | deepseek-direct | `deepseek-flash` |
+| `michel` | Infrastructure, jobs, sauvegardes, métriques et déploiements | azure-foundry-claude | Claude / Azure Foundry |
+| `robert` | Conseil stratégique, gouvernance et architecture | azure-foundry-claude | Claude / Azure Foundry |
+| `sylvia` | Voyages, logistique camping-car et roadbooks | azure-foundry-claude | Claude / Azure Foundry |
+| `emile` | Assistant professionnel d’Émilie dans My Émile IA Workbench | azure-foundry-claude | Claude / Azure Foundry |
+| `gerard` | Astronomie, astrophotographie, site tofdan, documentation et étude | azure-foundry-claude | Claude / Azure Foundry |
 
 ### Fallbacks et routage
 

@@ -121,20 +121,22 @@
 
 <!-- AUTO:START crons -->
 <!-- AUTO:START crons -->
-> **Dernière synchro : 17/07/2026**
-> **58 crons actifs (michel 50 + LEO 6 + sylvia 2) Hermes** (tous consolidés dans `michel`) → **45 jobs (tous actifs)**
+> **Dernière synchro : 24/10/2026**
+> **115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1) — relevé du 24/10/2026**
 
-| Profil | Crons |
-|--------|:-----:|
-| `michel` (consolidateur) | 49 |
-| `default` | 0 |
-| `sylvia` | 0 |
-| `emile` | 0 |
-| `robert` | 0 |
+| Profil | Déclarés | Actifs |
+|--------|:--------:|:------:|
+| `michel` | 101 | 96 |
+| `default` (LEO) | 8 | 7 |
+| `sylvia` | 2 | 1 |
+| `robert` | 1 | 1 |
+| `gerard` | 1 | 0 |
+| `emile` | 2 | 0 |
+| **TOTAL** | **115** | **105** |
 
-**5 crons hôte** (tout est dans les profils Hermes)
+*(5 crons hôte : relevé historique daté du 14/08/2026)*
 
-**Total général : 51 jobs (46 michel + 5 hôte, tous actifs)**
+**Total général : 115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1) — relevé du 24/10/2026**
 
 📖 Détail complet : [BAVI_LEO / wiki / crons](http://100.92.102.28:8765/wiki/crons/)
 <!-- AUTO:END crons -->
@@ -316,4 +318,4 @@ Tester le résultat avant de livrer :
 **Solution :** Uniformisation : wrappers shell + no_agent + identité Git et token dans le script.
 *Document mis à jour le 07/07/2026 à 00:00 — Léo 🦁*
 
-> 🤖 Dernier audit : 14/08/2026 — 58 crons actifs (michel 50 + LEO 6 + sylvia 2) michel + 5 hôte
+> 🤖 Dernier audit : 24/10/2026 — 115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1)

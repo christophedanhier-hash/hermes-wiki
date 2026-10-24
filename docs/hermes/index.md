@@ -33,7 +33,7 @@ LEO a été construit pour être :
 🔎 hermes/audit-verite-terrain-2026-09-21.md → Audit vérité terrain (mesures réelles)
 📜 hermes/changelog.md                      → Journal des changements vérifiés
 📁 hermes/configuration/
-   ├── providers.md                         → Providers LLM (Azure Foundry, OpenRouter, Gemini)
+   ├── providers.md                         → Providers LLM (Azure Foundry, deepseek-direct, Gemini)
    └── profiles.md                          → Profils, isolation mémoire, skills
 📁 hermes/utilisation/
    ├── dashboards.md                        → Dashboards & monitoring

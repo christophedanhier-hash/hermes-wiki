@@ -21,12 +21,12 @@ flowchart TB
 
     subgraph PROFILES["🏢 Profils opérationnels Hermes"]
         direction TB
-        P_Default["🦁 default (LEO)<br/>Dialogue & pilotage<br/>Azure Foundry"]
-        P_Michel["🔧 michel<br/>Infra & crons<br/>Azure Foundry"]
-        P_Robert["🏛️ robert<br/>Conseil stratégique<br/>Azure Foundry"]
-        P_Sylvia["🧭 sylvia<br/>Voyages<br/>OpenRouter"]
-        P_Emile["👤 emile<br/>Assistant pro Émilie<br/>Azure Foundry"]
-        P_Gerard["🔭 gerard<br/>Astronomie & docs<br/>Azure Foundry"]
+        P_Default["🦁 default (LEO)<br/>Dialogue & pilotage<br/>deepseek-direct"]
+        P_Michel["🔧 michel<br/>Infra & crons<br/>azure-foundry-claude"]
+        P_Robert["🏛️ robert<br/>Conseil stratégique<br/>azure-foundry-claude"]
+        P_Sylvia["🧭 sylvia<br/>Voyages<br/>azure-foundry-claude"]
+        P_Emile["👤 emile<br/>Assistant pro Émilie<br/>azure-foundry-claude"]
+        P_Gerard["🔭 gerard<br/>Astronomie & docs<br/>azure-foundry-claude"]
     end
 
     subgraph INTERFACES["📱 Interfaces / Gateways"]
@@ -40,8 +40,8 @@ flowchart TB
     end
 
     subgraph PROVIDERS["☁️ Providers configurés"]
-        AF["Azure Foundry<br/>gpt-5.6-luna"]
-        OR["OpenRouter<br/>meta/muse-spark-1.3-contributor"]
+        AF["Azure Foundry<br/>azure-foundry-claude"]
+        DS["deepseek-direct<br/>deepseek-flash"]
         FB["Google Gemini<br/>Fallback déclaré"]
     end
 
@@ -119,8 +119,8 @@ flowchart TB
 |---|---|
 | **Rôle** | Roadbooks, itinéraires, logistique voyages et camping-car |
 | **Interface** | Bot Telegram `@bavi_leo_voyages_bot` |
-| **Modèle configuré** | `meta/muse-spark-1.3-contributor` |
-| **Provider principal** | OpenRouter |
+| **Modèle configuré** | Claude / Azure Foundry |
+| **Provider principal** | azure-foundry-claude (OpenRouter non utilisé) |
 | **Fallback déclaré** | Selon configuration du profil |
 | **Espace documentaire** | Section voyages desservie via l'écosystème documentaire local |
 
@@ -167,12 +167,12 @@ flowchart TB
 
 | Profil | Rôle | Interface / Bot | Provider principal | Modèle | Fallback |
 |:---|:---|:---|:---|:---|:---|
-| `default` (LEO) | Dialogue et pilotage | Gateway (DM direct) | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `michel` | Infrastructure & crons | `@hermes_leo_copilot_bot` | Azure Foundry | `gpt-5.6-luna` | `gemini-3.7-flash` |
-| `robert` | Conseil stratégique | `@bureau_robert_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `sylvia` | Voyages camping-car | `@bavi_leo_voyages_bot` | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon config |
-| `emile` | Assistant professionnel Émilie | `@Bureau_ia_emilie_bot` | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | Astronomie, astrophoto & documentation | Profil opérationnel | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
+| `default` (LEO) | Dialogue et pilotage | Gateway (DM direct) | deepseek-direct | `deepseek-flash` | Gemini 3.8 Flash |
+| `michel` | Infrastructure & crons | `@hermes_leo_copilot_bot` | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `robert` | Conseil stratégique | `@bureau_robert_bot` | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `sylvia` | Voyages camping-car | `@bavi_leo_voyages_bot` | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `emile` | Assistant professionnel Émilie | `@Bureau_ia_emilie_bot` | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `gerard` | Astronomie, astrophoto & documentation | Profil opérationnel | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
 
 ---
 
@@ -183,7 +183,7 @@ flowchart TB
 > - Le profil `bureau-robert` a été renommé en `robert` en juillet 2026, tout en conservant le bot Telegram `@bureau_robert_bot`.
 > - **Rôles initiaux :** Le profil `emile` accompagnait initialement la formation et la rédaction du mémoire d'études d'Émilie avant d'évoluer vers son rôle d'assistant professionnel pour ses activités. Le profil `gerard` a d'abord été restreint à la seule documentation T600/OCA avant d'être documenté pour l'ensemble des activités d'astronomie et du site tofdan.
 > - Les chiffres antérieurs de crons (45, 49, 58) correspondent à d'anciennes étapes intermédiaires de reconstruction et de consolidation aujourd'hui archivées.
-> - La configuration d'origine basée sur DeepSeek direct a été remplacée en production par la configuration actuelle Azure Foundry et OpenRouter.
+> - La configuration de production repose sur Azure Foundry (profils michel, sylvia, robert, emile, gerard) et deepseek-direct (default), avec repli deepseek-flash puis Gemini 3.8 Flash. OpenRouter n'est le fournisseur principal d'aucun profil (catalogue non utilisé — relevé du 24/10/2026).
 
 ---
 
@@ -196,4 +196,4 @@ flowchart TB
 
 ---
 
-> 🤖 Dernière mesure vérifiée : **20/09/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml`, `~/.hermes/profiles/michel/cron/jobs.json` et `architecture.md`.
+> 🤖 Dernière mesure vérifiée : **24/10/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml`, `~/.hermes/profiles/michel/cron/jobs.json` et `architecture.md`.

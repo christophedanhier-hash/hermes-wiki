@@ -81,9 +81,9 @@ Utilisateur ──→ tofdan.be ──→ Cloudflare ──→ Tunnel ──→ 
 | **Yoga** | Windows 11 | — | CPU, RAM (via SSH) |
 | **Penguin** | Debian 13 | 6.3 Go | CPU, RAM, VS Code + Kilo Code |
 
-## Les 58 crons actifs (michel 50 + LEO 6 + sylvia 2)
+## Les 115 crons (105 actifs)
 
-Les crons sont le cœur de l'automatisation. **49 tâches planifiées** tournent 24/7, toutes consolidées dans le profil `michel` :
+Les crons sont le cœur de l'automatisation. **115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1) — relevé du 24/10/2026** tournent 24/7 :
 
 ### Crons horaires (métriques + dashboard)
 
@@ -105,7 +105,7 @@ Les crons sont le cœur de l'automatisation. **49 tâches planifiées** tournent
 
 - Nom: Dashboard Crons
   Horaire: Toutes les heures
-  Action: Statut des 58 crons actifs (michel 50 + LEO 6 + sylvia 2)
+  Action: Statut des crons (115 déclarés, dont 105 actifs — relevé du 24/10/2026)
   Coût: 0€ (no_agent)
 ```
 
@@ -149,7 +149,7 @@ cron-metrics:
   script: collect-metrics.sh
 ```
 
-Sur 58 crons actifs (michel 50 + LEO 6 + sylvia 2), la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
+Sur 115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1) — relevé du 24/10/2026, la quasi-totalité sont en `no_agent` — le coût total des crons automatisés est d'environ **quelques centimes par jour**.
 
 ## Le dashboard unifié
 
@@ -199,7 +199,7 @@ Les watchdogs surveillent en continu : code-server, dashboards, tunnels.
 
 | Composant | Quantité | Coût mensuel |
 |:----------|:--------:|:------------:|
-| Crons | 49 (tous actifs) | ~0,10 €/j |
+| Crons | 115 (105 actifs) — relevé du 24/10/2026 | ~0,10 €/j |
 | Dashboards | 1 (unifié) | 0 € (GitHub Pages) |
 
 | Machines surveillées | 3 | 0 € |
@@ -213,4 +213,4 @@ Les watchdogs surveillent en continu : code-server, dashboards, tunnels.
 - **Annexe B** : Guide de démarrage rapide
 *Document mis à jour le 04/07/2026 à 22:48 — Léo 🦁*
 
-> 🤖 Dernier audit : 14/08/2026 — 58 crons actifs (michel 50 + LEO 6 + sylvia 2) michel + 5 hôte
+> 🤖 Dernier audit : 24/10/2026 — 115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1)

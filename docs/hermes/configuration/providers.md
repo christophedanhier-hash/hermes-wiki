@@ -6,22 +6,22 @@ Hermes Agent permet d'orchestrer plusieurs fournisseurs de modèles de langage (
 
 ## Principe d'orchestration sur LEO
 
-Depuis l'audit du 20/09/2026, la répartition opérationnelle est la suivante :
+Depuis le relevé du 24/10/2026, la répartition opérationnelle est la suivante :
 
-- **Azure Foundry (`gpt-5.6-luna`)** : provider principal pour la majorité des profils opérationnels (`default`, `michel`, `robert`, `emile`, `gerard`).
-- **OpenRouter (`meta/muse-spark-1.3-contributor`)** : provider principal pour le profil `sylvia` (voyages et roadbooks).
-- **Google Gemini** : fallback déclaré (notamment `custom:google/gemini-3.7-flash` sur le profil Michel).
-- **Automatisations no_agent** : 70 des 72 jobs planifiés dans `profiles/michel/cron/jobs.json` s'exécutent sans appel LLM (coût nul).
+- **Azure Foundry (`azure-foundry-claude`)** : provider principal pour cinq profils opérationnels (`michel`, `sylvia`, `robert`, `emile`, `gerard`).
+- **deepseek-direct** : provider principal pour le profil `default` (LEO). OpenRouter n'est le fournisseur principal d'AUCUN profil (catalogue non utilisé).
+- **Google Gemini (Gemini 3.8 Flash)** et **deepseek-flash** : replis de secours déclarés.
+- **Automatisations no_agent** : 115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1) — relevé du 24/10/2026, s'exécutant en quasi-totalité sans appel LLM (coût nul).
 - **Ollama local (`qwen2.5:7b`)** : environnement local disponible sur la machine, mais non utilisé comme fallback actif en production.
 
 | Profil | Rôle | Provider principal | Modèle configuré | Fallback déclaré |
 |---|---|---|---|---|
-| `default` (LEO) | Dialogue quotidien et pilotage | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `michel` | Infrastructure et crons | Azure Foundry | `gpt-5.6-luna` | `custom:google/gemini-3.7-flash` |
-| `robert` | Conseil stratégique | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `emile` | Assistant professionnel Émilie (Workbench) | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `gerard` | Astronomie, astrophotographie & documentation | Azure Foundry | `gpt-5.6-luna` | Google Gemini |
-| `sylvia` | Voyages camping-car | OpenRouter | `meta/muse-spark-1.3-contributor` | Selon configuration |
+| `default` (LEO) | Dialogue quotidien et pilotage | deepseek-direct | `deepseek-flash` | Gemini 3.8 Flash |
+| `michel` | Infrastructure et crons | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `robert` | Conseil stratégique | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `emile` | Assistant professionnel Émilie (Workbench) | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `gerard` | Astronomie, astrophotographie & documentation | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `sylvia` | Voyages camping-car | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
 
 ---
 
@@ -69,19 +69,20 @@ GEMINI_API_KEY=AIza...
 
 ---
 
-## 3. OpenRouter (Profil Sylvia)
+## 3. OpenRouter (Catalogue non utilisé)
 
-Le profil dédié aux voyages (`sylvia`) s'appuie sur OpenRouter pour accéder au modèle `meta/muse-spark-1.3-contributor`.
+OpenRouter n'est le fournisseur principal d'**AUCUN** profil (le profil `sylvia` utilise `azure-foundry-claude`). OpenRouter n'existe que comme entrée de catalogue, non utilisée — relevé du 24/10/2026. Le point laissé ouvert depuis le 22/09 est **tranché**.
 
-### Configuration
+### Référence catalogue (non utilisée)
 
 ```yaml
+# Entrée de catalogue, non utilisée en production
 model:
   default: meta/muse-spark-1.3-contributor
   provider: openrouter
 ```
 
-Dans le `.env` de Sylvia :
+Dans le `.env` (non actif) :
 
 ```bash
 OPENROUTER_API_KEY=sk-or-v1-...
@@ -118,14 +119,14 @@ Sur LEO, la politique de routage garantit à la fois performance et sobriété :
 
 | Usage | Profil | Provider / Modèle | Modalité |
 |---|---|---|---|
-| Pilotage général | `default` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Administration & code | `michel` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Conseil stratégique | `robert` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Assistant pro Émilie (Workbench) | `emile` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Astronomie, astrophotographie & docs | `gerard` | Azure Foundry / `gpt-5.6-luna` | Pay-as-you-go |
-| Roadbooks voyages | `sylvia` | OpenRouter / `meta/muse-spark-1.3-contributor` | Pay-as-you-go |
-| Secours si panne primaire | Profils Azure | Google Gemini (`gemini-3.7-flash`) | Quota / API |
-| 70 crons d'automatisation | `michel` | Aucun LLM (`no_agent`) | **0$** |
+| Pilotage général | `default` | deepseek-direct / `deepseek-flash` | Pay-as-you-go |
+| Administration & code | `michel` | azure-foundry-claude | Pay-as-you-go |
+| Conseil stratégique | `robert` | azure-foundry-claude | Pay-as-you-go |
+| Assistant pro Émilie (Workbench) | `emile` | azure-foundry-claude | Pay-as-you-go |
+| Astronomie, astrophotographie & docs | `gerard` | azure-foundry-claude | Pay-as-you-go |
+| Roadbooks voyages | `sylvia` | azure-foundry-claude | Pay-as-you-go |
+| Secours si panne primaire | Profils Azure & default | deepseek-flash, Google Gemini (`gemini-3.8-flash`) | Quota / API |
+| Crons d'automatisation | `michel` (96 actifs) | 115 crons déclarés, dont 105 actifs (michel 96 · LEO 7 · sylvia 1 · robert 1) — relevé du 24/10/2026, quasi-totalité en `no_agent` | **0$** |
 
 ---
 
@@ -144,4 +145,4 @@ Sur LEO, la politique de routage garantit à la fois performance et sobriété :
 
 ---
 
-> 🤖 Dernière mesure vérifiée : **20/09/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml` et `architecture.md`.
+> 🤖 Dernière mesure vérifiée : **24/10/2026** — LEO et Michel. Source de vérité : `~/.hermes/profiles/*/config.yaml` et `architecture.md`.
