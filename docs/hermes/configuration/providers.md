@@ -27,14 +27,14 @@ Depuis le relevé du 24/10/2026, la répartition opérationnelle est la suivante
 
 ## 1. Azure Foundry (Provider principal)
 
-Azure Foundry héberge le modèle de référence `gpt-5.6-luna` pour cinq profils opérationnels.
+Azure Foundry (`azure-foundry-claude`) sert cinq profils opérationnels : `claude-haiku-5-5` pour `michel`, `emile`, `gerard` et `sylvia`, et `claude-opus-5-5` pour `robert` (relevé du 28/10/2026 ; le vestige non actif `profiles/default` mentionne `azure-foundry` / `DeepSeek-V4.1-Flash`).
 
 ### Configuration dans `config.yaml`
 
 ```yaml
 model:
-  default: gpt-5.6-luna
-  provider: azure
+  default: claude-haiku-5-5        # ou claude-opus-5-5 pour robert
+  provider: azure-foundry-claude
 ```
 
 ### Variables d'environnement (`.env`)

@@ -190,7 +190,7 @@ flowchart TB
 ### Étanchéité absolue des mémoires
 
 Chaque profil dispose exclusivement de son propre sous-répertoire `memories/` hermétique :
-- `~/.hermes/profiles/default/memories/`
+- `/home/tofdan/.hermes/memories/` (mémoire active du profil `default`/LEO ; `/home/tofdan/.hermes/profiles/default/memories/` est un sous-répertoire vestige vide — relevé du 28/10/2026)
 - `~/.hermes/profiles/michel/memories/`
 - `~/.hermes/profiles/robert/memories/`
 - `~/.hermes/profiles/emile/memories/`

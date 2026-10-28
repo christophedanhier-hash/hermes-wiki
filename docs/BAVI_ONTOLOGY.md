@@ -58,13 +58,14 @@ BAVI OS
 
 ### 3.1 Tableau des profils
 
-| Profil | Bot Telegram | Modèle | Provider | Rôle |
-|--------|-------------|--------|----------|------|
-| `default` | Léo | deepseek-v4-flash | deepseek | Interface de dialogue, délégation |
-| `michel` | Michel | deepseek-v4-pro | deepseek | Infrastructure, code, crons |
-| `emile` | Émile | deepseek-v4-flash | deepseek | Assistant pédagogique |
-| `robert` | Robert | deepseek-v4-flash | deepseek | Conseil stratégique IT |
-| `sylvia` | Bavi | deepseek-v4-flash | deepseek | Agence de voyage |
+| Profil | Bot Telegram | Modèle principal (relevé du 28/10/2026) | Provider principal | Replis déclarés | Rôle |
+|--------|-------------|-----------------------------------------|--------------------|-----------------|------|
+| `default` | Léo | `deepseek-flash` | `deepseek-direct` | `deepseek-flash`, `models/gemini-3.8-flash` | Interface de dialogue, délégation |
+| `michel` | Michel | `claude-haiku-5-5` | `azure-foundry-claude` | `deepseek-flash`, `models/gemini-3.8-flash` | Infrastructure, code, crons |
+| `emile` | Émile | `claude-haiku-5-5` | `azure-foundry-claude` | `deepseek-flash`, `models/gemini-3.8-flash` | Assistant pédagogique |
+| `gerard` | Gérard | `claude-haiku-5-5` | `azure-foundry-claude` | `deepseek-flash`, `models/gemini-3.8-flash` | Astronomie & documentation |
+| `robert` | Robert | `claude-opus-5-5` | `azure-foundry-claude` | `deepseek-flash`, `models/gemini-3.8-flash` | Conseil stratégique IT |
+| `sylvia` | Bavi | `claude-haiku-5-5` | `azure-foundry-claude` | `deepseek-flash`, `models/gemini-3.8-flash` | Agence de voyage |
 
 ### 3.2 Providers configurés
 
@@ -77,9 +78,10 @@ BAVI OS
 
 ### 3.3 Règles de routage
 
-- **michel** = `deepseek-v4-pro` exclusivement — pas de fallback
-- **default/emile/robert/sylvia** = `deepseek-v4-flash`
-- OpenRouter configuré mais crons migrés vers DeepSeek (24/07/2026)
+- **michel / emile / gerard / sylvia** = `claude-haiku-5-5` via `azure-foundry-claude` (replis : `deepseek-flash` via `deepseek-direct`, `models/gemini-3.8-flash` via `google` — relevé du 28/10/2026)
+- **robert** = `claude-opus-5-5` via `azure-foundry-claude` (mêmes replis — relevé du 28/10/2026)
+- **default** = `deepseek-flash` via `deepseek-direct` (replis : `deepseek-flash`, `models/gemini-3.8-flash` — relevé du 28/10/2026)
+- **OpenRouter** = catalogue seulement, fournisseur principal d'aucun profil (relevé du 28/10/2026)
 - Budget cible : ~$30/mois DeepSeek
 
 ---

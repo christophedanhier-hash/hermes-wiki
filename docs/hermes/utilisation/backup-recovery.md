@@ -89,7 +89,7 @@ profiles/gerard        vault-gerard       SOUL.md                  cron
                        vault-dsh
 ```
 
-1. **Six profils opérationnels** : `profiles/default`, `profiles/michel`, `profiles/sylvia`, `profiles/emile`, `profiles/robert`, `profiles/gerard` (configurations, sessions, contextes et mémoires dédiées).
+1. **Six sous-répertoires `profiles/` archivés (sur les 7 répertoires de `/home/tofdan/.hermes/profiles/`, relevé du 28/10/2026)** : 5 profils opérationnels dédiés (`profiles/michel`, `profiles/sylvia`, `profiles/emile`, `profiles/robert`, `profiles/gerard`) et le dossier vestige `profiles/default` (conservé car `/home/tofdan/.hermes/SOUL.md` y pointe ; le 6e profil opérationnel `default`/LEO lit sa configuration active dans `/home/tofdan/.hermes/config.yaml`, et le 7e répertoire `profiles/leo` est un vestige sans `config.yaml` ni `jobs.json`).
 2. **Neuf vaults documentaires** :
     - Vaults profils : `vault-michel`, `vault-default`, `vault-emile`, `vault-sylvia`, `vault-robert`, `vault-gerard` ;
     - Vaults de sessions automatisées : `vault-copilot`, `vault-agy`, `vault-dsh`.
