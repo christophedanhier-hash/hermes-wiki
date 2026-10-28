@@ -186,7 +186,7 @@ Définir `GH_TOKEN` dans le script ou l'environnement du cron.
 ### 🔴 Attention aux chemins dans l'environnement cron
 
 L'environnement d'exécution d'un cron no_agent est minimal. Utilisez des
-**chemins absolus** dans vos scripts. Exemple : `/opt/hermes/.venv/bin/python3`
+**chemins absolus** dans vos scripts. Exemple : `/home/tofdan/.hermes/venv/bin/python3`
 plutôt que `python3`.
 
 ### 🔴 Cross-device move

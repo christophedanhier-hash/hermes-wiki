@@ -90,7 +90,7 @@ RÈGLE commit : toute modif fichier repo git = commit + push immédiat
 §  
 Wikis: BAVI_LEO=portail, hermes-christophe=source, les2→sync+push
 §
-hermes binaire: /opt/hermes/.venv/bin/hermes (pas sur PATH)
+hermes binaire : /home/tofdan/.local/bin/hermes (présent sur PATH — hors PATH cron minimal)
 §
 CRASH+RECONSTRUCTION 30/06: sessions vidées → 5 bots crashésés. 
 Backup GDrive 73.7MB téléchargé + extrait. 4 gateways relancés.

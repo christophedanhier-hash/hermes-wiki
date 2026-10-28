@@ -276,7 +276,7 @@ flowchart TD
 ### Conventions scripts
 
 - Tous les exécutables dans `~/.hermes/profiles/michel/scripts/`
-- Pattern wrapper shell → `/opt/hermes/.venv/bin/python3 <script.py>`
+- Pattern wrapper shell → `/home/tofdan/.hermes/venv/bin/python3 <script.py>`
 - Crons no_agent = wrapper shell impératif (pas de .py direct)
 
 ### Vérification systématique

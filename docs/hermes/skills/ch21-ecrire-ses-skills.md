@@ -127,7 +127,7 @@ Basés sur l'expérience réelle de LEO :
 
 | # | Piège | Solution |
 |:-:|:------|:---------|
-| 1 | `hermes` pas dans PATH | Utiliser `/opt/hermes/.venv/bin/hermes` |
+| 1 | `hermes` hors PATH minimal (cron) | Utiliser `/home/tofdan/.local/bin/hermes` (sur PATH interactif) |
 | 2 | Symlinks dans `scripts/` refusés | Copier les fichiers, pas de liens |
 | 3 | Contexte DeepSeek limité à 128K | Fallback Gemini (1M tokens) |
 | 4 | `s6-svstat DOWN` = faux négatif | Vérifier les processus, pas le flag |
