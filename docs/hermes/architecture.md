@@ -10,7 +10,7 @@
 La compréhension du système repose sur une distinction claire entre le moteur d'exécution, l'agent central, les profils opérationnels et leurs interfaces :
 
 ```
-Telegram (DM Christophe) ──→ Gateway Hermes ──→ Agent LEO (profil default) ──→ Azure Foundry (gpt-5.6-luna)
+Telegram (DM Christophe) ──→ Gateway Hermes ──→ Agent LEO (profil default) ──→ DeepSeek Direct (`deepseek-flash`)
 ```
 
 - **Hermes Agent** est le **socle d'exécution unifié** (runtime d'agents IA open-source). Il fournit la gestion des profils, l'exécution des skills, la planification des tâches (cron) et les passerelles (gateways).
@@ -113,27 +113,27 @@ flowchart TB
 
 ## 3. Profils actuels et routage
 
-Six profils opérationnels ont été mesurés et validés au **20/09/2026** et confirmés au **21/09/2026** :
+Six profils opérationnels ont été mesurés et validés au **20/09/2026**, confirmés au **21/09/2026**, et leurs providers/modèles re-relevés au **28/10/2026** :
 
 | Profil | Rôle opérationnel | Provider principal | Modèle configuré | Fallback déclaré |
 |---|---|---|---|---|
 | `default` | LEO — Dialogue quotidien, pilotage général et arbitrage | deepseek-direct | `deepseek-flash` | Gemini 3.8 Flash |
-| `michel` | Infrastructure, ordonnancement crons, sauvegardes, métriques | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
-| `robert` | Conseil stratégique IT, gouvernance et architecture | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
-| `emile` | Assistant professionnel Émilie (My Émile IA Workbench) | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
-| `gerard` | Astronomie, astrophotographie, site tofdan astro et documentation | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
-| `sylvia` | Voyages, logistique camping-car et roadbooks | azure-foundry-claude | Claude / Azure Foundry | deepseek-flash, Gemini 3.8 Flash |
+| `michel` | Infrastructure, ordonnancement crons, sauvegardes, métriques | azure-foundry-claude | `claude-haiku-5-5` | deepseek-flash, Gemini 3.8 Flash |
+| `robert` | Conseil stratégique IT, gouvernance et architecture | azure-foundry-claude | `claude-opus-5-5` | deepseek-flash, Gemini 3.8 Flash |
+| `emile` | Assistant professionnel Émilie (My Émile IA Workbench) | azure-foundry-claude | `claude-haiku-5-5` | deepseek-flash, Gemini 3.8 Flash |
+| `gerard` | Astronomie, astrophotographie, site tofdan astro et documentation | azure-foundry-claude | `claude-haiku-5-5` | deepseek-flash, Gemini 3.8 Flash |
+| `sylvia` | Voyages, logistique camping-car et roadbooks | azure-foundry-claude | `claude-haiku-5-5` | deepseek-flash, Gemini 3.8 Flash |
 
 ### Matrice de routage fonctionnel
 
 | Domaine fonctionnel | Profil destinataire | Interface / Passerelle | Provider & Modèle | Mode de mémoire |
 |:---|:---|:---|:---|:---|
-| Pilotage global, coordination, demandes transverses | **default** (LEO) | DM Telegram direct (Gateway) | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/default/memories/`) |
-| Exploitation serveur, crons, dashboards, PRA | **michel** | Bot `@hermes_leo_copilot_bot` | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/michel/memories/`) |
-| Conseil stratégique, audits de gouvernance (incl. Sophie) | **robert** | Bot `@bureau_robert_bot` | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/robert/memories/`) |
-| Rédaction, notes et gestion documentaire pro Émilie | **emile** | Bot `@Bureau_ia_emilie_bot` + Workbench | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/emile/memories/`) |
-| Astronomie, astrophotographie, site tofdan, guide d'étude | **gerard** | CLI / scripts / jobs internes | Azure Foundry (`gpt-5.6-luna`) | Dédiée (`profiles/gerard/memories/`) |
-| Préparation voyages camping-car, étapes et roadbooks | **sylvia** | Bot `@bavi_leo_voyages_bot` | azure-foundry-claude | Dédiée (`profiles/sylvia/memories/`) |
+| Pilotage global, coordination, demandes transverses | **default** (LEO) | DM Telegram direct (Gateway) | DeepSeek Direct (`deepseek-flash`) | Dédiée (`profiles/default/memories/`) |
+| Exploitation serveur, crons, dashboards, PRA | **michel** | Bot `@hermes_leo_copilot_bot` | Azure Foundry Claude (`claude-haiku-5-5`) | Dédiée (`profiles/michel/memories/`) |
+| Conseil stratégique, audits de gouvernance (incl. Sophie) | **robert** | Bot `@bureau_robert_bot` | Azure Foundry Claude (`claude-opus-5-5`) | Dédiée (`profiles/robert/memories/`) |
+| Rédaction, notes et gestion documentaire pro Émilie | **emile** | Bot `@Bureau_ia_emilie_bot` + Workbench | Azure Foundry Claude (`claude-haiku-5-5`) | Dédiée (`profiles/emile/memories/`) |
+| Astronomie, astrophotographie, site tofdan, guide d'étude | **gerard** | CLI / scripts / jobs internes | Azure Foundry Claude (`claude-haiku-5-5`) | Dédiée (`profiles/gerard/memories/`) |
+| Préparation voyages camping-car, étapes et roadbooks | **sylvia** | Bot `@bavi_leo_voyages_bot` | Azure Foundry Claude (`claude-haiku-5-5`) | Dédiée (`profiles/sylvia/memories/`) |
 
 ---
 
@@ -153,11 +153,13 @@ Six profils opérationnels ont été mesurés et validés au **20/09/2026** et c
 | Profil | Identité | Type d'interface | Canal / Handle | Modèle effectif |
 |---|---|---|---|---|
 | `default` | **LEO** | Gateway direct Hermes | DM Telegram direct Christophe | `deepseek-flash` (deepseek-direct, relevé du 28/10/2026) |
-| `michel` | **Michel** | Bot Telegram dédié | `@hermes_leo_copilot_bot` | `gpt-5.6-luna` |
-| `sylvia` | **Sylvia** | Bot Telegram dédié | `@bavi_leo_voyages_bot` | `meta/muse-spark-1.3-contributor` |
-| `emile` | **Émile** | Bot Telegram + Web | `@Bureau_ia_emilie_bot` + localhost:8793 | `gpt-5.6-luna` |
-| `robert` | **Robert** | Bot Telegram dédié | `@bureau_robert_bot` | `gpt-5.6-luna` |
-| `gerard` | **Gérard** | Interface locale | CLI / scripts / crons locaux | `gpt-5.6-luna` |
+| `michel` | **Michel** | Bot Telegram dédié | `@hermes_leo_copilot_bot` | `claude-haiku-5-5` |
+| `sylvia` | **Sylvia** | Bot Telegram dédié | `@bavi_leo_voyages_bot` | `claude-haiku-5-5` |
+| `emile` | **Émile** | Bot Telegram + Web | `@Bureau_ia_emilie_bot` + localhost:8793 | `claude-haiku-5-5` |
+| `robert` | **Robert** | Bot Telegram dédié | `@bureau_robert_bot` | `claude-opus-5-5` |
+| `gerard` | **Gérard** | Interface locale | CLI / scripts / crons locaux | `claude-haiku-5-5` |
+
+> **Relevé du 28/10/2026** — modèles lus dans `~/.hermes/config.yaml` (profil `default` actif) et `~/.hermes/profiles/*/config.yaml` via la sonde `providers` de `verite-terrain.py --json` ; profils sans `config.yaml` : `leo` (alias Hive du profil `default`, pas un profil d'exécution).
 
 ### Le bus Hive : coordination inter-profils déterministe
 
