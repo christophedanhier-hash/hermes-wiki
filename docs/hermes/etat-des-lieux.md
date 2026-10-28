@@ -6,7 +6,7 @@
 > - **Dashboards** : 7 pré-crash → **1 seul** (leo-dashboard), puis 5 dashboards depuis la reconstruction
 > - **Collecteur** : `collect-v2.py` (9 sources unifiées : sessions, budget, crons, infra, github, bavi, services, vaults)
 > - **Déploiement** : toutes les heures (`10 * * * *`) via michel
-> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 58 crons actifs (michel 50 + LEO 6 + sylvia 2).
+> - **Crons** : Auto-Fix Daemon supprimé, Deploy Unified Dashboard horaire. 116 crons déclarés, dont 106 actifs (default 8/7, emile 2/0, gerard 1/0, michel 102/97, robert 1/1, sylvia 2/1) — relevé du 28/10/2026.
 > - **Budget** : coût réel ~$19.97 (vs $28 estimé ci-dessous)
 
 ## Configuration actuelle (03/07/2026)

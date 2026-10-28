@@ -163,7 +163,7 @@ Bienvenue sur le **portail central** de l'écosystème **Hermes Agent** dirigé 
 <a href="https://tofdan.be/dashboard/" class="portail-card" target="_blank" rel="noreferrer noopener">
     <div class="icon">🦁</div>
     <div class="title">LEO Dashboard Unifié</div>
-    <div class="desc">Budget live, sessions, crons, infra, BAVI — 16 onglets, 1 source de vérité</div>
+    <div class="desc">Budget live, sessions, crons, infra, BAVI — 23 onglets (relevé du 28/10/2026), 1 source de vérité</div>
     <div class="url">tofdan.be/dashboard — connexion Google, aucun token à saisir</div>
 </a>
 

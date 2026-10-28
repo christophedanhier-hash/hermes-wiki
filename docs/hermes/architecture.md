@@ -152,7 +152,7 @@ Six profils opérationnels ont été mesurés et validés au **20/09/2026** et c
 
 | Profil | Identité | Type d'interface | Canal / Handle | Modèle effectif |
 |---|---|---|---|---|
-| `default` | **LEO** | Gateway direct Hermes | DM Telegram direct Christophe | `gpt-5.6-luna` |
+| `default` | **LEO** | Gateway direct Hermes | DM Telegram direct Christophe | `deepseek-flash` (deepseek-direct, relevé du 28/10/2026) |
 | `michel` | **Michel** | Bot Telegram dédié | `@hermes_leo_copilot_bot` | `gpt-5.6-luna` |
 | `sylvia` | **Sylvia** | Bot Telegram dédié | `@bavi_leo_voyages_bot` | `meta/muse-spark-1.3-contributor` |
 | `emile` | **Émile** | Bot Telegram + Web | `@Bureau_ia_emilie_bot` + localhost:8793 | `gpt-5.6-luna` |

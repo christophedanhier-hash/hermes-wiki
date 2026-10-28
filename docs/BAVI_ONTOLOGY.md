@@ -71,7 +71,7 @@ BAVI OS
 | Provider | Type | Base URL | Usage |
 |----------|------|----------|-------|
 | `deepseek` | Principal | api.deepseek.com | Tous les profils |
-| `openrouter` | Secondaire (configuré, non utilisé) | openrouter.ai/api/v1 | Modèles free (dépréciés) |
+| `openrouter` | Catalogue seulement, principal d'aucun profil (relevé du 28/10/2026) | openrouter.ai/api/v1 | Modèles free (dépréciés) |
 | `google` | Custom | generativelanguage.googleapis.com | Gemini (fallback potentiel) |
 | `ollama` | Custom | localhost:11434/v1 | Modèles locaux |
 
